@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Communication Stacks - AZIT</title>
+    <meta name="description" content="Production-ready protocol implementations for safety-critical and standard industrial applications.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Header (Same as homepage) -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link active">
+                            Products
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../services/expertise.html" class="nav__link">Services</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../documentation.html" class="nav__link">Documentation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../training.html" class="nav__link">Training</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../blog.html" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../company.html" class="nav__link">Company</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
+                    </li>
+                </ul>
+
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn active" data-lang="en">EN</button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../index.html">Home</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="#">Products</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">Communication Stacks</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Page Header -->
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h1 class="section__title">Industrial Communication Stacks</h1>
+                    <p class="section__subtitle">
+                        Production-ready protocol implementations for safety-critical embedded systems
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Tabs -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="all">All</button></li>
+                        <li><button class="tabs__button" data-tab="safety">Safety Protocols</button></li>
+                        <li><button class="tabs__button" data-tab="fieldbus">Fieldbus</button></li>
+                        <li><button class="tabs__button" data-tab="automotive">Automotive</button></li>
+                        <li><button class="tabs__button" data-tab="coming">Coming Soon</button></li>
+                    </ul>
+                </div>
+
+                <!-- All Products Tab -->
+                <div class="tabs__content active" id="all-tab">
+                    <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Safety Protocols</h2>
+                    <div class="grid grid--3" style="margin-bottom: 3rem;">
+                        <div class="product-card">
+                            <div class="product-card__icon">⚡</div>
+                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                            <h3 class="product-card__title">FSoE Slave Stack</h3>
+                            <p class="product-card__description">
+                                IEC 61784-3 compliant Fail-Safe over EtherCAT implementation for safety slave devices.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>SIL3 / PLe certified by TÜV</li>
+                                <li>No third-party dependencies</li>
+                                <li>White channel architecture</li>
+                            </ul>
+                            <a href="fsoe-slave.html" class="product-card__cta">Learn More →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">⚡</div>
+                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                            <h3 class="product-card__title">FSoE Master Stack</h3>
+                            <p class="product-card__description">
+                                Complete FSoE master implementation for safety controllers and PLCs.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>SIL3 / PLe certified</li>
+                                <li>Multi-connection support</li>
+                                <li>Full source code included</li>
+                            </ul>
+                            <a href="fsoe-master.html" class="product-card__cta">Learn More →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">🔐</div>
+                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                            <h3 class="product-card__title">CANopen Safety Slave</h3>
+                            <p class="product-card__description">
+                                CiA 304 compliant safety protocol for CANopen networks.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>SIL3 / PLe certification</li>
+                                <li>SRDO implementation</li>
+                                <li>Hardware independent</li>
+                            </ul>
+                            <a href="canopen-safety-slave.html" class="product-card__cta">Learn More →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">🔐</div>
+                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                            <h3 class="product-card__title">CANopen Safety Master</h3>
+                            <p class="product-card__description">
+                                Complete CANopen Safety master for safety controllers.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>SIL3 / PLe certified</li>
+                                <li>Multiple SRDO support</li>
+                                <li>Configuration tools included</li>
+                            </ul>
+                            <a href="canopen-safety-master.html" class="product-card__cta">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <h2 style="margin-bottom: 1.5rem;">Fieldbus Protocols</h2>
+                    <div class="grid grid--3" style="margin-bottom: 3rem;">
+                        <div class="product-card">
+                            <div class="product-card__icon">🔌</div>
+                            <h3 class="product-card__title">CANopen Slave</h3>
+                            <p class="product-card__description">
+                                Full-featured CANopen slave stack with CiA 301/302 compliance.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>PDO, SDO, EMCY, SYNC</li>
+                                <li>Object dictionary tools</li>
+                                <li>LSS support</li>
+                            </ul>
+                            <a href="canopen-slave.html" class="product-card__cta">Learn More →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">🔌</div>
+                            <h3 class="product-card__title">CANopen Master</h3>
+                            <p class="product-card__description">
+                                Complete CANopen master for controllers and gateways.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>Network management</li>
+                                <li>Multi-slave support</li>
+                                <li>Configuration tools</li>
+                            </ul>
+                            <a href="canopen-master.html" class="product-card__cta">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <h2 style="margin-bottom: 1.5rem;">Automotive</h2>
+                    <div class="grid grid--3" style="margin-bottom: 3rem;">
+                        <div class="product-card">
+                            <div class="product-card__icon">🚗</div>
+                            <span class="badge badge--warning product-card__badge">SIL2</span>
+                            <h3 class="product-card__title">J1939 / J1939 Safety</h3>
+                            <p class="product-card__description">
+                                SAE J1939 implementation with optional safety extension.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>SAE J1939 compliant</li>
+                                <li>Transport protocol support</li>
+                                <li>Safety extension available</li>
+                            </ul>
+                            <a href="j1939.html" class="product-card__cta">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <h2 style="margin-bottom: 1.5rem;">Coming Soon</h2>
+                    <div class="grid grid--3">
+                        <div class="product-card" style="opacity: 0.6;">
+                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">📡</div>
+                            <span class="badge badge--gray product-card__badge">Coming Q3 2025</span>
+                            <h3 class="product-card__title">OPC-UA Stack</h3>
+                            <p class="product-card__description">
+                                Full OPC-UA implementation with security profiles support.
+                            </p>
+                            <a href="opc-ua.html" class="product-card__cta">Get Notified →</a>
+                        </div>
+
+                        <div class="product-card" style="opacity: 0.6;">
+                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">🔒</div>
+                            <span class="badge badge--gray product-card__badge">Coming Q4 2025</span>
+                            <h3 class="product-card__title">CIP Safety</h3>
+                            <p class="product-card__description">
+                                CIP Safety protocol for EtherNet/IP networks.
+                            </p>
+                            <a href="cip-safety.html" class="product-card__cta">Get Notified →</a>
+                        </div>
+
+                        <div class="product-card" style="opacity: 0.6;">
+                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">📶</div>
+                            <span class="badge badge--gray product-card__badge">Coming 2026</span>
+                            <h3 class="product-card__title">Wireless Safety</h3>
+                            <p class="product-card__description">
+                                Wireless safety communication protocols.
+                            </p>
+                            <a href="wireless-safety.html" class="product-card__cta">Get Notified →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Need Help Choosing the Right Stack?</h2>
+                    <p>Contact our experts for guidance on protocol selection and integration</p>
+                    <div>
+                        <a href="../contact.html" class="btn btn--secondary btn--large">Request Quote</a>
+                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Talk to an Expert</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">A brand of ISIT</p>
+                    <p class="footer__tagline">30+ years expertise in embedded systems</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Products</h3>
+                    <ul class="footer__list">
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Services</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/porting.html" class="footer__link">Porting</a></li>
+                        <li><a href="../services/maintenance.html" class="footer__link">Maintenance</a></li>
+                        <li><a href="../services/expertise.html" class="footer__link">Expertise</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Resources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../documentation.html" class="footer__link">Documentation</a></li>
+                        <li><a href="../training.html" class="footer__link">Training</a></li>
+                        <li><a href="../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Privacy</a></li>
+                    <li><a href="#" class="footer__social-link">Terms</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/language-switcher.js"></script>
+</body>
+</html>
