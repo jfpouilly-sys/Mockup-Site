@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIP Safety Stack - AZIT</title>
+    <meta name="description" content="CIP Safety protocol stack for DeviceNet and EtherNet/IP safety applications.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="communication-stacks.html" class="nav__link active">Products</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../services/expertise.html" class="nav__link">Services</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../documentation.html" class="nav__link">Documentation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
+                    </li>
+                </ul>
+
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn active" data-lang="en">EN</button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../index.html">Home</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Products</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Communication Stacks</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">CIP Safety</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Coming Soon Notice -->
+        <section class="section" style="padding-top: 1.5rem; padding-bottom: 0;">
+            <div class="container">
+                <div style="padding: 1rem 1.5rem; background-color: #FFF4E6; border-left: 4px solid var(--color-warning); border-radius: var(--border-radius-md); margin-bottom: 1rem;">
+                    <p style="margin: 0; color: #8B5700; font-weight: 500;">
+                        <strong>Coming Soon:</strong> This product is currently in development. Contact us for availability information.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <div class="product-hero__icon">🛡️</div>
+                <h1 class="product-hero__title">CIP Safety Stack</h1>
+                <p class="product-hero__description">
+                    Common Industrial Protocol Safety implementation for EtherNet/IP and DeviceNet safety devices
+                </p>
+                <div class="product-hero__badges">
+                    <span class="badge badge--warning">Coming Soon</span>
+                    <span class="badge badge--primary">CIP Safety</span>
+                    <span class="badge badge--primary">SIL3/PLe Target</span>
+                </div>
+                <div class="product-hero__actions">
+                    <a href="../contact.html" class="btn btn--primary btn--large">Contact Us</a>
+                    <a href="#" class="btn btn--outline btn--large">Register Interest</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="overview">Overview</button></li>
+                        <li><button class="tabs__button" data-tab="features">Features</button></li>
+                        <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
+                    </ul>
+                </div>
+
+                <!-- Overview Tab -->
+                <div class="tabs__content active" id="overview-tab">
+                    <div class="two-column">
+                        <div>
+                            <h2>What is CIP Safety?</h2>
+                            <p>
+                                CIP Safety is the safety extension to the Common Industrial Protocol (CIP), providing
+                                SIL3/PLe safety communication over standard industrial networks including EtherNet/IP,
+                                DeviceNet, and ControlNet. It's widely adopted in North American industrial automation
+                                for machine safety applications.
+                            </p>
+
+                            <h2 style="margin-top: 2rem;">AZIT CIP Safety Stack (In Development)</h2>
+                            <p>
+                                Our CIP Safety implementation will provide a complete, certifiable solution for safety
+                                devices on EtherNet/IP and DeviceNet networks. Built on proven safety architecture
+                                principles from our FSoE and CANopen Safety products, it will deliver the reliability
+                                and performance required for safety-critical applications.
+                            </p>
+
+                            <h3 style="margin-top: 2rem;">Key Applications (Planned)</h3>
+                            <ul>
+                                <li>Safety PLCs and controllers</li>
+                                <li>Safety I/O modules</li>
+                                <li>Emergency stop devices</li>
+                                <li>Light curtains and scanners</li>
+                                <li>Safety drives</li>
+                                <li>Machine guarding systems</li>
+                            </ul>
+
+                            <div class="architecture-diagram" style="margin-top: 2rem;">
+                                <div class="architecture-diagram__placeholder" style="aspect-ratio: 16/9;">
+                                    [CIP Safety Architecture Diagram]
+                                    <br><br>
+                                    Safety Application
+                                    <br>↓
+                                    <br>AZIT CIP Safety Stack
+                                    <br>↓
+                                    <br>EtherNet/IP or DeviceNet Stack
+                                    <br>↓
+                                    <br>Network Interface
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="specs-box">
+                                <h3 class="specs-box__title">Planned Benefits</h3>
+                                <ul class="benefits-list">
+                                    <li>SIL3 / PLe target certification</li>
+                                    <li>CIP Safety compliant</li>
+                                    <li>EtherNet/IP support</li>
+                                    <li>DeviceNet support</li>
+                                    <li>Full source code</li>
+                                    <li>Hardware agnostic</li>
+                                    <li>Expert support</li>
+                                </ul>
+                            </div>
+
+                            <div class="specs-box" style="margin-top: 1.5rem;">
+                                <h3 class="specs-box__title">Planned Specifications</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Level</span>
+                                    <span class="specs-box__value">SIL3 / PLe Target</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard</span>
+                                    <span class="specs-box__value">CIP Safety</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Networks</span>
+                                    <span class="specs-box__value">EtherNet/IP, DeviceNet</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Code Size</span>
+                                    <span class="specs-box__value">~55KB (estimated)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Language</span>
+                                    <span class="specs-box__value">ANSI C</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Status</span>
+                                    <span class="specs-box__value">In Development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Tab -->
+                <div class="tabs__content" id="features-tab">
+                    <h2>Planned Feature Set</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div class="card">
+                            <h3 class="card__title">Safety Features</h3>
+                            <ul>
+                                <li>SIL3 / PLe safety level target</li>
+                                <li>CRC and time stamp protection</li>
+                                <li>Connection monitoring</li>
+                                <li>Watchdog supervision</li>
+                                <li>Fail-safe states</li>
+                                <li>Diagnostic capabilities</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Communication Features</h3>
+                            <ul>
+                                <li>Safety I/O assemblies</li>
+                                <li>Configurable safety connections</li>
+                                <li>Producer/consumer model</li>
+                                <li>Network variable exchange</li>
+                                <li>Status and diagnostic data</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Network Support</h3>
+                            <ul>
+                                <li>EtherNet/IP implementation</li>
+                                <li>DeviceNet implementation</li>
+                                <li>Safety validator support</li>
+                                <li>Network redundancy</li>
+                                <li>Configuration via RSNetWorx</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Development Support</h3>
+                            <ul>
+                                <li>Comprehensive documentation</li>
+                                <li>Configuration tools</li>
+                                <li>EDS files</li>
+                                <li>Test suites</li>
+                                <li>Expert technical support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tabs__content" id="specs-tab">
+                    <h2>Planned Technical Specifications</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div>
+                            <h3>Safety Certification (Target)</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">SIL3 per IEC 61508</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Performance Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">PLe per ISO 13849</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <td style="padding: 0.5rem 0;">CIP Safety</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Certification Body</strong></td>
+                                    <td style="padding: 0.5rem 0;">TÜV (planned)</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Resource Requirements (Estimated)</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~55KB (estimated)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~10KB (estimated)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <td style="padding: 0.5rem 0;">~2KB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <td style="padding: 0.5rem 0;">32-bit processor</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div>
+                            <h3>Planned Features</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Max Safe I/O</strong></td>
+                                    <td style="padding: 0.5rem 0;">Up to 250 bytes</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Safety Connections</strong></td>
+                                    <td style="padding: 0.5rem 0;">Configurable</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>EtherNet/IP Speed</strong></td>
+                                    <td style="padding: 0.5rem 0;">10/100 Mbps</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>DeviceNet Speed</strong></td>
+                                    <td style="padding: 0.5rem 0;">125/250/500 kbps</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Platform Support</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <td style="padding: 0.5rem 0;">Hardware independent</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>CIP Stacks</strong></td>
+                                    <td style="padding: 0.5rem 0;">EtherNet/IP, DeviceNet</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section section--light">
+            <div class="container">
+                <div style="text-align: center; padding: 3rem 0;">
+                    <h2>Interested in CIP Safety?</h2>
+                    <p style="margin-top: 1rem; font-size: 1.125rem;">
+                        This product is currently in development. Contact us to learn more about availability,
+                        beta testing opportunities, and early access programs.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="../contact.html" class="btn btn--primary btn--large">Contact Us</a>
+                        <a href="../contact.html" class="btn btn--outline btn--large">Register Interest</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="section">
+            <div class="container">
+                <h2>Available Safety Products</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">⚡</div>
+                        <h3 class="product-card__title">FSoE Slave</h3>
+                        <p class="product-card__description">
+                            SIL3/PLe safety over EtherCAT
+                        </p>
+                        <a href="fsoe-slave.html" class="product-card__cta">Learn More →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔐</div>
+                        <h3 class="product-card__title">CANopen Safety</h3>
+                        <p class="product-card__description">
+                            CiA 304 certified safety protocol
+                        </p>
+                        <a href="canopen-safety-slave.html" class="product-card__cta">Learn More →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔧</div>
+                        <h3 class="product-card__title">Porting Services</h3>
+                        <p class="product-card__description">
+                            Expert integration support
+                        </p>
+                        <a href="../services/porting.html" class="product-card__cta">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">A brand of ISIT</p>
+                    <p class="footer__tagline">30+ years expertise in embedded systems</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Products</h3>
+                    <ul class="footer__list">
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Services</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/porting.html" class="footer__link">Porting</a></li>
+                        <li><a href="../services/maintenance.html" class="footer__link">Maintenance</a></li>
+                        <li><a href="../services/expertise.html" class="footer__link">Expertise</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Resources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../documentation.html" class="footer__link">Documentation</a></li>
+                        <li><a href="../training.html" class="footer__link">Training</a></li>
+                        <li><a href="../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Privacy</a></li>
+                    <li><a href="#" class="footer__social-link">Terms</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/language-switcher.js"></script>
+</body>
+</html>

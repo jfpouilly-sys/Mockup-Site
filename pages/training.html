@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Programs - AZIT</title>
+    <meta name="description" content="Expert training on industrial protocols and safety systems. Hands-on courses for CANopen, FSoE, J1939, and safety certification.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="products/communication-stacks.html" class="nav__link">Products</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="services/expertise.html" class="nav__link">Services</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="documentation.html" class="nav__link">Documentation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="training.html" class="nav__link active">Training</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="blog.html" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="company.html" class="nav__link">Company</a>
+                    </li>
+                </ul>
+
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn active" data-lang="en">EN</button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../index.html">Home</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">Training Programs</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Page Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <div class="product-hero__icon">🎓</div>
+                <h1 class="product-hero__title">Training Programs</h1>
+                <p class="product-hero__description">
+                    Expert training on industrial protocols and safety systems from engineers with 30+ years of experience
+                </p>
+                <div class="product-hero__badges">
+                    <span class="badge badge--primary">On-site Training</span>
+                    <span class="badge badge--primary">Remote Courses</span>
+                    <span class="badge badge--primary">Hands-on Labs</span>
+                </div>
+                <div class="product-hero__actions">
+                    <a href="contact.html" class="btn btn--primary btn--large">Request Training</a>
+                    <a href="#courses" class="btn btn--outline btn--large">Browse Courses</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Training Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Why Choose AZIT Training?</h2>
+                </div>
+
+                <div class="grid grid--3">
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">👨‍💻</div>
+                        <h3 class="advantage-card__title">Expert Instructors</h3>
+                        <p class="advantage-card__description">
+                            Learn from the engineers who develop the protocol stacks with 30+ years of embedded experience.
+                        </p>
+                    </div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">🔬</div>
+                        <h3 class="advantage-card__title">Hands-on Practice</h3>
+                        <p class="advantage-card__description">
+                            Real hardware labs and practical exercises with actual protocol implementations.
+                        </p>
+                    </div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">📋</div>
+                        <h3 class="advantage-card__title">Custom Curriculum</h3>
+                        <p class="advantage-card__description">
+                            Tailored training programs designed for your team's specific needs and skill levels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Filters -->
+        <section class="section section--light" id="courses">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Available Courses</h2>
+                    <p class="section__subtitle">Choose from our comprehensive training catalog</p>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div class="tabs">
+                        <ul class="tabs__list">
+                            <li><button class="tabs__button active" data-tab="protocols">Protocol Training</button></li>
+                            <li><button class="tabs__button" data-tab="safety">Safety Certification</button></li>
+                            <li><button class="tabs__button" data-tab="workshops">Hands-on Workshops</button></li>
+                            <li><button class="tabs__button" data-tab="custom">Custom Training</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Protocol Training -->
+                <div class="tabs__content active" id="protocols-tab">
+                    <div class="grid grid--2">
+                        <div class="card">
+                            <span class="badge badge--info" style="margin-bottom: 0.5rem;">Beginner</span>
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">3 Days</span>
+                            <h3 class="card__title">CANopen Fundamentals</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Comprehensive introduction to CANopen protocol, object dictionary, PDO, SDO, and network management.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Topics Covered:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>CANopen architecture and concepts</li>
+                                    <li>Object Dictionary structure</li>
+                                    <li>PDO configuration and mapping</li>
+                                    <li>SDO communications</li>
+                                    <li>Network Management (NMT)</li>
+                                    <li>Emergency messages and error handling</li>
+                                </ul>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">4 Days</span>
+                            <h3 class="card__title">FSoE Safety Protocol</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Deep dive into Fail-Safe over EtherCAT protocol for safety-critical applications.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Topics Covered:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>IEC 61784-3 standard overview</li>
+                                    <li>Safety communication layer</li>
+                                    <li>White channel architecture</li>
+                                    <li>Connection management</li>
+                                    <li>Safety functions implementation</li>
+                                    <li>Diagnostic and monitoring</li>
+                                </ul>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--info" style="margin-bottom: 0.5rem;">Beginner</span>
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">2 Days</span>
+                            <h3 class="card__title">J1939 Protocol Training</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Complete J1939 protocol training for automotive and off-highway applications.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Topics Covered:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>SAE J1939 standard overview</li>
+                                    <li>Parameter Group Numbers (PGNs)</li>
+                                    <li>Transport protocol</li>
+                                    <li>Address claiming</li>
+                                    <li>Diagnostic messages (DM1, DM2)</li>
+                                    <li>J1939 safety extension</li>
+                                </ul>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">3 Days</span>
+                            <h3 class="card__title">EtherCAT Protocol</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Industrial Ethernet protocol for real-time applications with high-speed communication.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Topics Covered:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>EtherCAT protocol fundamentals</li>
+                                    <li>Slave stack implementation</li>
+                                    <li>Process data exchange</li>
+                                    <li>Distributed clocks</li>
+                                    <li>CoE (CANopen over EtherCAT)</li>
+                                    <li>Performance optimization</li>
+                                </ul>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Certification Training -->
+                <div class="tabs__content" id="safety-tab">
+                    <div class="grid grid--2">
+                        <div class="card">
+                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">5 Days</span>
+                            <h3 class="card__title">IEC 61508 Functional Safety</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Comprehensive training on functional safety standard for electrical/electronic/programmable systems.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Topics Covered:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>IEC 61508 standard overview</li>
+                                    <li>Safety Integrity Levels (SIL)</li>
+                                    <li>Safety lifecycle management</li>
+                                    <li>Hardware safety requirements</li>
+                                    <li>Software safety requirements</li>
+                                    <li>Validation and verification</li>
+                                    <li>Documentation requirements</li>
+                                </ul>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">4 Days</span>
+                            <h3 class="card__title">ISO 13849 Machinery Safety</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Safety of machinery control systems and Performance Level determination.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Topics Covered:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>ISO 13849 standard overview</li>
+                                    <li>Performance Levels (PL a to e)</li>
+                                    <li>Safety function design</li>
+                                    <li>Category requirements</li>
+                                    <li>Diagnostic coverage (DC)</li>
+                                    <li>Common cause failures (CCF)</li>
+                                    <li>Validation procedures</li>
+                                </ul>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--danger" style="margin-bottom: 0.5rem;">Advanced</span>
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">3 Days</span>
+                            <h3 class="card__title">Safety Certification Process</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Navigate the certification process with TÜV and other certification bodies.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Topics Covered:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>Certification process overview</li>
+                                    <li>Required documentation</li>
+                                    <li>Test procedures and protocols</li>
+                                    <li>Working with certification bodies</li>
+                                    <li>Common pitfalls and solutions</li>
+                                    <li>Pre-audit preparation</li>
+                                </ul>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">2 Days</span>
+                            <h3 class="card__title">Safety Software Development</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Best practices for developing safety-critical embedded software.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Topics Covered:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>Safety software lifecycle</li>
+                                    <li>Coding standards (MISRA C)</li>
+                                    <li>Static analysis tools</li>
+                                    <li>Unit testing for safety</li>
+                                    <li>Traceability requirements</li>
+                                    <li>Code review processes</li>
+                                </ul>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hands-on Workshops -->
+                <div class="tabs__content" id="workshops-tab">
+                    <div class="grid grid--2">
+                        <div class="card">
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">2 Days</span>
+                            <h3 class="card__title">FSoE Integration Workshop</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Hands-on workshop for integrating FSoE safety protocol in real hardware.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Workshop Activities:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>FSoE stack installation and setup</li>
+                                    <li>HAL implementation for target platform</li>
+                                    <li>Safety connection configuration</li>
+                                    <li>Testing with protocol analyzer</li>
+                                    <li>Debugging and troubleshooting</li>
+                                    <li>Performance optimization</li>
+                                </ul>
+                            </div>
+                            <p style="margin-top: 1rem;"><strong>Includes:</strong> Development board, protocol analyzer access</p>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Details</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">2 Days</span>
+                            <h3 class="card__title">CANopen Development Workshop</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Practical CANopen slave device development from scratch.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Workshop Activities:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>Object dictionary design</li>
+                                    <li>Stack integration and configuration</li>
+                                    <li>PDO mapping implementation</li>
+                                    <li>SDO communication testing</li>
+                                    <li>Network commissioning</li>
+                                    <li>Conformance testing</li>
+                                </ul>
+                            </div>
+                            <p style="margin-top: 1rem;"><strong>Includes:</strong> CAN development board, OD tools license</p>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Details</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">1 Day</span>
+                            <h3 class="card__title">Protocol Debugging Techniques</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Advanced debugging techniques for industrial protocol implementations.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Workshop Activities:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>Using protocol analyzers effectively</li>
+                                    <li>Common protocol errors and solutions</li>
+                                    <li>Timing analysis and optimization</li>
+                                    <li>Network troubleshooting</li>
+                                    <li>Interoperability testing</li>
+                                    <li>Real-world problem solving</li>
+                                </ul>
+                            </div>
+                            <p style="margin-top: 1rem;"><strong>Includes:</strong> Access to professional protocol analyzers</p>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Details</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <span class="badge badge--primary" style="margin-bottom: 1rem;">3 Days</span>
+                            <h3 class="card__title">Safety System Integration</h3>
+                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                Complete safety system development from design to validation.
+                            </p>
+                            <div style="margin: 1rem 0;">
+                                <strong>Workshop Activities:</strong>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>Safety requirements analysis</li>
+                                    <li>Architecture design</li>
+                                    <li>Safety protocol integration</li>
+                                    <li>Functional testing</li>
+                                    <li>Failure mode testing</li>
+                                    <li>Documentation preparation</li>
+                                </ul>
+                            </div>
+                            <p style="margin-top: 1rem;"><strong>Includes:</strong> Complete safety development kit</p>
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
+                                <a href="#" class="btn btn--outline btn--small">Download Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Training -->
+                <div class="tabs__content" id="custom-tab">
+                    <div class="two-column">
+                        <div>
+                            <h2>Custom Training Programs</h2>
+                            <p style="margin-top: 1rem;">
+                                We offer fully customized training programs tailored to your team's specific needs,
+                                technology stack, and business objectives.
+                            </p>
+
+                            <h3 style="margin-top: 2rem;">On-Site Training</h3>
+                            <p style="margin-top: 0.5rem;">
+                                Our experts come to your facility to deliver training on-site, using your hardware
+                                and development environment.
+                            </p>
+                            <ul style="margin-top: 1rem;">
+                                <li>Training at your location</li>
+                                <li>Use your actual hardware and tools</li>
+                                <li>Flexible scheduling</li>
+                                <li>Team-focused curriculum</li>
+                                <li>Direct access to your codebase</li>
+                                <li>Customized hands-on exercises</li>
+                            </ul>
+
+                            <h3 style="margin-top: 2rem;">Tailored Curriculum</h3>
+                            <p style="margin-top: 0.5rem;">
+                                We design training programs that address your specific challenges and objectives.
+                            </p>
+                            <ul style="margin-top: 1rem;">
+                                <li>Protocol-specific deep dives</li>
+                                <li>Platform-specific integration</li>
+                                <li>Application-focused training</li>
+                                <li>Troubleshooting existing implementations</li>
+                                <li>Performance optimization</li>
+                                <li>Compliance and certification preparation</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div class="card">
+                                <h3>Request Custom Training</h3>
+                                <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                    Tell us about your training needs and we'll create a custom program for your team.
+                                </p>
+
+                                <form style="margin-top: 1.5rem;">
+                                    <div class="form-group">
+                                        <label for="company" class="form-label">Company Name</label>
+                                        <input type="text" id="company" class="form-input">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="topic" class="form-label">Training Topic</label>
+                                        <select id="topic" class="form-select">
+                                            <option value="">Select topic</option>
+                                            <option value="canopen">CANopen Protocol</option>
+                                            <option value="fsoe">FSoE Safety</option>
+                                            <option value="j1939">J1939 Protocol</option>
+                                            <option value="safety">Safety Certification</option>
+                                            <option value="integration">Integration & Porting</option>
+                                            <option value="custom">Custom Topic</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="participants" class="form-label">Number of Participants</label>
+                                        <input type="number" id="participants" class="form-input" min="1">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="location" class="form-label">Training Location</label>
+                                        <select id="location" class="form-select">
+                                            <option value="">Select location</option>
+                                            <option value="onsite">On-site (at our facility)</option>
+                                            <option value="customer">On-site (at customer location)</option>
+                                            <option value="remote">Remote/Online</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="details" class="form-label">Additional Details</label>
+                                        <textarea id="details" class="form-textarea" rows="3"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn--primary" style="width: 100%;">Submit Request</button>
+                                </form>
+                            </div>
+
+                            <div class="card" style="margin-top: 1.5rem;">
+                                <h3>Need Help Choosing?</h3>
+                                <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                                    Speak with our training coordinator to find the right program.
+                                </p>
+                                <a href="contact.html" class="btn btn--outline" style="width: 100%;">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Benefits -->
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">What You'll Gain</h2>
+                </div>
+
+                <div class="grid grid--3">
+                    <div class="card">
+                        <h3 class="card__title">Accelerated Development</h3>
+                        <p style="color: var(--color-gray-600);">
+                            Reduce integration time by 50-70% with expert knowledge transfer and best practices.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Certification Confidence</h3>
+                        <p style="color: var(--color-gray-600);">
+                            Understand safety requirements and certification processes to avoid costly mistakes.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Hands-on Experience</h3>
+                        <p style="color: var(--color-gray-600);">
+                            Work with real hardware and protocol stacks during practical lab sessions.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Course Materials</h3>
+                        <p style="color: var(--color-gray-600);">
+                            Comprehensive training materials, code examples, and reference documentation.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Certificate of Completion</h3>
+                        <p style="color: var(--color-gray-600);">
+                            Official certificate documenting your training and competencies.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Ongoing Support</h3>
+                        <p style="color: var(--color-gray-600);">
+                            Post-training support and access to expert consultation as needed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Ready to Start Training?</h2>
+                    <p>Invest in your team's expertise with professional protocol training</p>
+                    <div>
+                        <a href="contact.html" class="btn btn--secondary btn--large">Request Training</a>
+                        <a href="contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Training Team</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">A brand of ISIT</p>
+                    <p class="footer__tagline">30+ years expertise in embedded systems</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Products</h3>
+                    <ul class="footer__list">
+                        <li><a href="products/fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="products/canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="products/canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="products/j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Services</h3>
+                    <ul class="footer__list">
+                        <li><a href="services/porting.html" class="footer__link">Porting</a></li>
+                        <li><a href="services/maintenance.html" class="footer__link">Maintenance</a></li>
+                        <li><a href="services/expertise.html" class="footer__link">Expertise</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Resources</h3>
+                    <ul class="footer__list">
+                        <li><a href="documentation.html" class="footer__link">Documentation</a></li>
+                        <li><a href="training.html" class="footer__link">Training</a></li>
+                        <li><a href="blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Privacy</a></li>
+                    <li><a href="#" class="footer__social-link">Terms</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/language-switcher.js"></script>
+</body>
+</html>
