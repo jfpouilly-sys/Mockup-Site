@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600">
+  <defs>
+    <linearGradient id="gatewayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90D9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect fill="#F5F5FA" width="1000" height="600"/>
+
+  <!-- Title -->
+  <text fill="#333" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" x="500" y="50">ISI-GTW Protocol Connections</text>
+
+  <!-- Gateway Box (Center) -->
+  <rect x="375" y="200" width="250" height="200" rx="10" fill="url(#gatewayGrad)" stroke="#2A5DB0" stroke-width="2"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" x="500" y="290">ISI-GTW</text>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="500" y="320">Multi-Protocol Gateway</text>
+
+  <!-- Serial Protocols (Left) -->
+  <rect x="50" y="150" width="150" height="40" rx="5" fill="#8BC34A"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="125" y="175">RS232</text>
+
+  <rect x="50" y="210" width="150" height="40" rx="5" fill="#8BC34A"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="125" y="235">RS485</text>
+
+  <rect x="50" y="270" width="150" height="40" rx="5" fill="#8BC34A"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="125" y="295">Modbus RTU</text>
+
+  <!-- Arrows Left -->
+  <line x1="200" y1="170" x2="375" y2="250" stroke="#8BC34A" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="200" y1="230" x2="375" y2="280" stroke="#8BC34A" stroke-width="2"/>
+  <line x1="200" y1="290" x2="375" y2="310" stroke="#8BC34A" stroke-width="2"/>
+
+  <!-- CAN Protocols (Top) -->
+  <rect x="350" y="70" width="100" height="40" rx="5" fill="#FF9800"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="400" y="95">CAN 2.0</text>
+
+  <rect x="460" y="70" width="100" height="40" rx="5" fill="#FF9800"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="510" y="95">CANopen</text>
+
+  <rect x="570" y="70" width="100" height="40" rx="5" fill="#FF9800"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="620" y="95">J1939</text>
+
+  <!-- Arrows Top -->
+  <line x1="400" y1="110" x2="450" y2="200" stroke="#FF9800" stroke-width="2"/>
+  <line x1="510" y1="110" x2="500" y2="200" stroke="#FF9800" stroke-width="2"/>
+  <line x1="620" y1="110" x2="550" y2="200" stroke="#FF9800" stroke-width="2"/>
+
+  <!-- Ethernet Protocols (Right) -->
+  <rect x="800" y="150" width="150" height="40" rx="5" fill="#2196F3"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="875" y="175">TCP/IP</text>
+
+  <rect x="800" y="210" width="150" height="40" rx="5" fill="#2196F3"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="875" y="235">Modbus TCP</text>
+
+  <rect x="800" y="270" width="150" height="40" rx="5" fill="#2196F3"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="875" y="295">EtherNet/IP</text>
+
+  <rect x="800" y="330" width="150" height="40" rx="5" fill="#2196F3"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="875" y="355">EtherCAT</text>
+
+  <!-- Arrows Right -->
+  <line x1="625" y1="250" x2="800" y2="170" stroke="#2196F3" stroke-width="2"/>
+  <line x1="625" y1="280" x2="800" y2="230" stroke="#2196F3" stroke-width="2"/>
+  <line x1="625" y1="310" x2="800" y2="290" stroke="#2196F3" stroke-width="2"/>
+  <line x1="625" y1="340" x2="800" y2="350" stroke="#2196F3" stroke-width="2"/>
+
+  <!-- Legend -->
+  <rect x="50" y="480" width="20" height="20" fill="#8BC34A"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="14" x="80" y="495">Serial Protocols</text>
+
+  <rect x="250" y="480" width="20" height="20" fill="#FF9800"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="14" x="280" y="495">CAN Protocols</text>
+
+  <rect x="450" y="480" width="20" height="20" fill="#2196F3"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="14" x="480" y="495">Ethernet Protocols</text>
+
+  <!-- Footer Note -->
+  <text fill="#666" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" x="500" y="560">Fully programmable C/C++ - Convert between any supported protocols</text>
+</svg>

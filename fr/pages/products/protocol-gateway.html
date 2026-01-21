@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISI-GTW Passerelle Multi-Protocoles | AZIT - Piles de Protocoles Industriels</title>
+    <meta name="description" content="Passerelle multi-protocoles personnalisee pour reseaux industriels serie, CAN et Ethernet. Solution passerelle C/C++ entierement programmable par AZIT.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/components.css">
+    <link rel="stylesheet" href="../../../css/layout.css">
+    <link rel="stylesheet" href="../../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../../../pages/products/communication-stacks.html" class="nav__link active">Produits</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../../pages/services/expertise.html" class="nav__link">Services</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../../pages/documentation.html" class="nav__link">Documentation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../../pages/contact.html" class="btn btn--secondary btn--small">Demande de Devis</a>
+                    </li>
+                </ul>
+
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn active" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn" data-lang="en">EN</button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../../index.html">Accueil</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="../../../pages/products/communication-stacks.html">Produits</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">Passerelle de Protocoles</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Hero Section -->
+        <section class="product-hero product-hero--gateway">
+            <div class="container">
+                <div class="product-hero--gateway__layout">
+                    <div class="product-hero__gallery">
+                        <img src="../../../assets/images/products/isi-gtw-hero.jpg"
+                             alt="Passerelle Multi-Protocoles ISI-GTW"
+                             class="product-hero__main-image">
+                        <div class="product-hero__thumbnails">
+                            <img src="../../../assets/images/products/isi-gtw-pcb.jpg" alt="ISI-GTW PCB" class="active">
+                            <img src="../../../assets/images/products/isi-gtw-case.jpg" alt="ISI-GTW Boitier">
+                            <img src="../../../assets/images/products/isi-gtw-ports.png" alt="ISI-GTW Ports">
+                        </div>
+                    </div>
+                    <div class="product-hero__info">
+                        <h1>ISI-GTW</h1>
+                        <p class="product-hero__subtitle">Passerelle Multi-Protocoles</p>
+                        <p class="product-hero__description">
+                            Conversion de protocoles sur mesure pour reseaux industriels serie, CAN et Ethernet.
+                        </p>
+                        <div class="product-hero__badges">
+                            <span class="badge badge--primary">Developpement Sur Mesure</span>
+                            <span class="badge badge--secondary">Fabrique en France</span>
+                            <span class="badge badge--success">Partenaire ST</span>
+                        </div>
+                        <div class="product-hero__actions">
+                            <a href="../../../pages/contact.html?product=gateway" class="btn btn--primary btn--large">Demande de Devis</a>
+                            <a href="../../../assets/docs/isi-gtw-brochure.pdf" class="btn btn--outline btn--large" download>
+                                Telecharger la Plaquette
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="section value-proposition">
+            <div class="container">
+                <blockquote class="highlight-box">
+                    <h2>Un Veritable Traducteur Electronique pour Vos Equipements</h2>
+                    <p>
+                        ISI-GTW est une passerelle de communication intelligente, polyvalente et entierement
+                        programmable pour les concepteurs de produits et les integrateurs. Elle permet la
+                        communication entre equipements heterogenes avec des interfaces serie, CAN ou Ethernet
+                        utilisant des protocoles differents et souvent incompatibles.
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Protocol Diagram -->
+        <section class="section protocol-diagram">
+            <div class="container">
+                <h2 style="text-align: center;">Protocoles Supportes</h2>
+                <div class="gateway-diagram">
+                    <img src="../../../assets/images/diagrams/gateway-protocol-diagram.svg"
+                         alt="Schema des Connexions de Protocoles ISI-GTW">
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed Content -->
+        <section class="section product-tabs">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="features">Caracteristiques</button></li>
+                        <li><button class="tabs__button" data-tab="form-factors">Formats Disponibles</button></li>
+                        <li><button class="tabs__button" data-tab="custom-dev">Developpement Sur Mesure</button></li>
+                        <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
+                    </ul>
+                </div>
+
+                <!-- Features Tab -->
+                <div class="tabs__content active" id="features-tab">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-card__icon">
+                                <span>&#128187;</span>
+                            </div>
+                            <h3>Entierement Programmable</h3>
+                            <p>Programmation C/C++ en environnement multitache. Acces complet au traitement de vos donnees.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-card__icon">
+                                <span>&#128279;</span>
+                            </div>
+                            <h3>Support Multi-Protocoles</h3>
+                            <p>CAN, CANopen, J1939, Ethernet, EtherNet/IP, Modbus RTU/TCP, Serie RS232/485</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-card__icon">
+                                <span>&#128230;</span>
+                            </div>
+                            <h3>Solution Cle en Main</h3>
+                            <p>AZIT gere le developpement, la production et le conditionnement.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-card__icon">
+                                <span>&#128268;</span>
+                            </div>
+                            <h3>E/S Extensibles</h3>
+                            <p>Port USB, emplacement carte SD, commutateurs DIP, E/S protegees, acces JTAG.</p>
+                        </div>
+                    </div>
+                    <div class="differentiator-box">
+                        <p>
+                            <strong>Ce qui distingue ISI-GTW :</strong> Contrairement aux passerelles standards du marche,
+                            ISI-GTW offre une programmabilite complete en C/C++ dans un environnement multitache —
+                            vous donnant un controle total sur le traitement des donnees que les solutions pretes a l'emploi ne peuvent pas offrir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Form Factors Tab -->
+                <div class="tabs__content" id="form-factors-tab">
+                    <h3>Deux Options d'Integration</h3>
+                    <div class="form-factors-grid">
+                        <div class="form-factor-card">
+                            <img src="../../../assets/images/products/isi-gtw-pcb.jpg" alt="ISI-GTW Format Carte">
+                            <h4>Format Carte</h4>
+                            <p class="ref">Ref: ISI-GTW-PCB</p>
+                            <ul>
+                                <li>Carte nue pour boitier personnalise</li>
+                                <li>4 trous de montage pour entretoises</li>
+                                <li>Connecteurs a bornier</li>
+                            </ul>
+                            <a href="../../../pages/contact.html?product=gateway-pcb" class="btn btn--outline">
+                                Demande de Devis Carte
+                            </a>
+                        </div>
+                        <div class="form-factor-card">
+                            <img src="../../../assets/images/products/isi-gtw-case.jpg" alt="ISI-GTW Format Boitier">
+                            <h4>Format Boitier</h4>
+                            <p class="ref">Ref: ISI-GTW-CASE</p>
+                            <ul>
+                                <li>Boitier aluminium</li>
+                                <li>Montage rail DIN</li>
+                                <li>Protection mecanique et CEM</li>
+                                <li>Connecteurs DB9 pour connexions securisees</li>
+                                <li>Pret pour armoire industrielle</li>
+                            </ul>
+                            <a href="../../../pages/contact.html?product=gateway-case" class="btn btn--outline">
+                                Demande de Devis Boitier
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Development Tab -->
+                <div class="tabs__content" id="custom-dev-tab">
+                    <h3>Adapte a Vos Besoins</h3>
+                    <p>
+                        Fort de notre expertise en reseaux industriels et systemes embarques,
+                        AZIT peut etudier vos specifications et proposer une solution personnalisee basee sur ISI-GTW.
+                    </p>
+                    <div class="process-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Besoins</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Conception</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Developpement</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <span class="step-label">Tests</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <span class="step-label">Production</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            <span class="step-label">Livraison</span>
+                        </div>
+                    </div>
+                    <h4 style="margin-top: 2rem;">Ce Que Nous Offrons</h4>
+                    <ul class="check-list">
+                        <li>Developpement firmware personnalise</li>
+                        <li>Logiciel applicatif pre-charge</li>
+                        <li>Toute quantite — du prototype a la serie</li>
+                        <li>Planning de livraison flexible</li>
+                        <li>Mises a jour firmware via JTAG</li>
+                        <li>Support maintenance long terme</li>
+                    </ul>
+                    <a href="../../../pages/contact.html?product=gateway-custom" class="btn btn--primary" style="margin-top: 1.5rem;">
+                        Demande de Devis Developpement Sur Mesure
+                    </a>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tabs__content" id="specs-tab">
+                    <h3>Specifications Materielles</h3>
+                    <table class="specs-table">
+                        <thead>
+                            <tr><th>Interface</th><th>Details</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ethernet</td><td>10/100 Mbps</td></tr>
+                            <tr><td>CAN</td><td>2x CAN 2.0B / CAN FD</td></tr>
+                            <tr><td>Serie</td><td>RS232, RS485</td></tr>
+                            <tr><td>USB</td><td>Peripherique/Hote</td></tr>
+                            <tr><td>Stockage</td><td>Emplacement carte SD</td></tr>
+                            <tr><td>Debug</td><td>Interface JTAG</td></tr>
+                            <tr><td>E/S</td><td>E/S numeriques protegees</td></tr>
+                            <tr><td>Config</td><td>Commutateurs DIP</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 2rem;">Protocoles Supportes</h3>
+                    <table class="specs-table">
+                        <thead>
+                            <tr><th>Categorie</th><th>Protocoles</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ethernet</td><td>TCP/IP, EtherNet/IP, Modbus TCP, EtherCAT</td></tr>
+                            <tr><td>CAN</td><td>CAN 2.0, CAN FD, CANopen, J1939, DeviceNet</td></tr>
+                            <tr><td>Serie</td><td>Modbus RTU, Personnalise</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 2rem;">Schema des Ports</h3>
+                    <img src="../../../assets/images/products/isi-gtw-ports.png"
+                         alt="Schema des Ports ISI-GTW"
+                         class="port-diagram">
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="section section--light related-products">
+            <div class="container">
+                <h2>Completez Votre Solution</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">&#128268;</div>
+                        <h3 class="product-card__title">Pile CANopen</h3>
+                        <p class="product-card__description">
+                            Pile de protocole pour votre firmware passerelle
+                        </p>
+                        <a href="../../../pages/products/canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">&#128663;</div>
+                        <h3 class="product-card__title">Pile J1939</h3>
+                        <p class="product-card__description">
+                            Support protocole automobile
+                        </p>
+                        <a href="../../../pages/products/j1939.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">&#128736;</div>
+                        <h3 class="product-card__title">Services Dev Passerelle</h3>
+                        <p class="product-card__description">
+                            Support developpement personnalise
+                        </p>
+                        <a href="../../../pages/services/expertise-networks.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Training -->
+        <section class="section related-training">
+            <div class="container">
+                <h2>Developpez Votre Expertise Protocole</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <h3>Formation CAN</h3>
+                        <p>2 jours</p>
+                        <a href="../../../pages/training.html#can" class="btn btn--outline btn--small">Voir Details</a>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <h3>Formation CANopen</h3>
+                        <p>2 jours</p>
+                        <a href="../../../pages/training.html#canopen" class="btn btn--outline btn--small">Voir Details</a>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <h3>Formation J1939</h3>
+                        <p>2 jours</p>
+                        <a href="../../../pages/training.html#j1939" class="btn btn--outline btn--small">Voir Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Besoin d'une Solution Passerelle Personnalisee ?</h2>
+                    <p>
+                        Parlez-nous de vos besoins de conversion de protocoles et nos experts
+                        vous proposeront une solution sur mesure.
+                    </p>
+                    <div>
+                        <a href="../../../pages/contact.html?product=gateway" class="btn btn--secondary btn--large">Demande de Devis Personnalise</a>
+                        <a href="../../../assets/docs/isi-gtw-brochure.pdf" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;" download>Telecharger la Plaquette</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">30+ ans d'expertise en systemes embarques</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="../../../pages/products/fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="../../../pages/products/canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="../../../pages/products/canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="../../../pages/products/j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Services</h3>
+                    <ul class="footer__list">
+                        <li><a href="../../../pages/services/porting.html" class="footer__link">Portage</a></li>
+                        <li><a href="../../../pages/services/maintenance.html" class="footer__link">Maintenance</a></li>
+                        <li><a href="../../../pages/services/expertise.html" class="footer__link">Expertise</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../../../pages/documentation.html" class="footer__link">Documentation</a></li>
+                        <li><a href="../../../pages/training.html" class="footer__link">Formation</a></li>
+                        <li><a href="../../../pages/blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../../../pages/contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits reserves.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Confidentialite</a></li>
+                    <li><a href="#" class="footer__social-link">Mentions Legales</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/language-switcher.js"></script>
+    <script src="../../../js/tabs.js"></script>
+</body>
+</html>
