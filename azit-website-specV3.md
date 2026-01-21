@@ -1,0 +1,2720 @@
+# AZIT Website Mockup Specification
+## Technical Specification for Claude Code Implementation
+
+**Version:** 3.0  
+**Date:** January 2025  
+**Project:** AZIT Industrial Protocol Stacks Website  
+**Parent Company:** ISIT (isit.fr)
+
+**Change Log:**
+- V3.0: Removed Documentation from top menu, added Simulation product page
+- V2.0: Added Protocol Gateway (ISI-GTW) product, Expertise section
+- V1.0: Initial specification
+
+---
+
+## 1. Project Overview
+
+### 1.1 Purpose
+Create a responsive HTML/CSS/JS mockup website for AZIT, a sub-brand of ISIT dedicated to industrial communication protocol stacks. The website targets embedded software developers and technical decision-makers in automotive, aerospace, and industrial automation sectors.
+
+### 1.2 Design Philosophy
+- **Developer-focused**: Clean, technical, code-snippet friendly (inspired by RT-Labs)
+- **Professional credibility**: Emphasize 30+ years ISIT expertise
+- **Conversion-oriented**: Clear CTAs for quote requests and contact
+
+### 1.3 Languages
+- Primary: French (FR)
+- Secondary: English (EN)
+- Implementation: Language switcher in header; use data attributes or separate HTML files
+
+---
+
+## 2. Technical Requirements
+
+### 2.1 Technology Stack
+```
+- HTML5 semantic markup
+- CSS3 with CSS Variables for theming
+- Vanilla JavaScript (no framework required for mockup)
+- Responsive design (mobile-first)
+- Font: Inter or Source Sans Pro (technical feel)
+- Icons: Lucide Icons or Heroicons
+```
+
+### 2.2 Responsive Breakpoints
+```css
+/* Mobile */ max-width: 767px
+/* Tablet */ 768px - 1023px
+/* Desktop */ 1024px - 1439px
+/* Large Desktop */ 1440px+
+```
+
+### 2.3 Color Palette
+```css
+:root {
+  /* Primary - Technical Blue */
+  --color-primary: #0066CC;
+  --color-primary-dark: #004C99;
+  --color-primary-light: #E6F0FA;
+  
+  /* Secondary - Industrial Orange (Safety accent) */
+  --color-secondary: #FF6B00;
+  --color-secondary-light: #FFF0E6;
+  
+  /* Neutrals */
+  --color-dark: #1A1A2E;
+  --color-gray-800: #2D2D44;
+  --color-gray-600: #4A4A68;
+  --color-gray-400: #8888A0;
+  --color-gray-200: #E0E0E8;
+  --color-light: #F8F9FC;
+  --color-white: #FFFFFF;
+  
+  /* Semantic */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  
+  /* Code blocks */
+  --color-code-bg: #1E1E2E;
+  --color-code-text: #CDD6F4;
+}
+```
+
+---
+
+## 3. Site Architecture
+
+### 3.1 Navigation Structure
+
+```
+AZIT
+├── Home
+├── Products
+│   ├── Protocol Gateway (ISI-GTW)
+│   ├── Communication Stacks
+│   │   ├── FSoE Slave
+│   │   ├── FSoE Master
+│   │   ├── CANopen Slave
+│   │   ├── CANopen Master
+│   │   ├── CANopen Safety Slave
+│   │   ├── CANopen Safety Master
+│   │   ├── J1939 / J1939 Safety
+│   │   ├── OPC-UA [Coming Soon]
+│   │   ├── OPC-UA FX [Coming Soon]
+│   │   ├── CIP Safety [Coming Soon]
+│   │   ├── UDS [Coming Soon]
+│   │   └── Wireless Safety [Coming Soon]
+│   ├── Simulation
+│   │   └── Network Simulation (AZIT-SIM)
+│   ├── Tools
+│   │   └── [Placeholder page]
+│   └── Analyzers
+│       └── [Placeholder page]
+├── Services
+│   ├── Porting Activities
+│   ├── Maintenance Support
+│   └── Expertise
+│       ├── Safety Compliance
+│       │   ├── Consulting
+│       │   ├── Pre-Audits
+│       │   └── Standards Training
+│       ├── Protocol Development
+│       ├── Testing & Validation
+│       └── Industrial Networks
+│           ├── Network Training
+│           ├── Diagnostics & Analysis
+│           └── Protocol Gateways
+├── Documentation
+│   ├── Technical Resources
+│   ├── Datasheets
+│   ├── Integration Guides
+│   └── API References
+├── Training
+├── Blog / News
+├── Company
+│   ├── About AZIT
+│   ├── ISIT Heritage
+│   └── Partners
+└── Contact Us
+    └── Request Quote
+```
+
+### 3.2 File Structure
+```
+azit-website/
+├── index.html
+├── css/
+│   ├── variables.css
+│   ├── base.css
+│   ├── components.css
+│   ├── layout.css
+│   └── pages.css
+├── js/
+│   ├── main.js
+│   ├── navigation.js
+│   └── language-switcher.js
+├── assets/
+│   ├── images/
+│   │   ├── logos/
+│   │   ├── products/
+│   │   ├── partners/
+│   │   ├── diagrams/
+│   │   └── icons/
+│   └── fonts/
+├── pages/
+│   ├── products/
+│   │   ├── protocol-gateway.html
+│   │   ├── communication-stacks.html
+│   │   ├── fsoe-slave.html
+│   │   ├── fsoe-master.html
+│   │   ├── canopen-slave.html
+│   │   ├── canopen-master.html
+│   │   ├── canopen-safety-slave.html
+│   │   ├── canopen-safety-master.html
+│   │   ├── j1939.html
+│   │   ├── opc-ua.html (coming soon)
+│   │   ├── opc-ua-fx.html (coming soon)
+│   │   ├── cip-safety.html (coming soon)
+│   │   ├── uds.html (coming soon)
+│   │   ├── wireless-safety.html (coming soon)
+│   │   ├── simulation.html
+│   │   ├── tools.html
+│   │   └── analyzers.html
+│   ├── services/
+│   │   ├── porting.html
+│   │   ├── maintenance.html
+│   │   ├── expertise.html
+│   │   ├── expertise-compliance.html
+│   │   ├── expertise-development.html
+│   │   ├── expertise-testing.html
+│   │   └── expertise-networks.html
+│   ├── training.html
+│   ├── blog.html
+│   ├── company.html
+│   └── contact.html
+└── fr/
+    └── [mirrored French pages]
+```
+
+---
+
+## 4. Page Specifications
+
+### 4.1 Global Components
+
+#### 4.1.1 Header
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ [AZIT Logo]  Products ▼  Services ▼  Training  Blog  Company   │
+│                                                Contact  [FR|EN] │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Requirements:**
+- Sticky header on scroll (with reduced height)
+- Mega-menu dropdown for Products and Services
+- Mobile: Hamburger menu with slide-out navigation
+- Language switcher: Flag icons + text (FR/EN)
+- CTA button "Request Quote" (secondary color)
+
+**Products Mega-Menu Structure:**
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  PRODUCTS                                                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  HARDWARE              COMMUNICATION STACKS    SOFTWARE         │
+│  ─────────────         ─────────────────────   ─────────────    │
+│  Protocol Gateway      Safety Protocols        Simulation       │
+│  (ISI-GTW)             • FSoE Slave/Master     (Network Sim)    │
+│                        • CANopen Safety                         │
+│                        Fieldbus                TOOLS            │
+│                        • CANopen Slave/Master  ─────────────    │
+│                        Automotive              Analyzers        │
+│                        • J1939                 [Placeholder]    │
+│                        Coming Soon                              │
+│                        • OPC-UA, CIP Safety...                  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  SERVICES                                                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  INTEGRATION          EXPERTISE              SUPPORT            │
+│  ─────────────        ─────────────          ─────────────      │
+│  Porting Activities   Safety Compliance      Maintenance        │
+│                       • Consulting           Support            │
+│                       • Pre-Audits                              │
+│                       • Standards Training                      │
+│                                                                 │
+│                       Protocol Development                      │
+│                                                                 │
+│                       Testing & Validation                      │
+│                                                                 │
+│                       Industrial Networks                       │
+│                       • Network Training                        │
+│                       • Diagnostics                             │
+│                       • Gateway Development                     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### 4.1.2 Footer
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  AZIT                Products      Services       Resources     │
+│  A brand of ISIT     Gateway       Porting        Training      │
+│  [Logo]              Simulation    Maintenance    Blog          │
+│                      FSoE          Expertise                    │
+│  30+ years expertise CANopen       • Compliance   Company       │
+│  in embedded systems CANopen Safety • Development About         │
+│                      J1939         • Testing      Contact       │
+│                      Tools         • Networks     Partners      │
+│                      Analyzers                                  │
+├─────────────────────────────────────────────────────────────────┤
+│  © 2025 AZIT - ISIT     Privacy  Terms  LinkedIn  GitHub        │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### 4.1.3 Reusable Components
+
+**Product Card**
+```html
+<div class="product-card">
+  <div class="product-card__icon">[Protocol Icon]</div>
+  <span class="product-card__badge">Safety Certified</span>
+  <h3 class="product-card__title">FSoE Slave Stack</h3>
+  <p class="product-card__description">IEC 61784-3 compliant...</p>
+  <ul class="product-card__features">
+    <li>SIL3 / PLe certified</li>
+    <li>No third-party dependencies</li>
+  </ul>
+  <a href="#" class="product-card__cta">Learn More →</a>
+</div>
+```
+
+**Code Snippet Block**
+```html
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">C</span>
+    <button class="code-block__copy">Copy</button>
+  </div>
+  <pre><code>/* FSoE initialization example */
+fsoe_slave_init(&config);
+fsoe_slave_start();</code></pre>
+</div>
+```
+
+**CTA Section**
+```html
+<section class="cta-section">
+  <h2>Ready to integrate industrial protocols?</h2>
+  <p>Get a customized quote for your project</p>
+  <a href="/contact" class="btn btn--primary">Request Quote</a>
+  <a href="/documentation" class="btn btn--outline">View Documentation</a>
+</section>
+```
+
+---
+
+### 4.2 Homepage
+
+#### Layout Structure
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         [HEADER]                                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  HERO SECTION                                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Industrial Protocol Stacks                                    │
+│   Built for Safety-Critical Systems"                            │
+│                                                                 │
+│  Subtitle: 30+ years of embedded expertise. No third-party      │
+│  code. Full control over your safety certification.             │
+│                                                                 │
+│  [Request Quote]  [View Products]                               │
+│                                                                 │
+│  [HERO IMAGE: Abstract industrial network visualization         │
+│   showing connected nodes with EtherCAT/CAN bus styling]        │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PROTOCOL LOGOS BAR (horizontal scroll on mobile)               │
+│  ─────────────────────────────────────────────────────────────  │
+│  [CANopen] [IO-Link] [CC-Link] [EtherNet/IP] [Modbus]          │
+│  [EtherCAT] [PROFINET] [FSoE] [J1939]                          │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  KEY ADVANTAGES SECTION                                         │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Why Choose AZIT Stacks?"                                      │
+│                                                                 │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐            │
+│  │ [Icon]       │ │ [Icon]       │ │ [Icon]       │            │
+│  │ No Third     │ │ Safety       │ │ Hardware     │            │
+│  │ Party Code   │ │ Certified    │ │ Freedom      │            │
+│  │              │ │              │ │              │            │
+│  │ 100% in-house│ │ SIL3/PLe     │ │ Any MCU,     │            │
+│  │ development  │ │ TÜV certified│ │ any RTOS     │            │
+│  └──────────────┘ └──────────────┘ └──────────────┘            │
+│                                                                 │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐            │
+│  │ [Icon]       │ │ [Icon]       │ │ [Icon]       │            │
+│  │ White Channel│ │ Expert       │ │ Full Source  │            │
+│  │ Architecture │ │ Support      │ │ Code Access  │            │
+│  └──────────────┘ └──────────────┘ └──────────────┘            │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PRODUCTS OVERVIEW SECTION                                      │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Protocol Stacks for Every Industrial Need"                    │
+│                                                                 │
+│  [Tab: Safety Protocols] [Tab: Fieldbus] [Tab: Automotive]      │
+│                                                                 │
+│  Grid of Product Cards (filtered by tab):                       │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐               │
+│  │ FSoE Slave  │ │ FSoE Master │ │ CANopen     │               │
+│  │             │ │             │ │ Safety      │               │
+│  └─────────────┘ └─────────────┘ └─────────────┘               │
+│                                                                 │
+│  [View All Products →]                                          │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CODE EXAMPLE SECTION (Developer-focused)                       │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Simple Integration, Powerful Results"                         │
+│                                                                 │
+│  [Left: Code snippet showing FSoE init in C]                    │
+│  [Right: Explanation bullet points]                             │
+│    • Minimal API footprint                                      │
+│    • Well-documented interfaces                                 │
+│    • Example projects included                                  │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ARCHITECTURE DIAGRAM SECTION                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Full Software Approach with White Channel Architecture"       │
+│                                                                 │
+│  [DIAGRAM: Placeholder for architecture diagram showing:        │
+│   - Application Layer                                           │
+│   - AZIT Protocol Stack                                         │
+│   - White Channel / Black Channel separation                    │
+│   - Hardware Abstraction Layer                                  │
+│   - MCU/RTOS]                                                   │
+│                                                                 │
+│  Caption: "Our white channel architecture ensures complete      │
+│  control over safety certification without hardware lock-in"    │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TESTIMONIALS / CASE STUDIES (optional for mockup)              │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Trusted by Industry Leaders"                                  │
+│  [Placeholder for 2-3 testimonial cards]                        │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PARTNERS SECTION                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Technology Partners"                                          │
+│                                                                 │
+│  [NXP] [Intel] [Texas Instruments] [STMicroelectronics]        │
+│  [Acontis] [QNX] [SYSGO]                                       │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  BLOG/NEWS PREVIEW                                              │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Latest from AZIT"                                             │
+│                                                                 │
+│  [Article Card 1] [Article Card 2] [Article Card 3]            │
+│  - CRA Compliance  - FSoE Update   - Training Dates            │
+│                                                                 │
+│  [View All Articles →]                                          │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CTA SECTION                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Ready to Start Your Project?"                                 │
+│  [Request Quote]  [Contact Sales]                               │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                         [FOOTER]                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### Hero Image Specification
+**Placeholder Description:**  
+Create an abstract visualization of industrial network topology. Show interconnected nodes (representing devices) connected via stylized bus lines. Use the primary blue color palette with subtle orange accents for safety-related nodes. Include subtle grid lines and data flow animations (CSS-based).
+
+**Suggested Dimensions:** 1920x800px (desktop), responsive crop for mobile
+
+---
+
+### 4.3 Protocol Gateway Product Page (ISI-GTW)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Products > Protocol Gateway                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PRODUCT HERO - TWO COLUMN LAYOUT                               │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌──────────────────────────┬──────────────────────────────┐   │
+│  │                          │                              │   │
+│  │  [PRODUCT IMAGE:         │  ISI-GTW                     │   │
+│  │   Gateway device in      │  Multi-Protocol Gateway      │   │
+│  │   aluminum enclosure     │  ════════════════════════    │   │
+│  │   showing ports and      │                              │   │
+│  │   DIN rail mount]        │  Custom protocol conversion  │   │
+│  │                          │  for serial, CAN & Ethernet  │   │
+│  │  [Thumbnail gallery:     │  industrial networks.        │   │
+│  │   - PCB view             │                              │   │
+│  │   - Enclosure view       │  [Badge: Custom Development] │   │
+│  │   - Ports diagram]       │  [Badge: Made in France]     │   │
+│  │                          │  [Badge: ST Partner]         │   │
+│  │                          │                              │   │
+│  │                          │  [Request Quote]             │   │
+│  │                          │  [Download Brochure (PDF)]   │   │
+│  │                          │                              │   │
+│  └──────────────────────────┴──────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  KEY VALUE PROPOSITION                                          │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  "A True Electronic Translator for Your Equipment"      │   │
+│  │                                                         │   │
+│  │  ISI-GTW is an intelligent, versatile, and fully       │   │
+│  │  programmable communication gateway for product         │   │
+│  │  designers and integrators. It enables communication    │   │
+│  │  between heterogeneous equipment with serial, CAN,      │   │
+│  │  or Ethernet interfaces using different and often      │   │
+│  │  incompatible protocols.                                │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  SUPPORTED PROTOCOLS - VISUAL DIAGRAM                           │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [DIAGRAM: Central gateway with protocol connections            │
+│                                                                 │
+│     ┌─────────────┐                     ┌─────────────┐        │
+│     │  SERIAL     │                     │  ETHERNET   │        │
+│     │  ─────────  │                     │  ─────────  │        │
+│     │  RS232      │                     │  TCP/IP     │        │
+│     │  RS485      │──┐             ┌────│  EtherNet/IP│        │
+│     │  Modbus RTU │  │             │    │  Modbus TCP │        │
+│     └─────────────┘  │             │    │  EtherCAT   │        │
+│                      │  ┌───────┐  │    └─────────────┘        │
+│                      └─►│       │◄─┘                           │
+│     ┌─────────────┐     │ISI-GTW│     ┌─────────────┐          │
+│     │  CAN        │     │       │     │  CUSTOM     │          │
+│     │  ─────────  │────►│       │◄────│  ─────────  │          │
+│     │  CAN 2.0    │     └───────┘     │  Your       │          │
+│     │  CAN FD     │                   │  proprietary│          │
+│     │  CANopen    │                   │  protocol   │          │
+│     │  J1939      │                   └─────────────┘          │
+│     │  DeviceNet  │                                            │
+│     └─────────────┘                                            │
+│  ]                                                              │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TAB NAVIGATION                                                 │
+│  ─────────────────────────────────────────────────────────────  │
+│  [Features] [Form Factors] [Custom Development] [Specifications]│
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  FEATURES TAB                                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  KEY FEATURES                                           │   │
+│  │                                                         │   │
+│  │  ┌─────────────────────┐  ┌─────────────────────┐       │   │
+│  │  │ [Programmable Icon] │  │ [Multi-protocol     │       │   │
+│  │  │                     │  │  Icon]              │       │   │
+│  │  │ Fully Programmable  │  │ Multi-Protocol      │       │   │
+│  │  │ ──────────────────  │  │ Support             │       │   │
+│  │  │                     │  │ ──────────────────  │       │   │
+│  │  │ C/C++ programming   │  │ CAN, CANopen,       │       │   │
+│  │  │ in multitasking     │  │ J1939, Ethernet,    │       │   │
+│  │  │ environment. Full   │  │ EtherNet/IP,        │       │   │
+│  │  │ access to process   │  │ Modbus RTU/TCP,     │       │   │
+│  │  │ your data.          │  │ Serial RS232/485    │       │   │
+│  │  └─────────────────────┘  └─────────────────────┘       │   │
+│  │                                                         │   │
+│  │  ┌─────────────────────┐  ┌─────────────────────┐       │   │
+│  │  │ [Turnkey Icon]      │  │ [Expandable Icon]   │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │ Turnkey Solution    │  │ Expandable I/O      │       │   │
+│  │  │ ──────────────────  │  │ ──────────────────  │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │ AZIT handles        │  │ USB port, SD card   │       │   │
+│  │  │ development,        │  │ slot, DIP switches, │       │   │
+│  │  │ production, and     │  │ protected I/Os,     │       │   │
+│  │  │ packaging.          │  │ JTAG access.        │       │   │
+│  │  └─────────────────────┘  └─────────────────────┘       │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  DIFFERENTIATOR BOX:                                            │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  Unlike standard market gateways, ISI-GTW offers        │   │
+│  │  complete C/C++ programmability in a multitasking       │   │
+│  │  environment - giving you full control over data        │   │
+│  │  processing that off-the-shelf solutions cannot match.  │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  FORM FACTORS TAB                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Two Integration Options"                                      │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  ┌──────────────────────────┐ ┌────────────────────────┐│   │
+│  │  │                          │ │                        ││   │
+│  │  │  [IMAGE: PCB board]      │ │ [IMAGE: Aluminum case] ││   │
+│  │  │                          │ │                        ││   │
+│  │  │  PCB FORMAT              │ │ ENCLOSURE FORMAT       ││   │
+│  │  │  ISI-GTW-PCB             │ │ ISI-GTW-CASE           ││   │
+│  │  │  ──────────────────────  │ │ ────────────────────── ││   │
+│  │  │                          │ │                        ││   │
+│  │  │  • Bare board for        │ │ • Aluminum enclosure   ││   │
+│  │  │    custom enclosure      │ │ • DIN rail mounting    ││   │
+│  │  │  • 4 mounting holes      │ │ • Mechanical & EMC     ││   │
+│  │  │    for standoffs         │ │   protection           ││   │
+│  │  │  • Terminal block        │ │ • DB9 connectors for   ││   │
+│  │  │    connectors            │ │   secure connections   ││   │
+│  │  │                          │ │ • Industrial cabinet   ││   │
+│  │  │                          │ │   ready                ││   │
+│  │  │                          │ │                        ││   │
+│  │  │  [Request PCB Quote]     │ │ [Request Case Quote]   ││   │
+│  │  │                          │ │                        ││   │
+│  │  └──────────────────────────┘ └────────────────────────┘│   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CUSTOM DEVELOPMENT TAB                                         │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Tailored to Your Requirements"                                │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  Leveraging our expertise in industrial networks and    │   │
+│  │  embedded systems, AZIT can:                            │   │
+│  │                                                         │   │
+│  │  1. Study your specifications                           │   │
+│  │  2. Propose a custom solution based on ISI-GTW          │   │
+│  │  3. Handle development, production, and packaging       │   │
+│  │  4. Deliver your customized, scalable gateway           │   │
+│  │                                                         │   │
+│  │  [DIAGRAM: Development process flow                     │   │
+│  │   Requirements → Design → Development →                 │   │
+│  │   Testing → Production → Delivery]                      │   │
+│  │                                                         │   │
+│  │  WHAT WE OFFER:                                         │   │
+│  │  ───────────────                                        │   │
+│  │  ✓ Custom firmware development                          │   │
+│  │  ✓ Pre-loaded application software                      │   │
+│  │  ✓ Any quantity - from prototype to volume              │   │
+│  │  ✓ Flexible delivery scheduling                         │   │
+│  │  ✓ Ongoing firmware updates via JTAG                    │   │
+│  │  ✓ Long-term maintenance support                        │   │
+│  │                                                         │   │
+│  │  [Request Custom Development Quote]                     │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  SPECIFICATIONS TAB                                             │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  HARDWARE SPECIFICATIONS                                │   │
+│  │                                                         │   │
+│  │  | Interface     | Details                         |   │   │
+│  │  |---------------|----------------------------------|   │   │
+│  │  | Ethernet      | 10/100 Mbps                      |   │   │
+│  │  | CAN           | 2x CAN 2.0B / CAN FD             |   │   │
+│  │  | Serial        | RS232, RS485                     |   │   │
+│  │  | USB           | Device/Host                      |   │   │
+│  │  | Storage       | SD Card slot                     |   │   │
+│  │  | Debug         | JTAG interface                   |   │   │
+│  │  | I/O           | Protected digital I/O            |   │   │
+│  │  | Config        | DIP switches                     |   │   │
+│  │                                                         │   │
+│  │  SUPPORTED PROTOCOLS                                    │   │
+│  │                                                         │   │
+│  │  | Category      | Protocols                        |   │   │
+│  │  |---------------|----------------------------------|   │   │
+│  │  | Ethernet      | TCP/IP, EtherNet/IP, Modbus TCP, |   │   │
+│  │  |               | EtherCAT                         |   │   │
+│  │  | CAN           | CAN 2.0, CAN FD, CANopen,        |   │   │
+│  │  |               | J1939, DeviceNet                 |   │   │
+│  │  | Serial        | Modbus RTU, Custom               |   │   │
+│  │                                                         │   │
+│  │  MECHANICAL                                             │   │
+│  │                                                         │   │
+│  │  | Parameter     | Value                            |   │   │
+│  │  |---------------|----------------------------------|   │   │
+│  │  | PCB Mounting  | 4x standoff holes                |   │   │
+│  │  | Case Mounting | DIN rail clip                    |   │   │
+│  │  | Connectors    | Terminal blocks (PCB),           |   │   │
+│  │  |               | DB9 (Case)                       |   │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PORT DIAGRAM                                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [PLACEHOLDER IMAGE: Technical diagram showing all ports        │
+│   and connectors on ISI-GTW board/enclosure with labels:        │
+│   - Ethernet RJ45                                               │
+│   - CAN ports (x2)                                              │
+│   - RS232/RS485 serial                                          │
+│   - USB                                                         │
+│   - SD card slot                                                │
+│   - Power input                                                 │
+│   - JTAG header                                                 │
+│   - DIP switches                                                │
+│   - Digital I/O terminals]                                      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  RELATED PRODUCTS                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Complete Your Solution"                                       │
+│                                                                 │
+│  ┌────────────────┐ ┌────────────────┐ ┌────────────────┐      │
+│  │ CANopen Stack  │ │ J1939 Stack    │ │ Gateway Dev    │      │
+│  │                │ │                │ │ Services       │      │
+│  │ [Learn More]   │ │ [Learn More]   │ │ [Learn More]   │      │
+│  └────────────────┘ └────────────────┘ └────────────────┘      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  RELATED TRAINING                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Build Your Protocol Expertise"                                │
+│                                                                 │
+│  ┌────────────────┐ ┌────────────────┐ ┌────────────────┐      │
+│  │ CAN Training   │ │ CANopen        │ │ J1939          │      │
+│  │ 2 days         │ │ Training       │ │ Training       │      │
+│  │                │ │ 2 days         │ │ 2 days         │      │
+│  │ [View Details] │ │ [View Details] │ │ [View Details] │      │
+│  └────────────────┘ └────────────────┘ └────────────────┘      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CTA SECTION                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Need a Custom Gateway Solution?"                              │
+│                                                                 │
+│  Tell us about your protocol conversion requirements and        │
+│  our experts will propose a tailored solution.                  │
+│                                                                 │
+│  [Request Custom Quote]  [Download Brochure]  [Contact Expert]  │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                         [FOOTER]                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Image Assets Required for Protocol Gateway Page:**
+
+| Image | Dimensions | Description |
+|-------|------------|-------------|
+| isi-gtw-hero.jpg | 600x600 | Gateway in aluminum enclosure, professional product shot |
+| isi-gtw-pcb.jpg | 400x300 | PCB board view showing components |
+| isi-gtw-case.jpg | 400x300 | Aluminum enclosure with DIN rail mount |
+| isi-gtw-ports.png | 800x400 | Technical diagram showing all ports labeled |
+| protocol-diagram.svg | 1000x600 | SVG diagram showing gateway with protocol connections |
+
+**French Content Notes:**
+- "Passerelle multi-protocoles" = Multi-Protocol Gateway
+- "Sur mesure" = Custom / Tailored
+- "Clé en main" = Turnkey
+- Maintain technical terms in English: CAN, Ethernet, Modbus, etc.
+
+---
+
+### 4.4 Simulation Product Page (AZIT-SIM)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Products > Simulation                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PAGE HERO                                                      │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  AZIT-SIM                                               │   │
+│  │  Real-time Industrial Network Simulation                │   │
+│  │  ════════════════════════════════════════               │   │
+│  │                                                         │   │
+│  │  Run your industrial controller with a simulated        │   │
+│  │  network. Develop and test without physical hardware.   │   │
+│  │                                                         │   │
+│  │  Subtitle: Virtualize EtherCAT, CANopen, and FSoE       │   │
+│  │  networks for development, testing, and commissioning.  │   │
+│  │                                                         │   │
+│  │  [Request Evaluation]  [Download Datasheet]             │   │
+│  │                                                         │   │
+│  │  [HERO IMAGE: Diagram showing simulated network with    │   │
+│  │   virtual devices connected to a real controller,       │   │
+│  │   split screen showing code IDE on one side and         │   │
+│  │   simulated network topology on other]                  │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  KEY VALUE PROPOSITION                                          │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  AZIT-SIM virtualizes industrial networks by            │   │
+│  │  simulating slave/subordinate devices, enabling you     │   │
+│  │  to run master applications without real hardware.      │   │
+│  │                                                         │   │
+│  │  • Simulate via physical network adapter or virtually   │   │
+│  │  • Configure using your existing ENI/EDS files          │   │
+│  │  • React to Process Data (PDOs)                         │   │
+│  │  • Send and receive Service Data (SDOs)                 │   │
+│  │  • Interact with device state machines                  │   │
+│  │  • Connect to Digital Twin and simulation tools         │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ARCHITECTURE DIAGRAM                                           │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [DIAGRAM: High-level simulation architecture                   │
+│                                                                 │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │                    REAL CONTROLLER                      │  │
+│   │  ┌─────────────────────────────────────────────────┐   │  │
+│   │  │         Master Application (Your Code)          │   │  │
+│   │  └─────────────────────┬───────────────────────────┘   │  │
+│   │                        │                                │  │
+│   │  ┌─────────────────────▼───────────────────────────┐   │  │
+│   │  │         AZIT Protocol Stack (FSoE/CANopen)      │   │  │
+│   │  └─────────────────────┬───────────────────────────┘   │  │
+│   └────────────────────────┼────────────────────────────────┘  │
+│                            │                                    │
+│            ┌───────────────┴───────────────┐                   │
+│            │   Physical or Virtual Link    │                   │
+│            └───────────────┬───────────────┘                   │
+│                            │                                    │
+│   ┌────────────────────────┼────────────────────────────────┐  │
+│   │               AZIT-SIM (Simulation Host)                │  │
+│   │  ┌─────────────────────▼───────────────────────────┐   │  │
+│   │  │              Simulation Engine                   │   │  │
+│   │  └─────────────────────┬───────────────────────────┘   │  │
+│   │                        │                                │  │
+│   │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌────────┐ │  │
+│   │  │ Virtual  │  │ Virtual  │  │ Virtual  │  │  ...   │ │  │
+│   │  │ Device 1 │  │ Device 2 │  │ Device 3 │  │        │ │  │
+│   │  │ (Drive)  │  │ (I/O)    │  │ (Safety) │  │        │ │  │
+│   │  └──────────┘  └──────────┘  └──────────┘  └────────┘ │  │
+│   └─────────────────────────────────────────────────────────┘  │
+│  ]                                                              │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  USE CASES - CARD GRID                                          │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Accelerate Your Development Workflow"                         │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  ┌─────────────────────┐  ┌─────────────────────┐       │   │
+│  │  │ [Code Icon]         │  │ [Test Icon]         │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │ MASTER SOFTWARE     │  │ AUTOMATED TESTING   │       │   │
+│  │  │ DEVELOPMENT         │  │                     │       │   │
+│  │  │ ──────────────────  │  │ ──────────────────  │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │ • Run master app    │  │ • Replace manual    │       │   │
+│  │  │   without hardware  │  │   tests with        │       │   │
+│  │  │ • Test functions    │  │   automated scripts │       │   │
+│  │  │   for unavailable   │  │ • Simulate device   │       │   │
+│  │  │   devices           │  │   errors and        │       │   │
+│  │  │ • Validate with     │  │   state changes     │       │   │
+│  │  │   different configs │  │ • Simulate cable    │       │   │
+│  │  │ • Debug complex     │  │   breaks and        │       │   │
+│  │  │   topologies        │  │   frame loss        │       │   │
+│  │  │                     │  │ • Test large        │       │   │
+│  │  │                     │  │   networks          │       │   │
+│  │  └─────────────────────┘  └─────────────────────┘       │   │
+│  │                                                         │   │
+│  │  ┌─────────────────────┐  ┌─────────────────────┐       │   │
+│  │  │ [Digital Twin Icon] │  │ [Firmware Icon]     │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │ VIRTUAL             │  │ DEVICE FIRMWARE     │       │   │
+│  │  │ COMMISSIONING       │  │ DEVELOPMENT         │       │   │
+│  │  │ ──────────────────  │  │ ──────────────────  │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │ • Develop and test  │  │ • Develop firmware  │       │   │
+│  │  │   with Digital Twin │  │   before hardware   │       │   │
+│  │  │ • Start testing     │  │   is available      │       │   │
+│  │  │   before hardware   │  │ • Use convenient    │       │   │
+│  │  │   arrives           │  │   IDE debugging     │       │   │
+│  │  │ • Test dangerous    │  │ • Test with         │       │   │
+│  │  │   error scenarios   │  │   recorded data     │       │   │
+│  │  │   safely            │  │ • Test FoE, CoE,    │       │   │
+│  │  │                     │  │   VoE transfers     │       │   │
+│  │  └─────────────────────┘  └─────────────────────┘       │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  SIMULATION MODES - TAB NAVIGATION                              │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [Hardware-in-the-Loop (HiL)]  [Software-in-the-Loop (SiL)]    │
+│            ▼                                                    │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  HARDWARE-IN-THE-LOOP (HiL) SIMULATION                  │   │
+│  │  ─────────────────────────────────────────              │   │
+│  │                                                         │   │
+│  │  "All Devices Simulated"                                │   │
+│  │                                                         │   │
+│  │  The System-Under-Test (SUT) communicates via physical  │   │
+│  │  network cable with AZIT-SIM running on external        │   │
+│  │  hardware. No special hardware required - standard      │   │
+│  │  PC or embedded processor with Ethernet works.          │   │
+│  │                                                         │   │
+│  │  [DIAGRAM: HiL architecture                             │   │
+│  │   ┌──────────────┐         ┌──────────────┐            │   │
+│  │   │    YOUR      │ Physical│   HiL SYSTEM │            │   │
+│  │   │  CONTROLLER  │◄───────►│   AZIT-SIM   │            │   │
+│  │   │  (Master)    │ Ethernet│              │            │   │
+│  │   └──────────────┘         │ [Simulated   │            │   │
+│  │                            │  Devices]    │            │   │
+│  │                            └──────────────┘            │   │
+│  │  ]                                                      │   │
+│  │                                                         │   │
+│  │  "Mixed Real and Simulated Devices"                     │   │
+│  │                                                         │   │
+│  │  • HiL with multiple ports can connect anywhere         │   │
+│  │  • Mix real devices with simulated ones                 │   │
+│  │  • Create Digital Twin step-by-step                     │   │
+│  │  • Simulate errors at any network location              │   │
+│  │                                                         │   │
+│  │  [DIAGRAM: Mixed topology with real + simulated         │   │
+│  │   devices on same network]                              │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  SOFTWARE-IN-THE-LOOP (SiL) SIMULATION                  │   │
+│  │  ─────────────────────────────────────────              │   │
+│  │                                                         │   │
+│  │  The network is simulated entirely in software on the   │   │
+│  │  same machine as your controller. No separate hardware  │   │
+│  │  or physical network interface required!                │   │
+│  │                                                         │   │
+│  │  AZIT-SIM replaces the Ethernet controller driver,      │   │
+│  │  exchanging frames directly with your application.      │   │
+│  │                                                         │   │
+│  │  [DIAGRAM: SiL architecture showing single system       │   │
+│  │   with master app and simulation in same process]       │   │
+│  │                                                         │   │
+│  │  Benefits:                                              │   │
+│  │  ✓ No additional hardware required                      │   │
+│  │  ✓ Run in VM or cloud environment                       │   │
+│  │  ✓ Perfect for CI/CD pipelines                          │   │
+│  │  ✓ Deterministic timing for reproducible tests          │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  SUPPORTED PROTOCOLS                                            │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌────────────────┐ ┌────────────────┐ ┌────────────────┐      │
+│  │    EtherCAT    │ │    CANopen     │ │     FSoE       │      │
+│  │    ─────────   │ │    ─────────   │ │    ─────────   │      │
+│  │ • Full network │ │ • NMT states   │ │ • Safety       │      │
+│  │   simulation   │ │ • PDO/SDO      │ │   simulation   │      │
+│  │ • DC support   │ │ • EMCY         │ │ • Fail-safe    │      │
+│  │ • CoE, FoE,    │ │ • Object Dict  │ │   states       │      │
+│  │   VoE, SoE     │ │                │ │ • Error inject │      │
+│  │ • Up to 2000   │ │                │ │                │      │
+│  │   devices      │ │                │ │                │      │
+│  └────────────────┘ └────────────────┘ └────────────────┘      │
+│                                                                 │
+│  ┌────────────────┐ ┌────────────────┐                         │
+│  │  CANopen       │ │    J1939       │                         │
+│  │  Safety        │ │    ─────────   │                         │
+│  │  ─────────     │ │ • Message      │                         │
+│  │ • SRDO         │ │   simulation   │                         │
+│  │   simulation   │ │ • DM messages  │                         │
+│  │ • Safe state   │ │ • Address      │                         │
+│  │   testing      │ │   claiming     │                         │
+│  └────────────────┘ └────────────────┘                         │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PROGRAMMING INTERFACE (API)                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Full Control via C/C++ or .NET API"                          │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  PROCESS DATA HANDLING                                  │   │
+│  │  ─────────────────────                                  │   │
+│  │  Multiple options for each simulated device:            │   │
+│  │                                                         │   │
+│  │  • Default: Control from process data image             │   │
+│  │  • Sample App: Use built-in CiA 402 drive profile       │   │
+│  │  • Custom: Implement own device firmware hooks          │   │
+│  │                                                         │   │
+│  │  NETWORK OPERATIONS                                     │   │
+│  │  ──────────────────                                     │   │
+│  │  • Change network topology dynamically                  │   │
+│  │  • Disconnect/connect/move devices                      │   │
+│  │  • Power down/up devices                                │   │
+│  │  • Change device states (PREOP, SAFEOP, OP)             │   │
+│  │  • Simulate lost frames at specific device/port         │   │
+│  │  • Simulate link loss at specific device/port           │   │
+│  │                                                         │   │
+│  │  DIAGNOSIS FUNCTIONS                                    │   │
+│  │  ───────────────────                                    │   │
+│  │  • Read/write device registers                          │   │
+│  │  • Read/write EEPROM content                            │   │
+│  │  • Access object dictionary                             │   │
+│  │  • Evaluate network topology                            │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  CODE EXAMPLE:                                                  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │ /* Simulate device error */                             │   │
+│  │ AZIT_SIM_SetDeviceState(                                │   │
+│  │     hSim,                                               │   │
+│  │     deviceId,                                           │   │
+│  │     AZIT_STATE_SAFEOP  /* Force device to SafeOp */    │   │
+│  │ );                                                      │   │
+│  │                                                         │   │
+│  │ /* Simulate cable break */                              │   │
+│  │ AZIT_SIM_SimulateLinkLoss(hSim, deviceId, PORT_A);     │   │
+│  │                                                         │   │
+│  │ /* Inject frame loss */                                 │   │
+│  │ AZIT_SIM_SetFrameLossRate(hSim, deviceId, 0.01);       │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  DIGITAL TWIN INTEGRATION                                       │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Connect to Your Simulation Environment"                       │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  FUNCTIONAL MOCK-UP INTERFACE (FMI)                     │   │
+│  │  ──────────────────────────────────                     │   │
+│  │                                                         │   │
+│  │  • Process data simulation using FMU models             │   │
+│  │  • Compatible with Matlab, Simulink, Dymola, etc.       │   │
+│  │  • AZIT-SIM FMI Library provides all needed APIs        │   │
+│  │  • Use ready-to-run example applications                │   │
+│  │                                                         │   │
+│  │  [DIAGRAM: FMI integration architecture                 │   │
+│  │   ┌──────────────┐     ┌──────────────┐                │   │
+│  │   │  AZIT-SIM    │◄───►│  FMU Model   │                │   │
+│  │   │              │     │  (Matlab/    │                │   │
+│  │   │  PDI ◄──────►│     │   Simulink)  │                │   │
+│  │   └──────────────┘     └──────────────┘                │   │
+│  │  ]                                                      │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  FEATURES & SPECIFICATIONS                                      │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  | Feature                        | Specification         |    │
+│  |--------------------------------|-----------------------|    │
+│  | Max simulated devices          | Up to 2000            |    │
+│  | Mailbox protocols              | CoE, VoE, FoE, SoE    |    │
+│  | PDO configuration              | Via CoE               |    │
+│  | Object dictionary              | Basic OD included     |    │
+│  | Distributed clocks             | Supported             |    │
+│  | Programming languages          | C/C++, .NET           |    │
+│  | Supported OS                   | Windows, Linux, QNX   |    │
+│  |                                | VxWorks, others       |    │
+│  | Compatible masters             | AZIT stacks, TwinCAT, |    │
+│  |                                | CODESYS (add-on)      |    │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  BENEFITS SECTION                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌──────────────────────────┐ ┌──────────────────────────┐     │
+│  │  SAVE EFFORT & COST      │ │  IMPROVE QUALITY         │     │
+│  │  ────────────────────    │ │  ────────────────────    │     │
+│  │                          │ │                          │     │
+│  │  ✓ Develop independently │ │  ✓ Automated regression  │     │
+│  │    of hardware           │ │    tests in CI/CD        │     │
+│  │  ✓ No device shortage    │ │  ✓ Faster iterations     │     │
+│  │    for developers        │ │  ✓ Test without          │     │
+│  │  ✓ Save hardware, space, │ │    physical hardware     │     │
+│  │    and energy costs      │ │  ✓ Reproduce customer    │     │
+│  │  ✓ Quick config switch   │ │    issues in-house       │     │
+│  │    via different ENI     │ │                          │     │
+│  │                          │ │                          │     │
+│  └──────────────────────────┘ └──────────────────────────┘     │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  RELATED PRODUCTS                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌────────────────┐ ┌────────────────┐ ┌────────────────┐      │
+│  │ FSoE Stack     │ │ CANopen Stack  │ │ Protocol       │      │
+│  │                │ │                │ │ Gateway        │      │
+│  │ [Learn More]   │ │ [Learn More]   │ │ [Learn More]   │      │
+│  └────────────────┘ └────────────────┘ └────────────────┘      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CTA SECTION                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Start Simulating Today"                                       │
+│                                                                 │
+│  Request a free evaluation license to test AZIT-SIM with        │
+│  your application. Our engineers will help you get started.     │
+│                                                                 │
+│  [Request Free Evaluation]  [Download Datasheet]  [Contact Us]  │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                         [FOOTER]                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Image Assets Required for Simulation Page:**
+
+| Image | Dimensions | Description |
+|-------|------------|-------------|
+| sim-hero.png | 1200x600 | Split view: code IDE + simulated network topology |
+| sim-architecture.svg | 1000x600 | High-level architecture diagram |
+| sim-hil.svg | 800x400 | Hardware-in-the-loop diagram |
+| sim-hil-mixed.svg | 800x400 | Mixed real/simulated devices diagram |
+| sim-sil.svg | 800x400 | Software-in-the-loop diagram |
+| sim-fmi.svg | 600x400 | FMI integration architecture |
+
+**French Content Notes:**
+- "Simulation de réseau industriel" = Industrial network simulation
+- "Mise en service virtuelle" = Virtual commissioning
+- "Jumeau numérique" = Digital Twin
+- Keep technical terms: HiL, SiL, FMI, FMU, PDO, SDO
+
+---
+
+### 4.5 Communication Stacks Overview Page
+
+#### Content Structure
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Products > Communication Stacks             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PAGE HEADER                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Industrial Communication Stacks"                              │
+│  Subtitle: Production-ready protocol implementations            │
+│  for safety-critical embedded systems                           │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  FILTER/CATEGORY TABS                                           │
+│  ─────────────────────────────────────────────────────────────  │
+│  [All] [Safety Protocols] [Fieldbus] [Automotive] [Coming Soon] │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PRODUCT GRID                                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  SAFETY PROTOCOLS                                        │   │
+│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐   │   │
+│  │  │ FSoE     │ │ FSoE     │ │ CANopen  │ │ CANopen  │   │   │
+│  │  │ Slave    │ │ Master   │ │ Safety   │ │ Safety   │   │   │
+│  │  │ [SIL3]   │ │ [SIL3]   │ │ Slave    │ │ Master   │   │   │
+│  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘   │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  FIELDBUS PROTOCOLS                                      │   │
+│  │  ┌──────────┐ ┌──────────┐                               │   │
+│  │  │ CANopen  │ │ CANopen  │                               │   │
+│  │  │ Slave    │ │ Master   │                               │   │
+│  │  └──────────┘ └──────────┘                               │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  AUTOMOTIVE                                              │   │
+│  │  ┌──────────┐                                            │   │
+│  │  │ J1939    │                                            │   │
+│  │  │ (+Safety)│                                            │   │
+│  │  └──────────┘                                            │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  COMING SOON (grayed out, with notification signup)      │   │
+│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐   │   │
+│  │  │ OPC-UA   │ │ OPC-UA   │ │ CIP      │ │ UDS      │   │   │
+│  │  │          │ │ FX       │ │ Safety   │ │          │   │   │
+│  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘   │   │
+│  │  ┌──────────┐                                            │   │
+│  │  │ Wireless │                                            │   │
+│  │  │ Safety   │                                            │   │
+│  │  └──────────┘                                            │   │
+│  │  [Notify me when available]                              │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  COMPARISON TABLE                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Compare Our Stacks"                                           │
+│                                                                 │
+│  | Feature          | FSoE | CANopen Safety | J1939 |          │
+│  |------------------|------|----------------|-------|          │
+│  | Safety Level     | SIL3 | SIL3           | SIL2  |          │
+│  | Certification    | TÜV  | TÜV            | TÜV   |          │
+│  | Source Code      | Yes  | Yes            | Yes   |          │
+│  | RTOS Support     | Any  | Any            | Any   |          │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  CTA + FOOTER                                                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.6 Product Detail Page Template (FSoE Slave Example)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Products > Communication Stacks > FSoE Slave│
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PRODUCT HERO                                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  [FSoE Icon]                                            │   │
+│  │                                                         │   │
+│  │  FSoE Slave Stack                                       │   │
+│  │  ═══════════════                                        │   │
+│  │  IEC 61784-3 compliant Fail-Safe over EtherCAT         │   │
+│  │  implementation for safety slave devices                │   │
+│  │                                                         │   │
+│  │  [Badge: SIL3 Certified] [Badge: TÜV Approved]         │   │
+│  │  [Badge: Full Source Code]                              │   │
+│  │                                                         │   │
+│  │  [Request Quote]  [Download Datasheet]                  │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TAB NAVIGATION                                                 │
+│  ─────────────────────────────────────────────────────────────  │
+│  [Overview] [Features] [Specifications] [Integration] [Support] │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  OVERVIEW TAB CONTENT                                           │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  Two-column layout:                                             │
+│                                                                 │
+│  LEFT COLUMN (60%):                                             │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  "What is FSoE?"                                        │   │
+│  │                                                         │   │
+│  │  FSoE (Fail-Safe over EtherCAT) is the safety protocol │   │
+│  │  extension for EtherCAT networks, enabling SIL3/PLe    │   │
+│  │  safety communication in industrial automation...       │   │
+│  │                                                         │   │
+│  │  "AZIT FSoE Slave Stack"                                │   │
+│  │                                                         │   │
+│  │  Our FSoE Slave implementation provides a complete,     │   │
+│  │  certified solution for integrating safety functions    │   │
+│  │  into your EtherCAT slave devices...                    │   │
+│  │                                                         │   │
+│  │  [DIAGRAM: FSoE communication model showing Master      │   │
+│  │   and Slave interaction with safety data exchange]      │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  RIGHT COLUMN (40%):                                            │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  KEY BENEFITS BOX                                       │   │
+│  │  ─────────────────                                      │   │
+│  │  ✓ SIL3 / PLe certified by TÜV                         │   │
+│  │  ✓ No third-party dependencies                          │   │
+│  │  ✓ White channel architecture                           │   │
+│  │  ✓ Full source code provided                            │   │
+│  │  ✓ Hardware agnostic                                    │   │
+│  │  ✓ RTOS independent                                     │   │
+│  │  ✓ Expert technical support                             │   │
+│  │                                                         │   │
+│  │  QUICK SPECS BOX                                        │   │
+│  │  ─────────────────                                      │   │
+│  │  Safety Level: SIL3 / PLe                               │   │
+│  │  Standard: IEC 61784-3                                  │   │
+│  │  Code Size: ~50KB (typical)                             │   │
+│  │  RAM: ~8KB (typical)                                    │   │
+│  │  Languages: ANSI C                                      │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CODE INTEGRATION EXAMPLE                                       │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Quick Start Integration"                                      │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │ /* FSoE Slave initialization */                         │   │
+│  │ #include "fsoe_slave.h"                                 │   │
+│  │                                                         │   │
+│  │ FSOE_SLAVE_CONFIG config = {                            │   │
+│  │     .connection_id = 0x0001,                            │   │
+│  │     .watchdog_time = 100,  /* ms */                     │   │
+│  │     .safe_inputs = 8,                                   │   │
+│  │     .safe_outputs = 8                                   │   │
+│  │ };                                                      │   │
+│  │                                                         │   │
+│  │ fsoe_slave_init(&config);                               │   │
+│  │ fsoe_slave_start();                                     │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ARCHITECTURE DIAGRAM                                           │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [PLACEHOLDER DIAGRAM: White Channel Architecture               │
+│   ┌───────────────────────────────────────────────────────┐    │
+│   │           Application Layer (User Code)               │    │
+│   ├───────────────────────────────────────────────────────┤    │
+│   │    ┌─────────────────┐    ┌────────────────────┐     │    │
+│   │    │  AZIT FSoE      │    │  Safety Logic      │     │    │
+│   │    │  Slave Stack    │◄──►│  (User)            │     │    │
+│   │    │  (White Channel)│    │                    │     │    │
+│   │    └────────┬────────┘    └────────────────────┘     │    │
+│   ├─────────────┼─────────────────────────────────────────┤    │
+│   │    ┌────────▼────────┐                                │    │
+│   │    │  EtherCAT Slave │    Black Channel               │    │
+│   │    │  Stack          │    (Acontis / Other)           │    │
+│   │    └────────┬────────┘                                │    │
+│   ├─────────────┼─────────────────────────────────────────┤    │
+│   │    ┌────────▼────────┐                                │    │
+│   │    │  HAL / BSP      │    Hardware Abstraction        │    │
+│   │    └────────┬────────┘                                │    │
+│   ├─────────────┼─────────────────────────────────────────┤    │
+│   │    ┌────────▼────────┐                                │    │
+│   │    │  MCU + RTOS     │    Target Hardware             │    │
+│   │    └─────────────────┘                                │    │
+│   └───────────────────────────────────────────────────────┘    │
+│  ]                                                              │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  RELATED PRODUCTS                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│  [FSoE Master] [CANopen Safety Slave] [Porting Services]       │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  DOCUMENTATION LINKS                                            │
+│  ─────────────────────────────────────────────────────────────  │
+│  [Datasheet PDF]  [Integration Guide]  [API Reference]         │
+│  [Application Notes]  [Certification Documents]                 │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  CTA: Request Quote + Contact Expert                            │
+├─────────────────────────────────────────────────────────────────┤
+│                         [FOOTER]                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.7 Coming Soon Product Page Template
+
+For OPC-UA, OPC-UA FX, CIP Safety, UDS, Wireless Safety:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB                                                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  [Protocol Icon - Grayed]                               │   │
+│  │                                                         │   │
+│  │  OPC-UA Stack                                           │   │
+│  │  ═══════════════                                        │   │
+│  │  [COMING SOON Badge]                                    │   │
+│  │                                                         │   │
+│  │  We're developing an OPC-UA implementation with         │   │
+│  │  the same quality standards as our safety stacks.       │   │
+│  │                                                         │   │
+│  │  Expected: Q3 2025                                      │   │
+│  │                                                         │   │
+│  │  ┌─────────────────────────────────────────────────┐   │   │
+│  │  │  Get notified when available                    │   │   │
+│  │  │  [Email input]  [Notify Me]                     │   │   │
+│  │  └─────────────────────────────────────────────────┘   │   │
+│  │                                                         │   │
+│  │  Planned Features:                                      │   │
+│  │  • Full OPC-UA stack implementation                    │   │
+│  │  • Security profiles support                            │   │
+│  │  • Information modeling tools                           │   │
+│  │  • Same hardware independence philosophy               │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  Meanwhile, explore our available stacks:                       │
+│  [FSoE] [CANopen] [CANopen Safety] [J1939]                     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.8 Services Page (Porting & Maintenance)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  PAGE HEADER                                                    │
+│  "Expert Services for Protocol Integration"                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TWO SERVICE CARDS SIDE BY SIDE                                 │
+│                                                                 │
+│  ┌──────────────────────────┐ ┌──────────────────────────┐     │
+│  │  PORTING ACTIVITIES      │ │  MAINTENANCE SUPPORT     │     │
+│  │  ──────────────────────  │ │  ──────────────────────  │     │
+│  │                          │ │                          │     │
+│  │  [Icon: Code transfer]   │ │  [Icon: Support]         │     │
+│  │                          │ │                          │     │
+│  │  We port AZIT stacks to  │ │  Long-term support for   │     │
+│  │  your target hardware    │ │  your deployed systems   │     │
+│  │  and RTOS environment.   │ │  with updates and fixes. │     │
+│  │                          │ │                          │     │
+│  │  Includes:               │ │  Includes:               │     │
+│  │  • HAL development       │ │  • Bug fixes             │     │
+│  │  • BSP integration       │ │  • Security patches      │     │
+│  │  • Testing & validation  │ │  • Standard updates      │     │
+│  │  • Documentation         │ │  • Priority support      │     │
+│  │                          │ │                          │     │
+│  │  [Learn More]            │ │  [Learn More]            │     │
+│  └──────────────────────────┘ └──────────────────────────┘     │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  SUPPORTED PLATFORMS                                            │
+│  ─────────────────────────────────────────────────────────────  │
+│  MCU Partners: [NXP] [STMicro] [TI] [Intel]                    │
+│  RTOS Partners: [QNX] [SYSGO PikeOS] [FreeRTOS] [Bare-metal]   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  PROCESS DIAGRAM                                                │
+│  ─────────────────────────────────────────────────────────────  │
+│  [PLACEHOLDER: Service delivery workflow diagram                │
+│   1. Requirements → 2. Analysis → 3. Development →             │
+│   4. Testing → 5. Delivery → 6. Support]                       │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.8.1 Expertise Overview Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Services > Expertise                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PAGE HERO                                                      │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  "Expert Services for Safety-Critical Systems"          │   │
+│  │  ═══════════════════════════════════════════════════   │   │
+│  │                                                         │   │
+│  │  30+ years of embedded software expertise at your       │   │
+│  │  service. From compliance consulting to protocol        │   │
+│  │  integration, we support your entire project lifecycle. │   │
+│  │                                                         │   │
+│  │  [Request Consultation]  [View Case Studies]            │   │
+│  │                                                         │   │
+│  │  [HERO IMAGE: Abstract illustration showing expertise   │   │
+│  │   pillars - compliance shield, code brackets,           │   │
+│  │   testing checkmark, network nodes]                     │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  KEY STATS BAR                                                  │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌────────────┬────────────┬────────────┬────────────┐         │
+│  │    30+     │    500+    │    100%    │    SIL3    │         │
+│  │   Years    │  Projects  │  In-house  │  Certified │         │
+│  │ Experience │ Delivered  │ Development│  Experts   │         │
+│  └────────────┴────────────┴────────────┴────────────┘         │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  EXPERTISE AREAS - INTERACTIVE CARDS                            │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Our Areas of Expertise"                                       │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  ┌─────────────────────┐  ┌─────────────────────┐       │   │
+│  │  │  [Shield Icon]      │  │  [Code Icon]        │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  SAFETY COMPLIANCE  │  │  PROTOCOL           │       │   │
+│  │  │  ─────────────────  │  │  DEVELOPMENT        │       │   │
+│  │  │                     │  │  ─────────────────  │       │   │
+│  │  │  Navigate safety    │  │  Custom protocol    │       │   │
+│  │  │  standards with     │  │  implementation     │       │   │
+│  │  │  confidence:        │  │  and integration:   │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  • IEC 61508        │  │  • Stack porting    │       │   │
+│  │  │  • ISO 13849        │  │  • HAL development  │       │   │
+│  │  │  • IEC 62443        │  │  • Custom features  │       │   │
+│  │  │  • ISO 26262        │  │  • Performance opt. │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  [Explore →]        │  │  [Explore →]        │       │   │
+│  │  └─────────────────────┘  └─────────────────────┘       │   │
+│  │                                                         │   │
+│  │  ┌─────────────────────┐  ┌─────────────────────┐       │   │
+│  │  │  [Test Icon]        │  │  [Network Icon]     │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  TESTING &          │  │  INDUSTRIAL         │       │   │
+│  │  │  VALIDATION         │  │  NETWORKS           │       │   │
+│  │  │  ─────────────────  │  │  ─────────────────  │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  Comprehensive      │  │  Master industrial  │       │   │
+│  │  │  verification and   │  │  communication:     │       │   │
+│  │  │  validation:        │  │                     │       │   │
+│  │  │                     │  │  • Protocol training│       │   │
+│  │  │  • Unit testing     │  │  • Network analysis │       │   │
+│  │  │  • Integration      │  │  • Diagnostics      │       │   │
+│  │  │  • Conformance      │  │  • Gateway dev      │       │   │
+│  │  │  • Certification    │  │                     │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  [Explore →]        │  │  [Explore →]        │       │   │
+│  │  └─────────────────────┘  └─────────────────────┘       │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  EXPERTISE LIFECYCLE DIAGRAM                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Full Project Lifecycle Support"                               │
+│                                                                 │
+│  [DIAGRAM: Circular/linear flow showing:                        │
+│   ┌──────────┐    ┌──────────┐    ┌──────────┐                 │
+│   │ CONSULT  │───►│ DEVELOP  │───►│  TEST    │                 │
+│   │          │    │          │    │          │                 │
+│   │ • Gap    │    │ • Design │    │ • Unit   │                 │
+│   │   analysis│   │ • Code   │    │ • Integ  │                 │
+│   │ • Roadmap│    │ • Review │    │ • System │                 │
+│   └──────────┘    └──────────┘    └──────────┘                 │
+│        │                               │                        │
+│        │         ┌──────────┐          │                        │
+│        └────────►│ CERTIFY  │◄─────────┘                        │
+│                  │          │                                   │
+│                  │ • Pre-audit                                  │
+│                  │ • Documentation                              │
+│                  │ • TÜV support                                │
+│                  └──────────┘                                   │
+│  ]                                                              │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CLIENT TESTIMONIALS                                            │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Trusted by Industry Leaders"                                  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  [Carousel of 3-4 testimonial cards]                    │   │
+│  │                                                         │   │
+│  │  ┌───────────────────────────────────────────────────┐ │   │
+│  │  │  [Client Logo]                                    │ │   │
+│  │  │                                                   │ │   │
+│  │  │  "AZIT's expertise in CANopen Safety was         │ │   │
+│  │  │   instrumental in achieving our SIL3             │ │   │
+│  │  │   certification on schedule."                    │ │   │
+│  │  │                                                   │ │   │
+│  │  │  — Project Lead, [Company]                       │ │   │
+│  │  │  [View Case Study →]                             │ │   │
+│  │  └───────────────────────────────────────────────────┘ │   │
+│  │                                                         │   │
+│  │  [◄ Prev]  [● ○ ○ ○]  [Next ►]                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  STANDARDS & CERTIFICATIONS WE SUPPORT                          │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [Grid of standard logos/badges with hover tooltips]            │
+│                                                                 │
+│  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐       │
+│  │IEC     │ │ISO     │ │IEC     │ │ISO     │ │DO-178C │       │
+│  │61508   │ │13849   │ │62443   │ │26262   │ │        │       │
+│  │SIL1-3  │ │PLa-PLe │ │Cyber   │ │ASIL    │ │DAL A-E │       │
+│  └────────┘ └────────┘ └────────┘ └────────┘ └────────┘       │
+│                                                                 │
+│  ┌────────┐ ┌────────┐ ┌────────┐                              │
+│  │IEC     │ │EN      │ │EU CRA  │                              │
+│  │61784-3 │ │50128   │ │NIS2    │                              │
+│  │FSoE    │ │Rail    │ │Cyber   │                              │
+│  └────────┘ └────────┘ └────────┘                              │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CTA SECTION                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Let's Discuss Your Project"                                   │
+│                                                                 │
+│  Schedule a free consultation with our experts to explore       │
+│  how AZIT can accelerate your safety-critical development.      │
+│                                                                 │
+│  [Request Consultation]  [Download Expertise Brochure]          │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                         [FOOTER]                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.8.2 Safety Compliance Expertise Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Services > Expertise > Safety Compliance    │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PAGE HEADER                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  [Shield Icon - Large]                                  │   │
+│  │                                                         │   │
+│  │  "Safety Compliance Expertise"                          │   │
+│  │  ═══════════════════════════════                        │   │
+│  │                                                         │   │
+│  │  Navigate safety standards with confidence. Our         │   │
+│  │  certified experts guide you from gap analysis          │   │
+│  │  to successful certification.                           │   │
+│  │                                                         │   │
+│  │  [Request Assessment]  [View Standards We Cover]        │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  THREE SERVICE PILLARS - TAB NAVIGATION                         │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [Consulting]  [Pre-Audits]  [Standards Training]               │
+│       ▼                                                         │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  CONSULTING TAB CONTENT                                 │   │
+│  │  ─────────────────────                                  │   │
+│  │                                                         │   │
+│  │  Two columns:                                           │   │
+│  │                                                         │   │
+│  │  LEFT (60%):                                            │   │
+│  │  "Strategic Safety Consulting"                          │   │
+│  │                                                         │   │
+│  │  Our safety consultants help you understand and         │   │
+│  │  implement the right standards for your application     │   │
+│  │  domain. We provide:                                    │   │
+│  │                                                         │   │
+│  │  • Gap Analysis                                         │   │
+│  │    Assess your current state vs. target compliance      │   │
+│  │                                                         │   │
+│  │  • Roadmap Development                                  │   │
+│  │    Create actionable certification pathway              │   │
+│  │                                                         │   │
+│  │  • Process Definition                                   │   │
+│  │    Establish development processes that meet standards  │   │
+│  │                                                         │   │
+│  │  • Tool Qualification                                   │   │
+│  │    Qualify your toolchain for safety development        │   │
+│  │                                                         │   │
+│  │  • Documentation Review                                 │   │
+│  │    Ensure artifacts meet certification requirements     │   │
+│  │                                                         │   │
+│  │  RIGHT (40%):                                           │   │
+│  │  ┌───────────────────────────────────────────────────┐ │   │
+│  │  │  TYPICAL ENGAGEMENT                               │ │   │
+│  │  │  ─────────────────────                            │ │   │
+│  │  │                                                   │ │   │
+│  │  │  Duration: 2-8 weeks                              │ │   │
+│  │  │  Deliverables:                                    │ │   │
+│  │  │  • Gap analysis report                           │ │   │
+│  │  │  • Compliance roadmap                            │ │   │
+│  │  │  • Process recommendations                       │ │   │
+│  │  │  • Cost/timeline estimates                       │ │   │
+│  │  │                                                   │ │   │
+│  │  │  [Request Consulting Quote]                       │ │   │
+│  │  └───────────────────────────────────────────────────┘ │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  PRE-AUDITS TAB CONTENT                                 │   │
+│  │  ─────────────────────                                  │   │
+│  │                                                         │   │
+│  │  "Pre-Audit Assessment Services"                        │   │
+│  │                                                         │   │
+│  │  Prepare for certification with confidence. Our         │   │
+│  │  pre-audit service simulates the actual certification   │   │
+│  │  process to identify gaps before the official audit.    │   │
+│  │                                                         │   │
+│  │  [DIAGRAM: Pre-audit process flow                       │   │
+│  │   1. Scope Definition                                   │   │
+│  │   2. Documentation Review                               │   │
+│  │   3. Technical Assessment                               │   │
+│  │   4. Findings Report                                    │   │
+│  │   5. Remediation Support                                │   │
+│  │   6. Re-assessment (optional)]                          │   │
+│  │                                                         │   │
+│  │  Benefits:                                              │   │
+│  │  ✓ Reduce certification risk and timeline              │   │
+│  │  ✓ Identify issues before costly official audit        │   │
+│  │  ✓ Get actionable remediation guidance                 │   │
+│  │  ✓ Gain confidence in certification readiness          │   │
+│  │                                                         │   │
+│  │  [Schedule Pre-Audit]                                   │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  STANDARDS TRAINING TAB CONTENT                         │   │
+│  │  ─────────────────────                                  │   │
+│  │                                                         │   │
+│  │  "Standards & Certification Training"                   │   │
+│  │                                                         │   │
+│  │  Build internal expertise with our comprehensive        │   │
+│  │  training programs on safety and cybersecurity          │   │
+│  │  standards.                                             │   │
+│  │                                                         │   │
+│  │  Available Courses:                                     │   │
+│  │                                                         │   │
+│  │  ┌────────────────┐ ┌────────────────┐                 │   │
+│  │  │ IEC 61508      │ │ ISO 26262      │                 │   │
+│  │  │ Fundamentals   │ │ Automotive     │                 │   │
+│  │  │ 2 days         │ │ 3 days         │                 │   │
+│  │  └────────────────┘ └────────────────┘                 │   │
+│  │                                                         │   │
+│  │  ┌────────────────┐ ┌────────────────┐                 │   │
+│  │  │ IEC 62443      │ │ DO-178C        │                 │   │
+│  │  │ Cybersecurity  │ │ Avionics       │                 │   │
+│  │  │ 2 days         │ │ 3 days         │                 │   │
+│  │  └────────────────┘ └────────────────┘                 │   │
+│  │                                                         │   │
+│  │  ┌────────────────┐ ┌────────────────┐                 │   │
+│  │  │ EU CRA / NIS2  │ │ Custom         │                 │   │
+│  │  │ Compliance     │ │ Training       │                 │   │
+│  │  │ 1 day          │ │ On request     │                 │   │
+│  │  └────────────────┘ └────────────────┘                 │   │
+│  │                                                         │   │
+│  │  [View Training Calendar]  [Request Custom Training]    │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  STANDARDS COVERAGE MATRIX                                      │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Standards We Support"                                         │
+│                                                                 │
+│  | Domain       | Standard      | Services Available     |      │
+│  |--------------|---------------|------------------------|      │
+│  | General      | IEC 61508     | Full support           |      │
+│  | Industrial   | IEC 62443     | Full support           |      │
+│  | Automotive   | ISO 26262     | Consulting + Training  |      │
+│  | Automotive   | ISO 21434     | Consulting + Training  |      │
+│  | Avionics     | DO-178C       | Consulting + Training  |      │
+│  | Rail         | EN 50128      | Consulting             |      │
+│  | Medical      | IEC 62304     | Consulting             |      │
+│  | EU Cyber     | CRA / NIS2    | Full support           |      │
+│  | Machinery    | ISO 13849     | Full support           |      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  CTA + RELATED SERVICES + FOOTER                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.8.3 Protocol Development Expertise Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Services > Expertise > Protocol Development │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PAGE HEADER                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  [Code Brackets Icon - Large]                           │   │
+│  │                                                         │   │
+│  │  "Protocol Development Expertise"                       │   │
+│  │  ════════════════════════════════                       │   │
+│  │                                                         │   │
+│  │  Custom protocol implementation and integration         │   │
+│  │  by engineers who understand safety-critical systems.   │   │
+│  │                                                         │   │
+│  │  [Discuss Your Project]  [View Our Stacks]              │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  DEVELOPMENT SERVICES GRID                                      │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  ┌─────────────────────┐  ┌─────────────────────┐       │   │
+│  │  │  STACK PORTING      │  │  HAL DEVELOPMENT    │       │   │
+│  │  │  ─────────────────  │  │  ─────────────────  │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  Port AZIT stacks   │  │  Create hardware    │       │   │
+│  │  │  to your target     │  │  abstraction layers │       │   │
+│  │  │  platform:          │  │  for your MCU:      │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  • MCU adaptation   │  │  • Timer drivers    │       │   │
+│  │  │  • RTOS integration │  │  • CAN/Ethernet HAL │       │   │
+│  │  │  • BSP development  │  │  • Interrupt config │       │   │
+│  │  │  • Memory mapping   │  │  • DMA setup        │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  └─────────────────────┘  └─────────────────────┘       │   │
+│  │                                                         │   │
+│  │  ┌─────────────────────┐  ┌─────────────────────┐       │   │
+│  │  │  CUSTOM FEATURES    │  │  PERFORMANCE OPT.   │       │   │
+│  │  │  ─────────────────  │  │  ─────────────────  │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  Extend stack       │  │  Optimize for your  │       │   │
+│  │  │  functionality:     │  │  constraints:       │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  │  • Custom profiles  │  │  • Code size        │       │   │
+│  │  │  • Protocol         │  │  • RAM footprint    │       │   │
+│  │  │    extensions       │  │  • Cycle time       │       │   │
+│  │  │  • Vendor-specific  │  │  • Latency          │       │   │
+│  │  │                     │  │                     │       │   │
+│  │  └─────────────────────┘  └─────────────────────┘       │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CODE EXAMPLE - PORTING ABSTRACTION                             │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Clean Abstraction for Easy Porting"                           │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │ /* Platform abstraction layer example */                │   │
+│  │                                                         │   │
+│  │ /* You implement these for your target */               │   │
+│  │ typedef struct {                                        │   │
+│  │     void (*timer_init)(uint32_t period_us);             │   │
+│  │     void (*can_send)(uint8_t* data, uint8_t len);       │   │
+│  │     void (*enter_critical)(void);                       │   │
+│  │     void (*exit_critical)(void);                        │   │
+│  │ } AZIT_HAL_t;                                           │   │
+│  │                                                         │   │
+│  │ /* We help you implement it right */                    │   │
+│  │ azit_stack_init(&hal, &config);                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  SUPPORTED PLATFORMS                                            │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  MCUs:                                                          │
+│  [STM32] [NXP i.MX] [NXP S32] [TI Sitara] [Infineon]           │
+│  [Renesas] [Intel Atom] [Custom]                               │
+│                                                                 │
+│  RTOS:                                                          │
+│  [QNX] [PikeOS] [VxWorks] [FreeRTOS] [Zephyr] [Bare-metal]     │
+│                                                                 │
+│  EtherCAT Masters:                                              │
+│  [Acontis] [CODESYS] [TwinCAT] [Custom]                        │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ENGAGEMENT PROCESS                                             │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [DIAGRAM: Development process timeline                         │
+│   Week 1-2: Requirements & Analysis                            │
+│   Week 3-6: Development & Integration                          │
+│   Week 7-8: Testing & Validation                               │
+│   Week 9+: Delivery & Support]                                 │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  CTA: "Ready to port?" + Related Stacks + FOOTER                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.8.4 Testing & Validation Expertise Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Services > Expertise > Testing & Validation │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PAGE HEADER                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  [Checkmark/Test Icon - Large]                          │   │
+│  │                                                         │   │
+│  │  "Testing & Validation Expertise"                       │   │
+│  │  ═══════════════════════════════                        │   │
+│  │                                                         │   │
+│  │  Rigorous verification and validation services          │   │
+│  │  for safety-critical embedded systems.                  │   │
+│  │                                                         │   │
+│  │  [Request Testing Services]  [View Methodologies]       │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TESTING SERVICES OVERVIEW                                      │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  UNIT TESTING                                           │   │
+│  │  ─────────────                                          │   │
+│  │  • Code-level verification                              │   │
+│  │  • MC/DC coverage for safety                            │   │
+│  │  • Automated test generation                            │   │
+│  │  • Standards: IEC 61508, ISO 26262                      │   │
+│  │                                                         │   │
+│  │  ─────────────────────────────────────────────────────  │   │
+│  │                                                         │   │
+│  │  INTEGRATION TESTING                                    │   │
+│  │  ─────────────────────                                  │   │
+│  │  • Component interaction verification                   │   │
+│  │  • Interface testing                                    │   │
+│  │  • Timing verification                                  │   │
+│  │  • Resource usage validation                            │   │
+│  │                                                         │   │
+│  │  ─────────────────────────────────────────────────────  │   │
+│  │                                                         │   │
+│  │  CONFORMANCE TESTING                                    │   │
+│  │  ───────────────────                                    │   │
+│  │  • Protocol compliance verification                     │   │
+│  │  • FSoE conformance testing                            │   │
+│  │  • CANopen conformance testing                          │   │
+│  │  • Interoperability testing                             │   │
+│  │                                                         │   │
+│  │  ─────────────────────────────────────────────────────  │   │
+│  │                                                         │   │
+│  │  INVESTIGATION & ANALYSIS                               │   │
+│  │  ────────────────────────                               │   │
+│  │  • Problem diagnosis                                    │   │
+│  │  • Performance analysis                                 │   │
+│  │  • Network troubleshooting                              │   │
+│  │  • Root cause analysis                                  │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TEST COVERAGE DIAGRAM                                          │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [DIAGRAM: V-Model showing test coverage at each level          │
+│                                                                 │
+│   Requirements ─────────────────────────► System Tests          │
+│        │                                      ▲                 │
+│        ▼                                      │                 │
+│   Architecture ──────────────────────► Integration Tests        │
+│        │                                      ▲                 │
+│        ▼                                      │                 │
+│   Detailed Design ───────────────────► Unit Tests              │
+│        │                                      ▲                 │
+│        ▼                                      │                 │
+│   Implementation ─────────────────────────────┘                │
+│                                                                 │
+│   AZIT provides testing services at all levels]                │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TOOLS & METHODOLOGIES                                          │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  "Industry-Standard Tools & Proven Methodologies"               │
+│                                                                 │
+│  Test Frameworks: [VectorCAST] [Tessy] [Custom]                │
+│  Analysis Tools: [Polyspace] [PC-lint] [LDRA]                  │
+│  Protocol Analyzers: [Wireshark] [CANalyzer] [Custom]          │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  CTA: Request Testing Quote + FOOTER                            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.8.5 Industrial Networks Expertise Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BREADCRUMB: Home > Services > Expertise > Industrial Networks  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PAGE HEADER                                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  [Network Nodes Icon - Large]                           │   │
+│  │                                                         │   │
+│  │  "Master Industrial Networks"                           │   │
+│  │  ═════════════════════════════                          │   │
+│  │                                                         │   │
+│  │  Training, diagnostics, and development services        │   │
+│  │  for industrial communication protocols.                │   │
+│  │                                                         │   │
+│  │  [Contact Network Experts]  [View Training Calendar]    │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  THREE PILLARS - VISUAL CARDS                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  ┌─────────────────┐ ┌─────────────────┐ ┌───────────┐ │   │
+│  │  │ [Training Icon] │ │ [Diagnostic     │ │ [Gateway  │ │   │
+│  │  │                 │ │  Icon]          │ │  Icon]    │ │   │
+│  │  │ PROTOCOL        │ │ NETWORK         │ │ GATEWAY   │ │   │
+│  │  │ TRAINING        │ │ DIAGNOSTICS     │ │ DEVELOP.  │ │   │
+│  │  │ ───────────     │ │ ─────────────   │ │ ───────── │ │   │
+│  │  │                 │ │                 │ │           │ │   │
+│  │  │ Master the      │ │ Troubleshoot    │ │ Connect   │ │   │
+│  │  │ protocols that  │ │ and optimize    │ │ different │ │   │
+│  │  │ power your      │ │ your industrial │ │ protocol  │ │   │
+│  │  │ systems.        │ │ networks.       │ │ worlds.   │ │   │
+│  │  │                 │ │                 │ │           │ │   │
+│  │  │ [Learn More →]  │ │ [Learn More →]  │ │ [More →]  │ │   │
+│  │  └─────────────────┘ └─────────────────┘ └───────────┘ │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PROTOCOL TRAINING SECTION                                      │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Industrial Protocol Training Programs"                        │
+│                                                                 │
+│  Build deep expertise in the protocols that matter:             │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  AVAILABLE COURSES                                      │   │
+│  │                                                         │   │
+│  │  ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ │   │
+│  │  │ EtherCAT &    │ │ CANopen       │ │ CANopen       │ │   │
+│  │  │ FSoE          │ │ Fundamentals  │ │ Safety        │ │   │
+│  │  │ ───────────   │ │ ───────────   │ │ ───────────   │ │   │
+│  │  │ 3 days        │ │ 2 days        │ │ 2 days        │ │   │
+│  │  │ Level: Inter. │ │ Level: Intro  │ │ Level: Adv.   │ │   │
+│  │  │               │ │               │ │               │ │   │
+│  │  │ [Details]     │ │ [Details]     │ │ [Details]     │ │   │
+│  │  └───────────────┘ └───────────────┘ └───────────────┘ │   │
+│  │                                                         │   │
+│  │  ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ │   │
+│  │  │ J1939         │ │ PROFINET /    │ │ Modbus TCP    │ │   │
+│  │  │ Automotive    │ │ PROFIsafe     │ │               │ │   │
+│  │  │ ───────────   │ │ ───────────   │ │ ───────────   │ │   │
+│  │  │ 2 days        │ │ 2 days        │ │ 1 day         │ │   │
+│  │  │ Level: Inter. │ │ Level: Inter. │ │ Level: Intro  │ │   │
+│  │  │               │ │               │ │               │ │   │
+│  │  │ [Details]     │ │ [Details]     │ │ [Details]     │ │   │
+│  │  └───────────────┘ └───────────────┘ └───────────────┘ │   │
+│  │                                                         │   │
+│  │  Training formats: On-site | Remote | Custom            │   │
+│  │                                                         │   │
+│  │  [View Full Training Catalog]  [Request Custom Training]│   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  NETWORK DIAGNOSTICS SECTION                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Network Analysis & Diagnostics Services"                      │
+│                                                                 │
+│  When your industrial network isn't performing as expected,     │
+│  our experts diagnose and resolve the issue:                    │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                                                         │   │
+│  │  • Protocol Compliance Analysis                         │   │
+│  │    Verify devices conform to protocol specifications    │   │
+│  │                                                         │   │
+│  │  • Performance Optimization                             │   │
+│  │    Identify bottlenecks and optimize cycle times        │   │
+│  │                                                         │   │
+│  │  • Interoperability Testing                             │   │
+│  │    Ensure multi-vendor device compatibility             │   │
+│  │                                                         │   │
+│  │  • Troubleshooting & Root Cause Analysis                │   │
+│  │    Diagnose communication failures and errors           │   │
+│  │                                                         │   │
+│  │  [PLACEHOLDER: Photo of engineer with protocol analyzer │   │
+│  │   connected to industrial network]                      │   │
+│  │                                                         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  Supported Protocols:                                           │
+│  [EtherCAT] [CANopen] [PROFINET] [Modbus] [J1939] [EtherNet/IP]│
+│                                                                 │
+│  [Request Diagnostic Service]                                   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  GATEWAY DEVELOPMENT SECTION                                    │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Protocol Gateway Development"                                 │
+│                                                                 │
+│  Connect different protocol worlds with custom gateways:        │
+│                                                                 │
+│  [DIAGRAM: Gateway architecture showing                         │
+│                                                                 │
+│   ┌─────────────┐     ┌─────────────┐     ┌─────────────┐      │
+│   │  EtherCAT   │     │   GATEWAY   │     │   CANopen   │      │
+│   │  Network    │◄───►│   Device    │◄───►│   Network   │      │
+│   │             │     │             │     │             │      │
+│   └─────────────┘     │  ┌───────┐  │     └─────────────┘      │
+│                       │  │ AZIT  │  │                          │
+│                       │  │ Stacks│  │                          │
+│                       │  └───────┘  │                          │
+│                       └─────────────┘                          │
+│  ]                                                              │
+│                                                                 │
+│  Use Cases:                                                     │
+│  • Legacy system integration                                    │
+│  • Multi-vendor environments                                    │
+│  • Protocol migration projects                                  │
+│  • Data aggregation and translation                            │
+│                                                                 │
+│  [Discuss Gateway Project]                                      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  CTA + RELATED PRODUCTS + FOOTER                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  PAGE HEADER                                                    │
+│  "Documentation & Resources"                                    │
+│  Everything you need to integrate AZIT stacks                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  SEARCH BAR                                                     │
+│  [Search documentation...]                                      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CATEGORY CARDS                                                 │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐            │
+│  │ [Icon]       │ │ [Icon]       │ │ [Icon]       │            │
+│  │ Datasheets   │ │ Integration  │ │ API          │            │
+│  │              │ │ Guides       │ │ Reference    │            │
+│  │ Product      │ │ Step-by-step │ │ Complete     │            │
+│  │ specifications│ │ tutorials   │ │ function docs│            │
+│  │ and features │ │              │ │              │            │
+│  └──────────────┘ └──────────────┘ └──────────────┘            │
+│                                                                 │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐            │
+│  │ [Icon]       │ │ [Icon]       │ │ [Icon]       │            │
+│  │ Application  │ │ Certificates │ │ Release      │            │
+│  │ Notes        │ │              │ │ Notes        │            │
+│  │ Technical    │ │ Safety       │ │ Version      │            │
+│  │ deep-dives   │ │ certificates │ │ history      │            │
+│  └──────────────┘ └──────────────┘ └──────────────┘            │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  PRODUCT-SPECIFIC DOCUMENTATION                                 │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  [Accordion: FSoE]                                              │
+│    - FSoE Slave Datasheet (PDF)                                │
+│    - FSoE Master Datasheet (PDF)                               │
+│    - FSoE Integration Guide                                    │
+│    - FSoE API Reference                                        │
+│                                                                 │
+│  [Accordion: CANopen]                                           │
+│    - CANopen Slave Datasheet                                   │
+│    - CANopen Master Datasheet                                  │
+│    - ...                                                       │
+│                                                                 │
+│  [Accordion: CANopen Safety]                                    │
+│  [Accordion: J1939]                                             │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.9 Training Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  PAGE HEADER                                                    │
+│  "Training Programs"                                            │
+│  Master industrial protocols with expert-led courses            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TRAINING FORMAT OPTIONS                                        │
+│  ─────────────────────────────────────────────────────────────  │
+│  [Tab: On-site] [Tab: Remote] [Tab: Custom]                    │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  COURSE CATALOG                                                 │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  FSoE FUNDAMENTALS                                      │   │
+│  │  ─────────────────                                      │   │
+│  │  Duration: 2 days                                       │   │
+│  │  Level: Intermediate                                    │   │
+│  │  Prerequisites: EtherCAT basics                         │   │
+│  │                                                         │   │
+│  │  Learn to implement and certify FSoE-based safety       │   │
+│  │  functions in industrial automation systems.            │   │
+│  │                                                         │   │
+│  │  Topics:                                                │   │
+│  │  • FSoE protocol architecture                           │   │
+│  │  • Safety communication concepts                        │   │
+│  │  • Implementation with AZIT stack                       │   │
+│  │  • Testing and certification                            │   │
+│  │                                                         │   │
+│  │  [Request Training]  [Download Syllabus]                │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  [Similar cards for: CANopen, CANopen Safety, J1939]           │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CUSTOM TRAINING                                                │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Tailored to Your Needs"                                       │
+│                                                                 │
+│  We design custom training programs based on your:              │
+│  • Specific hardware platform                                   │
+│  • Team skill level                                            │
+│  • Project requirements                                        │
+│                                                                 │
+│  [Request Custom Training]                                      │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  UPCOMING SESSIONS (Calendar view or list)                      │
+│  ─────────────────────────────────────────────────────────────  │
+│  [Placeholder: 3-4 upcoming training dates]                    │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.10 Blog / News Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  PAGE HEADER                                                    │
+│  "Blog & News"                                                  │
+│  Industry insights and AZIT updates                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CATEGORY FILTER                                                │
+│  [All] [Product Updates] [Industry] [Compliance] [Events]       │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  FEATURED ARTICLE                                               │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  [Large Image Placeholder]                              │   │
+│  │                                                         │   │
+│  │  COMPLIANCE                                             │   │
+│  │  "How the EU Cyber Resilience Act Impacts Industrial    │   │
+│  │   Protocol Stack Selection"                             │   │
+│  │                                                         │   │
+│  │  Understanding CRA requirements for embedded software   │   │
+│  │  in safety-critical industrial applications...          │   │
+│  │                                                         │   │
+│  │  January 2025 • 8 min read                              │   │
+│  │  [Read Article →]                                       │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ARTICLE GRID                                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐            │
+│  │ [Image]      │ │ [Image]      │ │ [Image]      │            │
+│  │ PRODUCT      │ │ INDUSTRY     │ │ COMPLIANCE   │            │
+│  │ FSoE Stack   │ │ EtherCAT     │ │ NIS2 and     │            │
+│  │ v2.5 Release │ │ Trends 2025  │ │ Industrial   │            │
+│  │              │ │              │ │ Systems      │            │
+│  │ Dec 2024     │ │ Nov 2024     │ │ Oct 2024     │            │
+│  └──────────────┘ └──────────────┘ └──────────────┘            │
+│                                                                 │
+│  [Load More Articles]                                           │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  NEWSLETTER SIGNUP                                              │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Stay Updated"                                                 │
+│  Get monthly insights on industrial protocols and compliance    │
+│  [Email]  [Subscribe]                                          │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.11 Company Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  PAGE HEADER                                                    │
+│  "About AZIT"                                                   │
+│  Industrial protocol expertise, backed by 30+ years             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  HERO SECTION                                                   │
+│  ─────────────────────────────────────────────────────────────  │
+│  "AZIT is a brand of ISIT, the French specialist in            │
+│   safety-critical embedded software since 1992."               │
+│                                                                 │
+│  [PLACEHOLDER IMAGE: Team or office photo]                     │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ISIT HERITAGE                                                  │
+│  ─────────────────────────────────────────────────────────────  │
+│  "Built on ISIT's Foundation"                                   │
+│                                                                 │
+│  Two columns:                                                   │
+│  [Left: Text about ISIT history and expertise]                 │
+│  [Right: Timeline or milestones graphic]                       │
+│                                                                 │
+│  Key Facts:                                                     │
+│  • Founded: 1992                                                │
+│  • Expertise: Embedded software, industrial protocols          │
+│  • Certifications: ISO 9001, safety-critical processes        │
+│  • Partnerships: ST, NXP, QNX, Acontis                         │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  WHY AZIT                                                       │
+│  ─────────────────────────────────────────────────────────────  │
+│  "What Sets Us Apart"                                           │
+│                                                                 │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐            │
+│  │ 100%         │ │ Safety-First │ │ Long-Term    │            │
+│  │ In-House     │ │ Approach     │ │ Partnership  │            │
+│  │ Development  │ │              │ │              │            │
+│  └──────────────┘ └──────────────┘ └──────────────┘            │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TECHNOLOGY PARTNERS                                            │
+│  ─────────────────────────────────────────────────────────────  │
+│  [NXP] [Intel] [TI] [STMicroelectronics] [Acontis]             │
+│  [QNX] [SYSGO]                                                  │
+│                                                                 │
+│  [Become a Partner →]                                           │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CERTIFICATIONS & STANDARDS                                     │
+│  ─────────────────────────────────────────────────────────────  │
+│  [TÜV Logo] [IEC 61508] [ISO 13849] [IEC 61784-3]              │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4.12 Contact / Request Quote Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  PAGE HEADER                                                    │
+│  "Contact Us"                                                   │
+│  Let's discuss your industrial protocol needs                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  TWO COLUMN LAYOUT                                              │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  LEFT COLUMN (Contact Form - 60%):                             │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  REQUEST TYPE (Radio buttons)                           │   │
+│  │  ○ Request Quote                                        │   │
+│  │  ○ Technical Question                                   │   │
+│  │  ○ Partnership Inquiry                                  │   │
+│  │  ○ Training Request                                     │   │
+│  │  ○ Other                                                │   │
+│  │                                                         │   │
+│  │  CONTACT INFORMATION                                    │   │
+│  │  [First Name *]  [Last Name *]                         │   │
+│  │  [Email *]       [Phone]                               │   │
+│  │  [Company *]     [Job Title]                           │   │
+│  │  [Country ▼]                                           │   │
+│  │                                                         │   │
+│  │  PROJECT DETAILS                                        │   │
+│  │  [Products of Interest ▼ Multi-select]                 │   │
+│  │    □ FSoE Slave                                        │   │
+│  │    □ FSoE Master                                       │   │
+│  │    □ CANopen Slave/Master                              │   │
+│  │    □ CANopen Safety                                    │   │
+│  │    □ J1939                                             │   │
+│  │    □ Porting Services                                  │   │
+│  │    □ Training                                          │   │
+│  │    □ Other                                             │   │
+│  │                                                         │   │
+│  │  [Target Hardware/MCU]                                 │   │
+│  │  [Target RTOS]                                         │   │
+│  │  [Project Timeline ▼]                                  │   │
+│  │                                                         │   │
+│  │  [Message / Additional Details]                        │   │
+│  │  ┌─────────────────────────────────────────────────┐   │   │
+│  │  │                                                 │   │   │
+│  │  │                                                 │   │   │
+│  │  └─────────────────────────────────────────────────┘   │   │
+│  │                                                         │   │
+│  │  □ I agree to the privacy policy                       │   │
+│  │  □ Subscribe to newsletter                             │   │
+│  │                                                         │   │
+│  │  [Submit Request]                                       │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  RIGHT COLUMN (Contact Info - 40%):                            │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  DIRECT CONTACT                                         │   │
+│  │  ─────────────────                                      │   │
+│  │  Email: contact@azit.fr                                │   │
+│  │  Phone: +33 (0)X XX XX XX XX                           │   │
+│  │                                                         │   │
+│  │  ADDRESS                                                │   │
+│  │  ─────────────────                                      │   │
+│  │  AZIT - ISIT                                            │   │
+│  │  [Address placeholder]                                  │   │
+│  │  France                                                 │   │
+│  │                                                         │   │
+│  │  [MAP PLACEHOLDER]                                      │   │
+│  │                                                         │   │
+│  │  RESPONSE TIME                                          │   │
+│  │  ─────────────────                                      │   │
+│  │  We typically respond within 24-48 business hours       │   │
+│  │                                                         │   │
+│  │  SALES REGIONS                                          │   │
+│  │  ─────────────────                                      │   │
+│  │  • Europe: Direct                                       │   │
+│  │  • Americas: [Partner]                                  │   │
+│  │  • Asia: [Partner]                                      │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 5. Diagrams & Visual Assets Required
+
+### 5.1 Architecture Diagrams (to create as SVG or placeholder)
+
+| Diagram | Description | Location |
+|---------|-------------|----------|
+| White Channel Architecture | Shows separation of safety (white) and non-safety (black) channels | Homepage, Product pages |
+| FSoE Communication Model | Master-Slave safety data exchange flow | FSoE product pages |
+| CANopen Network Topology | CAN bus with master and slave nodes | CANopen product pages |
+| Integration Stack | Layers from MCU to Application showing AZIT stack position | All product pages |
+| Service Workflow | Porting/maintenance process steps | Services page |
+| Expertise Lifecycle | Circular flow: Consult → Develop → Test → Certify | Expertise overview |
+| Pre-Audit Process | 6-step pre-audit workflow diagram | Compliance page |
+| V-Model Testing | V-Model showing test coverage at each level | Testing page |
+| Gateway Architecture | Protocol gateway with dual network connections | Networks page |
+| Gateway Protocol Diagram | Central gateway showing Serial/CAN/Ethernet connections | Gateway product page |
+| HAL Abstraction | Layered diagram showing HAL interface | Development page |
+
+### 5.2 Placeholder Images Required
+
+| Image | Dimensions | Description |
+|-------|------------|-------------|
+| Hero Image | 1920x800 | Abstract industrial network visualization |
+| Gateway Hero | 600x600 | ISI-GTW in aluminum enclosure, product shot |
+| Gateway PCB | 400x300 | PCB board view showing components |
+| Gateway Case | 400x300 | Aluminum enclosure with DIN rail mount |
+| Gateway Ports | 800x400 | Technical diagram showing all ports labeled |
+| Sim Hero | 1200x600 | Split view: code IDE + simulated network topology |
+| Sim Architecture | 1000x600 | High-level simulation architecture diagram |
+| Sim HiL | 800x400 | Hardware-in-the-loop diagram |
+| Sim SiL | 800x400 | Software-in-the-loop diagram |
+| Sim FMI | 600x400 | FMI integration architecture diagram |
+| Product Icons | 128x128 | Icon for each protocol (FSoE, CANopen, etc.) |
+| Partner Logos | 200x80 | NXP, Intel, TI, ST, Acontis, QNX, SYSGO |
+| Protocol Logos | 150x50 | CANopen, EtherCAT, PROFINET, Modbus, etc. |
+| Team/Office | 800x600 | Company page hero |
+| Blog Thumbnails | 400x250 | Article preview images |
+| Certification Badges | 100x100 | TÜV, SIL3, PLe badges |
+| Expertise Hero | 1200x500 | Abstract expertise pillars illustration |
+| Training Photo | 800x500 | Classroom or remote training session |
+| Diagnostics Photo | 800x500 | Engineer with protocol analyzer |
+| Standards Logos | 150x80 | IEC 61508, ISO 26262, IEC 62443, etc. |
+
+### 5.3 Icon Set Requirements
+
+Use Lucide Icons or similar for:
+- Navigation icons (menu, close, arrow, external link)
+- Feature icons (check, shield, code, cpu, settings)
+- Action icons (download, mail, phone, map-pin)
+- Protocol category icons (safety, fieldbus, automotive)
+
+---
+
+## 6. Interaction Specifications
+
+### 6.1 Navigation
+- Mega-menu: Dropdown with 300ms delay on hover-out
+- Mobile: Full-screen overlay menu with smooth transitions
+- Sticky header: Shrinks from 80px to 60px on scroll
+
+### 6.2 Product Cards
+- Hover: Subtle elevation shadow + border color change
+- Click area: Entire card is clickable
+- Badge positioning: Top-right corner
+
+### 6.3 Code Blocks
+- Copy button: Click copies code, shows "Copied!" for 2s
+- Syntax highlighting: Use Prism.js or highlight.js (C language focus)
+
+### 6.4 Forms
+- Real-time validation with inline error messages
+- Required field indicators (*)
+- Submit button: Loading state during submission
+- Success: Show confirmation message, don't navigate away
+
+### 6.5 Language Switcher
+- Click toggles between FR/EN
+- Stores preference in localStorage
+- URL structure: /fr/page or /en/page (or query param for mockup)
+
+---
+
+## 7. SEO & Metadata
+
+### 7.1 Page Titles Format
+```
+[Page Title] | AZIT - Industrial Protocol Stacks
+```
+
+### 7.2 Meta Descriptions
+Each page should have unique meta description (150-160 chars) focusing on:
+- Primary keyword (protocol name)
+- Key benefit (safety certified, no third-party code)
+- Call to action
+
+### 7.3 Structured Data
+Implement JSON-LD for:
+- Organization
+- Products
+- BreadcrumbList
+- FAQPage (on product pages)
+
+---
+
+## 8. Accessibility Requirements
+
+- WCAG 2.1 AA compliance target
+- Keyboard navigation for all interactive elements
+- ARIA labels for icons and non-text elements
+- Color contrast ratio ≥ 4.5:1 for text
+- Focus indicators visible
+- Skip-to-content link
+- Alt text for all images
+
+---
+
+## 9. Performance Guidelines
+
+- Target: Lighthouse score ≥ 90
+- Lazy load images below the fold
+- Minimize CSS/JS (single bundled files for mockup OK)
+- Use system fonts stack as fallback
+- Optimize placeholder images (WebP with JPG fallback)
+
+---
+
+## 10. Content Guidelines
+
+### 10.1 Tone of Voice
+- Professional but approachable
+- Technical accuracy without jargon overload
+- Confident (30+ years expertise) but not arrogant
+- Solution-focused
+
+### 10.2 French/English Parity
+- All content must exist in both languages
+- Use professional translation (not literal)
+- Technical terms: Keep English acronyms (FSoE, CAN, etc.)
+
+### 10.3 Placeholder Text
+For mockup, use realistic placeholder text that matches the final content structure. Avoid Lorem Ipsum for key sections.
+
+---
+
+## 11. Testing Checklist
+
+Before delivery, verify:
+
+- [ ] All pages render correctly on Chrome, Firefox, Safari, Edge
+- [ ] Responsive design works at all breakpoints
+- [ ] Navigation works on mobile (hamburger menu)
+- [ ] Language switcher functions
+- [ ] All internal links work
+- [ ] Code copy buttons function
+- [ ] Forms show validation states
+- [ ] Images have alt text
+- [ ] No console errors
+- [ ] Keyboard navigation works
+
+---
+
+## 12. Delivery Format
+
+Deliver as:
+1. Complete HTML/CSS/JS files (as specified in file structure)
+2. All assets in organized folders
+3. README.md with setup instructions
+4. Separate document listing all placeholder images needed
+
+---
+
+## Appendix A: Content for Protocol Pages
+
+### A.1 FSoE (Slave & Master)
+**Source:** Adapt from isit.fr FSoE content
+**Key points to include:**
+- IEC 61784-3 compliance
+- SIL3 / PLe certification
+- Black channel independence (works with any EtherCAT master/slave stack)
+- White channel architecture benefits
+- Typical resource requirements
+- Supported safety I/O configurations
+
+### A.2 CANopen (Slave & Master)
+**Source:** Adapt from isit.fr CANopen content
+**Key points:**
+- CiA 301/302 compliance
+- NMT, PDO, SDO, EMCY, SYNC support
+- Object dictionary handling
+- Heartbeat/node guarding
+- LSS support
+
+### A.3 CANopen Safety (Slave & Master)
+**Source:** Adapt from isit.fr CANopen Safety content
+**Key points:**
+- CiA 304 (Safety) compliance
+- SIL3 / PLe certification
+- SRDO (Safety-Related Data Objects)
+- Safe configuration management
+- Integration with standard CANopen
+
+### A.4 J1939 / J1939 Safety
+**Source:** Adapt from isit.fr J1939 content
+**Key points:**
+- SAE J1939 compliance
+- Transport protocol (TP)
+- Diagnostic messages (DM)
+- Address claiming
+- Safety extension for functional safety applications
+
+---
+
+## Appendix B: Sample Blog Article Topics
+
+1. "Understanding the EU Cyber Resilience Act: What It Means for Industrial Protocol Stacks"
+2. "FSoE vs. CIP Safety: Choosing the Right Safety Protocol for Your Application"
+3. "White Channel vs. Black Channel: Demystifying Safety Architecture"
+4. "5 Questions to Ask Before Selecting an Industrial Protocol Stack Vendor"
+5. "CANopen Safety: Implementation Best Practices"
+6. "NIS2 Directive: Compliance Requirements for Industrial Systems"
+
+---
+
+*End of Specification Document*
