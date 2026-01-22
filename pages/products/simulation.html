@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZIT-SIM Network Simulation | AZIT - Industrial Protocol Stacks</title>
+  <meta name="description" content="Real-time industrial network simulation for EtherCAT, CANopen, and FSoE. Develop and test without physical hardware using HiL and SiL simulation.">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="../../index.html" class="header__logo">
+        <span>AZIT</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="communication-stacks.html" class="nav__link active">Products</a>
+          </li>
+          <li class="nav__item">
+            <a href="../services/expertise.html" class="nav__link">Services</a>
+          </li>
+          <li class="nav__item">
+            <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
+          </li>
+        </ul>
+
+        <div class="lang-switcher">
+          <button class="lang-switcher__btn" data-lang="fr">FR</button>
+          <button class="lang-switcher__btn active" data-lang="en">EN</button>
+        </div>
+      </nav>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span class="mobile-menu-toggle__line"></span>
+        <span class="mobile-menu-toggle__line"></span>
+        <span class="mobile-menu-toggle__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Breadcrumb -->
+    <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <div class="breadcrumb__item">
+            <a href="../../index.html">Home</a>
+            <span class="breadcrumb__separator">></span>
+          </div>
+          <div class="breadcrumb__item">
+            <a href="communication-stacks.html">Products</a>
+            <span class="breadcrumb__separator">></span>
+          </div>
+          <div class="breadcrumb__item">Simulation</div>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="product-hero product-hero--simulation">
+      <div class="container">
+        <div class="product-hero__content">
+          <h1>AZIT-SIM</h1>
+          <p class="product-hero__subtitle">Real-time Industrial Network Simulation</p>
+          <p class="product-hero__description">
+            Run your industrial controller with a simulated network.
+            Develop and test without physical hardware.
+          </p>
+          <p class="product-hero__tagline">
+            Virtualize EtherCAT, CANopen, and FSoE networks for development,
+            testing, and commissioning.
+          </p>
+          <div class="product-hero__actions">
+            <a href="../contact.html?product=simulation" class="btn btn--primary">
+              Request Evaluation
+            </a>
+            <a href="#" class="btn btn--outline">
+              Download Datasheet
+            </a>
+          </div>
+        </div>
+        <div class="product-hero__image">
+          <div style="width: 100%; height: 300px; background: var(--color-gray-700); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-gray-400);">
+            [AZIT-SIM Network Simulation Diagram]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="section value-proposition">
+      <div class="container">
+        <div class="highlight-box highlight-box--large">
+          <h2>Virtualize Your Industrial Network</h2>
+          <p>
+            AZIT-SIM virtualizes industrial networks by simulating slave/subordinate
+            devices, enabling you to run master applications without real hardware.
+          </p>
+          <ul class="feature-list feature-list--inline">
+            <li>Simulate via physical network adapter or virtually</li>
+            <li>Configure using your existing ENI/EDS files</li>
+            <li>React to Process Data (PDOs)</li>
+            <li>Send and receive Service Data (SDOs)</li>
+            <li>Interact with device state machines</li>
+            <li>Connect to Digital Twin and simulation tools</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Diagram -->
+    <section class="section architecture-section section--light">
+      <div class="container">
+        <h2>Simulation Architecture</h2>
+        <div class="architecture-diagram" style="margin-top: 2rem;">
+          <div style="width: 100%; height: 400px; background: var(--color-gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-gray-500);">
+            [AZIT-SIM Architecture Diagram]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section use-cases-section">
+      <div class="container">
+        <h2>Accelerate Your Development Workflow</h2>
+        <div class="use-cases-grid">
+
+          <div class="use-case-card">
+            <div class="use-case-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3>Master Software Development</h3>
+            <ul>
+              <li>Run master app without hardware</li>
+              <li>Test functions for unavailable devices</li>
+              <li>Validate with different configurations</li>
+              <li>Debug complex topologies</li>
+            </ul>
+          </div>
+
+          <div class="use-case-card">
+            <div class="use-case-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+            </div>
+            <h3>Automated Testing</h3>
+            <ul>
+              <li>Replace manual tests with scripts</li>
+              <li>Simulate device errors and state changes</li>
+              <li>Simulate cable breaks and frame loss</li>
+              <li>Test large networks</li>
+            </ul>
+          </div>
+
+          <div class="use-case-card">
+            <div class="use-case-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Virtual Commissioning</h3>
+            <ul>
+              <li>Develop with Digital Twin</li>
+              <li>Start testing before hardware arrives</li>
+              <li>Test dangerous scenarios safely</li>
+            </ul>
+          </div>
+
+          <div class="use-case-card">
+            <div class="use-case-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+              </svg>
+            </div>
+            <h3>Device Firmware Development</h3>
+            <ul>
+              <li>Develop firmware before hardware exists</li>
+              <li>Use convenient IDE debugging</li>
+              <li>Test with recorded data</li>
+              <li>Test FoE, CoE, VoE transfers</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulation Modes Tabs -->
+    <section class="section simulation-modes section--light">
+      <div class="container">
+        <h2>Simulation Modes</h2>
+
+        <div class="tabs" style="margin-top: 2rem;">
+          <ul class="tabs__list">
+            <li><button class="tabs__button active" data-tab="hil">Hardware-in-the-Loop (HiL)</button></li>
+            <li><button class="tabs__button" data-tab="sil">Software-in-the-Loop (SiL)</button></li>
+          </ul>
+        </div>
+
+        <!-- HiL Tab -->
+        <div class="tabs__content active" id="hil-tab">
+          <div class="simulation-mode">
+            <div class="simulation-mode__content">
+              <h3>All Devices Simulated</h3>
+              <p>
+                The System-Under-Test (SUT) communicates via physical network cable
+                with AZIT-SIM running on external hardware. No special hardware
+                required - standard PC or embedded processor with Ethernet works.
+              </p>
+
+              <h3 style="margin-top: 2rem;">Mixed Real and Simulated Devices</h3>
+              <ul class="check-list">
+                <li>HiL with multiple ports can connect anywhere in the network</li>
+                <li>Mix real devices with simulated ones</li>
+                <li>Create Digital Twin step-by-step</li>
+                <li>Simulate errors at any network location</li>
+              </ul>
+            </div>
+            <div class="simulation-mode__diagram">
+              <div style="width: 100%; height: 300px; background: var(--color-gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-gray-500);">
+                [Hardware-in-the-Loop Diagram]
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SiL Tab -->
+        <div class="tabs__content" id="sil-tab">
+          <div class="simulation-mode">
+            <div class="simulation-mode__content">
+              <h3>Fully Virtual Simulation</h3>
+              <p>
+                The network is simulated entirely in software on the same machine
+                as your controller. No separate hardware or physical network
+                interface required!
+              </p>
+              <p>
+                AZIT-SIM replaces the Ethernet controller driver, exchanging
+                frames directly with your application.
+              </p>
+
+              <h4 style="margin-top: 1.5rem;">Benefits</h4>
+              <ul class="check-list">
+                <li>No additional hardware required</li>
+                <li>Run in VM or cloud environment</li>
+                <li>Perfect for CI/CD pipelines</li>
+                <li>Deterministic timing for reproducible tests</li>
+              </ul>
+            </div>
+            <div class="simulation-mode__diagram">
+              <div style="width: 100%; height: 300px; background: var(--color-gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-gray-500);">
+                [Software-in-the-Loop Diagram]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Protocols -->
+    <section class="section protocols-section">
+      <div class="container">
+        <h2>Supported Protocols</h2>
+        <div class="protocols-grid">
+
+          <div class="protocol-card">
+            <h3>EtherCAT</h3>
+            <ul>
+              <li>Full network simulation</li>
+              <li>Distributed clocks support</li>
+              <li>CoE, FoE, VoE, SoE mailbox</li>
+              <li>Up to 2000 devices</li>
+            </ul>
+          </div>
+
+          <div class="protocol-card">
+            <h3>CANopen</h3>
+            <ul>
+              <li>NMT states</li>
+              <li>PDO/SDO</li>
+              <li>EMCY</li>
+              <li>Object Dictionary</li>
+            </ul>
+          </div>
+
+          <div class="protocol-card">
+            <h3>FSoE</h3>
+            <ul>
+              <li>Safety simulation</li>
+              <li>Fail-safe states</li>
+              <li>Error injection</li>
+            </ul>
+          </div>
+
+          <div class="protocol-card">
+            <h3>CANopen Safety</h3>
+            <ul>
+              <li>SRDO simulation</li>
+              <li>Safe state testing</li>
+            </ul>
+          </div>
+
+          <div class="protocol-card">
+            <h3>J1939</h3>
+            <ul>
+              <li>Message simulation</li>
+              <li>DM messages</li>
+              <li>Address claiming</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- API Section -->
+    <section class="section api-section section--light">
+      <div class="container">
+        <h2>Programming Interface (API)</h2>
+        <p class="section-subtitle">Full control via C/C++ or .NET API</p>
+
+        <div class="api-features">
+          <div class="api-feature">
+            <h3>Process Data Handling</h3>
+            <ul>
+              <li><strong>Default:</strong> Control from process data image</li>
+              <li><strong>Sample App:</strong> Built-in CiA 402 drive profile</li>
+              <li><strong>Custom:</strong> Implement own device firmware hooks</li>
+            </ul>
+          </div>
+
+          <div class="api-feature">
+            <h3>Network Operations</h3>
+            <ul>
+              <li>Change network topology dynamically</li>
+              <li>Disconnect/connect/move devices</li>
+              <li>Power down/up devices</li>
+              <li>Change device states (PREOP, SAFEOP, OP)</li>
+              <li>Simulate lost frames at specific device/port</li>
+              <li>Simulate link loss at specific device/port</li>
+            </ul>
+          </div>
+
+          <div class="api-feature">
+            <h3>Diagnosis Functions</h3>
+            <ul>
+              <li>Read/write device registers</li>
+              <li>Read/write EEPROM content</li>
+              <li>Access object dictionary</li>
+              <li>Evaluate network topology</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="code-block" style="margin-top: 2rem;">
+          <div class="code-block__header">
+            <span class="code-block__language">C</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>/* Simulate device error */
+AZIT_SIM_SetDeviceState(
+    hSim,
+    deviceId,
+    AZIT_STATE_SAFEOP  /* Force device to SafeOp */
+);
+
+/* Simulate cable break */
+AZIT_SIM_SimulateLinkLoss(hSim, deviceId, PORT_A);
+
+/* Inject frame loss */
+AZIT_SIM_SetFrameLossRate(hSim, deviceId, 0.01);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Twin / FMI -->
+    <section class="section fmi-section">
+      <div class="container">
+        <h2>Digital Twin Integration</h2>
+        <p class="section-subtitle">Connect to Your Simulation Environment</p>
+
+        <div class="fmi-content">
+          <div class="fmi-description">
+            <h3>Functional Mock-up Interface (FMI)</h3>
+            <ul class="check-list">
+              <li>Process data simulation using FMU models</li>
+              <li>Compatible with Matlab, Simulink, Dymola, etc.</li>
+              <li>AZIT-SIM FMI Library provides all needed APIs</li>
+              <li>Use ready-to-run example applications</li>
+            </ul>
+          </div>
+          <div class="fmi-diagram">
+            <div style="width: 100%; height: 300px; background: var(--color-gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-gray-500);">
+              [FMI Integration Architecture]
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="section specs-section section--light">
+      <div class="container">
+        <h2>Features & Specifications</h2>
+        <div class="two-column" style="margin-top: 2rem;">
+          <div>
+            <table style="width: 100%;">
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                  <td style="padding: 0.75rem 0;"><strong>Max simulated devices</strong></td>
+                  <td style="padding: 0.75rem 0;">Up to 2000</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                  <td style="padding: 0.75rem 0;"><strong>Mailbox protocols</strong></td>
+                  <td style="padding: 0.75rem 0;">CoE, VoE, FoE, SoE</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                  <td style="padding: 0.75rem 0;"><strong>PDO configuration</strong></td>
+                  <td style="padding: 0.75rem 0;">Via CoE</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                  <td style="padding: 0.75rem 0;"><strong>Object dictionary</strong></td>
+                  <td style="padding: 0.75rem 0;">Basic OD included</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <table style="width: 100%;">
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                  <td style="padding: 0.75rem 0;"><strong>Distributed clocks</strong></td>
+                  <td style="padding: 0.75rem 0;">Supported</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                  <td style="padding: 0.75rem 0;"><strong>Programming languages</strong></td>
+                  <td style="padding: 0.75rem 0;">C/C++, .NET</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                  <td style="padding: 0.75rem 0;"><strong>Supported OS</strong></td>
+                  <td style="padding: 0.75rem 0;">Windows, Linux, QNX, VxWorks, others</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                  <td style="padding: 0.75rem 0;"><strong>Compatible masters</strong></td>
+                  <td style="padding: 0.75rem 0;">AZIT stacks, TwinCAT, CODESYS (add-on)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section benefits-section">
+      <div class="container">
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <h3>Save Effort & Cost</h3>
+            <ul class="check-list">
+              <li>Develop independently of hardware availability</li>
+              <li>No device shortage for developers</li>
+              <li>Save hardware, space, and energy costs</li>
+              <li>Quick config switch via different ENI files</li>
+            </ul>
+          </div>
+          <div class="benefit-card">
+            <h3>Improve Quality</h3>
+            <ul class="check-list">
+              <li>Automated regression tests in CI/CD</li>
+              <li>Faster iterations</li>
+              <li>Test without physical hardware</li>
+              <li>Reproduce customer issues in-house</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="section related-products section--light">
+      <div class="container">
+        <h2>Related Products</h2>
+        <div class="grid grid--3" style="margin-top: 2rem;">
+          <div class="product-card">
+            <div class="product-card__icon">⚡</div>
+            <h3 class="product-card__title">FSoE Stack</h3>
+            <p class="product-card__description">
+              Safety protocol for your simulation
+            </p>
+            <a href="fsoe-slave.html" class="product-card__cta">Learn More</a>
+          </div>
+          <div class="product-card">
+            <div class="product-card__icon">🔌</div>
+            <h3 class="product-card__title">CANopen Stack</h3>
+            <p class="product-card__description">
+              Fieldbus protocol simulation
+            </p>
+            <a href="canopen-slave.html" class="product-card__cta">Learn More</a>
+          </div>
+          <div class="product-card">
+            <div class="product-card__icon">🔧</div>
+            <h3 class="product-card__title">Protocol Gateway</h3>
+            <p class="product-card__description">
+              Hardware for your solution
+            </p>
+            <a href="protocol-gateway.html" class="product-card__cta">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-section">
+          <h2>Start Simulating Today</h2>
+          <p>
+            Request a free evaluation license to test AZIT-SIM with your application.
+            Our engineers will help you get started.
+          </p>
+          <div>
+            <a href="../contact.html?product=simulation-eval" class="btn btn--secondary btn--large">
+              Request Free Evaluation
+            </a>
+            <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">AZIT</div>
+          <p class="footer__tagline">A brand of ISIT</p>
+          <p class="footer__tagline">30+ years expertise in embedded systems</p>
+        </div>
+
+        <div>
+          <h3 class="footer__section-title">Products</h3>
+          <ul class="footer__list">
+            <li><a href="protocol-gateway.html" class="footer__link">Gateway</a></li>
+            <li><a href="simulation.html" class="footer__link">Simulation</a></li>
+            <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+            <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+            <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+            <li><a href="j1939.html" class="footer__link">J1939</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__section-title">Services</h3>
+          <ul class="footer__list">
+            <li><a href="../services/porting.html" class="footer__link">Porting</a></li>
+            <li><a href="../services/maintenance.html" class="footer__link">Maintenance</a></li>
+            <li><a href="../services/expertise.html" class="footer__link">Expertise</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__section-title">Resources</h3>
+          <ul class="footer__list">
+            <li><a href="../training.html" class="footer__link">Training</a></li>
+            <li><a href="../blog.html" class="footer__link">Blog</a></li>
+            <li><a href="../contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
+        <ul class="footer__social">
+          <li><a href="#" class="footer__social-link">Privacy</a></li>
+          <li><a href="#" class="footer__social-link">Terms</a></li>
+          <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+          <li><a href="#" class="footer__social-link">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../../js/main.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/language-switcher.js"></script>
+</body>
+</html>
