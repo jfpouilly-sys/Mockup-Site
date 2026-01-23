@@ -34,8 +34,8 @@
                     // Update content
                     updateContent(lang);
 
-                    // Optionally redirect to language-specific page
-                    // redirectToLanguagePage(lang);
+                    // Redirect to language-specific page
+                    redirectToLanguagePage(lang);
                 }
             });
         });
@@ -108,21 +108,50 @@
         }));
     }
 
-    // Redirect to language-specific page (optional)
+    // Redirect to language-specific page
     function redirectToLanguagePage(lang) {
         const currentPath = window.location.pathname;
+        const currentFile = currentPath.split('/').pop() || 'index.html';
+
+        // Determine if we're in the FR directory
+        const isFrenchPage = currentPath.includes('/fr/');
 
         // If we're on the default (EN) version and switching to FR
-        if (lang === 'fr' && !currentPath.startsWith('/fr/')) {
-            const frPath = '/fr' + currentPath;
-            // Check if FR page exists (you might want to add actual checking)
-            // window.location.href = frPath;
+        if (lang === 'fr' && !isFrenchPage) {
+            let frPath;
+
+            // Check if we're on the root index.html
+            if (currentPath === '/' || currentPath.endsWith('/index.html') || currentFile === 'index.html') {
+                frPath = 'fr/index.html';
+            }
+            // Check if we're in a subdirectory (pages/products/, pages/services/, etc.)
+            else if (currentPath.includes('/pages/')) {
+                // Extract the path after /pages/
+                const pathParts = currentPath.split('/pages/');
+                frPath = 'fr/pages/' + pathParts[1];
+            }
+
+            if (frPath) {
+                window.location.href = frPath;
+            }
         }
 
         // If we're on FR version and switching to EN
-        if (lang === 'en' && currentPath.startsWith('/fr/')) {
-            const enPath = currentPath.replace('/fr', '');
-            // window.location.href = enPath || '/';
+        if (lang === 'en' && isFrenchPage) {
+            let enPath;
+
+            // Check if we're on the French root index.html
+            if (currentPath.endsWith('/fr/index.html') || currentPath === '/fr/') {
+                enPath = '/';
+            }
+            // Remove /fr from the path
+            else {
+                enPath = currentPath.replace('/fr/', '/');
+            }
+
+            if (enPath) {
+                window.location.href = enPath;
+            }
         }
     }
 
