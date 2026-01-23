@@ -22,6 +22,37 @@
     <!-- Skip to content for accessibility -->
     <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
 
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav">
+                <!-- Company Dropdown -->
+                <div class="top-menu-item dropdown">
+                    <button class="top-menu-link dropdown-toggle">
+                        Entreprise
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="pages/company.html">À propos d'AZIT</a>
+                        <a href="pages/contact.html">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Blog & News Link -->
+                <a href="pages/blog.html" class="top-menu-link">Blog & Actualités</a>
+            </nav>
+
+            <!-- Language Switcher (moved from main nav) -->
+            <div class="language-switcher">
+                <a href="/" class="language-button" data-lang="en">EN</a>
+                <span class="language-separator">|</span>
+                <a href="/fr/" class="language-button active" data-lang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <div class="container header__container">
@@ -121,20 +152,9 @@
                         <a href="pages/training.html" class="nav__link">Formation</a>
                     </li>
                     <li class="nav__item">
-                        <a href="pages/blog.html" class="nav__link">Blog</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="pages/company.html" class="nav__link">Entreprise</a>
-                    </li>
-                    <li class="nav__item">
                         <a href="pages/contact.html" class="btn btn--secondary btn--small">Demander un devis</a>
                     </li>
                 </ul>
-
-                <div class="lang-switcher">
-                    <a href="/fr/" class="lang-switcher__btn active" data-lang="fr">FR</a>
-                    <a href="/" class="lang-switcher__btn" data-lang="en">EN</a>
-                </div>
             </nav>
 
             <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Basculer le menu mobile">
@@ -420,21 +440,45 @@ fsoe_slave_start();</code></pre>
             </div>
         </section>
 
-        <!-- Partners Section -->
+        <!-- Elite Partners Section -->
+        <section class="elite-partners">
+            <div class="container">
+                <div class="elite-partners-container">
+                    <h2 class="section__title">Partenaires Elite</h2>
+                    <p class="section-subtitle">
+                        Nous collaborons avec des partenaires technologiques leaders
+                        pour fournir des solutions complètes
+                    </p>
+
+                    <div class="elite-partner-card">
+                        <img
+                            src="/assets/partners/acontis-logo.png"
+                            alt="Acontis Technologies"
+                            class="elite-partner-logo"
+                        >
+                        <h3>Acontis Technologies</h3>
+                        <p class="elite-partner-description">
+                            Partenaire stratégique pour les solutions EtherCAT et les technologies
+                            temps réel. Ensemble, nous proposons des piles de communication
+                            industrielles de pointe pour les applications critiques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section -->
         <section class="section">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">Partenaires technologiques</h2>
+                    <h2 class="section__title">Ils nous font confiance</h2>
                 </div>
 
-                <div class="partners-grid">
-                    <div class="partners-grid__item">NXP</div>
-                    <div class="partners-grid__item">Intel</div>
-                    <div class="partners-grid__item">Texas Instruments</div>
-                    <div class="partners-grid__item">STMicroelectronics</div>
-                    <div class="partners-grid__item">Acontis</div>
-                    <div class="partners-grid__item">QNX</div>
-                    <div class="partners-grid__item">SYSGO</div>
+                <div class="partner-logos">
+                    <img src="https://isit.fr/photos/ecoles-partenaires-clients/2076/wattalps-logo.png" alt="WattAlps" class="partner-logo">
+                    <img src="https://isit.fr/photos/2023/2139/whaller_logo_horizontal-couleur.png" alt="Whaller" class="partner-logo">
+                    <img src="https://isit.fr/photos/ecoles-partenaires-clients/2076/diehl_metering.png" alt="Diehl Metering" class="partner-logo">
+                    <img src="https://isit.fr/photos/ecoles-partenaires-clients/2076/coval.png" alt="Coval" class="partner-logo">
                 </div>
             </div>
         </section>
