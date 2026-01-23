@@ -177,7 +177,8 @@
                 <div class="product-hero__badges">
                     <span class="badge badge--success">Certifié SIL3</span>
                     <span class="badge badge--success">Certifié PLe</span>
-                    <span class="badge badge--primary">Approuvé BV</span>
+                    <span class="badge badge--primary">Approuvé TÜV</span>
+                    <span class="badge badge--primary">Code Source Complet</span>
                 </div>
                 <div class="product-hero__actions">
                     <a href="../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
@@ -249,8 +250,9 @@
                                     <li>Certifié SIL3 / PLe par Bureau Véritas</li>
                                     <li>Sans dépendances tierces</li>
                                     <li>Architecture canal blanc</li>
-                                    <li>Faible dépendance matérielle</li>
-                                    <li>Faible dépendance OS</li>
+                                    <li>Code source complet fourni</li>
+                                    <li>Indépendant du matériel</li>
+                                    <li>Indépendant du RTOS</li>
                                     <li>Support technique expert</li>
                                 </ul>
                             </div>
@@ -513,7 +515,7 @@ void safety_task(void) {
                         <div>
                             <h3>Ce Qui Est Inclus</h3>
                             <ul class="benefits-list">
-                                <li>Code source avec documentation</li>
+                                <li>Code source complet avec documentation</li>
                                 <li>Projets d'exemple pour plateformes populaires</li>
                                 <li>Guide d'intégration et référence API</li>
                                 <li>Modèle HAL et guide de portage</li>

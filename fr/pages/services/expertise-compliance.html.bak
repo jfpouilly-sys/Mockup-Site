@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safety Compliance Services - AZIT</title>
-    <meta name="description" content="Safety certification consulting and support for SIL3/PLe compliance. Expert guidance through IEC 61508, ISO 13849, and IEC 61784-3.">
+    <title>Services de Conformité Sécurité - AZIT</title>
+    <meta name="description" content="Conseil en certification de sécurité et support pour la conformité SIL3/PLe. Guidage expert à travers IEC 61508, ISO 13849 et IEC 61784-3.">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../css/variables.css">
-    <link rel="stylesheet" href="../../css/base.css">
-    <link rel="stylesheet" href="../../css/components.css">
-    <link rel="stylesheet" href="../../css/layout.css">
-    <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/components.css">
+    <link rel="stylesheet" href="../../../css/layout.css">
+    <link rel="stylesheet" href="../../../css/pages.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
 
     <!-- Header -->
     <header class="header" id="header">
@@ -32,7 +32,7 @@
                 <ul class="nav__list">
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            Products
+                            Produits
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
@@ -40,13 +40,13 @@
                         <div class="mega-menu">
                             <div class="mega-menu__grid">
                                 <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Hardware</div>
+                                    <div class="mega-menu__title">Matériel</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="../products/protocol-gateway.html" class="mega-menu__link">Protocol Gateway (ISI-GTW)</a></li>
+                                        <li><a href="../products/protocol-gateway.html" class="mega-menu__link">Passerelle de Protocole (ISI-GTW)</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Communication Stacks</div>
+                                    <div class="mega-menu__title">Stacks de Communication</div>
                                     <ul class="mega-menu__list">
                                         <li><a href="../products/fsoe-slave.html" class="mega-menu__link">FSoE Slave</a></li>
                                         <li><a href="../products/fsoe-master.html" class="mega-menu__link">FSoE Master</a></li>
@@ -58,14 +58,14 @@
                                     </ul>
                                 </div>
                                 <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Software</div>
+                                    <div class="mega-menu__title">Logiciels</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="../products/simulation.html" class="mega-menu__link">Network Simulation (AZIT-SIM)</a></li>
+                                        <li><a href="../products/simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
                                     </ul>
-                                    <div class="mega-menu__title" style="margin-top: 1rem;">Tools & Analyzers</div>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Outils & Analyseurs</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="../products/tools.html" class="mega-menu__link">Development Tools</a></li>
-                                        <li><a href="../products/analyzers.html" class="mega-menu__link">Protocol Analyzers</a></li>
+                                        <li><a href="../products/tools.html" class="mega-menu__link">Outils de Développement</a></li>
+                                        <li><a href="../products/analyzers.html" class="mega-menu__link">Analyseurs de Protocole</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -81,46 +81,46 @@
                         <div class="mega-menu">
                             <div class="mega-menu__grid">
                                 <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Integration</div>
+                                    <div class="mega-menu__title">Intégration</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="porting.html" class="mega-menu__link">Porting Activities</a></li>
+                                        <li><a href="porting.html" class="mega-menu__link">Activités de Portage</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-menu__section">
                                     <div class="mega-menu__title">Expertise</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="expertise.html" class="mega-menu__link">Safety Compliance</a></li>
-                                        <li><a href="expertise-development.html" class="mega-menu__link">Protocol Development</a></li>
-                                        <li><a href="expertise-testing.html" class="mega-menu__link">Testing & Validation</a></li>
-                                        <li><a href="expertise-networks.html" class="mega-menu__link">Industrial Networks</a></li>
+                                        <li><a href="expertise.html" class="mega-menu__link">Conformité Sécurité</a></li>
+                                        <li><a href="expertise-development.html" class="mega-menu__link">Développement Protocole</a></li>
+                                        <li><a href="expertise-testing.html" class="mega-menu__link">Tests & Validation</a></li>
+                                        <li><a href="expertise-networks.html" class="mega-menu__link">Réseaux Industriels</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-menu__section">
                                     <div class="mega-menu__title">Support</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="maintenance.html" class="mega-menu__link">Maintenance Support</a></li>
+                                        <li><a href="maintenance.html" class="mega-menu__link">Support Maintenance</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="../training.html" class="nav__link">Training</a>
+                        <a href="../training.html" class="nav__link">Formation</a>
                     </li>
                     <li class="nav__item">
                         <a href="../blog.html" class="nav__link">Blog</a>
                     </li>
                     <li class="nav__item">
-                        <a href="../company.html" class="nav__link">Company</a>
+                        <a href="../company.html" class="nav__link">Entreprise</a>
                     </li>
                     <li class="nav__item">
-                        <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
                     </li>
                 </ul>
 
                 <div class="lang-switcher">
-                    <a href="../fr/pages/${PAGE}" class="lang-switcher__btn" data-lang="fr">FR</a>
-                    <a href="expertise-compliance.html" class="lang-switcher__btn active" data-lang="en">EN</a>
+                    <button class="lang-switcher__btn active" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn" data-lang="en">EN</button>
                 </div>
             </nav>
 
@@ -138,7 +138,7 @@
             <div class="container">
                 <nav class="breadcrumb">
                     <div class="breadcrumb__item">
-                        <a href="../../index.html">Home</a>
+                        <a href="../../index.html">Accueil</a>
                         <span class="breadcrumb__separator">›</span>
                     </div>
                     <div class="breadcrumb__item">
@@ -146,10 +146,10 @@
                         <span class="breadcrumb__separator">›</span>
                     </div>
                     <div class="breadcrumb__item">
-                        <a href="expertise.html">Technical Expertise</a>
+                        <a href="expertise.html">Expertise Technique</a>
                         <span class="breadcrumb__separator">›</span>
                     </div>
-                    <div class="breadcrumb__item">Safety Compliance</div>
+                    <div class="breadcrumb__item">Conformité Sécurité</div>
                 </nav>
             </div>
         </section>
@@ -158,18 +158,18 @@
         <section class="product-hero">
             <div class="container">
                 <div class="product-hero__icon">🔐</div>
-                <h1 class="product-hero__title">Safety Compliance Services</h1>
+                <h1 class="product-hero__title">Services de Conformité Sécurité</h1>
                 <p class="product-hero__description">
-                    Expert safety certification consulting and support for SIL3/PLe compliance
+                    Conseil expert en certification de sécurité et support pour la conformité SIL3/PLe
                 </p>
                 <div class="product-hero__badges">
-                    <span class="badge badge--success">SIL3 Expertise</span>
-                    <span class="badge badge--success">PLe Expertise</span>
-                    <span class="badge badge--primary">Bureau Véritas Coordination</span>
+                    <span class="badge badge--success">Expertise SIL3</span>
+                    <span class="badge badge--success">Expertise PLe</span>
+                    <span class="badge badge--primary">Coordination Bureau Véritas</span>
                 </div>
                 <div class="product-hero__actions">
-                    <a href="../contact.html" class="btn btn--primary btn--large">Request Consultation</a>
-                    <a href="../contact.html" class="btn btn--outline btn--large">Contact Expert</a>
+                    <a href="../contact.html" class="btn btn--primary btn--large">Demander une Consultation</a>
+                    <a href="../contact.html" class="btn btn--outline btn--large">Contacter un Expert</a>
                 </div>
             </div>
         </section>
@@ -179,60 +179,62 @@
             <div class="container">
                 <div class="two-column">
                     <div>
-                        <h2>Safety Certification Expertise</h2>
+                        <h2>Expertise en Certification de Sécurité</h2>
                         <p>
-                            Achieving safety certification (SIL3/PLe) is a complex, rigorous process that requires
-                            deep knowledge of safety standards, systematic documentation, and careful coordination
-                            with certification bodies. Our team brings decades of experience helping companies
-                            successfully navigate this critical process.
+                            Obtenir une certification de sécurité (SIL3/PLe) est un processus complexe et rigoureux qui
+                            nécessite une connaissance approfondie des normes de sécurité, une documentation systématique
+                            et une coordination minutieuse avec les organismes de certification. Notre équipe apporte
+                            des décennies d'expérience pour aider les entreprises à naviguer avec succès dans ce processus critique.
                         </p>
 
-                        <h2 style="margin-top: 2rem;">Comprehensive Support</h2>
+                        <h2 style="margin-top: 2rem;">Support Complet</h2>
                         <p>
-                            We provide end-to-end support throughout your safety certification journey, from initial
-                            assessment and gap analysis through documentation preparation, pre-audits, and final
-                            certification. Our expertise covers all major functional safety standards.
+                            Nous fournissons un support de bout en bout tout au long de votre parcours de certification
+                            de sécurité, de l'évaluation initiale et de l'analyse des lacunes à la préparation de la
+                            documentation, aux pré-audits et à la certification finale. Notre expertise couvre toutes
+                            les principales normes de sécurité fonctionnelle.
                         </p>
 
-                        <h3 style="margin-top: 2rem;">Proven Track Record</h3>
+                        <h3 style="margin-top: 2rem;">Historique de Réussites Prouvé</h3>
                         <p>
-                            Our engineers have successfully supported numerous safety certification projects across
-                            various industries, working directly with Bureau Véritas and other certification bodies. We know
-                            what certifiers look for and how to prepare your documentation for successful audit.
+                            Nos ingénieurs ont réussi à supporter de nombreux projets de certification de sécurité dans
+                            divers secteurs industriels, en travaillant directement avec Bureau Véritas et d'autres organismes de
+                            certification. Nous savons ce que les certificateurs recherchent et comment préparer votre
+                            documentation pour un audit réussi.
                         </p>
                     </div>
 
                     <div>
                         <div class="specs-box">
-                            <h3 class="specs-box__title">Key Benefits</h3>
+                            <h3 class="specs-box__title">Avantages Clés</h3>
                             <ul class="benefits-list">
-                                <li>Accelerated certification timeline</li>
-                                <li>Reduced audit iterations</li>
-                                <li>Expert standards interpretation</li>
-                                <li>Bureau Véritas relationships and coordination</li>
-                                <li>Comprehensive documentation review</li>
-                                <li>Pre-audit identification of gaps</li>
-                                <li>Knowledge transfer to your team</li>
+                                <li>Calendrier de certification accéléré</li>
+                                <li>Itérations d'audit réduites</li>
+                                <li>Interprétation experte des normes</li>
+                                <li>Relations et coordination Bureau Véritas</li>
+                                <li>Revue complète de documentation</li>
+                                <li>Identification des lacunes en pré-audit</li>
+                                <li>Transfert de connaissances à votre équipe</li>
                             </ul>
                         </div>
 
                         <div class="specs-box" style="margin-top: 1.5rem;">
-                            <h3 class="specs-box__title">Standards Coverage</h3>
+                            <h3 class="specs-box__title">Couverture des Normes</h3>
                             <div class="specs-box__item">
                                 <span class="specs-box__label">IEC 61508</span>
-                                <span class="specs-box__value">Functional Safety</span>
+                                <span class="specs-box__value">Sécurité Fonctionnelle</span>
                             </div>
                             <div class="specs-box__item">
                                 <span class="specs-box__label">ISO 13849</span>
-                                <span class="specs-box__value">Machinery Safety</span>
+                                <span class="specs-box__value">Sécurité des Machines</span>
                             </div>
                             <div class="specs-box__item">
                                 <span class="specs-box__label">IEC 61784-3</span>
-                                <span class="specs-box__value">Industrial Networks</span>
+                                <span class="specs-box__value">Réseaux Industriels</span>
                             </div>
                             <div class="specs-box__item">
                                 <span class="specs-box__label">IEC 62061</span>
-                                <span class="specs-box__value">Safety of Machinery</span>
+                                <span class="specs-box__value">Sécurité des Machines</span>
                             </div>
                         </div>
                     </div>
@@ -243,72 +245,72 @@
         <!-- Services Overview -->
         <section class="section section--light">
             <div class="container">
-                <h2>Our Safety Compliance Services</h2>
+                <h2>Nos Services de Conformité Sécurité</h2>
 
                 <div class="grid grid--2" style="margin-top: 2rem;">
                     <div class="card">
-                        <h3 class="card__title">Pre-Audit & Gap Analysis</h3>
+                        <h3 class="card__title">Pré-Audit & Analyse des Lacunes</h3>
                         <p>
-                            We perform comprehensive pre-audits to identify gaps in your safety documentation and
-                            implementation before formal certification audit. This significantly reduces the risk
-                            of audit failures and costly iterations.
+                            Nous effectuons des pré-audits complets pour identifier les lacunes dans votre documentation
+                            et implémentation de sécurité avant l'audit de certification formel. Cela réduit considérablement
+                            le risque d'échecs d'audit et d'itérations coûteuses.
                         </p>
                         <ul style="margin-top: 1rem;">
-                            <li>Documentation completeness review</li>
-                            <li>Technical implementation assessment</li>
-                            <li>Safety requirements verification</li>
-                            <li>Gap identification and prioritization</li>
-                            <li>Remediation recommendations</li>
-                            <li>Pre-audit report generation</li>
+                            <li>Revue de l'exhaustivité de la documentation</li>
+                            <li>Évaluation de l'implémentation technique</li>
+                            <li>Vérification des exigences de sécurité</li>
+                            <li>Identification et priorisation des lacunes</li>
+                            <li>Recommandations de remédiation</li>
+                            <li>Génération de rapport de pré-audit</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h3 class="card__title">Safety Documentation Support</h3>
+                        <h3 class="card__title">Support Documentation de Sécurité</h3>
                         <p>
-                            Safety certification requires extensive documentation that meets specific requirements.
-                            We help you prepare, review, and refine all required safety documentation.
+                            La certification de sécurité nécessite une documentation extensive qui répond à des exigences
+                            spécifiques. Nous vous aidons à préparer, réviser et affiner toute la documentation de sécurité requise.
                         </p>
                         <ul style="margin-top: 1rem;">
-                            <li>Safety manual development</li>
-                            <li>Safety requirements specification</li>
-                            <li>FMEA and FTA preparation</li>
-                            <li>Safety validation reports</li>
-                            <li>Test documentation</li>
-                            <li>Configuration management plans</li>
+                            <li>Développement de manuel de sécurité</li>
+                            <li>Spécification des exigences de sécurité</li>
+                            <li>Préparation AMDEC et analyse par arbre de pannes</li>
+                            <li>Rapports de validation de sécurité</li>
+                            <li>Documentation de test</li>
+                            <li>Plans de gestion de configuration</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h3 class="card__title">Bureau Véritas Coordination & Support</h3>
+                        <h3 class="card__title">Coordination & Support TÜV</h3>
                         <p>
-                            Working with certification bodies requires understanding their processes and expectations.
-                            We coordinate with Bureau Véritas and other certifiers on your behalf, leveraging our established
-                            relationships.
+                            Travailler avec les organismes de certification nécessite de comprendre leurs processus et
+                            attentes. Nous coordonnons avec Bureau Véritas et d'autres certificateurs en votre nom, en tirant parti
+                            de nos relations établies.
                         </p>
                         <ul style="margin-top: 1rem;">
-                            <li>Initial discussions with Bureau Véritas</li>
-                            <li>Audit scheduling and planning</li>
-                            <li>Question preparation and response</li>
-                            <li>On-site audit support</li>
-                            <li>Finding resolution assistance</li>
-                            <li>Re-audit coordination</li>
+                            <li>Discussions initiales avec TÜV</li>
+                            <li>Planification et programmation d'audit</li>
+                            <li>Préparation de questions et réponses</li>
+                            <li>Support d'audit sur site</li>
+                            <li>Assistance à la résolution des constats</li>
+                            <li>Coordination de re-audit</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h3 class="card__title">Standards Training & Consulting</h3>
+                        <h3 class="card__title">Formation & Conseil sur les Normes</h3>
                         <p>
-                            Understanding safety standards is essential for successful certification. We provide
-                            training and consulting to help your team understand requirements and best practices.
+                            Comprendre les normes de sécurité est essentiel pour une certification réussie. Nous fournissons
+                            une formation et des conseils pour aider votre équipe à comprendre les exigences et les meilleures pratiques.
                         </p>
                         <ul style="margin-top: 1rem;">
-                            <li>IEC 61508 fundamentals training</li>
-                            <li>ISO 13849 workshop</li>
-                            <li>Safety lifecycle training</li>
-                            <li>Standards interpretation consulting</li>
-                            <li>Requirements analysis sessions</li>
-                            <li>Custom training programs</li>
+                            <li>Formation aux fondamentaux IEC 61508</li>
+                            <li>Atelier ISO 13849</li>
+                            <li>Formation au cycle de vie de sécurité</li>
+                            <li>Conseil en interprétation des normes</li>
+                            <li>Sessions d'analyse des exigences</li>
+                            <li>Programmes de formation personnalisés</li>
                         </ul>
                     </div>
                 </div>
@@ -318,10 +320,10 @@
         <!-- Certification Process -->
         <section class="section">
             <div class="container">
-                <h2>Safety Certification Process</h2>
+                <h2>Processus de Certification de Sécurité</h2>
                 <p style="margin-top: 1rem; max-width: 800px;">
-                    We guide you through each phase of the safety certification process, from initial planning
-                    through successful certification.
+                    Nous vous guidons à travers chaque phase du processus de certification de sécurité, de la planification
+                    initiale jusqu'à la certification réussie.
                 </p>
 
                 <div class="two-column" style="margin-top: 3rem;">
@@ -329,44 +331,44 @@
                         <div style="margin-bottom: 2rem;">
                             <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
                                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">1</div>
-                                <h3 style="margin: 0;">Assessment & Planning</h3>
+                                <h3 style="margin: 0;">Évaluation & Planification</h3>
                             </div>
                             <p style="margin-left: 56px; color: var(--color-gray-600);">
-                                Initial assessment of your project, target safety level, and certification timeline.
-                                We develop a comprehensive certification plan and identify required resources.
+                                Évaluation initiale de votre projet, niveau de sécurité cible et calendrier de certification.
+                                Nous développons un plan de certification complet et identifions les ressources nécessaires.
                             </p>
                         </div>
 
                         <div style="margin-bottom: 2rem;">
                             <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
                                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">2</div>
-                                <h3 style="margin: 0;">Safety Requirements</h3>
+                                <h3 style="margin: 0;">Exigences de Sécurité</h3>
                             </div>
                             <p style="margin-left: 56px; color: var(--color-gray-600);">
-                                Development and documentation of safety requirements according to applicable standards.
-                                This includes safety functions, failure modes, and diagnostic coverage.
+                                Développement et documentation des exigences de sécurité selon les normes applicables.
+                                Cela inclut les fonctions de sécurité, les modes de défaillance et la couverture diagnostique.
                             </p>
                         </div>
 
                         <div style="margin-bottom: 2rem;">
                             <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
                                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">3</div>
-                                <h3 style="margin: 0;">Documentation Preparation</h3>
+                                <h3 style="margin: 0;">Préparation de Documentation</h3>
                             </div>
                             <p style="margin-left: 56px; color: var(--color-gray-600);">
-                                Creation of all required safety documentation, including safety manual, FMEA, FTA,
-                                validation reports, and configuration management plans.
+                                Création de toute la documentation de sécurité requise, incluant manuel de sécurité, AMDEC,
+                                analyse par arbre de pannes, rapports de validation et plans de gestion de configuration.
                             </p>
                         </div>
 
                         <div style="margin-bottom: 2rem;">
                             <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
                                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">4</div>
-                                <h3 style="margin: 0;">Pre-Audit Review</h3>
+                                <h3 style="margin: 0;">Revue de Pré-Audit</h3>
                             </div>
                             <p style="margin-left: 56px; color: var(--color-gray-600);">
-                                Comprehensive internal review simulating the formal audit. We identify and address
-                                gaps before submission to certification body.
+                                Revue interne complète simulant l'audit formel. Nous identifions et traitons les lacunes
+                                avant la soumission à l'organisme de certification.
                             </p>
                         </div>
                     </div>
@@ -375,33 +377,33 @@
                         <div style="margin-bottom: 2rem;">
                             <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
                                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">5</div>
-                                <h3 style="margin: 0;">Bureau Véritas Engagement</h3>
+                                <h3 style="margin: 0;">Engagement Bureau Véritas</h3>
                             </div>
                             <p style="margin-left: 56px; color: var(--color-gray-600);">
-                                Initial contact with certification body, documentation submission, and audit scheduling.
-                                We coordinate all interactions and prepare responses to preliminary questions.
+                                Contact initial avec l'organisme de certification, soumission de documentation et planification
+                                d'audit. Nous coordonnons toutes les interactions et préparons les réponses aux questions préliminaires.
                             </p>
                         </div>
 
                         <div style="margin-bottom: 2rem;">
                             <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
                                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">6</div>
-                                <h3 style="margin: 0;">Formal Audit</h3>
+                                <h3 style="margin: 0;">Audit Formel</h3>
                             </div>
                             <p style="margin-left: 56px; color: var(--color-gray-600);">
-                                On-site support during formal certification audit. We assist with auditor questions,
-                                provide clarifications, and ensure smooth audit process.
+                                Support sur site pendant l'audit de certification formel. Nous assistons avec les questions
+                                des auditeurs, fournissons des clarifications et assurons un processus d'audit fluide.
                             </p>
                         </div>
 
                         <div style="margin-bottom: 2rem;">
                             <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
                                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">7</div>
-                                <h3 style="margin: 0;">Finding Resolution</h3>
+                                <h3 style="margin: 0;">Résolution des Constats</h3>
                             </div>
                             <p style="margin-left: 56px; color: var(--color-gray-600);">
-                                Address any findings or observations from the audit. We help develop corrective
-                                actions and prepare responses for certifier review.
+                                Traitement de tous constats ou observations de l'audit. Nous aidons à développer les actions
+                                correctives et à préparer les réponses pour la revue du certificateur.
                             </p>
                         </div>
 
@@ -411,8 +413,8 @@
                                 <h3 style="margin: 0;">Certification & Maintenance</h3>
                             </div>
                             <p style="margin-left: 56px; color: var(--color-gray-600);">
-                                Successful certification delivery and ongoing support for certification maintenance,
-                                including change management and periodic audits.
+                                Livraison de certification réussie et support continu pour la maintenance de certification,
+                                incluant la gestion des changements et les audits périodiques.
                             </p>
                         </div>
                     </div>
@@ -423,30 +425,30 @@
         <!-- Why Choose Us -->
         <section class="section section--light">
             <div class="container">
-                <h2>Why Choose AZIT for Safety Compliance</h2>
+                <h2>Pourquoi Choisir AZIT pour la Conformité Sécurité</h2>
 
                 <div class="grid grid--3" style="margin-top: 2rem;">
                     <div class="card">
-                        <h3 class="card__title">Deep Standards Knowledge</h3>
+                        <h3 class="card__title">Connaissance Approfondie des Normes</h3>
                         <p>
-                            Our engineers have extensive experience with IEC 61508, ISO 13849, and related standards.
-                            We stay current with evolving requirements and certification body expectations.
+                            Nos ingénieurs ont une vaste expérience avec IEC 61508, ISO 13849 et les normes connexes.
+                            Nous restons à jour avec l'évolution des exigences et des attentes des organismes de certification.
                         </p>
                     </div>
 
                     <div class="card">
-                        <h3 class="card__title">Bureau Véritas Relationships</h3>
+                        <h3 class="card__title">Relations Bureau Véritas</h3>
                         <p>
-                            We maintain strong relationships with Bureau Véritas and other certification bodies, understanding
-                            their processes and requirements for efficient certification.
+                            Nous maintenons des relations solides avec Bureau Véritas et d'autres organismes de certification,
+                            comprenant leurs processus et exigences pour une certification efficace.
                         </p>
                     </div>
 
                     <div class="card">
-                        <h3 class="card__title">Proven Success</h3>
+                        <h3 class="card__title">Succès Prouvé</h3>
                         <p>
-                            Track record of successful certifications across multiple industries and product types,
-                            with minimal audit iterations and reduced time-to-certification.
+                            Historique de certifications réussies dans plusieurs secteurs industriels et types de produits,
+                            avec un minimum d'itérations d'audit et un délai de certification réduit.
                         </p>
                     </div>
                 </div>
@@ -456,33 +458,33 @@
         <!-- Related Services -->
         <section class="section">
             <div class="container">
-                <h2>Related Services</h2>
+                <h2>Services Connexes</h2>
                 <div class="grid grid--3" style="margin-top: 2rem;">
                     <div class="product-card">
                         <div class="product-card__icon">🧪</div>
-                        <h3 class="product-card__title">Testing & Validation</h3>
+                        <h3 class="product-card__title">Tests & Validation</h3>
                         <p class="product-card__description">
-                            Comprehensive testing services for certification support
+                            Services de tests complets pour le support de certification
                         </p>
-                        <a href="expertise-testing.html" class="product-card__cta">Learn More →</a>
+                        <a href="expertise-testing.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
 
                     <div class="product-card">
                         <div class="product-card__icon">🛠️</div>
-                        <h3 class="product-card__title">Maintenance Support</h3>
+                        <h3 class="product-card__title">Support Maintenance</h3>
                         <p class="product-card__description">
-                            Ongoing compliance and certification maintenance
+                            Conformité continue et maintenance de certification
                         </p>
-                        <a href="maintenance.html" class="product-card__cta">Learn More →</a>
+                        <a href="maintenance.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
 
                     <div class="product-card">
                         <div class="product-card__icon">🎓</div>
-                        <h3 class="product-card__title">Safety Training</h3>
+                        <h3 class="product-card__title">Formation Sécurité</h3>
                         <p class="product-card__description">
-                            Comprehensive safety standards training programs
+                            Programmes de formation complets sur les normes de sécurité
                         </p>
-                        <a href="../training.html" class="product-card__cta">Learn More →</a>
+                        <a href="../training.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
                 </div>
             </div>
@@ -492,11 +494,11 @@
         <section class="section">
             <div class="container">
                 <div class="cta-section">
-                    <h2>Start Your Certification Journey</h2>
-                    <p>Contact us for a consultation on your safety certification needs</p>
+                    <h2>Commencez Votre Parcours de Certification</h2>
+                    <p>Contactez-nous pour une consultation sur vos besoins de certification de sécurité</p>
                     <div>
-                        <a href="../contact.html" class="btn btn--secondary btn--large">Request Consultation</a>
-                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
+                        <a href="../contact.html" class="btn btn--secondary btn--large">Demander une Consultation</a>
+                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contacter un Expert</a>
                     </div>
                 </div>
             </div>
@@ -509,14 +511,14 @@
             <div class="footer__grid">
                 <div class="footer__brand">
                     <div class="footer__logo">AZIT</div>
-                    <p class="footer__tagline">A brand of ISIT</p>
-                    <p class="footer__tagline">30+ years expertise in embedded systems</p>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">30+ ans d'expertise en systèmes embarqués</p>
                 </div>
 
                 <div>
-                    <h3 class="footer__section-title">Products</h3>
+                    <h3 class="footer__section-title">Produits</h3>
                     <ul class="footer__list">
-                        <li><a href="../products/protocol-gateway.html" class="footer__link">Gateway</a></li>
+                        <li><a href="../products/protocol-gateway.html" class="footer__link">Passerelle</a></li>
                         <li><a href="../products/simulation.html" class="footer__link">Simulation</a></li>
                         <li><a href="../products/fsoe-slave.html" class="footer__link">FSoE</a></li>
                         <li><a href="../products/canopen-slave.html" class="footer__link">CANopen</a></li>
@@ -528,16 +530,16 @@
                 <div>
                     <h3 class="footer__section-title">Services</h3>
                     <ul class="footer__list">
-                        <li><a href="porting.html" class="footer__link">Porting</a></li>
+                        <li><a href="porting.html" class="footer__link">Portage</a></li>
                         <li><a href="maintenance.html" class="footer__link">Maintenance</a></li>
                         <li><a href="expertise.html" class="footer__link">Expertise</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="footer__section-title">Resources</h3>
+                    <h3 class="footer__section-title">Ressources</h3>
                     <ul class="footer__list">
-                        <li><a href="../training.html" class="footer__link">Training</a></li>
+                        <li><a href="../training.html" class="footer__link">Formation</a></li>
                         <li><a href="../blog.html" class="footer__link">Blog</a></li>
                         <li><a href="../contact.html" class="footer__link">Contact</a></li>
                     </ul>
@@ -545,10 +547,10 @@
             </div>
 
             <div class="footer__bottom">
-                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits réservés.</p>
                 <ul class="footer__social">
-                    <li><a href="#" class="footer__social-link">Privacy</a></li>
-                    <li><a href="#" class="footer__social-link">Terms</a></li>
+                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Conditions</a></li>
                     <li><a href="#" class="footer__social-link">LinkedIn</a></li>
                     <li><a href="#" class="footer__social-link">GitHub</a></li>
                 </ul>
@@ -557,8 +559,8 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/language-switcher.js"></script>
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/language-switcher.js"></script>
 </body>
 </html>

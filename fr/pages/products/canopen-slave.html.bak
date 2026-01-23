@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CANopen Maître Stack - AZIT</title>
-    <meta name="description" content="CiA 301 compliant CANopen maître stack for industrial controllers and gateways.">
+    <title>Stack Esclave CANopen - AZIT</title>
+    <meta name="description" content="Stack esclave CANopen conforme CiA 301 pour l'automatisation industrielle. Implémentation avec code source complet.">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../../css/variables.css">
@@ -58,7 +58,7 @@
                                     </ul>
                                 </div>
                                 <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Logiciel</div>
+                                    <div class="mega-menu__title">Logiciels</div>
                                     <ul class="mega-menu__list">
                                         <li><a href="simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
                                     </ul>
@@ -149,7 +149,7 @@
                         <a href="communication-stacks.html">Stacks de Communication</a>
                         <span class="breadcrumb__separator">›</span>
                     </div>
-                    <div class="breadcrumb__item">CANopen Maître</div>
+                    <div class="breadcrumb__item">CANopen Esclave</div>
                 </nav>
             </div>
         </section>
@@ -158,13 +158,14 @@
         <section class="product-hero">
             <div class="container">
                 <div class="product-hero__icon">🔌</div>
-                <h1 class="product-hero__title">CANopen Maître Stack</h1>
+                <h1 class="product-hero__title">Stack CANopen Esclave</h1>
                 <p class="product-hero__description">
-                    CiA 301 compliant CANopen maître implementation for controllers, PLCs, and gateways
+                    Implémentation esclave CANopen conforme CiA 301 pour appareils et capteurs industriels
                 </p>
                 <div class="product-hero__badges">
                     <span class="badge badge--primary">CiA 301</span>
-                    <span class="badge badge--success">Network Management</span>
+                    <span class="badge badge--primary">Code Source Complet</span>
+                    <span class="badge badge--success">Faible Dépendance Matérielle</span>
                 </div>
                 <div class="product-hero__actions">
                     <a href="../../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
@@ -185,67 +186,68 @@
                     </ul>
                 </div>
 
-                <!-- Vue d'ensemble Tab -->
+                <!-- Overview Tab -->
                 <div class="tabs__content active" id="overview-tab">
                     <div class="two-column">
                         <div>
-                            <h2>AZIT CANopen Maître Stack</h2>
+                            <h2>Stack AZIT CANopen Esclave</h2>
                             <p>
-                                Our CANopen Maître stack provides comprehensive network management and control capabilities
-                                for industrial controllers, PLCs, and gateway applications. Manage multiple CANopen slaves
-                                with full NMT, SDO, and PDO support.
+                                Notre stack CANopen Esclave fournit une implémentation complète et prête pour la production de la
+                                norme CiA 301 pour les appareils d'automatisation industrielle. Conçu avec plus de 30 ans d'expertise
+                                en systèmes embarqués, il offre une communication robuste dans les réseaux CANopen.
                             </p>
 
-                            <h3 style="margin-top: 2rem;">Key Applications</h3>
+                            <h3 style="margin-top: 2rem;">Applications Clés</h3>
                             <ul>
-                                <li>Industrial PLCs and controllers</li>
-                                <li>Motion control systems</li>
-                                <li>Protocol gateways</li>
-                                <li>HMI and SCADA systems</li>
-                                <li>Test and diagnostic tools</li>
+                                <li>Capteurs et actionneurs industriels</li>
+                                <li>Variateurs de vitesse et contrôleurs de mouvement</li>
+                                <li>Modules d'E/S</li>
+                                <li>Codeurs et appareils de mesure</li>
+                                <li>IHM et unités d'affichage</li>
                             </ul>
 
-                            <h3 style="margin-top: 2rem;">Network Management</h3>
+                            <h3 style="margin-top: 2rem;">Dictionnaire d'Objets</h3>
                             <p>
-                                Full NMT master functionality for network configuration, slave monitoring,
-                                and error handling. Includes SDO client for parameter access and configuration
-                                of connected slaves.
+                                Inclut une implémentation flexible de Dictionnaire d'Objets (OD) avec support des
+                                objets spécifiques au fabricant, paramètres de configuration et mappage de données de processus.
+                                Outils de génération OD fournis.
                             </p>
                         </div>
 
                         <div>
                             <div class="specs-box">
-                                <h3 class="specs-box__title">Key Benefits</h3>
+                                <h3 class="specs-box__title">Avantages Clés</h3>
                                 <ul class="benefits-list">
-                                    <li>CiA 301 v4.2 compliant</li>
-                                    <li>Multi-slave management</li>
-                                    <li>Faible dépendance matérielle</li>
-                                    <li>Faible dépendance OS</li>
-                                    <li>Network configuration tools</li>
-                                    <li>Expert technical support</li>
+                                    <li>Conforme CiA 301 v4.2</li>
+                                    <li>Aucune dépendance tierce</li>
+                                    <li>Code source complet fourni</li>
+                                    <li>Agnostique matériel</li>
+                                    <li>Indépendant du RTOS</li>
+                                    <li>Empreinte minimale</li>
+                                    <li>Outils de configuration OD</li>
                                 </ul>
                             </div>
 
                             <div class="specs-box" style="margin-top: 1.5rem;">
-                                <h3 class="specs-box__title">Quick Spécifications</h3>
+                                <h3 class="specs-box__title">Spécifications Rapides</h3>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">Standard</span>
+                                    <span class="specs-box__label">Norme</span>
                                     <span class="specs-box__value">CiA 301 v4.2</span>
                                 </div>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">Max Slaves</span>
-                                    <span class="specs-box__value">127 nodes</span>
+                                    <span class="specs-box__label">Taille Code</span>
+                                    <span class="specs-box__value">~40KB (typique)</span>
                                 </div>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">Code Size</span>
-                                    <span class="specs-box__value">~60KB (typical)</span>
+                                    <span class="specs-box__label">RAM</span>
+                                    <span class="specs-box__value">~6KB (typique)</span>
                                 </div>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">Language</span>
+                                    <span class="specs-box__label">Langage</span>
                                     <span class="specs-box__value">ANSI C</span>
                                 </div>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">CAN Bitrate</span>
+                                    <span class="specs-box__label">Débit CAN</span>
                                     <span class="specs-box__value">10 kbps - 1 Mbps</span>
                                 </div>
                             </div>
@@ -253,234 +255,228 @@
                     </div>
                 </div>
 
-                <!-- Fonctionnalités Tab -->
+                <!-- Features Tab -->
                 <div class="tabs__content" id="features-tab">
-                    <h2>Complete Feature Set</h2>
+                    <h2>Ensemble Complet de Fonctionnalités</h2>
 
                     <div class="grid grid--2" style="margin-top: 2rem;">
                         <div class="card">
-                            <h3 class="card__title">Master Fonctionnalités</h3>
+                            <h3 class="card__title">Fonctionnalités de Communication</h3>
                             <ul>
-                                <li>NMT master functionality</li>
-                                <li>Network boot-up management</li>
-                                <li>Slave state control</li>
-                                <li>Node monitoring (heartbeat/node guarding)</li>
-                                <li>Emergency message handling</li>
-                                <li>Sync producer</li>
+                                <li>Machine d'état NMT (esclave)</li>
+                                <li>Serveur SDO (expédié & segmenté)</li>
+                                <li>Transmission PDO (jusqu'à 512 PDO)</li>
+                                <li>Réception PDO (jusqu'à 512 PDO)</li>
+                                <li>Messages d'urgence (EMCY)</li>
+                                <li>Producteur Heartbeat</li>
+                                <li>Node guarding</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <h3 class="card__title">SDO Fonctionnalités</h3>
+                            <h3 class="card__title">Dictionnaire d'Objets</h3>
                             <ul>
-                                <li>SDO client (expedited & segmented)</li>
-                                <li>Block transfer support</li>
-                                <li>Multi-slave SDO management</li>
-                                <li>Upload/download operations</li>
-                                <li>Object Dictionary access</li>
-                                <li>Configuration file support</li>
+                                <li>Structure OD flexible</li>
+                                <li>Accès dynamique aux objets</li>
+                                <li>Objets spécifiques au fabricant</li>
+                                <li>Stockage de paramètres</li>
+                                <li>Modification OD à l'exécution</li>
+                                <li>Outils de génération OD</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <h3 class="card__title">PDO Management</h3>
+                            <h3 class="card__title">Fonctionnalités d'Intégration</h3>
                             <ul>
-                                <li>Dynamic PDO mapping</li>
-                                <li>PDO configuration tools</li>
-                                <li>Receive PDOs from slaves</li>
-                                <li>Transmit PDOs to slaves</li>
-                                <li>Event-driven and cyclic PDOs</li>
-                                <li>Process data routing</li>
+                                <li>Couche d'abstraction matérielle</li>
+                                <li>Fonctionnement RTOS ou bare-metal</li>
+                                <li>Conception à empreinte minimale</li>
+                                <li>API claire et documentée</li>
+                                <li>Outil de configuration</li>
+                                <li>Exemples de projets</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <h3 class="card__title">Development Support</h3>
+                            <h3 class="card__title">Support de Développement</h3>
                             <ul>
-                                <li>Network configuration tool</li>
-                                <li>EDS file import</li>
-                                <li>Diagnostic and monitoring</li>
-                                <li>Example projects</li>
-                                <li>Comprehensive documentation</li>
-                                <li>Expert technical support</li>
+                                <li>Documentation complète</li>
+                                <li>Outil de configuration OD</li>
+                                <li>Suites de tests</li>
+                                <li>Exemples d'implémentation</li>
+                                <li>Support technique expert</li>
+                                <li>Formation disponible</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Spécifications Tab -->
+                <!-- Specifications Tab -->
                 <div class="tabs__content" id="specs-tab">
-                    <h2>Technical Spécifications</h2>
+                    <h2>Spécifications Techniques</h2>
 
                     <div class="grid grid--2" style="margin-top: 2rem;">
                         <div>
-                            <h3>Protocol Compliance</h3>
+                            <h3>Conformité Protocole</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <td style="padding: 0.5rem 0;"><strong>Norme</strong></td>
                                     <td style="padding: 0.5rem 0;">CiA 301 v4.2</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Device Profile</strong></td>
-                                    <td style="padding: 0.5rem 0;">CiA 302 (Manager)</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Classe de Conformité</strong></td>
+                                    <td style="padding: 0.5rem 0;">Configurable</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Additional Profiles</strong></td>
-                                    <td style="padding: 0.5rem 0;">Configurable</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Profil d'Appareil</strong></td>
+                                    <td style="padding: 0.5rem 0;">CiA 401/402/etc.</td>
                                 </tr>
                             </table>
 
-                            <h3 style="margin-top: 2rem;">Resource Requirements</h3>
+                            <h3 style="margin-top: 2rem;">Ressources Requises</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
-                                    <td style="padding: 0.5rem 0;">~60KB (typical)</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Taille Code (ROM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~40KB (typique)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
-                                    <td style="padding: 0.5rem 0;">~12KB + network data</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Taille Données (RAM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~6KB + taille OD</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
-                                    <td style="padding: 0.5rem 0;">~3KB</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Taille Stack</strong></td>
+                                    <td style="padding: 0.5rem 0;">~2KB</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
-                                    <td style="padding: 0.5rem 0;">32-bit processor</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Exigences MCU</strong></td>
+                                    <td style="padding: 0.5rem 0;">Processeur 16/32-bit</td>
                                 </tr>
                             </table>
                         </div>
 
                         <div>
-                            <h3>Network Capabilities</h3>
+                            <h3>Fonctionnalités Supportées</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Max Slaves</strong></td>
-                                    <td style="padding: 0.5rem 0;">127 nodes</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Bitrates</strong></td>
+                                    <td style="padding: 0.5rem 0;"><strong>Débits</strong></td>
                                     <td style="padding: 0.5rem 0;">10 kbps - 1 Mbps</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>PDO Mapping</strong></td>
-                                    <td style="padding: 0.5rem 0;">Dynamic configuration</td>
+                                    <td style="padding: 0.5rem 0;"><strong>ID Nœud</strong></td>
+                                    <td style="padding: 0.5rem 0;">1-127</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>PDO</strong></td>
+                                    <td style="padding: 0.5rem 0;">Jusqu'à 512 (TPDO+RPDO)</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>SDO Clients</strong></td>
-                                    <td style="padding: 0.5rem 0;">Multiple concurrent</td>
+                                    <td style="padding: 0.5rem 0;"><strong>SDO</strong></td>
+                                    <td style="padding: 0.5rem 0;">Expédié & segmenté</td>
                                 </tr>
                             </table>
 
-                            <h3 style="margin-top: 2rem;">Platform Support</h3>
+                            <h3 style="margin-top: 2rem;">Support Plateforme</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
-                                    <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Systèmes d'Exploitation</strong></td>
+                                    <td style="padding: 0.5rem 0;">Tout RTOS ou bare-metal</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
-                                    <td style="padding: 0.5rem 0;">Low hardware dependency</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Familles MCU</strong></td>
+                                    <td style="padding: 0.5rem 0;">Faible dépendance matérielle</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
-                                    <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Compilateur</strong></td>
+                                    <td style="padding: 0.5rem 0;">Tout compilateur ANSI C</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- Intégration Tab -->
+                <!-- Integration Tab -->
                 <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Intégration</h2>
+                    <h2>Intégration Rapide</h2>
 
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
+                    <h3 style="margin-top: 2rem;">Exemple d'Initialisation</h3>
                     <div class="code-block">
                         <div class="code-block__header">
                             <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
+                            <button class="code-block__copy">Copier</button>
                         </div>
-                        <pre><code>/* CANopen Maître initialization */
-#include "canopen_master.h"
+                        <pre><code>/* Initialisation CANopen Esclave */
+#include "canopen_slave.h"
 
-CO_MASTER_CONFIG config = {
+CO_CONFIG config = {
+    .node_id = 10,
     .bitrate = CO_BITRATE_250K,
-    .sync_period = 10  /* ms */
+    .heartbeat_time = 1000  /* ms */
 };
 
-/* Initialize CANopen maître */
-if (co_master_init(&config) == CO_OK) {
-    /* Add slave nodes */
-    co_master_add_node(10, "slave1.eds");
-    co_master_add_node(11, "slave2.eds");
-
-    /* Start network */
-    co_master_start_network();
+/* Initialiser la stack CANopen */
+if (co_slave_init(&config) == CO_OK) {
+    /* Démarrer la communication */
+    co_slave_start();
 }</code></pre>
                     </div>
 
-                    <h3 style="margin-top: 2rem;">Network Management Example</h3>
+                    <h3 style="margin-top: 2rem;">Traitement Cyclique</h3>
                     <div class="code-block">
                         <div class="code-block__header">
                             <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
+                            <button class="code-block__copy">Copier</button>
                         </div>
-                        <pre><code>/* Network control */
-void network_control(void) {
-    /* Start all slaves */
-    co_master_nmt_start_all();
+                        <pre><code>/* Appeler dans votre boucle principale */
+void main_task(void) {
+    while(1) {
+        /* Traiter la communication CANopen */
+        co_slave_process();
 
-    /* Configure slave via SDO */
-    uint32_t param = 1000;
-    co_master_sdo_write(10, 0x1800, 0x05,
-                        &param, sizeof(param));
+        /* Code application */
+        update_application_data();
 
-    /* Monitor slave state */
-    if (co_master_is_slave_operational(10)) {
-        /* Process PDO data */
-        process_slave_data(10);
+        delay_ms(1);
     }
 }</code></pre>
                     </div>
 
                     <div class="two-column" style="margin-top: 3rem;">
                         <div>
-                            <h3>Intégration Steps</h3>
+                            <h3>Étapes d'Intégration</h3>
                             <ol style="padding-left: 1.5rem;">
                                 <li style="margin-bottom: 1rem;">
-                                    <strong>Configure network topology</strong><br>
-                                    Define slaves and import EDS files
+                                    <strong>Configurer le Dictionnaire d'Objets</strong><br>
+                                    Utiliser l'outil de configuration OD pour définir votre profil d'appareil
                                 </li>
                                 <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to project</strong><br>
-                                    Include source and configuration files
+                                    <strong>Ajouter les fichiers de la stack au projet</strong><br>
+                                    Inclure les fichiers source et OD générés
                                 </li>
                                 <li style="margin-bottom: 1rem;">
-                                    <strong>Implement CAN driver</strong><br>
-                                    Provide hardware-specific CAN functions
+                                    <strong>Implémenter l'interface driver CAN</strong><br>
+                                    Fournir les fonctions CAN spécifiques au matériel
                                 </li>
                                 <li style="margin-bottom: 1rem;">
-                                    <strong>Initialize and start master</strong><br>
-                                    Configure and boot network
+                                    <strong>Initialiser et démarrer la stack</strong><br>
+                                    Configurer l'ID de nœud et le débit
                                 </li>
                                 <li style="margin-bottom: 1rem;">
-                                    <strong>Test network operation</strong><br>
-                                    Verify communication with all slaves
+                                    <strong>Tester avec les outils CANopen</strong><br>
+                                    Vérifier la communication avec des outils standards
                                 </li>
                             </ol>
                         </div>
 
                         <div>
-                            <h3>What's Included</h3>
+                            <h3>Contenu Inclus</h3>
                             <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Network configuration tool</li>
-                                <li>EDS file parser and importer</li>
-                                <li>Intégration guide and API reference</li>
-                                <li>Example master applications</li>
-                                <li>Test and diagnostic tools</li>
-                                <li>Technical support package</li>
+                                <li>Code source complet avec documentation</li>
+                                <li>Outil de configuration Dictionnaire d'Objets</li>
+                                <li>Exemples de profils d'appareils</li>
+                                <li>Guide d'intégration et référence API</li>
+                                <li>Modèles de drivers CAN</li>
+                                <li>Outils de test et validation</li>
+                                <li>Package de support technique</li>
                             </ul>
                         </div>
                     </div>
@@ -488,36 +484,36 @@ void network_control(void) {
             </div>
         </section>
 
-        <!-- Related Produits -->
+        <!-- Related Products -->
         <section class="section section--light">
             <div class="container">
-                <h2>Related Produits</h2>
+                <h2>Produits Connexes</h2>
                 <div class="grid grid--3" style="margin-top: 2rem;">
                     <div class="product-card">
                         <div class="product-card__icon">🔌</div>
-                        <h3 class="product-card__title">CANopen Esclave Stack</h3>
+                        <h3 class="product-card__title">Stack CANopen Maître</h3>
                         <p class="product-card__description">
-                            Complete CANopen slave for devices
+                            CANopen maître complet pour contrôleurs
                         </p>
-                        <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                        <a href="canopen-master.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
 
                     <div class="product-card">
                         <div class="product-card__icon">🔐</div>
-                        <h3 class="product-card__title">CANopen Safety Maître</h3>
+                        <h3 class="product-card__title">CANopen Safety Esclave</h3>
                         <p class="product-card__description">
-                            CiA 304 compliant safety master
+                            Protocole de sécurité conforme CiA 304
                         </p>
-                        <a href="canopen-safety-master.html" class="product-card__cta">En Savoir Plus →</a>
+                        <a href="canopen-safety-slave.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
 
                     <div class="product-card">
-                        <div class="product-card__icon">🔧</div>
-                        <h3 class="product-card__title">Développement de Protocole</h3>
+                        <div class="product-card__icon">🚗</div>
+                        <h3 class="product-card__title">Stack J1939</h3>
                         <p class="product-card__description">
-                            Custom protocol implementation
+                            Réseau pour véhicules lourds
                         </p>
-                        <a href="../../services/expertise-development.html" class="product-card__cta">En Savoir Plus →</a>
+                        <a href="j1939.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
                 </div>
             </div>
@@ -527,11 +523,11 @@ void network_control(void) {
         <section class="section">
             <div class="container">
                 <div class="cta-section">
-                    <h2>Ready to Control CANopen Networks?</h2>
-                    <p>Request a quote or talk to our experts about your project</p>
+                    <h2>Prêt à Intégrer CANopen ?</h2>
+                    <p>Demandez un devis ou parlez à nos experts de votre projet</p>
                     <div>
                         <a href="../../contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>
-                        <a href="../../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
+                        <a href="../../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contacter un Expert</a>
                     </div>
                 </div>
             </div>

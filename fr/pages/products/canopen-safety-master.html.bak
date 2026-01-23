@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CANopen Maître Stack - AZIT</title>
-    <meta name="description" content="CiA 301 compliant CANopen maître stack for industrial controllers and gateways.">
+    <title>CANopen Safety Maître - AZIT</title>
+    <meta name="description" content="CiA 304 compliant CANopen Safety master implementation. SIL3/PLe certified by Bureau Véritas.">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../../css/variables.css">
@@ -149,7 +149,7 @@
                         <a href="communication-stacks.html">Stacks de Communication</a>
                         <span class="breadcrumb__separator">›</span>
                     </div>
-                    <div class="breadcrumb__item">CANopen Maître</div>
+                    <div class="breadcrumb__item">CANopen Safety Maître</div>
                 </nav>
             </div>
         </section>
@@ -157,14 +157,16 @@
         <!-- Product Hero -->
         <section class="product-hero">
             <div class="container">
-                <div class="product-hero__icon">🔌</div>
-                <h1 class="product-hero__title">CANopen Maître Stack</h1>
+                <div class="product-hero__icon">🔐</div>
+                <h1 class="product-hero__title">CANopen Safety Maître Stack</h1>
                 <p class="product-hero__description">
-                    CiA 301 compliant CANopen maître implementation for controllers, PLCs, and gateways
+                    CiA 304 compliant safety protocol implementation for CANopen safety controllers
                 </p>
                 <div class="product-hero__badges">
-                    <span class="badge badge--primary">CiA 301</span>
-                    <span class="badge badge--success">Network Management</span>
+                    <span class="badge badge--success">SIL3 Certified</span>
+                    <span class="badge badge--success">PLe Certified</span>
+                    <span class="badge badge--primary">BV Approved</span>
+                    <span class="badge badge--primary">Full Source Code</span>
                 </div>
                 <div class="product-hero__actions">
                     <a href="../../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
@@ -189,39 +191,55 @@
                 <div class="tabs__content active" id="overview-tab">
                     <div class="two-column">
                         <div>
-                            <h2>AZIT CANopen Maître Stack</h2>
+                            <h2>CANopen Safety Maître Solution</h2>
                             <p>
-                                Our CANopen Maître stack provides comprehensive network management and control capabilities
-                                for industrial controllers, PLCs, and gateway applications. Manage multiple CANopen slaves
-                                with full NMT, SDO, and PDO support.
+                                The AZIT CANopen Safety Maître provides complete control and monitoring of CANopen Safety
+                                networks according to CiA 304. Designed for safety controllers and PLCs, it manages
+                                multiple safety slaves and provides comprehensive diagnostic and configuration capabilities.
                             </p>
 
-                            <h3 style="margin-top: 2rem;">Key Applications</h3>
+                            <h2 style="margin-top: 2rem;">Key Capabilities</h2>
+                            <p>
+                                Our master implementation handles all aspects of safety network management including
+                                SSDO communication for configuration, SRDO for cyclic safety data exchange, and
+                                comprehensive error handling and diagnostics.
+                            </p>
+
+                            <h3 style="margin-top: 2rem;">Master Fonctionnalités</h3>
                             <ul>
-                                <li>Industrial PLCs and controllers</li>
-                                <li>Motion control systems</li>
-                                <li>Protocol gateways</li>
-                                <li>HMI and SCADA systems</li>
-                                <li>Test and diagnostic tools</li>
+                                <li>Manage up to 127 safety slaves</li>
+                                <li>Parallel safety connections</li>
+                                <li>SSDO configuration services</li>
+                                <li>SRDO cyclic data exchange</li>
+                                <li>Network diagnostics and monitoring</li>
+                                <li>Safety state management</li>
                             </ul>
 
-                            <h3 style="margin-top: 2rem;">Network Management</h3>
-                            <p>
-                                Full NMT master functionality for network configuration, slave monitoring,
-                                and error handling. Includes SDO client for parameter access and configuration
-                                of connected slaves.
-                            </p>
+                            <div class="architecture-diagram" style="margin-top: 2rem;">
+                                <div class="architecture-diagram__placeholder" style="aspect-ratio: 16/9;">
+                                    [CANopen Safety Maître Architecture]
+                                    <br><br>
+                                    Safety Controller Application
+                                    <br>↓
+                                    <br>AZIT CANopen Safety Maître
+                                    <br>↓
+                                    <br>CANopen Maître Stack
+                                    <br>↓
+                                    <br>CAN Bus → Multiple Safety Slaves
+                                </div>
+                            </div>
                         </div>
 
                         <div>
                             <div class="specs-box">
                                 <h3 class="specs-box__title">Key Benefits</h3>
                                 <ul class="benefits-list">
-                                    <li>CiA 301 v4.2 compliant</li>
+                                    <li>SIL3 / PLe certified by TÜV</li>
+                                    <li>CiA 304 compliant</li>
                                     <li>Multi-slave management</li>
-                                    <li>Faible dépendance matérielle</li>
-                                    <li>Faible dépendance OS</li>
-                                    <li>Network configuration tools</li>
+                                    <li>Full source code provided</li>
+                                    <li>Matériel agnostic</li>
+                                    <li>RTOS independent</li>
                                     <li>Expert technical support</li>
                                 </ul>
                             </div>
@@ -229,24 +247,28 @@
                             <div class="specs-box" style="margin-top: 1.5rem;">
                                 <h3 class="specs-box__title">Quick Spécifications</h3>
                                 <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Level</span>
+                                    <span class="specs-box__value">SIL3 / PLe</span>
+                                </div>
+                                <div class="specs-box__item">
                                     <span class="specs-box__label">Standard</span>
-                                    <span class="specs-box__value">CiA 301 v4.2</span>
+                                    <span class="specs-box__value">CiA 304</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Max Slaves</span>
-                                    <span class="specs-box__value">127 nodes</span>
+                                    <span class="specs-box__value">127</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Code Size</span>
-                                    <span class="specs-box__value">~60KB (typical)</span>
+                                    <span class="specs-box__value">~65KB (typical)</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Language</span>
                                     <span class="specs-box__value">ANSI C</span>
                                 </div>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">CAN Bitrate</span>
-                                    <span class="specs-box__value">10 kbps - 1 Mbps</span>
+                                    <span class="specs-box__label">Certification</span>
+                                    <span class="specs-box__value">Bureau Véritas</span>
                                 </div>
                             </div>
                         </div>
@@ -259,49 +281,47 @@
 
                     <div class="grid grid--2" style="margin-top: 2rem;">
                         <div class="card">
-                            <h3 class="card__title">Master Fonctionnalités</h3>
+                            <h3 class="card__title">Safety Fonctionnalités</h3>
                             <ul>
-                                <li>NMT master functionality</li>
-                                <li>Network boot-up management</li>
-                                <li>Slave state control</li>
-                                <li>Node monitoring (heartbeat/node guarding)</li>
-                                <li>Emergency message handling</li>
-                                <li>Sync producer</li>
+                                <li>SIL3 / PLe safety level</li>
+                                <li>CRC-16 protection</li>
+                                <li>Time stamp monitoring</li>
+                                <li>Connection supervision</li>
+                                <li>Watchdog monitoring</li>
+                                <li>Error detection and handling</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <h3 class="card__title">SDO Fonctionnalités</h3>
+                            <h3 class="card__title">Communication Fonctionnalités</h3>
                             <ul>
-                                <li>SDO client (expedited & segmented)</li>
-                                <li>Block transfer support</li>
-                                <li>Multi-slave SDO management</li>
-                                <li>Upload/download operations</li>
-                                <li>Object Dictionary access</li>
-                                <li>Configuration file support</li>
+                                <li>SSDO configuration protocol</li>
+                                <li>SRDO cyclic data exchange</li>
+                                <li>Multiple parallel connections</li>
+                                <li>Network management</li>
+                                <li>Diagnostic services</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <h3 class="card__title">PDO Management</h3>
+                            <h3 class="card__title">Management Fonctionnalités</h3>
                             <ul>
-                                <li>Dynamic PDO mapping</li>
-                                <li>PDO configuration tools</li>
-                                <li>Receive PDOs from slaves</li>
-                                <li>Transmit PDOs to slaves</li>
-                                <li>Event-driven and cyclic PDOs</li>
-                                <li>Process data routing</li>
+                                <li>Up to 127 safety slaves</li>
+                                <li>Online configuration</li>
+                                <li>Network topology management</li>
+                                <li>Slave diagnostics and status</li>
+                                <li>Error logging and reporting</li>
+                                <li>Safety state control</li>
                             </ul>
                         </div>
 
                         <div class="card">
                             <h3 class="card__title">Development Support</h3>
                             <ul>
-                                <li>Network configuration tool</li>
-                                <li>EDS file import</li>
-                                <li>Diagnostic and monitoring</li>
-                                <li>Example projects</li>
                                 <li>Comprehensive documentation</li>
+                                <li>Configuration tools</li>
+                                <li>Network simulation</li>
+                                <li>Test suites</li>
                                 <li>Expert technical support</li>
                             </ul>
                         </div>
@@ -314,19 +334,23 @@
 
                     <div class="grid grid--2" style="margin-top: 2rem;">
                         <div>
-                            <h3>Protocol Compliance</h3>
+                            <h3>Safety Certification</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
-                                    <td style="padding: 0.5rem 0;">CiA 301 v4.2</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">SIL3 per IEC 61508</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Device Profile</strong></td>
-                                    <td style="padding: 0.5rem 0;">CiA 302 (Manager)</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Performance Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">PLe per ISO 13849</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <td style="padding: 0.5rem 0;">CiA 304</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Additional Profiles</strong></td>
-                                    <td style="padding: 0.5rem 0;">Configurable</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Certification Body</strong></td>
+                                    <td style="padding: 0.5rem 0;">Bureau Véritas</td>
                                 </tr>
                             </table>
 
@@ -334,15 +358,15 @@
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
-                                    <td style="padding: 0.5rem 0;">~60KB (typical)</td>
+                                    <td style="padding: 0.5rem 0;">~65KB (typical)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
-                                    <td style="padding: 0.5rem 0;">~12KB + network data</td>
+                                    <td style="padding: 0.5rem 0;">~12KB + per slave</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
-                                    <td style="padding: 0.5rem 0;">~3KB</td>
+                                    <td style="padding: 0.5rem 0;">~2KB</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
@@ -352,23 +376,23 @@
                         </div>
 
                         <div>
-                            <h3>Network Capabilities</h3>
+                            <h3>Supported Fonctionnalités</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Max Slaves</strong></td>
-                                    <td style="padding: 0.5rem 0;">127 nodes</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Max Safety Slaves</strong></td>
+                                    <td style="padding: 0.5rem 0;">127</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Bitrates</strong></td>
-                                    <td style="padding: 0.5rem 0;">10 kbps - 1 Mbps</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Max I/O per Slave</strong></td>
+                                    <td style="padding: 0.5rem 0;">Up to 128 bytes</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>PDO Mapping</strong></td>
-                                    <td style="padding: 0.5rem 0;">Dynamic configuration</td>
+                                    <td style="padding: 0.5rem 0;"><strong>CAN Bitrates</strong></td>
+                                    <td style="padding: 0.5rem 0;">10 kbit/s to 1 Mbit/s</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>SDO Clients</strong></td>
-                                    <td style="padding: 0.5rem 0;">Multiple concurrent</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Protocol Version</strong></td>
+                                    <td style="padding: 0.5rem 0;">CiA 304 v2.0</td>
                                 </tr>
                             </table>
 
@@ -382,9 +406,13 @@
                                     <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
                                     <td style="padding: 0.5rem 0;">Low hardware dependency</td>
                                 </tr>
-                                <tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
                                     <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>CANopen Stacks</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any standard master stack</td>
                                 </tr>
                             </table>
                         </div>
@@ -394,6 +422,9 @@
                 <!-- Intégration Tab -->
                 <div class="tabs__content" id="integration-tab">
                     <h2>Quick Start Intégration</h2>
+                    <p style="margin-top: 1rem;">
+                        The AZIT CANopen Safety Maître stack provides comprehensive API for managing safety networks.
+                    </p>
 
                     <h3 style="margin-top: 2rem;">Initialization Example</h3>
                     <div class="code-block">
@@ -401,46 +432,42 @@
                             <span class="code-block__language">C</span>
                             <button class="code-block__copy">Copy</button>
                         </div>
-                        <pre><code>/* CANopen Maître initialization */
-#include "canopen_master.h"
+                        <pre><code>/* CANopen Safety Maître initialization */
+#include "canopen_safety_master.h"
 
-CO_MASTER_CONFIG config = {
-    .bitrate = CO_BITRATE_250K,
-    .sync_period = 10  /* ms */
+COSM_CONFIG config = {
+    .node_id = 0x01,
+    .max_slaves = 16,
+    .vendor_id = 0x12345678,
+    .product_code = 0x2000
 };
 
-/* Initialize CANopen maître */
-if (co_master_init(&config) == CO_OK) {
-    /* Add slave nodes */
-    co_master_add_node(10, "slave1.eds");
-    co_master_add_node(11, "slave2.eds");
-
-    /* Start network */
-    co_master_start_network();
+/* Initialize CANopen Safety master */
+if (cosm_init(&config) == COSM_OK) {
+    /* Start safety master */
+    cosm_start();
 }</code></pre>
                     </div>
 
-                    <h3 style="margin-top: 2rem;">Network Management Example</h3>
+                    <h3 style="margin-top: 2rem;">Adding Safety Slaves</h3>
                     <div class="code-block">
                         <div class="code-block__header">
                             <span class="code-block__language">C</span>
                             <button class="code-block__copy">Copy</button>
                         </div>
-                        <pre><code>/* Network control */
-void network_control(void) {
-    /* Start all slaves */
-    co_master_nmt_start_all();
+                        <pre><code>/* Add and configure a safety slave */
+COSM_SLAVE_CONFIG slave_cfg = {
+    .node_id = 0x10,
+    .safe_inputs = 8,
+    .safe_outputs = 8,
+    .watchdog_time = 100  /* ms */
+};
 
-    /* Configure slave via SDO */
-    uint32_t param = 1000;
-    co_master_sdo_write(10, 0x1800, 0x05,
-                        &param, sizeof(param));
-
-    /* Monitor slave state */
-    if (co_master_is_slave_operational(10)) {
-        /* Process PDO data */
-        process_slave_data(10);
-    }
+/* Add slave to network */
+if (cosm_add_slave(&slave_cfg) == COSM_OK) {
+    /* Configure and activate slave */
+    cosm_configure_slave(0x10);
+    cosm_activate_slave(0x10);
 }</code></pre>
                     </div>
 
@@ -449,24 +476,24 @@ void network_control(void) {
                             <h3>Intégration Steps</h3>
                             <ol style="padding-left: 1.5rem;">
                                 <li style="margin-bottom: 1rem;">
+                                    <strong>Add stack files to your project</strong><br>
+                                    Include source files and headers in your build system
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Integrate with CANopen master</strong><br>
+                                    Connect to your existing CANopen implementation
+                                </li>
+                                <li style="margin-bottom: 1rem;">
                                     <strong>Configure network topology</strong><br>
-                                    Define slaves and import EDS files
+                                    Define safety slaves and connections
                                 </li>
                                 <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to project</strong><br>
-                                    Include source and configuration files
+                                    <strong>Implement application logic</strong><br>
+                                    Handle safety data and diagnostics
                                 </li>
                                 <li style="margin-bottom: 1rem;">
-                                    <strong>Implement CAN driver</strong><br>
-                                    Provide hardware-specific CAN functions
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Initialize and start master</strong><br>
-                                    Configure and boot network
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test network operation</strong><br>
-                                    Verify communication with all slaves
+                                    <strong>Test and validate</strong><br>
+                                    Use provided test tools and validation suite
                                 </li>
                             </ol>
                         </div>
@@ -474,15 +501,24 @@ void network_control(void) {
                         <div>
                             <h3>What's Included</h3>
                             <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Network configuration tool</li>
-                                <li>EDS file parser and importer</li>
+                                <li>Full source code with documentation</li>
+                                <li>Example projects and applications</li>
                                 <li>Intégration guide and API reference</li>
-                                <li>Example master applications</li>
-                                <li>Test and diagnostic tools</li>
+                                <li>Network configuration tools</li>
+                                <li>Test suites and validation tools</li>
+                                <li>TÜV certification documents</li>
                                 <li>Technical support package</li>
                             </ul>
                         </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
+                        <h3>Need Help with Intégration?</h3>
+                        <p style="margin-top: 1rem;">
+                            Our team offers complete integration services for safety controller development including
+                            architecture design, implementation, and certification support.
+                        </p>
+                        <a href="../../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Our Services</a>
                     </div>
                 </div>
             </div>
@@ -494,30 +530,30 @@ void network_control(void) {
                 <h2>Related Produits</h2>
                 <div class="grid grid--3" style="margin-top: 2rem;">
                     <div class="product-card">
-                        <div class="product-card__icon">🔌</div>
-                        <h3 class="product-card__title">CANopen Esclave Stack</h3>
+                        <div class="product-card__icon">🔐</div>
+                        <h3 class="product-card__title">CANopen Safety Esclave</h3>
                         <p class="product-card__description">
-                            Complete CANopen slave for devices
+                            Safety slave for distributed I/O devices
                         </p>
-                        <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                        <a href="canopen-safety-slave.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
 
                     <div class="product-card">
-                        <div class="product-card__icon">🔐</div>
-                        <h3 class="product-card__title">CANopen Safety Maître</h3>
+                        <div class="product-card__icon">🔌</div>
+                        <h3 class="product-card__title">CANopen Maître</h3>
                         <p class="product-card__description">
-                            CiA 304 compliant safety master
+                            Standard CANopen master implementation
                         </p>
-                        <a href="canopen-safety-master.html" class="product-card__cta">En Savoir Plus →</a>
+                        <a href="canopen-master.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
 
                     <div class="product-card">
                         <div class="product-card__icon">🔧</div>
-                        <h3 class="product-card__title">Développement de Protocole</h3>
+                        <h3 class="product-card__title">Configuration Tools</h3>
                         <p class="product-card__description">
-                            Custom protocol implementation
+                            Network design and configuration utilities
                         </p>
-                        <a href="../../services/expertise-development.html" class="product-card__cta">En Savoir Plus →</a>
+                        <a href="tools.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
                 </div>
             </div>
@@ -527,7 +563,7 @@ void network_control(void) {
         <section class="section">
             <div class="container">
                 <div class="cta-section">
-                    <h2>Ready to Control CANopen Networks?</h2>
+                    <h2>Ready to Build Your Safety Controller?</h2>
                     <p>Request a quote or talk to our experts about your project</p>
                     <div>
                         <a href="../../contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>

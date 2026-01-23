@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CANopen Maître Stack - AZIT</title>
-    <meta name="description" content="CiA 301 compliant CANopen maître stack for industrial controllers and gateways.">
+    <title>Stack Sécurité Sans Fil - AZIT</title>
+    <meta name="description" content="Sans Fil safety communication stack for mobile and distributed safety applications.">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../../css/variables.css">
@@ -48,12 +48,12 @@
                                 <div class="mega-menu__section">
                                     <div class="mega-menu__title">Stacks de Communication</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Esclave</a></li>
-                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Maître</a></li>
-                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Esclave</a></li>
-                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Maître</a></li>
-                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Esclave</a></li>
-                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Maître</a></li>
+                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Slave</a></li>
+                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Master</a></li>
+                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Slave</a></li>
+                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Master</a></li>
+                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Slave</a></li>
+                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Master</a></li>
                                         <li><a href="j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
                                     </ul>
                                 </div>
@@ -119,8 +119,8 @@
                 </ul>
 
                 <div class="lang-switcher">
-                    <button class="lang-switcher__btn active" data-lang="fr">FR</button>
-                    <button class="lang-switcher__btn" data-lang="en">EN</button>
+                    <button class="lang-switcher__btn" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn active" data-lang="fr">EN</button>
                 </div>
             </nav>
 
@@ -149,26 +149,38 @@
                         <a href="communication-stacks.html">Stacks de Communication</a>
                         <span class="breadcrumb__separator">›</span>
                     </div>
-                    <div class="breadcrumb__item">CANopen Maître</div>
+                    <div class="breadcrumb__item">Sécurité Sans Fil</div>
                 </nav>
+            </div>
+        </section>
+
+        <!-- Prochainement Notice -->
+        <section class="section" style="padding-top: 1.5rem; padding-bottom: 0;">
+            <div class="container">
+                <div style="padding: 1rem 1.5rem; background-color: #FFF4E6; border-left: 4px solid var(--color-warning); border-radius: var(--border-radius-md); margin-bottom: 1rem;">
+                    <p style="margin: 0; color: #8B5700; font-weight: 500;">
+                        <strong>Prochainement:</strong> Ce produit est actuellement en développement. Contactez-nous pour des informations sur la disponibilité.
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- Product Hero -->
         <section class="product-hero">
             <div class="container">
-                <div class="product-hero__icon">🔌</div>
-                <h1 class="product-hero__title">CANopen Maître Stack</h1>
+                <div class="product-hero__icon">📡</div>
+                <h1 class="product-hero__title">Stack Sécurité Sans Fil</h1>
                 <p class="product-hero__description">
-                    CiA 301 compliant CANopen maître implementation for controllers, PLCs, and gateways
+                    Sans Fil safety communication for mobile machinery and distributed safety applications
                 </p>
                 <div class="product-hero__badges">
-                    <span class="badge badge--primary">CiA 301</span>
-                    <span class="badge badge--success">Network Management</span>
+                    <span class="badge badge--warning">Prochainement</span>
+                    <span class="badge badge--primary">Sans Fil</span>
+                    <span class="badge badge--primary">Objectif SIL2/PLd</span>
                 </div>
                 <div class="product-hero__actions">
-                    <a href="../../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
-                    <a href="#" class="btn btn--outline btn--large">Télécharger la Fiche Technique</a>
+                    <a href="../../contact.html" class="btn btn--primary btn--large">Nous Contacter</a>
+                    <a href="#" class="btn btn--outline btn--large">Manifester son Intérêt</a>
                 </div>
             </div>
         </section>
@@ -181,7 +193,6 @@
                         <li><button class="tabs__button active" data-tab="overview">Vue d'ensemble</button></li>
                         <li><button class="tabs__button" data-tab="features">Fonctionnalités</button></li>
                         <li><button class="tabs__button" data-tab="specs">Spécifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Intégration</button></li>
                     </ul>
                 </div>
 
@@ -189,64 +200,86 @@
                 <div class="tabs__content active" id="overview-tab">
                     <div class="two-column">
                         <div>
-                            <h2>AZIT CANopen Maître Stack</h2>
+                            <h2>Sécurité Sans Fil Communication</h2>
                             <p>
-                                Our CANopen Maître stack provides comprehensive network management and control capabilities
-                                for industrial controllers, PLCs, and gateway applications. Manage multiple CANopen slaves
-                                with full NMT, SDO, and PDO support.
+                                Sans Fil safety systems enable safety-critical communication without physical cables,
+                                essential for mobile machinery, cranes, AGVs, and distributed safety applications.
+                                Our wireless safety solution will provide reliable, certified safety communication
+                                over wireless channels while maintaining the integrity required for SIL2/PLd applications.
                             </p>
 
-                            <h3 style="margin-top: 2rem;">Key Applications</h3>
+                            <h2 style="margin-top: 2rem;">AZIT Stack Sécurité Sans Fil (In Development)</h2>
+                            <p>
+                                Our wireless safety implementation will leverage advanced safety protocol techniques
+                                including redundant transmission, cryptographic protection, and robust error detection
+                                to achieve safety integrity over unreliable wireless media. Compatible with standard
+                                wireless technologies including Wi-Fi, Bluetooth, and industrial wireless protocols.
+                            </p>
+
+                            <h3 style="margin-top: 2rem;">Key Applications (Planned)</h3>
                             <ul>
-                                <li>Industrial PLCs and controllers</li>
-                                <li>Motion control systems</li>
-                                <li>Protocol gateways</li>
-                                <li>HMI and SCADA systems</li>
-                                <li>Test and diagnostic tools</li>
+                                <li>Mobile machinery and vehicles</li>
+                                <li>Overhead cranes and hoists</li>
+                                <li>Automated guided vehicles (AGVs)</li>
+                                <li>Warehouse automation</li>
+                                <li>Remote emergency stops</li>
+                                <li>Distributed safety systems</li>
                             </ul>
 
-                            <h3 style="margin-top: 2rem;">Network Management</h3>
-                            <p>
-                                Full NMT master functionality for network configuration, slave monitoring,
-                                and error handling. Includes SDO client for parameter access and configuration
-                                of connected slaves.
-                            </p>
+                            <div class="architecture-diagram" style="margin-top: 2rem;">
+                                <div class="architecture-diagram__placeholder" style="aspect-ratio: 16/9;">
+                                    [Sécurité Sans Fil Architecture]
+                                    <br><br>
+                                    Safety Application
+                                    <br>↓
+                                    <br>AZIT Stack Sécurité Sans Fil
+                                    <br>↓
+                                    <br>Sans Fil Protocol Layer
+                                    <br>↓
+                                    <br>Sans Fil Matériel (Wi-Fi/BT/Industrial)
+                                </div>
+                            </div>
                         </div>
 
                         <div>
                             <div class="specs-box">
-                                <h3 class="specs-box__title">Key Benefits</h3>
+                                <h3 class="specs-box__title">Planned Benefits</h3>
                                 <ul class="benefits-list">
-                                    <li>CiA 301 v4.2 compliant</li>
-                                    <li>Multi-slave management</li>
-                                    <li>Faible dépendance matérielle</li>
-                                    <li>Faible dépendance OS</li>
-                                    <li>Network configuration tools</li>
-                                    <li>Expert technical support</li>
+                                    <li>SIL2 / PLd target certification</li>
+                                    <li>Sans Fil safety communication</li>
+                                    <li>Multiple wireless technologies</li>
+                                    <li>Full source code</li>
+                                    <li>Matériel agnostic</li>
+                                    <li>Cryptographic protection</li>
+                                    <li>Expert support</li>
                                 </ul>
                             </div>
 
                             <div class="specs-box" style="margin-top: 1.5rem;">
-                                <h3 class="specs-box__title">Quick Spécifications</h3>
+                                <h3 class="specs-box__title">Planned Spécifications</h3>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">Standard</span>
-                                    <span class="specs-box__value">CiA 301 v4.2</span>
+                                    <span class="specs-box__label">Safety Level</span>
+                                    <span class="specs-box__value">SIL2 / PLd Target</span>
                                 </div>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">Max Slaves</span>
-                                    <span class="specs-box__value">127 nodes</span>
+                                    <span class="specs-box__label">Sans Fil Tech</span>
+                                    <span class="specs-box__value">Wi-Fi, BT, Industrial</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Range</span>
+                                    <span class="specs-box__value">Up to 100m</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Code Size</span>
-                                    <span class="specs-box__value">~60KB (typical)</span>
+                                    <span class="specs-box__value">~60KB (estimated)</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Language</span>
                                     <span class="specs-box__value">ANSI C</span>
                                 </div>
                                 <div class="specs-box__item">
-                                    <span class="specs-box__label">CAN Bitrate</span>
-                                    <span class="specs-box__value">10 kbps - 1 Mbps</span>
+                                    <span class="specs-box__label">Status</span>
+                                    <span class="specs-box__value">In Development</span>
                                 </div>
                             </div>
                         </div>
@@ -255,53 +288,54 @@
 
                 <!-- Fonctionnalités Tab -->
                 <div class="tabs__content" id="features-tab">
-                    <h2>Complete Feature Set</h2>
+                    <h2>Planned Feature Set</h2>
 
                     <div class="grid grid--2" style="margin-top: 2rem;">
                         <div class="card">
-                            <h3 class="card__title">Master Fonctionnalités</h3>
+                            <h3 class="card__title">Safety Fonctionnalités</h3>
                             <ul>
-                                <li>NMT master functionality</li>
-                                <li>Network boot-up management</li>
-                                <li>Slave state control</li>
-                                <li>Node monitoring (heartbeat/node guarding)</li>
-                                <li>Emergency message handling</li>
-                                <li>Sync producer</li>
+                                <li>SIL2 / PLd safety level target</li>
+                                <li>Redundant transmission</li>
+                                <li>CRC and sequence checking</li>
+                                <li>Cryptographic authentication</li>
+                                <li>Connection monitoring</li>
+                                <li>Watchdog supervision</li>
+                                <li>Fail-safe behavior</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <h3 class="card__title">SDO Fonctionnalités</h3>
+                            <h3 class="card__title">Sans Fil Fonctionnalités</h3>
                             <ul>
-                                <li>SDO client (expedited & segmented)</li>
-                                <li>Block transfer support</li>
-                                <li>Multi-slave SDO management</li>
-                                <li>Upload/download operations</li>
-                                <li>Object Dictionary access</li>
-                                <li>Configuration file support</li>
+                                <li>Wi-Fi support</li>
+                                <li>Bluetooth support</li>
+                                <li>Industrial wireless protocols</li>
+                                <li>Channel quality monitoring</li>
+                                <li>Automatic reconnection</li>
+                                <li>Range monitoring</li>
                             </ul>
                         </div>
 
                         <div class="card">
-                            <h3 class="card__title">PDO Management</h3>
+                            <h3 class="card__title">Intégration Fonctionnalités</h3>
                             <ul>
-                                <li>Dynamic PDO mapping</li>
-                                <li>PDO configuration tools</li>
-                                <li>Receive PDOs from slaves</li>
-                                <li>Transmit PDOs to slaves</li>
-                                <li>Event-driven and cyclic PDOs</li>
-                                <li>Process data routing</li>
+                                <li>Matériel abstraction layer</li>
+                                <li>RTOS or bare-metal operation</li>
+                                <li>Minimal footprint design</li>
+                                <li>Clean, documented API</li>
+                                <li>Example projects included</li>
+                                <li>Portage guidelines</li>
                             </ul>
                         </div>
 
                         <div class="card">
                             <h3 class="card__title">Development Support</h3>
                             <ul>
-                                <li>Network configuration tool</li>
-                                <li>EDS file import</li>
-                                <li>Diagnostic and monitoring</li>
-                                <li>Example projects</li>
                                 <li>Comprehensive documentation</li>
+                                <li>Configuration tools</li>
+                                <li>Network simulation</li>
+                                <li>Test suites</li>
+                                <li>Certification support</li>
                                 <li>Expert technical support</li>
                             </ul>
                         </div>
@@ -310,35 +344,39 @@
 
                 <!-- Spécifications Tab -->
                 <div class="tabs__content" id="specs-tab">
-                    <h2>Technical Spécifications</h2>
+                    <h2>Planned Technical Spécifications</h2>
 
                     <div class="grid grid--2" style="margin-top: 2rem;">
                         <div>
-                            <h3>Protocol Compliance</h3>
+                            <h3>Safety Certification (Target)</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
-                                    <td style="padding: 0.5rem 0;">CiA 301 v4.2</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">SIL2 per IEC 61508</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Device Profile</strong></td>
-                                    <td style="padding: 0.5rem 0;">CiA 302 (Manager)</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Performance Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">PLd per ISO 13849</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <td style="padding: 0.5rem 0;">IEC 61784-3-18 (planned)</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Additional Profiles</strong></td>
-                                    <td style="padding: 0.5rem 0;">Configurable</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Certification Body</strong></td>
+                                    <td style="padding: 0.5rem 0;">TÜV (planned)</td>
                                 </tr>
                             </table>
 
-                            <h3 style="margin-top: 2rem;">Resource Requirements</h3>
+                            <h3 style="margin-top: 2rem;">Resource Requirements (Estimated)</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
-                                    <td style="padding: 0.5rem 0;">~60KB (typical)</td>
+                                    <td style="padding: 0.5rem 0;">~60KB (estimated)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
-                                    <td style="padding: 0.5rem 0;">~12KB + network data</td>
+                                    <td style="padding: 0.5rem 0;">~12KB (estimated)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
@@ -352,23 +390,23 @@
                         </div>
 
                         <div>
-                            <h3>Network Capabilities</h3>
+                            <h3>Planned Fonctionnalités</h3>
                             <table style="width: 100%; margin-top: 1rem;">
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Max Slaves</strong></td>
-                                    <td style="padding: 0.5rem 0;">127 nodes</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Communication Range</strong></td>
+                                    <td style="padding: 0.5rem 0;">Up to 100m</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Bitrates</strong></td>
-                                    <td style="padding: 0.5rem 0;">10 kbps - 1 Mbps</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Latency</strong></td>
+                                    <td style="padding: 0.5rem 0;">&lt; 100ms</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>PDO Mapping</strong></td>
-                                    <td style="padding: 0.5rem 0;">Dynamic configuration</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Max Safe I/O</strong></td>
+                                    <td style="padding: 0.5rem 0;">Up to 128 bytes</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>SDO Clients</strong></td>
-                                    <td style="padding: 0.5rem 0;">Multiple concurrent</td>
+                                    <td style="padding: 0.5rem 0;"><strong>Encryption</strong></td>
+                                    <td style="padding: 0.5rem 0;">AES-128/256</td>
                                 </tr>
                             </table>
 
@@ -382,156 +420,68 @@
                                     <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
                                     <td style="padding: 0.5rem 0;">Low hardware dependency</td>
                                 </tr>
-                                <tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
                                     <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
                                 </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Sans Fil Matériel</strong></td>
+                                    <td style="padding: 0.5rem 0;">Wi-Fi, BT, Industrial</td>
+                                </tr>
                             </table>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Intégration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Intégration</h2>
-
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* CANopen Maître initialization */
-#include "canopen_master.h"
-
-CO_MASTER_CONFIG config = {
-    .bitrate = CO_BITRATE_250K,
-    .sync_period = 10  /* ms */
-};
-
-/* Initialize CANopen maître */
-if (co_master_init(&config) == CO_OK) {
-    /* Add slave nodes */
-    co_master_add_node(10, "slave1.eds");
-    co_master_add_node(11, "slave2.eds");
-
-    /* Start network */
-    co_master_start_network();
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Network Management Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* Network control */
-void network_control(void) {
-    /* Start all slaves */
-    co_master_nmt_start_all();
-
-    /* Configure slave via SDO */
-    uint32_t param = 1000;
-    co_master_sdo_write(10, 0x1800, 0x05,
-                        &param, sizeof(param));
-
-    /* Monitor slave state */
-    if (co_master_is_slave_operational(10)) {
-        /* Process PDO data */
-        process_slave_data(10);
-    }
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Intégration Steps</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configure network topology</strong><br>
-                                    Define slaves and import EDS files
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to project</strong><br>
-                                    Include source and configuration files
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Implement CAN driver</strong><br>
-                                    Provide hardware-specific CAN functions
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Initialize and start master</strong><br>
-                                    Configure and boot network
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test network operation</strong><br>
-                                    Verify communication with all slaves
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>What's Included</h3>
-                            <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Network configuration tool</li>
-                                <li>EDS file parser and importer</li>
-                                <li>Intégration guide and API reference</li>
-                                <li>Example master applications</li>
-                                <li>Test and diagnostic tools</li>
-                                <li>Technical support package</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Related Produits -->
-        <section class="section section--light">
-            <div class="container">
-                <h2>Related Produits</h2>
-                <div class="grid grid--3" style="margin-top: 2rem;">
-                    <div class="product-card">
-                        <div class="product-card__icon">🔌</div>
-                        <h3 class="product-card__title">CANopen Esclave Stack</h3>
-                        <p class="product-card__description">
-                            Complete CANopen slave for devices
-                        </p>
-                        <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-card__icon">🔐</div>
-                        <h3 class="product-card__title">CANopen Safety Maître</h3>
-                        <p class="product-card__description">
-                            CiA 304 compliant safety master
-                        </p>
-                        <a href="canopen-safety-master.html" class="product-card__cta">En Savoir Plus →</a>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-card__icon">🔧</div>
-                        <h3 class="product-card__title">Développement de Protocole</h3>
-                        <p class="product-card__description">
-                            Custom protocol implementation
-                        </p>
-                        <a href="../../services/expertise-development.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
+        <section class="section section--light">
+            <div class="container">
+                <div style="text-align: center; padding: 3rem 0;">
+                    <h2>Interested in Sécurité Sans Fil?</h2>
+                    <p style="margin-top: 1rem; font-size: 1.125rem;">
+                        This product is currently in development. Contact us to learn more about availability,
+                        beta testing opportunities, and early access programs.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="../../contact.html" class="btn btn--primary btn--large">Nous Contacter</a>
+                        <a href="../../contact.html" class="btn btn--outline btn--large">Manifester son Intérêt</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Produits -->
         <section class="section">
             <div class="container">
-                <div class="cta-section">
-                    <h2>Ready to Control CANopen Networks?</h2>
-                    <p>Request a quote or talk to our experts about your project</p>
-                    <div>
-                        <a href="../../contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>
-                        <a href="../../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
+                <h2>Available Safety Produits</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">⚡</div>
+                        <h3 class="product-card__title">FSoE</h3>
+                        <p class="product-card__description">
+                            Safety over EtherCAT - SIL3/PLe
+                        </p>
+                        <a href="fsoe-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔐</div>
+                        <h3 class="product-card__title">CANopen Safety</h3>
+                        <p class="product-card__description">
+                            CiA 304 certified - SIL3/PLe
+                        </p>
+                        <a href="canopen-safety-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔧</div>
+                        <h3 class="product-card__title">Portage Services</h3>
+                        <p class="product-card__description">
+                            Expert integration support
+                        </p>
+                        <a href="../../services/porting.html" class="product-card__cta">En Savoir Plus →</a>
                     </div>
                 </div>
             </div>

@@ -164,6 +164,7 @@
                 </p>
                 <div class="product-hero__badges">
                     <span class="badge badge--primary">CiA 301</span>
+                    <span class="badge badge--primary">Full Source Code</span>
                     <span class="badge badge--success">Network Management</span>
                 </div>
                 <div class="product-hero__actions">
@@ -219,8 +220,9 @@
                                 <ul class="benefits-list">
                                     <li>CiA 301 v4.2 compliant</li>
                                     <li>Multi-slave management</li>
-                                    <li>Faible dépendance matérielle</li>
-                                    <li>Faible dépendance OS</li>
+                                    <li>Full source code provided</li>
+                                    <li>Matériel agnostic</li>
+                                    <li>RTOS independent</li>
                                     <li>Network configuration tools</li>
                                     <li>Expert technical support</li>
                                 </ul>
@@ -474,7 +476,7 @@ void network_control(void) {
                         <div>
                             <h3>What's Included</h3>
                             <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
+                                <li>Full source code with documentation</li>
                                 <li>Network configuration tool</li>
                                 <li>EDS file parser and importer</li>
                                 <li>Intégration guide and API reference</li>
