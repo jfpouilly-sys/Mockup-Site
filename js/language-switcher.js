@@ -34,14 +34,16 @@
                     // Update content
                     updateContent(lang);
 
-                    // Redirect to language-specific page
-                    redirectToLanguagePage(lang);
+                    // TEMPORARILY DISABLED: Redirect to language-specific page
+                    // TODO: Fix infinite reload loop before re-enabling
+                    // redirectToLanguagePage(lang);
                 }
             });
         });
 
-        // Load saved language preference
-        loadLanguagePreference();
+        // TEMPORARILY DISABLED: Load saved language preference
+        // TODO: Fix infinite reload loop before re-enabling
+        // loadLanguagePreference();
     }
 
     // Load language preference from localStorage
