@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Réseaux Industriels - AZIT</title>
+    <meta name="description" content="Formation réseaux industriels, diagnostics et développement de passerelles. Services experts pour CANopen, EtherCAT, FSoE et J1939.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/components.css">
+    <link rel="stylesheet" href="../../../css/layout.css">
+    <link rel="stylesheet" href="../../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Produits
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Matériel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../products/protocol-gateway.html" class="mega-menu__link">Passerelle de Protocole (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Stacks de Communication</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../products/fsoe-slave.html" class="mega-menu__link">FSoE Slave</a></li>
+                                        <li><a href="../products/fsoe-master.html" class="mega-menu__link">FSoE Master</a></li>
+                                        <li><a href="../products/canopen-slave.html" class="mega-menu__link">CANopen Slave</a></li>
+                                        <li><a href="../products/canopen-master.html" class="mega-menu__link">CANopen Master</a></li>
+                                        <li><a href="../products/canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Slave</a></li>
+                                        <li><a href="../products/canopen-safety-master.html" class="mega-menu__link">CANopen Safety Master</a></li>
+                                        <li><a href="../products/j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Logiciels</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../products/simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Outils & Analyseurs</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../products/tools.html" class="mega-menu__link">Outils de Développement</a></li>
+                                        <li><a href="../products/analyzers.html" class="mega-menu__link">Analyseurs de Protocole</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Services
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Intégration</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="porting.html" class="mega-menu__link">Activités de Portage</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Expertise</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="expertise.html" class="mega-menu__link">Conformité Sécurité</a></li>
+                                        <li><a href="expertise-development.html" class="mega-menu__link">Développement Protocole</a></li>
+                                        <li><a href="expertise-testing.html" class="mega-menu__link">Tests & Validation</a></li>
+                                        <li><a href="expertise-networks.html" class="mega-menu__link">Réseaux Industriels</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Support</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="maintenance.html" class="mega-menu__link">Support Maintenance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../training.html" class="nav__link">Formation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../blog.html" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../company.html" class="nav__link">Entreprise</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
+                    </li>
+                </ul>
+
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn active" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn" data-lang="en">EN</button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../index.html">Accueil</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="expertise.html">Services</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="expertise.html">Expertise Technique</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">Réseaux Industriels</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Service Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <div class="product-hero__icon">🌐</div>
+                <h1 class="product-hero__title">Services Réseaux Industriels</h1>
+                <p class="product-hero__description">
+                    Formation réseaux, diagnostics et développement de passerelles pour protocoles industriels
+                </p>
+                <div class="product-hero__badges">
+                    <span class="badge badge--primary">Programmes de Formation</span>
+                    <span class="badge badge--primary">Diagnostics Réseau</span>
+                    <span class="badge badge--primary">Développement Passerelles</span>
+                </div>
+                <div class="product-hero__actions">
+                    <a href="../contact.html" class="btn btn--primary btn--large">Demander une Consultation</a>
+                    <a href="../contact.html" class="btn btn--outline btn--large">Contacter un Expert</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="section">
+            <div class="container">
+                <div class="two-column">
+                    <div>
+                        <h2>Expertise en Réseaux Industriels</h2>
+                        <p>
+                            Les réseaux industriels sont l'épine dorsale des systèmes d'automatisation modernes. Notre
+                            équipe fournit des services complets pour vous aider à comprendre, déployer, dépanner et
+                            optimiser les communications réseaux industriels sur plusieurs protocoles et technologies.
+                        </p>
+
+                        <h2 style="margin-top: 2rem;">Services Complets</h2>
+                        <p>
+                            Des cours de formation pratiques au diagnostic réseau et au développement de passerelles
+                            personnalisées, nous offrons l'expertise nécessaire pour implémenter et maintenir avec succès
+                            l'infrastructure de réseaux industriels. Nos services couvrent les protocoles bus de terrain
+                            et Ethernet industriel.
+                        </p>
+
+                        <h3 style="margin-top: 2rem;">Expérience Multi-Protocoles</h3>
+                        <p>
+                            Avec une connaissance approfondie de CANopen, EtherCAT, FSoE, J1939 et autres protocoles,
+                            nous fournissons une expertise neutre vis-à-vis des fournisseurs qui vous aide à prendre
+                            des décisions éclairées et à implémenter des solutions de meilleures pratiques.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="specs-box">
+                            <h3 class="specs-box__title">Avantages Clés</h3>
+                            <ul class="benefits-list">
+                                <li>Formation experte et transfert de connaissances</li>
+                                <li>Résolution rapide des problèmes</li>
+                                <li>Expertise multi-protocoles</li>
+                                <li>Conseils neutres fournisseur</li>
+                                <li>Expérience pratique</li>
+                                <li>Programmes de formation personnalisés</li>
+                                <li>Services sur site ou à distance</li>
+                            </ul>
+                        </div>
+
+                        <div class="specs-box" style="margin-top: 1.5rem;">
+                            <h3 class="specs-box__title">Couverture Protocoles</h3>
+                            <div class="specs-box__item">
+                                <span class="specs-box__label">CANopen</span>
+                                <span class="specs-box__value">✓</span>
+                            </div>
+                            <div class="specs-box__item">
+                                <span class="specs-box__label">EtherCAT / FSoE</span>
+                                <span class="specs-box__value">✓</span>
+                            </div>
+                            <div class="specs-box__item">
+                                <span class="specs-box__label">J1939</span>
+                                <span class="specs-box__value">✓</span>
+                            </div>
+                            <div class="specs-box__item">
+                                <span class="specs-box__label">CAN / CAN-FD</span>
+                                <span class="specs-box__value">✓</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Nos Services Réseaux Industriels</h2>
+
+                <div class="grid grid--2" style="margin-top: 2rem;">
+                    <div class="card">
+                        <h3 class="card__title">Cours de Formation Réseau</h3>
+                        <p>
+                            Programmes de formation complets conçus pour développer l'expertise de votre équipe en
+                            protocoles industriels. Disponibles sur site dans vos locaux ou à distance.
+                        </p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Formation aux fondamentaux protocoles</li>
+                            <li>Exercices pratiques en laboratoire</li>
+                            <li>Études de cas du monde réel</li>
+                            <li>Techniques de dépannage</li>
+                            <li>Meilleures pratiques et modèles de conception</li>
+                            <li>Programmes de formation personnalisés</li>
+                            <li>Supports de formation inclus</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Services de Diagnostics Réseau</h3>
+                        <p>
+                            Services experts de dépannage et diagnostic pour identifier et résoudre rapidement et
+                            efficacement les problèmes de communication réseau.
+                        </p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Analyse de performance réseau</li>
+                            <li>Diagnostic problèmes de communication</li>
+                            <li>Analyse de traces protocoles</li>
+                            <li>Revue de configuration</li>
+                            <li>Identification cause racine</li>
+                            <li>Recommandations d'optimisation</li>
+                            <li>Rapports de diagnostic détaillés</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Développement de Passerelles Protocoles</h3>
+                        <p>
+                            Solutions de passerelles personnalisées pour relier différents protocoles et permettre
+                            la communication entre réseaux et dispositifs incompatibles.
+                        </p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Conception de passerelles multi-protocoles</li>
+                            <li>Mapping et conversion de données</li>
+                            <li>Performance temps réel</li>
+                            <li>Interfaces de configuration</li>
+                            <li>Capacités de diagnostic</li>
+                            <li>Passerelles matérielles ou logicielles</li>
+                            <li>Documentation complète</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Conseil Architecture Réseau</h3>
+                        <p>
+                            Guidage expert sur l'architecture réseau, la sélection de protocoles et la conception
+                            système pour nouveaux projets ou mises à niveau de systèmes.
+                        </p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Conseils sur la sélection de protocoles</li>
+                            <li>Conception de topologie réseau</li>
+                            <li>Analyse exigences de performance</li>
+                            <li>Planification de scalabilité</li>
+                            <li>Intégration réseau de sécurité</li>
+                            <li>Développement stratégie de migration</li>
+                            <li>Documentation d'architecture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Programs -->
+        <section class="section">
+            <div class="container">
+                <h2>Programmes de Formation Disponibles</h2>
+
+                <div class="grid grid--2" style="margin-top: 2rem;">
+                    <div class="card">
+                        <h3 class="card__title">Formation CANopen</h3>
+                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                            <strong>Durée :</strong> 2-3 jours
+                        </p>
+                        <p>
+                            Formation CANopen complète couvrant les fondamentaux du protocole, les profils d'équipement,
+                            la configuration et l'implémentation pratique.
+                        </p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Fondamentaux CAN et CANopen</li>
+                            <li>Dictionnaire d'objets et communication</li>
+                            <li>Gestion réseau (NMT, Heartbeat)</li>
+                            <li>SDO, PDO, Emergency, Sync</li>
+                            <li>Profils d'équipement (CiA 301, 401, 402)</li>
+                            <li>Configuration et mise en service</li>
+                            <li>Exercices pratiques avec équipements réels</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Formation EtherCAT & FSoE</h3>
+                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                            <strong>Durée :</strong> 2-3 jours
+                        </p>
+                        <p>
+                            Formation approfondie sur l'Ethernet temps réel EtherCAT et le protocole de sécurité FSoE
+                            pour applications d'automatisation industrielle.
+                        </p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Fondamentaux et architecture EtherCAT</li>
+                            <li>Traitement de télégrammes et timing</li>
+                            <li>CoE (CANopen over EtherCAT)</li>
+                            <li>Synchronisation horloges distribuées</li>
+                            <li>Protocole de sécurité FSoE</li>
+                            <li>Configuration et réglage réseau</li>
+                            <li>Sessions pratiques en laboratoire</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Formation J1939</h3>
+                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                            <strong>Durée :</strong> 2 jours
+                        </p>
+                        <p>
+                            Formation ciblée sur le protocole SAE J1939 pour applications véhicules lourds et
+                            équipements hors route.
+                        </p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Aperçu du protocole J1939</li>
+                            <li>Groupes de paramètres (PGN) et SPN</li>
+                            <li>Protocole de transport (BAM, CMDT)</li>
+                            <li>Revendication d'adresse</li>
+                            <li>Diagnostics (messages DM)</li>
+                            <li>Couche application véhicule J1939-71</li>
+                            <li>Exercices pratiques et outils</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Programmes de Formation Personnalisés</h3>
+                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                            <strong>Durée :</strong> Selon besoin
+                        </p>
+                        <p>
+                            Programmes de formation sur mesure conçus spécifiquement pour les besoins de votre équipe,
+                            les exigences du projet et les niveaux de compétence.
+                        </p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Contenu et focus personnalisés</li>
+                            <li>Vos protocoles et produits spécifiques</li>
+                            <li>Intégration avec vos systèmes</li>
+                            <li>Votre environnement de développement</li>
+                            <li>Exemples spécifiques au projet</li>
+                            <li>Durée et planification flexibles</li>
+                            <li>Support de suivi inclus</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: var(--color-light); border-radius: var(--border-radius-lg); text-align: center;">
+                    <h3>Options de Livraison de Formation</h3>
+                    <div class="grid grid--3" style="margin-top: 2rem; text-align: left;">
+                        <div>
+                            <h4>Formation Sur Site</h4>
+                            <p style="margin-top: 0.5rem; color: var(--color-gray-600); font-size: 0.875rem;">
+                                Nous venons dans vos locaux avec tout l'équipement nécessaire pour une formation
+                                pratique dans votre environnement.
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Formation à Distance</h4>
+                            <p style="margin-top: 0.5rem; color: var(--color-gray-600); font-size: 0.875rem;">
+                                Formation en ligne interactive en direct avec accès laboratoire distant et partage
+                                d'écran pour exercices pratiques.
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Formation Hybride</h4>
+                            <p style="margin-top: 0.5rem; color: var(--color-gray-600); font-size: 0.875rem;">
+                                Combinaison de sessions théoriques à distance suivies de laboratoires pratiques
+                                sur site et travaux pratiques.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagnostics Services -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Diagnostics Réseau & Dépannage</h2>
+
+                <div class="two-column" style="margin-top: 2rem;">
+                    <div>
+                        <h3>Quand Vous Avez Besoin de Diagnostics</h3>
+                        <p style="margin-top: 0.5rem;">
+                            Les problèmes de réseaux industriels peuvent être complexes et chronophages à diagnostiquer.
+                            Nos experts peuvent rapidement identifier les problèmes et fournir des solutions, vous faisant
+                            économiser un temps précieux de développement ou de production.
+                        </p>
+
+                        <h4 style="margin-top: 2rem;">Problèmes Courants Que Nous Résolvons</h4>
+                        <ul style="margin-top: 1rem;">
+                            <li>Défaillances de communication intermittentes</li>
+                            <li>Performance réseau lente</li>
+                            <li>Problèmes d'initialisation de dispositifs</li>
+                            <li>Erreurs de configuration</li>
+                            <li>Problèmes de timing et synchronisation</li>
+                            <li>Problèmes d'interopérabilité</li>
+                            <li>Problèmes de conception réseau</li>
+                        </ul>
+
+                        <h4 style="margin-top: 2rem;">Notre Processus de Diagnostic</h4>
+                        <ol style="padding-left: 1.5rem; margin-top: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">Revue description et historique du problème</li>
+                            <li style="margin-bottom: 0.5rem;">Capture et analyse réseau</li>
+                            <li style="margin-bottom: 0.5rem;">Revue de configuration</li>
+                            <li style="margin-bottom: 0.5rem;">Identification cause racine</li>
+                            <li style="margin-bottom: 0.5rem;">Recommandation de solution</li>
+                            <li style="margin-bottom: 0.5rem;">Tests de vérification</li>
+                        </ol>
+                    </div>
+
+                    <div>
+                        <div class="specs-box">
+                            <h3 class="specs-box__title">Livrables de Diagnostics</h3>
+                            <ul class="benefits-list">
+                                <li>Rapport de diagnostic détaillé</li>
+                                <li>Analyse cause racine</li>
+                                <li>Analyse de traces protocoles</li>
+                                <li>Recommandations de configuration</li>
+                                <li>Guide d'implémentation solution</li>
+                                <li>Support de suivi</li>
+                                <li>Recommandations de prévention</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding: 2rem; background: var(--color-light); border-radius: var(--border-radius-lg);">
+                            <h3>Temps de Réponse Rapide</h3>
+                            <p style="margin-top: 0.5rem; color: var(--color-gray-600);">
+                                Nous comprenons que les problèmes réseau peuvent arrêter la production. Nous offrons
+                                des services de diagnostic prioritaires avec temps de réponse rapides.
+                            </p>
+                            <div style="margin-top: 1rem; padding: 1rem; background: white; border-radius: var(--border-radius);">
+                                <strong>Standard :</strong> 1-2 jours<br>
+                                <strong>Prioritaire :</strong> Même jour<br>
+                                <strong>Urgence :</strong> En quelques heures
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gateway Development -->
+        <section class="section">
+            <div class="container">
+                <h2>Développement de Passerelles Protocoles</h2>
+
+                <div class="grid grid--2" style="margin-top: 2rem;">
+                    <div>
+                        <h3>Pourquoi des Passerelles Protocoles</h3>
+                        <p>
+                            Les systèmes industriels modernes ont souvent besoin d'intégrer des dispositifs utilisant
+                            différents protocoles. Les passerelles protocoles permettent une communication transparente
+                            entre réseaux incompatibles, vous permettant d'intégrer des équipements legacy avec des
+                            systèmes modernes ou de connecter différents îlots d'automatisation.
+                        </p>
+
+                        <h3 style="margin-top: 2rem;">Scénarios de Passerelles Courants</h3>
+                        <ul style="margin-top: 1rem;">
+                            <li>Passerelle CANopen vers EtherCAT</li>
+                            <li>Passerelle J1939 vers CANopen</li>
+                            <li>Passerelle protocole propriétaire vers standard</li>
+                            <li>Passerelle Modbus vers CANopen</li>
+                            <li>Passerelle multi-protocoles (3+ protocoles)</li>
+                            <li>Passerelle réseau sécurité vers standard</li>
+                        </ul>
+
+                        <h3 style="margin-top: 2rem;">Fonctionnalités Passerelles</h3>
+                        <ul style="margin-top: 1rem;">
+                            <li>Transfert de données bidirectionnel</li>
+                            <li>Mapping de données configurable</li>
+                            <li>Performance temps réel</li>
+                            <li>Configuration Web</li>
+                            <li>Capacités de diagnostic</li>
+                            <li>Surveillance d'état</li>
+                            <li>Mises à jour firmware</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <h3 class="card__title">Processus Développement Passerelle</h3>
+                            <ol style="padding-left: 1.5rem; margin-top: 1rem;">
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Analyse Exigences</strong><br>
+                                    <span style="color: var(--color-gray-600); font-size: 0.875rem;">
+                                        Définir protocoles, mappings de données, exigences de performance et fonctionnalités
+                                    </span>
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Conception Architecture</strong><br>
+                                    <span style="color: var(--color-gray-600); font-size: 0.875rem;">
+                                        Concevoir l'architecture passerelle, sélection plateforme matérielle, architecture logicielle
+                                    </span>
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Implémentation</strong><br>
+                                    <span style="color: var(--color-gray-600); font-size: 0.875rem;">
+                                        Développer firmware passerelle, outils de configuration et interfaces utilisateur
+                                    </span>
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Tests & Validation</strong><br>
+                                    <span style="color: var(--color-gray-600); font-size: 0.875rem;">
+                                        Tests complets avec dispositifs et réseaux réels
+                                    </span>
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Documentation & Livraison</strong><br>
+                                    <span style="color: var(--color-gray-600); font-size: 0.875rem;">
+                                        Documentation complète, manuels utilisateur et support de mise en service
+                                    </span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Services -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Services Connexes</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">💻</div>
+                        <h3 class="product-card__title">Développement Protocole</h3>
+                        <p class="product-card__description">
+                            Services d'implémentation de protocoles personnalisés
+                        </p>
+                        <a href="expertise-development.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🧪</div>
+                        <h3 class="product-card__title">Tests & Validation</h3>
+                        <p class="product-card__description">
+                            Services de tests réseau complets
+                        </p>
+                        <a href="expertise-testing.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🎓</div>
+                        <h3 class="product-card__title">Formation Générale</h3>
+                        <p class="product-card__description">
+                            Parcourir tous les cours de formation disponibles
+                        </p>
+                        <a href="../training.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Besoin d'Expertise en Réseaux Industriels ?</h2>
+                    <p>Contactez-nous pour discuter de formation, diagnostics ou développement de passerelles</p>
+                    <div>
+                        <a href="../contact.html" class="btn btn--secondary btn--large">Demander une Consultation</a>
+                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contacter un Expert</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">30+ ans d'expertise en systèmes embarqués</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="../products/protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="../products/simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="../products/fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="../products/canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="../products/canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="../products/j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Services</h3>
+                    <ul class="footer__list">
+                        <li><a href="porting.html" class="footer__link">Portage</a></li>
+                        <li><a href="maintenance.html" class="footer__link">Maintenance</a></li>
+                        <li><a href="expertise.html" class="footer__link">Expertise</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../training.html" class="footer__link">Formation</a></li>
+                        <li><a href="../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits réservés.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Conditions</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/language-switcher.js"></script>
+</body>
+</html>

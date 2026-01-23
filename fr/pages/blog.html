@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Actualités - AZIT</title>
+    <meta name="description" content="Dernières informations, mises à jour et articles techniques sur les protocoles industriels, systèmes de sécurité et développement embarqué.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Produits
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Matériel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="products/protocol-gateway.html" class="mega-menu__link">Passerelle de Protocole (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Piles de Communication</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="products/fsoe-slave.html" class="mega-menu__link">FSoE Esclave</a></li>
+                                        <li><a href="products/fsoe-master.html" class="mega-menu__link">FSoE Maître</a></li>
+                                        <li><a href="products/canopen-slave.html" class="mega-menu__link">CANopen Esclave</a></li>
+                                        <li><a href="products/canopen-master.html" class="mega-menu__link">CANopen Maître</a></li>
+                                        <li><a href="products/canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Esclave</a></li>
+                                        <li><a href="products/canopen-safety-master.html" class="mega-menu__link">CANopen Safety Maître</a></li>
+                                        <li><a href="products/j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Logiciel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="products/simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Outils & Analyseurs</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="products/tools.html" class="mega-menu__link">Outils de Développement</a></li>
+                                        <li><a href="products/analyzers.html" class="mega-menu__link">Analyseurs de Protocole</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Services
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Intégration</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="services/porting.html" class="mega-menu__link">Portage</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Expertise</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="services/expertise.html" class="mega-menu__link">Conformité Sécurité</a></li>
+                                        <li><a href="services/expertise-development.html" class="mega-menu__link">Développement de Protocoles</a></li>
+                                        <li><a href="services/expertise-testing.html" class="mega-menu__link">Test & Validation</a></li>
+                                        <li><a href="services/expertise-networks.html" class="mega-menu__link">Réseaux Industriels</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Support</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="services/maintenance.html" class="mega-menu__link">Support Maintenance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="training.html" class="nav__link">Formation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="blog.html" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="company.html" class="nav__link">Entreprise</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
+                    </li>
+                </ul>
+
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn active" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn" data-lang="en">EN</button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../index.html">Accueil</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">Blog</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Page Hero -->
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h1 class="section__title">Blog & Actualités</h1>
+                    <p class="section__subtitle">
+                        Dernières informations, mises à jour et articles techniques de l'équipe AZIT
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Posts -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">Articles en Vedette</h2>
+
+                <div class="grid grid--2">
+                    <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                        <div class="blog-card__image" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                            🔐
+                        </div>
+                        <div class="blog-card__content">
+                            <span class="badge badge--primary">Article Technique</span>
+                            <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                <span>15 janvier 2025</span>
+                                <span>•</span>
+                                <span>12 min de lecture</span>
+                                <span>•</span>
+                                <span>Par Martin Dubois</span>
+                            </div>
+                            <h3 class="blog-card__title">Comprendre l'Architecture de Sécurité FSoE</h3>
+                            <p class="blog-card__excerpt">
+                                Une exploration approfondie de l'architecture de sécurité Fail-Safe over EtherCAT, couvrant
+                                le concept de canal blanc, les protocoles de sécurité et les meilleures pratiques d'implémentation
+                                pour les systèmes certifiés SIL3/PLe.
+                            </p>
+                            <span class="blog-card__read-more">Lire l'Article Complet →</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                        <div class="blog-card__image" style="background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                            🚀
+                        </div>
+                        <div class="blog-card__content">
+                            <span class="badge badge--success">Mise à Jour Produit</span>
+                            <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                <span>10 janvier 2025</span>
+                                <span>•</span>
+                                <span>5 min de lecture</span>
+                                <span>•</span>
+                                <span>Par Équipe AZIT</span>
+                            </div>
+                            <h3 class="blog-card__title">AZIT Annonce la Nouvelle Version v4.0 de la Pile J1939</h3>
+                            <p class="blog-card__excerpt">
+                                Nous sommes ravis d'annoncer la sortie de notre pile J1939 version 4.0, avec des performances
+                                améliorées, un meilleur support d'extension de sécurité et de nouvelles capacités de diagnostic
+                                pour les applications hors route et automobiles.
+                            </p>
+                            <span class="blog-card__read-more">Lire l'Article Complet →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filter -->
+        <section class="section section--light">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="margin-bottom: 1rem;">Parcourir par Catégorie</h2>
+                    <div class="tabs">
+                        <ul class="tabs__list">
+                            <li><button class="tabs__button active" data-tab="all">Tous les Articles</button></li>
+                            <li><button class="tabs__button" data-tab="technical">Articles Techniques</button></li>
+                            <li><button class="tabs__button" data-tab="product">Mises à Jour Produits</button></li>
+                            <li><button class="tabs__button" data-tab="industry">Actualités Industrie</button></li>
+                            <li><button class="tabs__button" data-tab="case">Études de Cas</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- All Posts -->
+                <div class="tabs__content active" id="all-tab">
+                    <div class="grid grid--3">
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🔌
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--info">Technique</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>8 janvier 2025</span>
+                                    <span>•</span>
+                                    <span>10 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Meilleures Pratiques pour l'Intégration CANopen</h3>
+                                <p class="blog-card__excerpt">
+                                    Découvrez les meilleures pratiques essentielles pour intégrer les piles de protocole CANopen
+                                    dans les systèmes d'automatisation industrielle.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🏭
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--warning">Étude de Cas</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>5 janvier 2025</span>
+                                    <span>•</span>
+                                    <span>8 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Étude de Cas : Système de Sécurité Robot Industriel</h3>
+                                <p class="blog-card__excerpt">
+                                    Comment un fabricant de robotique de premier plan a implémenté la sécurité FSoE dans
+                                    sa plateforme de robot collaboratif.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                📜
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--success">Actualités Industrie</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>3 janvier 2025</span>
+                                    <span>•</span>
+                                    <span>6 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Impact du Cyber Resilience Act de l'UE sur les Protocoles Industriels</h3>
+                                <p class="blog-card__excerpt">
+                                    Comprendre les implications du nouveau CRA de l'UE pour les fournisseurs de piles
+                                    de protocoles industriels et les intégrateurs.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                ⚡
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--info">Technique</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>28 décembre 2024</span>
+                                    <span>•</span>
+                                    <span>15 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Optimisation des Performances dans les Protocoles Temps Réel</h3>
+                                <p class="blog-card__excerpt">
+                                    Techniques avancées pour optimiser les performances de la pile de protocoles dans
+                                    les systèmes embarqués à ressources limitées.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🎓
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge" style="background-color: var(--color-secondary);">Formation</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>20 décembre 2024</span>
+                                    <span>•</span>
+                                    <span>4 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Calendrier de Formation Q1 2025 Annoncé</h3>
+                                <p class="blog-card__excerpt">
+                                    Rejoignez nos ateliers pratiques pour CANopen Safety, développement FSoE et
+                                    formation de certification IEC 61508.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                ✓
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--info">Technique</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>15 décembre 2024</span>
+                                    <span>•</span>
+                                    <span>11 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Obtenir la Certification SIL3 : Guide Étape par Étape</h3>
+                                <p class="blog-card__excerpt">
+                                    Naviguez le processus de certification SIL3 en toute confiance. Apprenez les exigences,
+                                    la documentation et les meilleures pratiques.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🚜
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--warning">Étude de Cas</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>10 décembre 2024</span>
+                                    <span>•</span>
+                                    <span>9 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Implémentation J1939 dans l'Équipement Agricole</h3>
+                                <p class="blog-card__excerpt">
+                                    Comment un fabricant majeur d'équipement agricole a déployé J1939 safety dans
+                                    toute sa gamme de produits.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🌐
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--success">Actualités Industrie</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>5 décembre 2024</span>
+                                    <span>•</span>
+                                    <span>7 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">L'Avenir des Protocoles Ethernet Industriels</h3>
+                                <p class="blog-card__excerpt">
+                                    Explorer les tendances de l'Ethernet industriel, TSN, l'intégration OPC UA et
+                                    l'évolution des protocoles fieldbus.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                💻
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--info">Technique</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>28 novembre 2024</span>
+                                    <span>•</span>
+                                    <span>13 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Portage de Piles de Protocoles sur ARM Cortex-M</h3>
+                                <p class="blog-card__excerpt">
+                                    Un guide pratique pour porter des piles de protocoles industriels sur
+                                    microcontrôleurs ARM Cortex-M et FreeRTOS.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Technical Articles -->
+                <div class="tabs__content" id="technical-tab">
+                    <div class="grid grid--3">
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🔐
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--info">Technique</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>15 janvier 2025</span>
+                                    <span>•</span>
+                                    <span>12 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Comprendre l'Architecture de Sécurité FSoE</h3>
+                                <p class="blog-card__excerpt">
+                                    Une exploration approfondie de l'architecture de sécurité Fail-Safe over EtherCAT.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🔌
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--info">Technique</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>8 janvier 2025</span>
+                                    <span>•</span>
+                                    <span>10 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Meilleures Pratiques pour l'Intégration CANopen</h3>
+                                <p class="blog-card__excerpt">
+                                    Meilleures pratiques essentielles pour l'intégration de piles de protocoles CANopen.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                ⚡
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--info">Technique</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>28 décembre 2024</span>
+                                    <span>•</span>
+                                    <span>15 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Optimisation des Performances dans les Protocoles Temps Réel</h3>
+                                <p class="blog-card__excerpt">
+                                    Techniques d'optimisation avancées pour piles de protocoles embarquées.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Updates -->
+                <div class="tabs__content" id="product-tab">
+                    <div class="grid grid--3">
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🚀
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--success">Mise à Jour Produit</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>10 janvier 2025</span>
+                                    <span>•</span>
+                                    <span>5 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">AZIT Annonce la Nouvelle Version v4.0 de la Pile J1939</h3>
+                                <p class="blog-card__excerpt">
+                                    Performances améliorées, extension de sécurité améliorée et nouvelles capacités de diagnostic.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry News -->
+                <div class="tabs__content" id="industry-tab">
+                    <div class="grid grid--3">
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                📜
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--success">Actualités Industrie</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>3 janvier 2025</span>
+                                    <span>•</span>
+                                    <span>6 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Impact du Cyber Resilience Act de l'UE sur les Protocoles Industriels</h3>
+                                <p class="blog-card__excerpt">
+                                    Comprendre les implications du nouveau CRA de l'UE pour les fournisseurs de protocoles.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🌐
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--success">Actualités Industrie</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>5 décembre 2024</span>
+                                    <span>•</span>
+                                    <span>7 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">L'Avenir des Protocoles Ethernet Industriels</h3>
+                                <p class="blog-card__excerpt">
+                                    Explorer les tendances de l'Ethernet industriel, TSN et l'intégration OPC UA.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Case Studies -->
+                <div class="tabs__content" id="case-tab">
+                    <div class="grid grid--3">
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🏭
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--warning">Étude de Cas</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>5 janvier 2025</span>
+                                    <span>•</span>
+                                    <span>8 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Étude de Cas : Système de Sécurité Robot Industriel</h3>
+                                <p class="blog-card__excerpt">
+                                    Implémentation de sécurité FSoE dans des plateformes de robots collaboratifs.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="blog-card" style="text-decoration: none; color: inherit;">
+                            <div class="blog-card__image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem;">
+                                🚜
+                            </div>
+                            <div class="blog-card__content">
+                                <span class="badge badge--warning">Étude de Cas</span>
+                                <div class="blog-card__meta" style="margin-top: 0.5rem;">
+                                    <span>10 décembre 2024</span>
+                                    <span>•</span>
+                                    <span>9 min de lecture</span>
+                                </div>
+                                <h3 class="blog-card__title">Implémentation J1939 dans l'Équipement Agricole</h3>
+                                <p class="blog-card__excerpt">
+                                    Déploiement de J1939 safety dans les gammes de produits d'équipement agricole.
+                                </p>
+                                <span class="blog-card__read-more">Lire Plus →</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pagination -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: center; gap: 0.5rem; align-items: center;">
+                    <button class="btn btn--ghost btn--small" disabled style="opacity: 0.5;">← Précédent</button>
+                    <button class="btn btn--primary btn--small">1</button>
+                    <button class="btn btn--ghost btn--small">2</button>
+                    <button class="btn btn--ghost btn--small">3</button>
+                    <button class="btn btn--ghost btn--small">Suivant →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="section section--light">
+            <div class="container">
+                <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                    <h2>Restez Informé</h2>
+                    <p style="margin: 1rem 0; color: var(--color-gray-600);">
+                        Abonnez-vous à notre newsletter pour recevoir les derniers articles techniques, mises à jour produits et informations sectorielles.
+                    </p>
+
+                    <form style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <input type="email" class="form-input" placeholder="Entrez votre adresse e-mail" style="flex: 1;">
+                        <button type="submit" class="btn btn--primary">S'abonner</button>
+                    </form>
+
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-gray-500);">
+                        Pas de spam, désabonnement possible à tout moment. Lisez notre <a href="#" style="color: var(--color-primary);">Politique de Confidentialité</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Prêt à Démarrer Votre Projet ?</h2>
+                    <p>Contactez nos experts en protocoles pour discuter de vos besoins d'intégration</p>
+                    <div>
+                        <a href="contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>
+                        <a href="products/communication-stacks.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Voir les Produits</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">Plus de 30 ans d'expertise en systèmes embarqués</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="products/protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="products/simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="products/fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="products/canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="products/canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="products/j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Services</h3>
+                    <ul class="footer__list">
+                        <li><a href="services/porting.html" class="footer__link">Portage</a></li>
+                        <li><a href="services/maintenance.html" class="footer__link">Maintenance</a></li>
+                        <li><a href="services/expertise.html" class="footer__link">Expertise</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="training.html" class="footer__link">Formation</a></li>
+                        <li><a href="blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits réservés.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Conditions</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/language-switcher.js"></script>
+</body>
+</html>
