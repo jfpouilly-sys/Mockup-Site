@@ -34,16 +34,14 @@
                     // Update content
                     updateContent(lang);
 
-                    // TEMPORARILY DISABLED: Redirect to language-specific page
-                    // TODO: Fix infinite reload loop before re-enabling
-                    // redirectToLanguagePage(lang);
+                    // Redirect to language-specific page
+                    redirectToLanguagePage(lang);
                 }
             });
         });
 
-        // TEMPORARILY DISABLED: Load saved language preference
-        // TODO: Fix infinite reload loop before re-enabling
-        // loadLanguagePreference();
+        // Load saved language preference
+        loadLanguagePreference();
     }
 
     // Load language preference from localStorage
@@ -52,10 +50,18 @@
             const savedLang = localStorage.getItem('azit-lang');
 
             if (savedLang) {
-                const button = document.querySelector(`.lang-switcher__btn[data-lang="${savedLang}"]`);
+                // Check if we're already on a page that matches the saved language
+                const currentPath = window.location.pathname;
+                const isFrenchPage = currentPath.includes('/fr/');
+                const currentLang = isFrenchPage ? 'fr' : 'en';
 
-                if (button) {
-                    button.click();
+                // Only redirect if we're on a different language page
+                if (savedLang !== currentLang) {
+                    const button = document.querySelector(`.lang-switcher__btn[data-lang="${savedLang}"]`);
+
+                    if (button) {
+                        button.click();
+                    }
                 }
             }
         } catch (e) {
@@ -118,19 +124,25 @@
         // Determine if we're in the FR directory
         const isFrenchPage = currentPath.includes('/fr/');
 
+        // Check if we're already on the correct language page
+        if ((lang === 'fr' && isFrenchPage) || (lang === 'en' && !isFrenchPage)) {
+            // Already on correct language page, no redirect needed
+            return;
+        }
+
         // If we're on the default (EN) version and switching to FR
         if (lang === 'fr' && !isFrenchPage) {
             let frPath;
 
             // Check if we're on the root index.html
             if (currentPath === '/' || currentPath.endsWith('/index.html') || currentFile === 'index.html') {
-                frPath = 'fr/index.html';
+                frPath = '/fr/index.html';
             }
             // Check if we're in a subdirectory (pages/products/, pages/services/, etc.)
             else if (currentPath.includes('/pages/')) {
                 // Extract the path after /pages/
                 const pathParts = currentPath.split('/pages/');
-                frPath = 'fr/pages/' + pathParts[1];
+                frPath = '/fr/pages/' + pathParts[1];
             }
 
             if (frPath) {
@@ -144,7 +156,7 @@
 
             // Check if we're on the French root index.html
             if (currentPath.endsWith('/fr/index.html') || currentPath === '/fr/') {
-                enPath = '/';
+                enPath = '/index.html';
             }
             // Remove /fr from the path
             else {
