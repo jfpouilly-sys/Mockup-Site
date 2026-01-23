@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pile PROFISAFE Esclave - AZIT</title>
+    <meta name="description" content="Implémentation esclave PROFIsafe conforme IEC 61784-3. Certifiée SIL3/PLe par Bureau Véritas.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/components.css">
+    <link rel="stylesheet" href="../../../css/layout.css">
+    <link rel="stylesheet" href="../../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Produits
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="communication-stacks.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">PILES DE COMMUNICATION</a>
+                                    <ul class="mega-menu__list">
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">Protocoles de Sécurité</li>
+                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Esclave</a></li>
+                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Maître</a></li>
+                                        <li><a href="profisafe-slave.html" class="mega-menu__link">PROFISAFE Esclave</a></li>
+                                        <li><a href="profisafe-master.html" class="mega-menu__link">PROFISAFE Maître</a></li>
+                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Esclave</a></li>
+                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Maître</a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">Protocoles Fieldbus</li>
+                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Esclave</a></li>
+                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Maître</a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">Automobile</li>
+                                        <li><a href="j1939.html" class="mega-menu__link">J1939</a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">IoT Industriel</li>
+                                        <li><a href="opc-ua.html" class="mega-menu__link">OPC-UA (Bientôt)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">PASSERELLES PROTOCOLES</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="protocol-gateway.html" class="mega-menu__link">Plateforme Passerelle ISI-GTW</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">OUTILS</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="simulation.html" class="mega-menu__link">Simulateur EtherCAT</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">MATÉRIEL</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="protocol-gateway.html" class="mega-menu__link">Aperçu Solutions Matérielles</a></li>
+                                        <li><a href="../contact.html" class="mega-menu__link">Cartes de Développement Personnalisées</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Services
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">EXPERTISE</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/expertise-development.html" class="mega-menu__link">Développement de Piles Protocoles</a></li>
+                                        <li><a href="../services/expertise.html" class="mega-menu__link">Architecture Systèmes de Sécurité</a></li>
+                                        <li><a href="../services/expertise-compliance.html" class="mega-menu__link">Conseil Conformité (CRA, NIS2)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">DÉVELOPPEMENT</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/expertise-development.html" class="mega-menu__link">Développement Protocole Personnalisé</a></li>
+                                        <li><a href="../services/expertise-networks.html" class="mega-menu__link">Optimisation de Pile</a></li>
+                                        <li><a href="../services/expertise-testing.html" class="mega-menu__link">Tests & Validation</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">INTÉGRATION et SUPPORT</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/porting.html" class="mega-menu__link">Services de Portage</a></li>
+                                        <li><a href="../services/maintenance.html" class="mega-menu__link">Maintenance & Mises à Jour</a></li>
+                                        <li><a href="../services/maintenance.html" class="mega-menu__link">Support Technique</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../training.html" class="nav__link">Formation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../blog.html" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../company.html" class="nav__link">Entreprise</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
+                    </li>
+                </ul>
+
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn active" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn" data-lang="en" onclick="window.location.href='../../../pages/products/profisafe-slave.html'">EN</button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../index.html">Accueil</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Produits</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Piles de Communication</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">PROFISAFE Esclave</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <div class="product-hero__icon">🛡️</div>
+                <h1 class="product-hero__title">Pile PROFISAFE Esclave</h1>
+                <p class="product-hero__description">
+                    Implémentation esclave PROFIsafe conforme IEC 61784-3 pour dispositifs de sécurité PROFINET
+                </p>
+                <div class="product-hero__badges">
+                    <span class="badge badge--success">Certifié SIL3</span>
+                    <span class="badge badge--success">Certifié PLe</span>
+                    <span class="badge badge--primary">Approuvé TÜV</span>
+                    <span class="badge badge--primary">Code Source Complet</span>
+                </div>
+                <div class="product-hero__actions">
+                    <a href="../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
+                    <a href="#" class="btn btn--outline btn--large">Télécharger la Fiche Technique</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="overview">Aperçu</button></li>
+                        <li><button class="tabs__button" data-tab="features">Fonctionnalités</button></li>
+                        <li><button class="tabs__button" data-tab="specs">Spécifications</button></li>
+                        <li><button class="tabs__button" data-tab="integration">Intégration</button></li>
+                    </ul>
+                </div>
+
+                <!-- Overview Tab -->
+                <div class="tabs__content active" id="overview-tab">
+                    <div class="two-column">
+                        <div>
+                            <h2>Qu'est-ce que PROFIsafe ?</h2>
+                            <p>
+                                PROFIsafe est l'extension de protocole de sécurité pour les réseaux PROFINET,
+                                permettant la communication de sécurité SIL3/PLe dans l'automatisation industrielle. Il est spécifié dans
+                                IEC 61784-3 et fournit une solution de sécurité indépendante du fournisseur pour les systèmes PROFINET temps réel.
+                            </p>
+
+                            <h2 style="margin-top: 2rem;">Pile PROFISAFE Esclave AZIT</h2>
+                            <p>
+                                Notre implémentation PROFIsafe Esclave fournit une solution complète et certifiée pour intégrer
+                                des fonctions de sécurité dans vos dispositifs esclaves PROFINET. Construite avec plus de 30 ans d'expertise en
+                                systèmes embarqués, elle dispose d'une architecture canal blanc qui sépare la logique de sécurité
+                                de la communication PROFINET sous-jacente.
+                            </p>
+
+                            <h3 style="margin-top: 2rem;">Architecture Canal Blanc</h3>
+                            <p>
+                                L'architecture canal blanc signifie que notre pile PROFIsafe est indépendante de la pile esclave PROFINET
+                                sous-jacente "canal noir". Cela offre :
+                            </p>
+                            <ul>
+                                <li>Liberté de choisir n'importe quelle pile esclave PROFINET (Siemens, Softing, etc.)</li>
+                                <li>Processus de certification de sécurité simplifié</li>
+                                <li>Séparation claire des responsabilités dans votre code</li>
+                                <li>Maintenance et mises à jour facilitées</li>
+                            </ul>
+
+                            <div class="architecture-diagram" style="margin-top: 2rem;">
+                                <div class="architecture-diagram__placeholder" style="aspect-ratio: 16/9;">
+                                    [Diagramme d'Architecture PROFIsafe]
+                                    <br><br>
+                                    Couche Application ↔ AZIT PROFIsafe Esclave (Canal Blanc)
+                                    <br>↓
+                                    <br>Pile Esclave PROFINET (Canal Noir)
+                                    <br>↓
+                                    <br>HAL/BSP ↔ MCU/RTOS
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="specs-box">
+                                <h3 class="specs-box__title">Avantages Clés</h3>
+                                <ul class="benefits-list">
+                                    <li>Certifié SIL3 / PLe par Bureau Véritas</li>
+                                    <li>Sans dépendances tierces</li>
+                                    <li>Architecture canal blanc</li>
+                                    <li>Code source complet fourni</li>
+                                    <li>Indépendant du matériel</li>
+                                    <li>Indépendant du RTOS</li>
+                                    <li>Support technique expert</li>
+                                </ul>
+                            </div>
+
+                            <div class="specs-box" style="margin-top: 1.5rem;">
+                                <h3 class="specs-box__title">Spécifications Rapides</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Niveau de Sécurité</span>
+                                    <span class="specs-box__value">SIL3 / PLe</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Norme</span>
+                                    <span class="specs-box__value">IEC 61784-3</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Taille du Code</span>
+                                    <span class="specs-box__value">~55KB (typique)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">RAM</span>
+                                    <span class="specs-box__value">~10KB (typique)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Langage</span>
+                                    <span class="specs-box__value">ANSI C</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Certification</span>
+                                    <span class="specs-box__value">Bureau Véritas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Tab -->
+                <div class="tabs__content" id="features-tab">
+                    <h2>Ensemble de Fonctionnalités Complet</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div class="card">
+                            <h3 class="card__title">Fonctionnalités de Sécurité</h3>
+                            <ul>
+                                <li>Niveau de sécurité SIL3 / PLe</li>
+                                <li>Vérification CRC et numéro consécutif</li>
+                                <li>Surveillance watchdog</li>
+                                <li>Surveillance de connexion</li>
+                                <li>États de sécurité intégrée</li>
+                                <li>Surveillance des diagnostics</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Fonctionnalités de Communication</h3>
+                            <ul>
+                                <li>Taille E/S de sécurité configurable</li>
+                                <li>Support multi-dispositif F</li>
+                                <li>Mappage de données flexible</li>
+                                <li>Délais watchdog configurables</li>
+                                <li>Données d'état et de diagnostic</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Fonctionnalités d'Intégration</h3>
+                            <ul>
+                                <li>Couche d'abstraction matérielle</li>
+                                <li>Fonctionnement RTOS ou bare-metal</li>
+                                <li>Conception à empreinte minimale</li>
+                                <li>API propre et documentée</li>
+                                <li>Projets d'exemple inclus</li>
+                                <li>Directives de portage</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Support au Développement</h3>
+                            <ul>
+                                <li>Documentation complète</li>
+                                <li>Outils de configuration</li>
+                                <li>Suites de tests</li>
+                                <li>Support technique expert</li>
+                                <li>Formation disponible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tabs__content" id="specs-tab">
+                    <h2>Spécifications Techniques</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div>
+                            <h3>Certification de Sécurité</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Niveau de Sécurité</strong></td>
+                                    <td style="padding: 0.5rem 0;">SIL3 selon IEC 61508</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Niveau de Performance</strong></td>
+                                    <td style="padding: 0.5rem 0;">PLe selon ISO 13849</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Norme</strong></td>
+                                    <td style="padding: 0.5rem 0;">IEC 61784-3</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Organisme de Certification</strong></td>
+                                    <td style="padding: 0.5rem 0;">Bureau Véritas</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Besoins en Ressources</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Taille du Code (ROM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~55KB (typique)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Taille des Données (RAM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~10KB (typique)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Taille de la Pile</strong></td>
+                                    <td style="padding: 0.5rem 0;">~2KB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Exigences MCU</strong></td>
+                                    <td style="padding: 0.5rem 0;">Processeur 32 bits</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div>
+                            <h3>Fonctionnalités Supportées</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>E/S Sécurité Max</strong></td>
+                                    <td style="padding: 0.5rem 0;">Configurable (jusqu'à 1024 octets)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Délai Watchdog</strong></td>
+                                    <td style="padding: 0.5rem 0;">Configurable (10-65535 ms)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>CRC F-Parameter</strong></td>
+                                    <td style="padding: 0.5rem 0;">CRC 16 bits</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Version PROFIsafe</strong></td>
+                                    <td style="padding: 0.5rem 0;">v2.6</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Support de Plateformes</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Systèmes d'Exploitation</strong></td>
+                                    <td style="padding: 0.5rem 0;">Tout RTOS ou bare-metal</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Familles MCU</strong></td>
+                                    <td style="padding: 0.5rem 0;">Faible dépendance matérielle</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Compilateur</strong></td>
+                                    <td style="padding: 0.5rem 0;">Tout compilateur ANSI C</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Piles Canal Noir</strong></td>
+                                    <td style="padding: 0.5rem 0;">Siemens, Softing, personnalisée</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integration Tab -->
+                <div class="tabs__content" id="integration-tab">
+                    <h2>Intégration Rapide</h2>
+                    <p style="margin-top: 1rem;">
+                        La pile PROFIsafe Esclave AZIT est conçue pour une intégration facile avec une surface d'API minimale.
+                    </p>
+
+                    <h3 style="margin-top: 2rem;">Exemple d'Initialisation</h3>
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copier</button>
+                        </div>
+                        <pre><code>/* Initialisation PROFIsafe Esclave */
+#include "profisafe_slave.h"
+
+PROFISAFE_SLAVE_CONFIG config = {
+    .f_source_addr = 0x0001,
+    .f_dest_addr = 0x0002,
+    .watchdog_time = 100,  /* ms */
+    .safe_inputs = 8,      /* octets */
+    .safe_outputs = 8      /* octets */
+};
+
+/* Initialiser l'esclave PROFIsafe */
+if (profisafe_slave_init(&config) == PROFISAFE_OK) {
+    /* Démarrer la communication PROFIsafe */
+    profisafe_slave_start();
+}</code></pre>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Traitement Cyclique</h3>
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copier</button>
+                        </div>
+                        <pre><code>/* Appeler dans votre tâche cyclique */
+void safety_task(void) {
+    uint8_t safe_inputs[8];
+    uint8_t safe_outputs[8];
+
+    /* Lire les entrées de sécurité de votre application */
+    read_safe_inputs(safe_inputs);
+
+    /* Traiter la communication PROFIsafe */
+    profisafe_slave_process(safe_inputs, safe_outputs);
+
+    /* Écrire les sorties de sécurité vers votre application */
+    write_safe_outputs(safe_outputs);
+}</code></pre>
+                    </div>
+
+                    <div class="two-column" style="margin-top: 3rem;">
+                        <div>
+                            <h3>Étapes d'Intégration</h3>
+                            <ol style="padding-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Ajouter les fichiers de la pile à votre projet</strong><br>
+                                    Inclure les fichiers sources et en-têtes dans votre système de build
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Implémenter les fonctions HAL</strong><br>
+                                    Fournir l'horodatage et l'interface du canal noir
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Configurer les paramètres PROFIsafe</strong><br>
+                                    Définir les adresses F, le watchdog, les tailles E/S
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Intégrer dans la tâche cyclique</strong><br>
+                                    Appeler la fonction de traitement dans votre tâche de sécurité
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Tester et valider</strong><br>
+                                    Utiliser les cas de test et outils de validation fournis
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div>
+                            <h3>Ce Qui Est Inclus</h3>
+                            <ul class="benefits-list">
+                                <li>Code source complet avec documentation</li>
+                                <li>Projets d'exemple pour plateformes populaires</li>
+                                <li>Guide d'intégration et référence API</li>
+                                <li>Modèle HAL et guide de portage</li>
+                                <li>Suites de tests et outils de validation</li>
+                                <li>Documents de certification Bureau Véritas</li>
+                                <li>Package de support technique</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
+                        <h3>Besoin d'Aide pour l'Intégration ?</h3>
+                        <p style="margin-top: 1rem;">
+                            Notre équipe offre des services de portage pour faire fonctionner rapidement votre implémentation PROFIsafe esclave
+                            sur votre plateforme cible. Nous gérons le développement HAL, les tests et la validation.
+                        </p>
+                        <a href="../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">En Savoir Plus sur les Services de Portage</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Produits Associés</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">🛡️</div>
+                        <h3 class="product-card__title">Pile PROFISAFE Maître</h3>
+                        <p class="product-card__description">
+                            PROFIsafe maître complet pour contrôleurs de sécurité
+                        </p>
+                        <a href="profisafe-master.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">⚡</div>
+                        <h3 class="product-card__title">FSoE Esclave</h3>
+                        <p class="product-card__description">
+                            Pile esclave Fail-Safe over EtherCAT
+                        </p>
+                        <a href="fsoe-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔧</div>
+                        <h3 class="product-card__title">Services de Portage</h3>
+                        <p class="product-card__description">
+                            Support expert en intégration et portage
+                        </p>
+                        <a href="../services/porting.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Prêt à Intégrer PROFISAFE Esclave ?</h2>
+                    <p>Demandez un devis ou parlez à nos experts de votre projet</p>
+                    <div>
+                        <a href="../contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>
+                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contacter un Expert</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">Plus de 30 ans d'expertise en systèmes embarqués</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="profisafe-slave.html" class="footer__link">PROFISAFE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Services</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/porting.html" class="footer__link">Portage</a></li>
+                        <li><a href="../services/maintenance.html" class="footer__link">Maintenance</a></li>
+                        <li><a href="../services/expertise.html" class="footer__link">Expertise</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../training.html" class="footer__link">Formation</a></li>
+                        <li><a href="../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits réservés.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Conditions</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/language-switcher.js"></script>
+</body>
+</html>
