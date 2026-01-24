@@ -131,10 +131,6 @@
                     </li>
                 </ul>
 
-                <div class="lang-switcher">
-                    <a href="../fr/pages/${PAGE}" class="lang-switcher__btn" data-lang="fr">FR</a>
-                    <a href="fsoe-master.html" class="lang-switcher__btn active" data-lang="en">EN</a>
-                </div>
             </nav>
 
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -204,42 +200,69 @@
                 <div class="tabs__content active" id="overview-tab">
                     <div class="two-column">
                         <div>
-                            <h2>AZIT FSoE Master Stack</h2>
+                            <h2>Product Overview</h2>
                             <p>
-                                Our FSoE Master implementation provides a complete, certified solution for safety controllers
-                                managing FSoE slave devices in EtherCAT networks. Designed for industrial safety PLCs,
-                                motion controllers, and safety logic solvers requiring SIL3/PLe certification.
+                                ISIT's Safety over EtherCAT protocol stack delivers certified functional
+                                safety without hardware constraints. As a software solution, it integrates
+                                seamlessly with your existing EtherCAT applications. MainInstance (Master)
+                                or SubInstance (Slave): reduce integration complexity, accelerate certification
+                                and maintain complete control over your hardware choices.
                             </p>
 
-                            <h3 style="margin-top: 2rem;">Key Applications</h3>
-                            <ul>
-                                <li>Safety PLCs and controllers</li>
-                                <li>Motion control systems with safety functions</li>
-                                <li>Industrial robots with safety zones</li>
-                                <li>Machine safety control systems</li>
-                                <li>Emergency stop controllers</li>
+                            <h2 style="margin-top: 2rem;">Key Benefits</h2>
+                            <ul class="benefits-list">
+                                <li><strong>IEC 61784-3-12 compliant:</strong> Fully standard and interoperable</li>
+                                <li><strong>Pre-certified up to SIL 3 (PLe):</strong> Reduces your certification time and cost</li>
+                                <li><strong>MainInstance / SubInstance versions:</strong> Implement full Safety solution</li>
+                                <li><strong>Easy API integration:</strong> Short learning curve for your teams</li>
+                                <li><strong>Interoperability:</strong> Works with most existing EtherCAT stacks</li>
+                                <li><strong>SiL Ready:</strong> Early safety network simulation powered by Acontis EC-Simulator</li>
+                                <li><strong>Expert support</strong></li>
                             </ul>
 
                             <h3 style="margin-top: 2rem;">White Channel Architecture</h3>
                             <p>
-                                Like our FSoE Slave stack, the master uses white channel architecture,
-                                allowing independence from the underlying EtherCAT master stack. This provides
-                                flexibility in choosing your EtherCAT master implementation while maintaining
-                                full safety certification.
+                                The white channel architecture means our FSoE MainInstance is independent of the underlying
+                                "black channel" EtherCAT master stack. This provides flexibility in choosing your
+                                EtherCAT implementation while maintaining full safety certification.
                             </p>
                         </div>
 
                         <div>
                             <div class="specs-box">
-                                <h3 class="specs-box__title">Key Benefits</h3>
-                                <ul class="benefits-list">
-                                    <li>SIL3 / PLe certified by Bureau Véritas</li>
-                                    <li>Multi-slave management</li>
-                                    <li>White channel architecture</li>
-                                    <li>Low hardware dependency</li>
-                                    <li>Low OS dependency</li>
-                                    <li>Configuration tools included</li>
-                                </ul>
+                                <h3 class="specs-box__title">Product Characteristics</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard Compliance</span>
+                                    <span class="specs-box__value">IEC 61784-3-12</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Certification</span>
+                                    <span class="specs-box__value">Pre-certified up to SIL 3 (PLe)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Certification Body</span>
+                                    <span class="specs-box__value">Bureau Véritas</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Hardware Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">OS Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Versions Available</span>
+                                    <span class="specs-box__value">MainInstance (Master), SubInstance (Slave)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">EtherCAT Compatibility</span>
+                                    <span class="specs-box__value">Works with most existing EtherCAT stacks</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Simulation Support</span>
+                                    <span class="specs-box__value">Acontis EC-Simulator</span>
+                                </div>
                             </div>
 
                             <div class="specs-box" style="margin-top: 1.5rem;">
@@ -250,11 +273,11 @@
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Standard</span>
-                                    <span class="specs-box__value">IEC 61784-3</span>
+                                    <span class="specs-box__value">IEC 61784-3-12</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Max Connections</span>
-                                    <span class="specs-box__value">64 slaves</span>
+                                    <span class="specs-box__value">64 SubInstances</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Code Size</span>
