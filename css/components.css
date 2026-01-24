@@ -688,17 +688,17 @@
 }
 
 /* ============================================
-   ELITE PARTNERS SECTION (V6.0)
+   ELITE PARTNERS SECTION (V6.2)
    ============================================ */
 
-/* Elite Partners Section */
+/* Elite Partners Section - V6.2 Grid Layout */
 .elite-partners {
   padding: 4rem 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .elite-partners-container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
@@ -710,13 +710,24 @@
   line-height: 1.6;
 }
 
+/* Grid layout for multiple partner cards */
+.elite-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
 .elite-partner-card {
   background: white;
   border-radius: 12px;
-  padding: 3rem 2rem;
+  padding: 2rem;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  margin-top: 2rem;
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .elite-partner-card:hover {
@@ -725,30 +736,35 @@
 }
 
 .elite-partner-logo {
-  max-width: 300px;
+  max-width: 200px;
   height: auto;
   margin: 0 auto 1.5rem;
   display: block;
 }
 
 .elite-partner-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #333;
   margin-bottom: 1rem;
 }
 
 .elite-partner-description {
   color: #666;
-  line-height: 1.8;
-  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  .elite-partners-grid {
+    grid-template-columns: 1fr;
+  }
+
   .elite-partner-card {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
 
   .elite-partner-logo {
-    max-width: 200px;
+    max-width: 150px;
   }
 }
