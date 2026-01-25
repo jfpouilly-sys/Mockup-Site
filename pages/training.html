@@ -159,15 +159,19 @@
         <section class="product-hero">
             <div class="container">
                 <div class="product-hero__icon">🎓</div>
-                <h1 class="product-hero__title">Training Programs</h1>
+                <h1 class="product-hero__title">Training Courses</h1>
                 <p class="product-hero__description">
-                    Expert training on industrial protocols and safety systems from engineers with 30+ years of experience
+                    Expert-led training for industrial communication protocols and safety standards
                 </p>
                 <div class="product-hero__badges">
                     <span class="badge badge--primary">On-site Training</span>
                     <span class="badge badge--primary">Remote Courses</span>
                     <span class="badge badge--primary">Hands-on Labs</span>
                 </div>
+                <p class="pricing-note">
+                    <strong>All prices are per session, up to 6 participants.</strong>
+                    Available in Inter-Enterprise (scheduled sessions) or Private Company (custom dates) formats.
+                </p>
                 <div class="product-hero__actions">
                     <a href="contact.html" class="btn btn--primary btn--large">Request Training</a>
                     <a href="#courses" class="btn btn--outline btn--large">Browse Courses</a>
@@ -210,424 +214,675 @@
             </div>
         </section>
 
-        <!-- Course Filters -->
+        <!-- Industrial Networks Training -->
         <section class="section section--light" id="courses">
             <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Available Courses</h2>
-                    <p class="section__subtitle">Choose from our comprehensive training catalog</p>
-                </div>
+                <div class="training-category">
+                    <h2>Industrial Networks Training</h2>
+                    <p>CiA member and EtherCAT Technology Group partner with 30+ years of fieldbus expertise.</p>
 
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <div class="tabs">
-                        <ul class="tabs__list">
-                            <li><button class="tabs__button active" data-tab="protocols">Protocol Training</button></li>
-                            <li><button class="tabs__button" data-tab="safety">Safety Standards</button></li>
-                            <li><button class="tabs__button" data-tab="workshops">Hands-on Workshops</button></li>
-                            <li><button class="tabs__button" data-tab="custom">Custom Training</button></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Protocol Training -->
-                <div class="tabs__content active" id="protocols-tab">
-                    <div class="grid grid--2">
-                        <div class="card">
-                            <span class="badge badge--info" style="margin-bottom: 0.5rem;">Beginner</span>
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">3 Days</span>
-                            <h3 class="card__title">CANopen Fundamentals</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Comprehensive introduction to CANopen protocol, object dictionary, PDO, SDO, and network management.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Topics Covered:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>CANopen architecture and concepts</li>
-                                    <li>Object Dictionary structure</li>
-                                    <li>PDO configuration and mapping</li>
-                                    <li>SDO communications</li>
-                                    <li>Network Management (NMT)</li>
-                                    <li>Emergency messages and error handling</li>
-                                </ul>
+                    <div class="training-grid">
+                        <!-- CAN Training -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>CAN Training</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
                             </div>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">Implementation of the CAN bus. CiA member with over 10 years of experience in CAN/CANopen technologies.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 390 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=can" class="btn btn--primary btn--small">Request Information</a>
                             </div>
                         </div>
 
-                        <div class="card">
-                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">4 Days</span>
-                            <h3 class="card__title">FSoE Safety Protocol</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Deep dive into Fail-Safe over EtherCAT protocol for safety-critical applications.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Topics Covered:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>IEC 61784-3 standard overview</li>
-                                    <li>Safety communication layer</li>
-                                    <li>White channel architecture</li>
-                                    <li>Connection management</li>
-                                    <li>Safety functions implementation</li>
-                                    <li>Diagnostic and monitoring</li>
-                                </ul>
+                        <!-- CANopen Training -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>CANopen Training</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
                             </div>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <span class="badge badge--info" style="margin-bottom: 0.5rem;">Beginner</span>
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">2 Days</span>
-                            <h3 class="card__title">J1939 Protocol Training</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Complete J1939 protocol training for automotive and off-highway applications.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Topics Covered:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>SAE J1939 standard overview</li>
-                                    <li>Parameter Group Numbers (PGNs)</li>
-                                    <li>Transport protocol</li>
-                                    <li>Address claiming</li>
-                                    <li>Diagnostic messages (DM1, DM2)</li>
-                                    <li>J1939 safety extension</li>
-                                </ul>
+                            <p class="training-description">Complete CANopen protocol training including object dictionary, PDO, SDO, and network management.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 390 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
                             </div>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=canopen" class="btn btn--primary btn--small">Request Information</a>
                             </div>
                         </div>
 
-                        <div class="card">
-                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">3 Days</span>
-                            <h3 class="card__title">EtherCAT Protocol</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Industrial Ethernet protocol for real-time applications with high-speed communication.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Topics Covered:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>EtherCAT protocol fundamentals</li>
-                                    <li>Slave stack implementation</li>
-                                    <li>Process data exchange</li>
-                                    <li>Distributed clocks</li>
-                                    <li>CoE (CANopen over EtherCAT)</li>
-                                    <li>Performance optimization</li>
-                                </ul>
+                        <!-- J1939 Training -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>J1939 Training</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
                             </div>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Safety Standards Training -->
-                <div class="tabs__content" id="safety-tab">
-                    <div class="grid grid--2">
-                        <div class="card">
-                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">5 Days</span>
-                            <h3 class="card__title">IEC 61508 Functional Safety</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Comprehensive training on functional safety standard for electrical/electronic/programmable systems.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Topics Covered:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>IEC 61508 standard overview</li>
-                                    <li>Safety Integrity Levels (SIL)</li>
-                                    <li>Safety lifecycle management</li>
-                                    <li>Hardware safety requirements</li>
-                                    <li>Software safety requirements</li>
-                                    <li>Validation and verification</li>
-                                    <li>Documentation requirements</li>
-                                </ul>
+                            <p class="training-description">SAE J1939 protocol for automotive and off-highway applications including PGNs and transport protocol.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 390 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
                             </div>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=j1939" class="btn btn--primary btn--small">Request Information</a>
                             </div>
                         </div>
 
-                        <div class="card">
-                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">4 Days</span>
-                            <h3 class="card__title">ISO 13849 Machinery Safety</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Safety of machinery control systems and Performance Level determination.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Topics Covered:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>ISO 13849 standard overview</li>
-                                    <li>Performance Levels (PL a to e)</li>
-                                    <li>Safety function design</li>
-                                    <li>Category requirements</li>
-                                    <li>Diagnostic coverage (DC)</li>
-                                    <li>Common cause failures (CCF)</li>
-                                    <li>Validation procedures</li>
-                                </ul>
+                        <!-- EtherCAT Training -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>EtherCAT Training</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
                             </div>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <span class="badge badge--danger" style="margin-bottom: 0.5rem;">Advanced</span>
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">3 Days</span>
-                            <h3 class="card__title">Safety Standards Process</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Navigate the certification process with Bureau Véritas and other certification bodies.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Topics Covered:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>Certification process overview</li>
-                                    <li>Required documentation</li>
-                                    <li>Test procedures and protocols</li>
-                                    <li>Working with certification bodies</li>
-                                    <li>Common pitfalls and solutions</li>
-                                    <li>Pre-audit preparation</li>
-                                </ul>
+                            <p class="training-description">Industrial Ethernet protocol for real-time applications with high-speed communication and distributed clocks.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 390 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
                             </div>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=ethercat" class="btn btn--primary btn--small">Request Information</a>
                             </div>
                         </div>
 
-                        <div class="card">
-                            <span class="badge badge--warning" style="margin-bottom: 0.5rem;">Intermediate</span>
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">2 Days</span>
-                            <h3 class="card__title">Safety Software Development</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Best practices for developing safety-critical embedded software.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Topics Covered:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>Safety software lifecycle</li>
-                                    <li>Coding standards (MISRA C)</li>
-                                    <li>Static analysis tools</li>
-                                    <li>Unit testing for safety</li>
-                                    <li>Traceability requirements</li>
-                                    <li>Code review processes</li>
-                                </ul>
+                        <!-- Industrial Ethernet Training -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>Industrial Ethernet Training</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
                             </div>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Syllabus</a>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hands-on Workshops -->
-                <div class="tabs__content" id="workshops-tab">
-                    <div class="grid grid--2">
-                        <div class="card">
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">2 Days</span>
-                            <h3 class="card__title">FSoE Integration Workshop</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Hands-on workshop for integrating FSoE safety protocol in real hardware.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Workshop Activities:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>FSoE stack installation and setup</li>
-                                    <li>HAL implementation for target platform</li>
-                                    <li>Safety connection configuration</li>
-                                    <li>Testing with protocol analyzer</li>
-                                    <li>Debugging and troubleshooting</li>
-                                    <li>Performance optimization</li>
-                                </ul>
+                            <p class="training-description">Comprehensive overview of industrial Ethernet protocols and network architectures for automation.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 390 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
                             </div>
-                            <p style="margin-top: 1rem;"><strong>Includes:</strong> Development board, protocol analyzer access</p>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Details</a>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=industrial-ethernet" class="btn btn--primary btn--small">Request Information</a>
                             </div>
                         </div>
 
-                        <div class="card">
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">2 Days</span>
-                            <h3 class="card__title">CANopen Development Workshop</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Practical CANopen slave device development from scratch.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Workshop Activities:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>Object dictionary design</li>
-                                    <li>Stack integration and configuration</li>
-                                    <li>PDO mapping implementation</li>
-                                    <li>SDO communication testing</li>
-                                    <li>Network commissioning</li>
-                                    <li>Conformance testing</li>
-                                </ul>
+                        <!-- Ethernet/IP - CIP Training -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>Ethernet/IP - CIP Training</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
                             </div>
-                            <p style="margin-top: 1rem;"><strong>Includes:</strong> CAN development board, OD tools license</p>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Details</a>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">1 Day</span>
-                            <h3 class="card__title">Protocol Debugging Techniques</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Advanced debugging techniques for industrial protocol implementations.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Workshop Activities:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>Using protocol analyzers effectively</li>
-                                    <li>Common protocol errors and solutions</li>
-                                    <li>Timing analysis and optimization</li>
-                                    <li>Network troubleshooting</li>
-                                    <li>Interoperability testing</li>
-                                    <li>Real-world problem solving</li>
-                                </ul>
+                            <p class="training-description">Common Industrial Protocol (CIP) and Ethernet/IP implementation for industrial automation systems.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 590 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
                             </div>
-                            <p style="margin-top: 1rem;"><strong>Includes:</strong> Access to professional protocol analyzers</p>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Details</a>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=ethernet-ip" class="btn btn--primary btn--small">Request Information</a>
                             </div>
                         </div>
 
-                        <div class="card">
-                            <span class="badge badge--primary" style="margin-bottom: 1rem;">3 Days</span>
-                            <h3 class="card__title">Safety System Integration</h3>
-                            <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                Complete safety system development from design to validation.
-                            </p>
-                            <div style="margin: 1rem 0;">
-                                <strong>Workshop Activities:</strong>
-                                <ul style="margin-top: 0.5rem;">
-                                    <li>Safety requirements analysis</li>
-                                    <li>Architecture design</li>
-                                    <li>Safety protocol integration</li>
-                                    <li>Functional testing</li>
-                                    <li>Failure mode testing</li>
-                                    <li>Documentation preparation</li>
-                                </ul>
+                        <!-- PROFINET Training -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>PROFINET Training</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
                             </div>
-                            <p style="margin-top: 1rem;"><strong>Includes:</strong> Complete safety development kit</p>
-                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                                <a href="contact.html" class="btn btn--primary btn--small">Register</a>
-                                <a href="#" class="btn btn--outline btn--small">Download Details</a>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">PROFINET IO protocol fundamentals including device development and network configuration.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 000 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=profinet" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- Industrial Ethernet Troubleshooting -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>Industrial Ethernet Troubleshooting</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    1 day
+                                </span>
+                            </div>
+                            <p class="training-description">Advanced troubleshooting techniques for industrial Ethernet networks using protocol analyzers.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">790 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=troubleshooting" class="btn btn--primary btn--small">Request Information</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Custom Training -->
-                <div class="tabs__content" id="custom-tab">
-                    <div class="two-column">
-                        <div>
-                            <h2>Custom Training Programs</h2>
-                            <p style="margin-top: 1rem;">
-                                We offer fully customized training programs tailored to your team's specific needs,
-                                technology stack, and business objectives.
-                            </p>
+        <!-- Safety Standards Training -->
+        <section class="section">
+            <div class="container">
+                <div class="training-category">
+                    <h2>Safety Standards Training</h2>
+                    <p>Comprehensive training on functional safety standards for various industries.</p>
 
-                            <h3 style="margin-top: 2rem;">On-Site Training</h3>
-                            <p style="margin-top: 0.5rem;">
-                                Our experts come to your facility to deliver training on-site, using your hardware
-                                and development environment.
-                            </p>
-                            <ul style="margin-top: 1rem;">
-                                <li>Training at your location</li>
-                                <li>Use your actual hardware and tools</li>
-                                <li>Flexible scheduling</li>
-                                <li>Team-focused curriculum</li>
-                                <li>Direct access to your codebase</li>
-                                <li>Customized hands-on exercises</li>
-                            </ul>
-
-                            <h3 style="margin-top: 2rem;">Tailored Curriculum</h3>
-                            <p style="margin-top: 0.5rem;">
-                                We design training programs that address your specific challenges and objectives.
-                            </p>
-                            <ul style="margin-top: 1rem;">
-                                <li>Protocol-specific deep dives</li>
-                                <li>Platform-specific integration</li>
-                                <li>Application-focused training</li>
-                                <li>Troubleshooting existing implementations</li>
-                                <li>Performance optimization</li>
-                                <li>Compliance and certification preparation</li>
-                            </ul>
+                    <div class="training-grid">
+                        <!-- IEC 61508 -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>IEC 61508</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    3 days
+                                </span>
+                            </div>
+                            <p class="training-description">Functional safety standard for electrical/electronic/programmable electronic safety-related systems.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">2 450 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=iec61508" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
                         </div>
 
-                        <div>
-                            <div class="card">
-                                <h3>Request Custom Training</h3>
-                                <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                    Tell us about your training needs and we'll create a custom program for your team.
-                                </p>
-
-                                <form style="margin-top: 1.5rem;">
-                                    <div class="form-group">
-                                        <label for="company" class="form-label">Company Name</label>
-                                        <input type="text" id="company" class="form-input">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="topic" class="form-label">Training Topic</label>
-                                        <select id="topic" class="form-select">
-                                            <option value="">Select topic</option>
-                                            <option value="canopen">CANopen Protocol</option>
-                                            <option value="fsoe">FSoE Safety</option>
-                                            <option value="j1939">J1939 Protocol</option>
-                                            <option value="safety">Safety Standards</option>
-                                            <option value="integration">Integration & Porting</option>
-                                            <option value="custom">Custom Topic</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="participants" class="form-label">Number of Participants</label>
-                                        <input type="number" id="participants" class="form-input" min="1">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="location" class="form-label">Training Location</label>
-                                        <select id="location" class="form-select">
-                                            <option value="">Select location</option>
-                                            <option value="onsite">On-site (at our facility)</option>
-                                            <option value="customer">On-site (at customer location)</option>
-                                            <option value="remote">Remote/Online</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="details" class="form-label">Additional Details</label>
-                                        <textarea id="details" class="form-textarea" rows="3"></textarea>
-                                    </div>
-
-                                    <button type="submit" class="btn btn--primary" style="width: 100%;">Submit Request</button>
-                                </form>
+                        <!-- ISO 26262 (Automotive) -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>ISO 26262 (Automotive)</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
                             </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    3 days
+                                </span>
+                            </div>
+                            <p class="training-description">Functional safety for road vehicles including ASIL levels and automotive-specific requirements.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">2 450 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=iso26262" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
 
-                            <div class="card" style="margin-top: 1.5rem;">
-                                <h3>Need Help Choosing?</h3>
-                                <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                                    Speak with our training coordinator to find the right program.
-                                </p>
-                                <a href="contact.html" class="btn btn--outline" style="width: 100%;">Contact Us</a>
+                        <!-- ISO 21434 (Automotive Cybersecurity) -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>ISO 21434 (Automotive Cybersecurity)</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    3 days
+                                </span>
+                            </div>
+                            <p class="training-description">Cybersecurity engineering for road vehicles including threat analysis and risk assessment.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">2 450 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=iso21434" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- IEC 62304 (Medical) -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>IEC 62304 (Medical)</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">Medical device software lifecycle processes and safety classification requirements.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 750 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=iec62304" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- DO-178C (Aeronautics) -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>DO-178C (Aeronautics)</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    3 days
+                                </span>
+                            </div>
+                            <p class="training-description">Software considerations in airborne systems and equipment certification for aviation.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">2 450 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=do178c" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- EN 50716 (Railway) -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>EN 50716 (Railway)</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">Railway applications software development requirements and safety integrity levels.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 750 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=en50716" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- ISO 13849 (Machinery) -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>ISO 13849 (Machinery)</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">Safety of machinery control systems and Performance Level (PL) determination.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 750 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=iso13849" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- ISO 25119 (Agricultural) -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>ISO 25119 (Agricultural)</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">Tractors and machinery for agriculture and forestry - safety-related control systems.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 750 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=iso25119" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cybersecurity & Real-Time Training -->
+        <section class="section section--light">
+            <div class="container">
+                <div class="training-category">
+                    <h2>Cybersecurity & Real-Time Training</h2>
+                    <p>Secure by design development and RTOS implementation.</p>
+
+                    <div class="training-grid">
+                        <!-- Embedded Systems Cybersecurity -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>Embedded Systems Cybersecurity</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">Security principles for embedded systems including threat modeling and secure coding practices.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 390 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=cybersecurity" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- Medical Device Cybersecurity -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>Medical Device Cybersecurity</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    1 day
+                                </span>
+                            </div>
+                            <p class="training-description">Cybersecurity requirements specific to medical devices including FDA and MDR compliance.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">960 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=medical-cybersecurity" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- FreeRTOS Implementation -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>FreeRTOS Implementation</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">Real-time operating system implementation including task management, synchronization, and best practices.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 490 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=freertos" class="btn btn--primary btn--small">Request Information</a>
+                            </div>
+                        </div>
+
+                        <!-- MISRA C:2025 -->
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h3>MISRA C:2025</h3>
+                                <span class="capacity-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    Up to 6 participants
+                                </span>
+                            </div>
+                            <div class="training-meta">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    2 days
+                                </span>
+                            </div>
+                            <p class="training-description">Guidelines for the use of C language in critical systems including latest MISRA C:2025 updates.</p>
+                            <div class="training-pricing">
+                                <div class="price-row">
+                                    <span class="price-label">Inter-Enterprise:</span>
+                                    <span class="price-value">1 000 €</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Private Company:</span>
+                                    <span class="price-value on-request">On request</span>
+                                </div>
+                            </div>
+                            <p class="price-note">Per session pricing</p>
+                            <div class="training-actions">
+                                <a href="contact.html?training=misra" class="btn btn--primary btn--small">Request Information</a>
                             </div>
                         </div>
                     </div>
