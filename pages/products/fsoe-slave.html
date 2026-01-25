@@ -131,10 +131,6 @@
                     </li>
                 </ul>
 
-                <div class="lang-switcher">
-                    <a href="../fr/pages/${PAGE}" class="lang-switcher__btn" data-lang="fr">FR</a>
-                    <a href="fsoe-slave.html" class="lang-switcher__btn active" data-lang="en">EN</a>
-                </div>
             </nav>
 
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -204,16 +200,18 @@
                 <div class="tabs__content active" id="overview-tab">
                     <div class="two-column">
                         <div>
-                            <h2>What is FSoE?</h2>
+                            <h2>Product Overview</h2>
                             <p>
-                                FSoE (Fail-Safe over EtherCAT) is the safety protocol extension for EtherCAT networks,
-                                enabling SIL3/PLe safety communication in industrial automation. It's specified in
-                                IEC 61784-3 and provides a vendor-independent safety solution for real-time EtherCAT systems.
+                                ISIT's Safety over EtherCAT protocol stack delivers certified functional
+                                safety without hardware constraints. As a software solution, it integrates
+                                seamlessly with your existing EtherCAT applications. MainInstance (Master)
+                                or SubInstance (Slave): reduce integration complexity, accelerate certification
+                                and maintain complete control over your hardware choices.
                             </p>
 
-                            <h2 style="margin-top: 2rem;">AZIT FSoE Slave Stack</h2>
+                            <h2 style="margin-top: 2rem;">FSoE SubInstance (Slave) Stack</h2>
                             <p>
-                                Our FSoE Slave implementation provides a complete, certified solution for integrating
+                                Our FSoE SubInstance implementation provides a complete, certified solution for integrating
                                 safety functions into your EtherCAT slave devices. Built with 30+ years of embedded
                                 systems expertise, it features a white channel architecture that separates safety logic
                                 from the underlying EtherCAT communication.
@@ -248,13 +246,50 @@
                             <div class="specs-box">
                                 <h3 class="specs-box__title">Key Benefits</h3>
                                 <ul class="benefits-list">
-                                    <li>SIL3 / PLe certified by Bureau Véritas</li>
-                                    <li>No third-party dependencies</li>
-                                    <li>White channel architecture</li>
-                                    <li>Low hardware dependency</li>
-                                    <li>Low OS dependency</li>
-                                    <li>Expert technical support</li>
+                                    <li><strong>IEC 61784-3-12 compliant:</strong> Fully standard and interoperable</li>
+                                    <li><strong>Pre-certified up to SIL 3 (PLe):</strong> Reduces your certification time and cost</li>
+                                    <li><strong>MainInstance / SubInstance versions:</strong> Implement full Safety solution</li>
+                                    <li><strong>Easy API integration:</strong> Short learning curve for your teams</li>
+                                    <li><strong>Interoperability:</strong> Works with most existing EtherCAT stacks</li>
+                                    <li><strong>SiL Ready:</strong> Early safety network simulation powered by Acontis EC-Simulator</li>
+                                    <li><strong>Expert support</strong></li>
                                 </ul>
+                            </div>
+
+                            <div class="specs-box" style="margin-top: 1.5rem;">
+                                <h3 class="specs-box__title">Product Characteristics</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard Compliance</span>
+                                    <span class="specs-box__value">IEC 61784-3-12</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Certification</span>
+                                    <span class="specs-box__value">Pre-certified up to SIL 3 (PLe)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Certification Body</span>
+                                    <span class="specs-box__value">Bureau Véritas</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Hardware Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">OS Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Versions Available</span>
+                                    <span class="specs-box__value">MainInstance (Master), SubInstance (Slave)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">EtherCAT Compatibility</span>
+                                    <span class="specs-box__value">Works with most existing EtherCAT stacks</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Simulation Support</span>
+                                    <span class="specs-box__value">Acontis EC-Simulator</span>
+                                </div>
                             </div>
 
                             <div class="specs-box" style="margin-top: 1.5rem;">
@@ -265,7 +300,7 @@
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Standard</span>
-                                    <span class="specs-box__value">IEC 61784-3</span>
+                                    <span class="specs-box__value">IEC 61784-3-12</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Code Size</span>

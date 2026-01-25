@@ -688,10 +688,10 @@
 }
 
 /* ============================================
-   ELITE PARTNERS SECTION (V6.2)
+   ELITE PARTNERS SECTION (V6.3 - 8 Partners)
    ============================================ */
 
-/* Elite Partners Section - V6.2 Grid Layout */
+/* Elite Partners Section - V6.3 Grid Layout */
 .elite-partners {
   padding: 4rem 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -710,19 +710,19 @@
   line-height: 1.6;
 }
 
-/* Grid layout for multiple partner cards */
+/* Grid layout for 8 partner cards - 4 columns on desktop */
 .elite-partners-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .elite-partner-card {
   background: white;
   border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
@@ -736,26 +736,33 @@
 }
 
 .elite-partner-logo {
-  max-width: 200px;
-  height: auto;
-  margin: 0 auto 1.5rem;
-  display: block;
+  max-width: 120px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
 }
 
 .elite-partner-card h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .elite-partner-description {
   color: #666;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Responsive - 2 columns on tablet */
+@media (max-width: 992px) {
+  .elite-partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive - 1 column on mobile */
+@media (max-width: 576px) {
   .elite-partners-grid {
     grid-template-columns: 1fr;
   }
@@ -766,5 +773,55 @@
 
   .elite-partner-logo {
     max-width: 150px;
+    height: auto;
   }
+}
+
+/* ============================================
+   COMING SOON STYLING (V6.3)
+   ============================================ */
+
+.coming-soon {
+  color: var(--color-gray-500);
+  font-style: italic;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Product characteristics table styling */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.spec-table th,
+.spec-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.spec-table th {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-700);
+  width: 40%;
+}
+
+.spec-table td {
+  color: var(--color-gray-600);
+}
+
+.spec-table td.coming-soon {
+  color: var(--color-gray-500);
+  font-style: italic;
 }

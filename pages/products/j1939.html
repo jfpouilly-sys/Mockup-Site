@@ -131,10 +131,6 @@
                     </li>
                 </ul>
 
-                <div class="lang-switcher">
-                    <a href="../fr/pages/${PAGE}" class="lang-switcher__btn" data-lang="fr">FR</a>
-                    <a href="j1939.html" class="lang-switcher__btn active" data-lang="en">EN</a>
-                </div>
             </nav>
 
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -203,28 +199,41 @@
                 <div class="tabs__content active" id="overview-tab">
                     <div class="two-column">
                         <div>
-                            <h2>What is J1939?</h2>
+                            <h2>Product Overview</h2>
                             <p>
-                                SAE J1939 is the standard communication protocol for heavy-duty vehicles including trucks,
-                                buses, construction equipment, and agricultural machinery. It defines network architecture,
-                                message formats, and diagnostic functions for CAN-based vehicle networks.
+                                The SAE J1939 protocol is used in many fields implementing industrial-oriented
+                                engines and equipment, such as trucks, industrial vehicles (heavy goods vehicles,
+                                utility vehicles), agricultural and forestry equipment, navy or even military
+                                vehicles or energy production. It is based on the CAN ISO 11898-1/2 standard
+                                for the low-level layers and allows the various computers (ECU) of the network
+                                to communicate with each other with standardized message contents.
                             </p>
 
-                            <h2 style="margin-top: 2rem;">AZIT J1939 Stack</h2>
-                            <p>
-                                Our J1939 implementation provides a complete, production-ready solution for vehicle ECU
-                                development. Built on decades of automotive expertise, it supports all major J1939 features
-                                including transport protocol, diagnostics, and proprietary PGN handling.
+                            <p style="margin-top: 1rem;">
+                                ISIT offers a software-based J1939 protocol stack that conforms to the
+                                SAE-J1939 standard. It is available in Mono/Multi-channel CAN versions and
+                                allows the implementation of several application controllers (AC) in a single
+                                computer (ECU).
                             </p>
 
-                            <h3 style="margin-top: 2rem;">Key Applications</h3>
+                            <h2 style="margin-top: 2rem;">Key Benefits</h2>
+                            <ul class="benefits-list">
+                                <li><strong>Mono/Multi-channel CAN versions</strong></li>
+                                <li><strong>Multi-Application Controllers (AC) in single ECU</strong></li>
+                                <li><strong>Parallel protocol support:</strong> ISO-TP, UDS, DiagOnCAN, proprietary</li>
+                                <li><strong>Modular design:</strong> Adaptable to any CPU, memory, network requirements</li>
+                                <li><strong>Development support available</strong></li>
+                                <li><strong>J1939 Training available</strong></li>
+                            </ul>
+
+                            <h3 style="margin-top: 2rem;">Target Industries</h3>
                             <ul>
-                                <li>Heavy-duty trucks and buses</li>
-                                <li>Construction and mining equipment</li>
-                                <li>Agricultural machinery</li>
-                                <li>Marine engines and systems</li>
-                                <li>Power generation equipment</li>
-                                <li>Industrial machinery</li>
+                                <li>Trucks and heavy goods vehicles</li>
+                                <li>Industrial/utility vehicles</li>
+                                <li>Agricultural and forestry equipment</li>
+                                <li>Marine and navy applications</li>
+                                <li>Military vehicles</li>
+                                <li>Energy production systems</li>
                             </ul>
 
                             <div class="architecture-diagram" style="margin-top: 2rem;">
@@ -244,14 +253,42 @@
 
                         <div>
                             <div class="specs-box">
-                                <h3 class="specs-box__title">Key Benefits</h3>
+                                <h3 class="specs-box__title">Product Characteristics</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard Compliance</span>
+                                    <span class="specs-box__value">SAE-J1939, CAN ISO 11898-1/2</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Standards Support</span>
+                                    <span class="specs-box__value">ISO 26262, IEC 61508, IEC 62304, DO-178C, EN 50716, ECSS</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Hardware Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">OS Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">CAN Channels</span>
+                                    <span class="specs-box__value">Mono or Multi-channel</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Application Controllers</span>
+                                    <span class="specs-box__value">Multiple AC per ECU supported</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Parallel Protocols</span>
+                                    <span class="specs-box__value">ISO-TP, UDS, DiagOnCAN, proprietary</span>
+                                </div>
+                            </div>
+
+                            <div class="specs-box" style="margin-top: 1.5rem;">
+                                <h3 class="specs-box__title">Services on Demand</h3>
                                 <ul class="benefits-list">
-                                    <li>SAE J1939 compliant</li>
-                                    <li>Transport protocol support</li>
-                                    <li>DM1/DM2 diagnostics</li>
-                                    <li>Low hardware dependency</li>
-                                    <li>Low OS dependency</li>
-                                    <li>Expert technical support</li>
+                                    <li>Development support</li>
+                                    <li>J1939 Training</li>
                                 </ul>
                             </div>
 

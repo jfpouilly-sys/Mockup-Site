@@ -131,10 +131,6 @@
                     </li>
                 </ul>
 
-                <div class="lang-switcher">
-                    <a href="../fr/pages/${PAGE}" class="lang-switcher__btn" data-lang="fr">FR</a>
-                    <a href="canopen-safety-master.html" class="lang-switcher__btn active" data-lang="en">EN</a>
-                </div>
             </nav>
 
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -204,19 +200,22 @@
                 <div class="tabs__content active" id="overview-tab">
                     <div class="two-column">
                         <div>
-                            <h2>CANopen Safety Master Solution</h2>
+                            <h2>Product Overview</h2>
                             <p>
-                                The AZIT CANopen Safety Master provides complete control and monitoring of CANopen Safety
-                                networks according to CiA 304. Designed for safety controllers and PLCs, it manages
-                                multiple safety slaves and provides comprehensive diagnostic and configuration capabilities.
+                                ISIT's CANopen (Safety) Stack is a software solution deployable on any
+                                CAN-capable hardware platform. It integrates both the CANopen protocol
+                                and its Safety extension, developed to the same high-quality standards
+                                for seamless operation, enhanced reliability, and optimal robustness
+                                across the communication stack.
                             </p>
 
-                            <h2 style="margin-top: 2rem;">Key Capabilities</h2>
-                            <p>
-                                Our master implementation handles all aspects of safety network management including
-                                SSDO communication for configuration, SRDO for cyclic safety data exchange, and
-                                comprehensive error handling and diagnostics.
-                            </p>
+                            <h2 style="margin-top: 2rem;">Key Benefits</h2>
+                            <ul class="benefits-list">
+                                <li><strong>IEC 61784-3-12 compliant:</strong> Fully standard and interoperable</li>
+                                <li><strong>Pre-certified up to SIL 3 (PLe):</strong> Reduces your certification time and cost</li>
+                                <li><strong>Master/Slave version Certification Pack:</strong> Implement full Safety solution</li>
+                                <li><strong>Expert support</strong></li>
+                            </ul>
 
                             <h3 style="margin-top: 2rem;">Master Features</h3>
                             <ul>
@@ -245,15 +244,35 @@
 
                         <div>
                             <div class="specs-box">
-                                <h3 class="specs-box__title">Key Benefits</h3>
-                                <ul class="benefits-list">
-                                    <li>SIL3 / PLe certified by Bureau Véritas</li>
-                                    <li>CiA 304 compliant</li>
-                                    <li>Multi-slave management</li>
-                                    <li>Low hardware dependency</li>
-                                    <li>Low OS dependency</li>
-                                    <li>Expert technical support</li>
-                                </ul>
+                                <h3 class="specs-box__title">Product Characteristics</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard Compliance</span>
+                                    <span class="specs-box__value">IEC 61784-3-12, EN 50325-5</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Certification</span>
+                                    <span class="specs-box__value">Pre-certified up to SIL 3 (PLe)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Certification Body</span>
+                                    <span class="specs-box__value">Bureau Véritas</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Hardware Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">OS Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Versions Available</span>
+                                    <span class="specs-box__value">Master Stack, Slave Stack, Safety Master, Safety Slave</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Certification Pack</span>
+                                    <span class="specs-box__value">Included (Master/Slave versions)</span>
+                                </div>
                             </div>
 
                             <div class="specs-box" style="margin-top: 1.5rem;">
@@ -264,7 +283,7 @@
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Standard</span>
-                                    <span class="specs-box__value">CiA 304</span>
+                                    <span class="specs-box__value">IEC 61784-3-12, EN 50325-5</span>
                                 </div>
                                 <div class="specs-box__item">
                                     <span class="specs-box__label">Max Slaves</span>
@@ -541,22 +560,64 @@ if (cosm_add_slave(&slave_cfg) == COSM_OK) {
             <div class="container">
                 <div class="elite-partners-container">
                     <h2 class="section__title">Elite Partners</h2>
+                    <p class="section-subtitle">We collaborate with industry-leading technology partners to deliver comprehensive solutions</p>
 
                     <div class="elite-partners-grid">
-                        <!-- Partner 1: Acontis Technologies -->
+                        <!-- Partner 1: Acontis -->
                         <div class="elite-partner-card">
-                            <img
-                                src="/assets/partners/acontis-logo.png"
-                                alt="Acontis Technologies"
-                                class="elite-partner-logo"
-                            >
+                            <img src="/assets/partners/acontis-logo.png" alt="Acontis Technologies" class="elite-partner-logo">
                             <h3>Acontis Technologies</h3>
-                            <p class="elite-partner-description">
-                                Strategic partner for EtherCAT solutions and real-time technologies.
-                            </p>
+                            <p class="elite-partner-description">EtherCAT solutions and real-time technologies</p>
                         </div>
 
-                        <!-- Additional technology partners (same as homepage) -->
+                        <!-- Partner 2: CiA -->
+                        <div class="elite-partner-card">
+                            <img src="/assets/partners/cia-logo.png" alt="CAN in Automation" class="elite-partner-logo">
+                            <h3>CiA</h3>
+                            <p class="elite-partner-description">CAN in Automation - CAN-based protocols</p>
+                        </div>
+
+                        <!-- Partner 3: EtherCAT Technology Group -->
+                        <div class="elite-partner-card">
+                            <img src="/assets/partners/etg-logo.png" alt="EtherCAT Technology Group" class="elite-partner-logo">
+                            <h3>EtherCAT Technology Group</h3>
+                            <p class="elite-partner-description">EtherCAT standard organization</p>
+                        </div>
+
+                        <!-- Partner 4: NXP -->
+                        <div class="elite-partner-card">
+                            <img src="/assets/partners/nxp-logo.png" alt="NXP Semiconductors" class="elite-partner-logo">
+                            <h3>NXP</h3>
+                            <p class="elite-partner-description">Semiconductor solutions for embedded systems</p>
+                        </div>
+
+                        <!-- Partner 5: QNX -->
+                        <div class="elite-partner-card">
+                            <img src="/assets/partners/qnx-logo.png" alt="QNX" class="elite-partner-logo">
+                            <h3>QNX</h3>
+                            <p class="elite-partner-description">Real-time operating system</p>
+                        </div>
+
+                        <!-- Partner 6: STMicroelectronics -->
+                        <div class="elite-partner-card">
+                            <img src="/assets/partners/st-logo.png" alt="STMicroelectronics" class="elite-partner-logo">
+                            <h3>STMicroelectronics</h3>
+                            <p class="elite-partner-description">Authorized Partner - Microcontroller solutions</p>
+                        </div>
+
+                        <!-- Partner 7: SYSGO -->
+                        <div class="elite-partner-card">
+                            <img src="/assets/partners/sysgo-logo.png" alt="SYSGO" class="elite-partner-logo">
+                            <h3>SYSGO</h3>
+                            <p class="elite-partner-description">Real-time and safety OS solutions</p>
+                        </div>
+
+                        <!-- Partner 8: Texas Instruments -->
+                        <div class="elite-partner-card">
+                            <img src="/assets/partners/ti-logo.png" alt="Texas Instruments" class="elite-partner-logo">
+                            <h3>Texas Instruments</h3>
+                            <p class="elite-partner-description">Semiconductor and embedded processing</p>
+                        </div>
                     </div>
                 </div>
             </div>
