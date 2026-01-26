@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services d'Expertise Technique - AZIT</title>
-    <meta name="description" content="Expertise complète en protocoles industriels et systèmes de sécurité. Services de conseil, développement, tests et formation.">
+    <title>Notre Expertise - AZIT</title>
+    <meta name="description" content="Expertise complète en protocoles industriels et systèmes de sécurité. Conformité sécurité, développement protocole, tests & validation, et réseaux industriels.">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../../css/variables.css">
@@ -17,6 +17,93 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .expertise-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: #f8fafc;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .expertise-section:nth-child(even) {
+            direction: rtl;
+        }
+        .expertise-section:nth-child(even) > * {
+            direction: ltr;
+        }
+        .expertise-section__content {
+            padding: 3rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .expertise-section__title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 6px;
+        }
+        .expertise-section__description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-gray-700);
+            margin-bottom: 2rem;
+        }
+        .expertise-section__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.2s ease;
+        }
+        .expertise-section__link:hover {
+            gap: 0.75rem;
+        }
+        .expertise-section__link svg {
+            width: 20px;
+            height: 20px;
+        }
+        .expertise-section__image {
+            background: linear-gradient(135deg, #0a1628 0%, #1a365d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+        .expertise-section__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .expertise-section__image-placeholder {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.875rem;
+        }
+        @media (max-width: 768px) {
+            .expertise-section {
+                grid-template-columns: 1fr;
+            }
+            .expertise-section:nth-child(even) {
+                direction: ltr;
+            }
+            .expertise-section__content {
+                padding: 2rem;
+            }
+            .expertise-section__image {
+                min-height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
@@ -25,18 +112,13 @@
     <div class="top-menu">
         <div class="top-menu-container">
             <nav class="top-menu-nav">
-                <!-- Company Link -->
                 <a href="../company.html" class="top-menu-link">Entreprise</a>
-
-                <!-- Blog & News Link -->
-                <a href="../blog.html" class="top-menu-link">Blog & Actualités</a>
+                <a href="../blog.html" class="top-menu-link">Blog & Actualites</a>
             </nav>
-
-            <!-- Language Switcher -->
             <div class="language-switcher">
                 <a href="../../../pages/services/expertise.html" class="language-button" data-lang="en">EN</a>
                 <span class="language-separator">|</span>
-                <a href="../../../fr/index.html" class="language-button active" data-lang="fr">FR</a>
+                <a href="expertise.html" class="language-button active" data-lang="fr">FR</a>
             </div>
         </div>
     </div>
@@ -60,40 +142,38 @@
                         <div class="mega-menu">
                             <div class="mega-menu__grid">
                                 <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Matériel</div>
+                                    <a href="../products/communication-stacks.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">PILES DE COMMUNICATION</a>
                                     <ul class="mega-menu__list">
-                                        <li><a href="../products/protocol-gateway.html" class="mega-menu__link">Passerelle de Protocole (ISI-GTW)</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Stacks de Communication</div>
-                                    <ul class="mega-menu__list">
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">Protocoles de securite</li>
                                         <li><a href="../products/fsoe-slave.html" class="mega-menu__link">FSoE Slave</a></li>
                                         <li><a href="../products/fsoe-master.html" class="mega-menu__link">FSoE Master</a></li>
-                                        <li><a href="../products/canopen-slave.html" class="mega-menu__link">CANopen Slave</a></li>
-                                        <li><a href="../products/canopen-master.html" class="mega-menu__link">CANopen Master</a></li>
+                                        <li><a href="../products/profisafe-slave.html" class="mega-menu__link">PROFISAFE Slave</a></li>
+                                        <li><a href="../products/profisafe-master.html" class="mega-menu__link">PROFISAFE Master</a></li>
                                         <li><a href="../products/canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Slave</a></li>
                                         <li><a href="../products/canopen-safety-master.html" class="mega-menu__link">CANopen Safety Master</a></li>
-                                        <li><a href="../products/j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">Protocoles Fieldbus</li>
+                                        <li><a href="../products/canopen-slave.html" class="mega-menu__link">CANopen Slave</a></li>
+                                        <li><a href="../products/canopen-master.html" class="mega-menu__link">CANopen Master</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Logiciels</div>
+                                    <div class="mega-menu__title">PASSERELLES PROTOCOLAIRES</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="../products/simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
+                                        <li><a href="../products/protocol-gateway.html" class="mega-menu__link">Plateforme de passerelle ISI-GTW</a></li>
                                     </ul>
-                                    <div class="mega-menu__title" style="margin-top: 1rem;">Outils & Analyseurs</div>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">OUTILS</div>
                                     <ul class="mega-menu__list">
-                                        <li><a href="../products/tools.html" class="mega-menu__link">Outils de Développement</a></li>
-                                        <li><a href="../products/analyzers.html" class="mega-menu__link">Analyseurs de Protocole</a></li>
+                                        <li><a href="../products/simulation.html" class="mega-menu__link">Simulateur EtherCAT</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="#" class="nav__link">
-                            Services
+                        <a href="expertise.html" class="nav__link">
+                            Expertise
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
@@ -101,24 +181,12 @@
                         <div class="mega-menu">
                             <div class="mega-menu__grid">
                                 <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Intégration</div>
+                                    <a href="expertise.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">NOTRE EXPERTISE</a>
                                     <ul class="mega-menu__list">
-                                        <li><a href="porting.html" class="mega-menu__link">Activités de Portage</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Expertise</div>
-                                    <ul class="mega-menu__list">
-                                        <li><a href="expertise.html" class="mega-menu__link">Conformité Sécurité</a></li>
-                                        <li><a href="expertise-development.html" class="mega-menu__link">Développement Protocole</a></li>
-                                        <li><a href="expertise-testing.html" class="mega-menu__link">Tests & Validation</a></li>
-                                        <li><a href="expertise-networks.html" class="mega-menu__link">Réseaux Industriels</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu__section">
-                                    <div class="mega-menu__title">Support</div>
-                                    <ul class="mega-menu__list">
-                                        <li><a href="maintenance.html" class="mega-menu__link">Support Maintenance</a></li>
+                                        <li><a href="expertise-compliance.html" class="mega-menu__link">Conformite securite</a></li>
+                                        <li><a href="expertise-development.html" class="mega-menu__link">Developpement protocole</a></li>
+                                        <li><a href="expertise-testing.html" class="mega-menu__link">Tests & validation</a></li>
+                                        <li><a href="expertise-networks.html" class="mega-menu__link">Reseaux industriels</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -126,14 +194,11 @@
                     </li>
                     <li class="nav__item">
                         <a href="../training.html" class="nav__link">Formation</a>
-                    </li>                    <li class="nav__item">
-                        <a href="../company.html" class="nav__link">Entreprise</a>
                     </li>
                     <li class="nav__item">
-                        <a href="../contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Demander un devis</a>
                     </li>
                 </ul>
-
             </nav>
 
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -151,374 +216,103 @@
                 <nav class="breadcrumb">
                     <div class="breadcrumb__item">
                         <a href="../../index.html">Accueil</a>
-                        <span class="breadcrumb__separator">›</span>
+                        <span class="breadcrumb__separator">></span>
                     </div>
-                    <div class="breadcrumb__item">
-                        <a href="expertise.html">Services</a>
-                        <span class="breadcrumb__separator">›</span>
-                    </div>
-                    <div class="breadcrumb__item">Expertise Technique</div>
+                    <div class="breadcrumb__item">Expertise</div>
                 </nav>
             </div>
         </section>
 
-        <!-- Service Hero -->
-        <section class="product-hero">
+        <!-- Page Header -->
+        <section class="section" style="padding-bottom: 2rem;">
             <div class="container">
-                <div class="product-hero__icon">⭐</div>
-                <h1 class="product-hero__title">Services d'Expertise Technique</h1>
-                <p class="product-hero__description">
-                    Expertise complète en protocoles industriels et systèmes de sécurité
+                <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--color-gray-900); margin-bottom: 1rem;">Notre Expertise</h1>
+                <p style="font-size: 1.125rem; color: var(--color-gray-600); max-width: 800px;">
+                    Avec plus de 30 ans d'experience dans les systemes embarques et les protocoles industriels, AZIT offre une expertise complete pour accompagner vos projets les plus exigeants.
                 </p>
-                <div class="product-hero__badges">
-                    <span class="badge badge--primary">30+ Ans d'Expérience</span>
-                    <span class="badge badge--primary">Équipe d'Experts</span>
-                    <span class="badge badge--success">Ingénieurs Certifiés</span>
-                </div>
-                <div class="product-hero__actions">
-                    <a href="../contact.html" class="btn btn--primary btn--large">Demander une Consultation</a>
-                    <a href="../contact.html" class="btn btn--outline btn--large">Contacter un Expert</a>
-                </div>
             </div>
         </section>
 
-        <!-- Overview Section -->
-        <section class="section">
+        <!-- Expertise Sections -->
+        <section class="section" style="padding-top: 0;">
             <div class="container">
-                <div class="two-column">
-                    <div>
-                        <h2>Services Experts en Protocoles Industriels</h2>
-                        <p>
-                            AZIT apporte plus de 30 ans d'expertise en systèmes embarqués et communications industrielles
-                            pour vous aider à réussir vos projets. Que vous ayez besoin d'un support pour la certification
-                            de sécurité, du développement de protocoles personnalisés, de tests complets ou de formations
-                            spécialisées, notre équipe d'experts est là pour vous assister.
+
+                <!-- 1. Conformite securite -->
+                <div class="expertise-section">
+                    <div class="expertise-section__content">
+                        <h2 class="expertise-section__title">Conformite securite</h2>
+                        <p class="expertise-section__description">
+                            AZIT vous accompagne dans la certification de securite et la conformite aux normes IEC 61508, ISO 13849 et IEC 61784-3. Nos experts vous guident tout au long du processus de certification, des pre-audits et analyses d'ecart a la coordination avec Bureau Veritas.
                         </p>
-
-                        <h2 style="margin-top: 2rem;">Portefeuille de Services Complet</h2>
-                        <p>
-                            Nos services d'expertise couvrent l'ensemble du spectre du développement et du déploiement
-                            de protocoles industriels, de la conception initiale et de la conformité sécurité jusqu'aux
-                            tests, à la validation et à la formation continue. Nous travaillons avec les principales
-                            entreprises d'automatisation industrielle dans le monde entier.
-                        </p>
-
-                        <h3 style="margin-top: 2rem;">Expertise de Premier Plan</h3>
-                        <p>
-                            Nos ingénieurs possèdent une connaissance approfondie des normes IEC 61508, ISO 13849,
-                            IEC 61784-3 et d'autres standards de sécurité critiques. Nous avons réussi à supporter de
-                            nombreux projets de certification de sécurité et d'implémentations de protocoles personnalisés
-                            dans divers secteurs industriels.
-                        </p>
-                    </div>
-
-                    <div>
-                        <div class="specs-box">
-                            <h3 class="specs-box__title">Pourquoi Choisir AZIT</h3>
-                            <ul class="benefits-list">
-                                <li>30+ ans d'expertise en systèmes embarqués</li>
-                                <li>Connaissance approfondie des protocoles</li>
-                                <li>Expérience en certification de sécurité</li>
-                                <li>Historique de réussites prouvé</li>
-                                <li>Ingénieurs experts dédiés</li>
-                                <li>Modèles d'engagement flexibles</li>
-                                <li>Prestation de services mondiale</li>
-                            </ul>
-                        </div>
-
-                        <div class="specs-box" style="margin-top: 1.5rem;">
-                            <h3 class="specs-box__title">Secteurs Desservis</h3>
-                            <div class="specs-box__item">
-                                <span class="specs-box__label">Automatisation Industrielle</span>
-                                <span class="specs-box__value">✓</span>
-                            </div>
-                            <div class="specs-box__item">
-                                <span class="specs-box__label">Automatisation d'Usine</span>
-                                <span class="specs-box__value">✓</span>
-                            </div>
-                            <div class="specs-box__item">
-                                <span class="specs-box__label">Automobile</span>
-                                <span class="specs-box__value">✓</span>
-                            </div>
-                            <div class="specs-box__item">
-                                <span class="specs-box__label">Dispositifs Médicaux</span>
-                                <span class="specs-box__value">✓</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Expertise Areas -->
-        <section class="section section--light">
-            <div class="container">
-                <h2>Nos Domaines d'Expertise</h2>
-                <p style="margin-top: 1rem; max-width: 800px;">
-                    Nous offrons des services d'expertise spécialisés dans quatre domaines principaux pour répondre
-                    à vos besoins en protocoles industriels et systèmes de sécurité.
-                </p>
-
-                <div class="grid grid--2" style="margin-top: 3rem;">
-                    <div class="card">
-                        <div class="product-card__icon" style="font-size: 3rem; margin-bottom: 1rem;">🔐</div>
-                        <h3 class="card__title">Services de Conformité Sécurité</h3>
-                        <p style="margin: 1rem 0;">
-                            Support expert pour la certification de sécurité et la conformité aux normes IEC 61508,
-                            ISO 13849 et IEC 61784-3. Nous vous guidons tout au long du processus de certification.
-                        </p>
-                        <ul class="benefits-list">
-                            <li>Conseil en certification de sécurité (SIL3/PLe)</li>
-                            <li>Pré-audits et analyse des lacunes</li>
-                            <li>Documentation des exigences de sécurité</li>
-                            <li>Coordination et support Bureau Véritas</li>
-                            <li>Formation aux normes</li>
-                        </ul>
-                        <a href="expertise-compliance.html" class="btn btn--primary" style="margin-top: 1.5rem;">
-                            En Savoir Plus →
+                        <a href="expertise-compliance.html" class="expertise-section__link">
+                            En savoir plus
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
                         </a>
                     </div>
+                    <div class="expertise-section__image">
+                        <img src="https://isit.fr/photos/services/2083/accompagnement_a_la_certification_sil3_ple.png" alt="Conformite securite - Certification SIL3/PLe">
+                    </div>
+                </div>
 
-                    <div class="card">
-                        <div class="product-card__icon" style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
-                        <h3 class="card__title">Services de Développement Protocole</h3>
-                        <p style="margin: 1rem 0;">
-                            Services d'implémentation et de développement de protocoles personnalisés pour des
-                            exigences uniques qui vont au-delà des stacks de protocole standards.
+                <!-- 2. Developpement protocole -->
+                <div class="expertise-section">
+                    <div class="expertise-section__content">
+                        <h2 class="expertise-section__title">Developpement protocole</h2>
+                        <p class="expertise-section__description">
+                            AZIT propose des services d'implementation et de developpement de protocoles personnalises adaptes a vos besoins specifiques. Des protocoles personnalises aux extensions et protocoles de securite proprietaires, notre equipe construit des solutions qui vont au-dela des piles de protocoles standards.
                         </p>
-                        <ul class="benefits-list">
-                            <li>Développement de protocoles personnalisés</li>
-                            <li>Extensions et profils de protocoles</li>
-                            <li>Protocoles de sécurité propriétaires</li>
-                            <li>Développement de passerelles de protocoles</li>
-                            <li>Protocoles CAN personnalisés</li>
-                        </ul>
-                        <a href="expertise-development.html" class="btn btn--primary" style="margin-top: 1.5rem;">
-                            En Savoir Plus →
+                        <a href="expertise-development.html" class="expertise-section__link">
+                            En savoir plus
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
                         </a>
                     </div>
+                    <div class="expertise-section__image">
+                        <img src="https://isit.fr/photos/services/2083/expertise_protocoles_industriels.png" alt="Developpement protocole - Expertise protocoles industriels">
+                    </div>
+                </div>
 
-                    <div class="card">
-                        <div class="product-card__icon" style="font-size: 3rem; margin-bottom: 1rem;">🧪</div>
-                        <h3 class="card__title">Services de Tests & Validation</h3>
-                        <p style="margin: 1rem 0;">
-                            Tests complets, validation de conformité et tests d'interopérabilité pour les
-                            implémentations de protocoles utilisant des outils standard de l'industrie.
+                <!-- 3. Tests & validation -->
+                <div class="expertise-section">
+                    <div class="expertise-section__content">
+                        <h2 class="expertise-section__title">Tests & validation</h2>
+                        <p class="expertise-section__description">
+                            AZIT offre des services complets de tests, de validation de conformite et de tests d'interoperabilite pour les implementations de protocoles. Grace a des outils standards de l'industrie et notre infrastructure de test etendue, nous garantissons que vos produits repondent a toutes les exigences avant leur mise sur le marche.
                         </p>
-                        <ul class="benefits-list">
-                            <li>Tests de conformité</li>
-                            <li>Tests d'interopérabilité</li>
-                            <li>Analyse de performance</li>
-                            <li>Analyse de protocoles</li>
-                            <li>Support pour la certification</li>
-                        </ul>
-                        <a href="expertise-testing.html" class="btn btn--primary" style="margin-top: 1.5rem;">
-                            En Savoir Plus →
+                        <a href="expertise-testing.html" class="expertise-section__link">
+                            En savoir plus
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
                         </a>
                     </div>
+                    <div class="expertise-section__image">
+                        <img src="https://isit.fr/photos/services/2083/tests_et_validation.png" alt="Services de tests et validation">
+                    </div>
+                </div>
 
-                    <div class="card">
-                        <div class="product-card__icon" style="font-size: 3rem; margin-bottom: 1rem;">🌐</div>
-                        <h3 class="card__title">Services Réseaux Industriels</h3>
-                        <p style="margin: 1rem 0;">
-                            Services spécialisés pour la formation aux réseaux industriels, le diagnostic et le
-                            développement de passerelles sur divers protocoles.
+                <!-- 4. Reseaux industriels -->
+                <div class="expertise-section">
+                    <div class="expertise-section__content">
+                        <h2 class="expertise-section__title">Reseaux industriels</h2>
+                        <p class="expertise-section__description">
+                            Mediane Systeme vous apporte une solution adaptee a votre besoin en s'appuyant sur des protocoles de communication terrain. De la formation reseau et des diagnostics au developpement de passerelles protocolaires et au conseil en architecture, nous accompagnons vos projets de reseaux industriels sur CANopen, EtherCAT, FSoE et plus encore.
                         </p>
-                        <ul class="benefits-list">
-                            <li>Cours de formation réseau</li>
-                            <li>Diagnostics et dépannage</li>
-                            <li>Développement de passerelles de protocoles</li>
-                            <li>Conseil en architecture réseau</li>
-                            <li>Expertise CANopen, EtherCAT, FSoE</li>
-                        </ul>
-                        <a href="expertise-networks.html" class="btn btn--primary" style="margin-top: 1.5rem;">
-                            En Savoir Plus →
+                        <a href="expertise-networks.html" class="expertise-section__link">
+                            En savoir plus
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
                         </a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How We Work Section -->
-        <section class="section">
-            <div class="container">
-                <h2>Comment Nous Travaillons Avec Vous</h2>
-
-                <div class="two-column" style="margin-top: 2rem;">
-                    <div>
-                        <h3>Modèles d'Engagement Flexibles</h3>
-                        <p style="margin-top: 0.5rem;">
-                            Nous adaptons nos services à vos besoins, que vous ayez besoin d'une consultation unique,
-                            d'un support continu ou d'un engagement de projet complet.
-                        </p>
-
-                        <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--color-light); border-radius: var(--border-radius-lg);">
-                            <h4>Conseil & Expertise</h4>
-                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">
-                                Conseils d'experts sur des questions ou défis spécifiques. Idéal pour les revues
-                                techniques, les décisions d'architecture ou la résolution de problèmes.
-                            </p>
-                        </div>
-
-                        <div style="margin-top: 1rem; padding: 1.5rem; background: var(--color-light); border-radius: var(--border-radius-lg);">
-                            <h4>Engagement Basé sur Projet</h4>
-                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">
-                                Livraison complète de projet avec périmètre, calendrier et livrables définis. Du
-                                développement de protocoles au support de certification.
-                            </p>
-                        </div>
-
-                        <div style="margin-top: 1rem; padding: 1.5rem; background: var(--color-light); border-radius: var(--border-radius-lg);">
-                            <h4>Support Continu</h4>
-                            <p style="margin-top: 0.5rem; font-size: 0.875rem;">
-                                Partenariat à long terme avec des ressources d'ingénierie dédiées disponibles à la
-                                demande pour vos besoins évolutifs.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3>Notre Processus</h3>
-                        <ol style="padding-left: 1.5rem; margin-top: 1rem;">
-                            <li style="margin-bottom: 1.5rem;">
-                                <strong>Découverte & Évaluation</strong><br>
-                                <span style="color: var(--color-gray-600);">
-                                    Nous comprenons vos exigences, contraintes et objectifs à travers des discussions
-                                    détaillées et une revue technique.
-                                </span>
-                            </li>
-                            <li style="margin-bottom: 1.5rem;">
-                                <strong>Proposition & Planification</strong><br>
-                                <span style="color: var(--color-gray-600);">
-                                    Nous développons une proposition détaillée avec un périmètre clair, un calendrier,
-                                    des livrables et une structure de coûts adaptés à vos besoins.
-                                </span>
-                            </li>
-                            <li style="margin-bottom: 1.5rem;">
-                                <strong>Exécution & Collaboration</strong><br>
-                                <span style="color: var(--color-gray-600);">
-                                    Nos experts travaillent en étroite collaboration avec votre équipe, fournissant
-                                    des mises à jour régulières et maintenant une communication transparente.
-                                </span>
-                            </li>
-                            <li style="margin-bottom: 1.5rem;">
-                                <strong>Livraison & Transfert</strong><br>
-                                <span style="color: var(--color-gray-600);">
-                                    Nous livrons une documentation complète et assurons le transfert de connaissances
-                                    pour que votre équipe puisse maintenir et étendre la solution.
-                                </span>
-                            </li>
-                        </ol>
+                    <div class="expertise-section__image">
+                        <img src="https://isit.fr/photos/services/2083/reseaux_industriels.png" alt="Services reseaux industriels">
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Success Stories Section -->
-        <section class="section section--light">
-            <div class="container">
-                <h2>Histoires de Succès</h2>
-
-                <div class="grid grid--2" style="margin-top: 2rem;">
-                    <div class="card">
-                        <h3 class="card__title">Certification Contrôleur de Sécurité SIL3</h3>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Défi :</strong> Un fabricant d'automatisation de premier plan devait certifier
-                            son nouveau contrôleur de sécurité SIL3 selon IEC 61508.
-                        </p>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Solution :</strong> Nous avons fourni un pré-audit complet, une revue de documentation
-                            et une coordination Bureau Véritas, les aidant à obtenir la certification en un temps record.
-                        </p>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Résultat :</strong> Certification SIL3 réussie avec un minimum d'itérations et
-                            réduction du délai de mise sur le marché de 6 mois.
-                        </p>
-                    </div>
-
-                    <div class="card">
-                        <h3 class="card__title">Développement Passerelle Protocole Personnalisée</h3>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Défi :</strong> Le client avait besoin d'une passerelle entre son protocole CAN
-                            propriétaire et un réseau CANopen standard.
-                        </p>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Solution :</strong> Nous avons développé une passerelle de protocole personnalisée
-                            avec mapping de données, outils de configuration et tests complets.
-                        </p>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Résultat :</strong> Intégration transparente entre systèmes legacy et modernes,
-                            permettant une migration progressive du système.
-                        </p>
-                    </div>
-
-                    <div class="card">
-                        <h3 class="card__title">Tests d'Interopérabilité FSoE</h3>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Défi :</strong> Un fabricant de variateurs devait valider l'interopérabilité FSoE
-                            avec plusieurs PLC avant le lancement du produit.
-                        </p>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Solution :</strong> Nous avons effectué des tests d'interopérabilité complets avec
-                            les principaux fournisseurs de PLC et fourni des rapports de test détaillés.
-                        </p>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Résultat :</strong> Compatibilité vérifiée avec tous les PLC cibles et identification
-                            de problèmes critiques avant la production.
-                        </p>
-                    </div>
-
-                    <div class="card">
-                        <h3 class="card__title">Programme de Formation Réseau EtherCAT</h3>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Défi :</strong> L'équipe d'ingénierie avait besoin d'une formation complète sur
-                            EtherCAT et FSoE pour une nouvelle gamme de produits.
-                        </p>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Solution :</strong> Nous avons dispensé une formation personnalisée sur site couvrant
-                            les fondamentaux EtherCAT, la sécurité FSoE et des travaux pratiques.
-                        </p>
-                        <p style="margin: 1rem 0; color: var(--color-gray-600);">
-                            <strong>Résultat :</strong> L'équipe a implémenté avec succès un slave EtherCAT avec FSoE
-                            en 3 mois avec un support expert continu.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Other Services -->
-        <section class="section">
-            <div class="container">
-                <h2>Autres Services</h2>
-                <div class="grid grid--3" style="margin-top: 2rem;">
-                    <div class="product-card">
-                        <div class="product-card__icon">🔧</div>
-                        <h3 class="product-card__title">Services de Portage</h3>
-                        <p class="product-card__description">
-                            Portage expert de stacks sur votre plateforme matérielle
-                        </p>
-                        <a href="porting.html" class="product-card__cta">En Savoir Plus →</a>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-card__icon">🛠️</div>
-                        <h3 class="product-card__title">Support Maintenance</h3>
-                        <p class="product-card__description">
-                            Plans de support et de maintenance à long terme
-                        </p>
-                        <a href="maintenance.html" class="product-card__cta">En Savoir Plus →</a>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-card__icon">🎓</div>
-                        <h3 class="product-card__title">Programmes de Formation</h3>
-                        <p class="product-card__description">
-                            Formation complète sur les protocoles et stacks
-                        </p>
-                        <a href="../training.html" class="product-card__cta">En Savoir Plus →</a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -526,11 +320,11 @@
         <section class="section">
             <div class="container">
                 <div class="cta-section">
-                    <h2>Discutons de Vos Besoins</h2>
-                    <p>Planifiez une consultation avec nos experts pour explorer comment nous pouvons vous aider</p>
+                    <h2>Discutons de votre projet</h2>
+                    <p>Contactez nos experts pour decouvrir comment nous pouvons vous accompagner</p>
                     <div>
-                        <a href="../contact.html" class="btn btn--secondary btn--large">Demander une Consultation</a>
-                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contacter un Expert</a>
+                        <a href="../contact.html" class="btn btn--secondary btn--large">Demander une consultation</a>
+                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contacter un expert</a>
                     </div>
                 </div>
             </div>
@@ -544,7 +338,7 @@
                 <div class="footer__brand">
                     <div class="footer__logo">AZIT</div>
                     <p class="footer__tagline">Une marque d'ISIT</p>
-                    <p class="footer__tagline">30+ ans d'expertise en systèmes embarqués</p>
+                    <p class="footer__tagline">Plus de 30 ans d'expertise en systemes embarques</p>
                 </div>
 
                 <div>
@@ -560,11 +354,13 @@
                 </div>
 
                 <div>
-                    <h3 class="footer__section-title">Services</h3>
+                    <h3 class="footer__section-title">Expertise</h3>
                     <ul class="footer__list">
-                        <li><a href="porting.html" class="footer__link">Portage</a></li>
-                        <li><a href="maintenance.html" class="footer__link">Maintenance</a></li>
-                        <li><a href="expertise.html" class="footer__link">Expertise</a></li>
+                        <li><a href="expertise.html" class="footer__link">Notre expertise</a></li>
+                        <li><a href="expertise-compliance.html" class="footer__link">Conformite securite</a></li>
+                        <li><a href="expertise-development.html" class="footer__link">Developpement protocole</a></li>
+                        <li><a href="expertise-testing.html" class="footer__link">Tests & validation</a></li>
+                        <li><a href="expertise-networks.html" class="footer__link">Reseaux industriels</a></li>
                     </ul>
                 </div>
 
@@ -579,9 +375,9 @@
             </div>
 
             <div class="footer__bottom">
-                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits réservés.</p>
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits reserves.</p>
                 <ul class="footer__social">
-                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Confidentialite</a></li>
                     <li><a href="#" class="footer__social-link">Conditions</a></li>
                     <li><a href="#" class="footer__social-link">LinkedIn</a></li>
                     <li><a href="#" class="footer__social-link">GitHub</a></li>
