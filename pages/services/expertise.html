@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../css/a11y-utils.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,31 +107,35 @@
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for Announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true"></div>
 
     <!-- Top Menu -->
     <div class="top-menu">
         <div class="top-menu-container">
-            <nav class="top-menu-nav">
+            <nav class="top-menu-nav" aria-label="Company information and settings">
                 <a href="../company.html" class="top-menu-link">Company</a>
                 <a href="../blog.html" class="top-menu-link">Blog & News</a>
             </nav>
-            <div class="language-switcher">
-                <a href="../../index.html" class="language-button active" data-lang="en">EN</a>
-                <span class="language-separator">|</span>
-                <a href="../../fr/pages/services/expertise.html" class="language-button" data-lang="fr">FR</a>
+            <div class="language-switcher" aria-label="Language selection">
+                <a href="expertise.html" class="language-button active" data-lang="en" lang="en" hreflang="en">EN</a>
+                <span class="language-separator" aria-hidden="true">|</span>
+                <a href="../../../fr/pages/services/expertise.html" class="language-button" data-lang="fr" lang="fr" hreflang="fr">FR</a>
             </div>
         </div>
     </div>
 
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="container header__container">
-            <a href="../../index.html" class="header__logo">
+            <a href="../../index.html" class="header__logo" aria-label="AZIT Homepage">
                 <span>AZIT</span>
             </a>
 
-            <nav class="header__nav" id="main-nav">
+            <nav class="header__nav" id="main-nav" aria-label="Main navigation">
                 <ul class="nav__list">
                     <li class="nav__item">
                         <a href="#" class="nav__link">
@@ -201,7 +206,7 @@
                 </ul>
             </nav>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
@@ -209,16 +214,16 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" role="main" tabindex="-1">
         <!-- Breadcrumb -->
         <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
             <div class="container">
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
                     <div class="breadcrumb__item">
                         <a href="../../index.html">Home</a>
-                        <span class="breadcrumb__separator">></span>
+                        <span class="breadcrumb__separator" aria-hidden="true">></span>
                     </div>
-                    <div class="breadcrumb__item">Expertise</div>
+                    <div class="breadcrumb__item" aria-current="page">Expertise</div>
                 </nav>
             </div>
         </section>
@@ -238,80 +243,92 @@
             <div class="container">
 
                 <!-- 1. Safety Compliance -->
-                <div class="expertise-section">
+                <article class="expertise-section" aria-labelledby="safety-title">
                     <div class="expertise-section__content">
-                        <h2 class="expertise-section__title">Safety Compliance</h2>
+                        <h2 id="safety-title" class="expertise-section__title">Safety Compliance</h2>
                         <p class="expertise-section__description">
                             AZIT provides comprehensive support for safety certification and compliance with IEC 61508, ISO 13849, and IEC 61784-3 standards. Our experts guide you through the entire certification process, from pre-audits and gap analysis to Bureau Veritas coordination.
                         </p>
-                        <a href="expertise-compliance.html" class="expertise-section__link">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+                        <a href="expertise-compliance.html" class="expertise-section__link" aria-describedby="safety-title">
+                            <span>Learn more</span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </span>
+                            <span class="sr-only">about Safety Compliance services</span>
                         </a>
                     </div>
-                    <div class="expertise-section__image">
-                        <img src="https://isit.fr/photos/services/2083/accompagnement_a_la_certification_sil3_ple.png" alt="Safety Compliance - SIL3/PLe Certification">
+                    <div class="expertise-section__image" aria-hidden="true">
+                        <img src="https://isit.fr/photos/services/2083/accompagnement_a_la_certification_sil3_ple.png" alt="" role="presentation">
                     </div>
-                </div>
+                </article>
 
                 <!-- 2. Protocol Development -->
-                <div class="expertise-section">
+                <article class="expertise-section" aria-labelledby="protocol-title">
                     <div class="expertise-section__content">
-                        <h2 class="expertise-section__title">Protocol Development</h2>
+                        <h2 id="protocol-title" class="expertise-section__title">Protocol Development</h2>
                         <p class="expertise-section__description">
                             AZIT delivers custom protocol implementation and development services tailored to your unique requirements. From custom protocols and extensions to proprietary safety protocols and gateway development, our team builds solutions that go beyond standard protocol stacks.
                         </p>
-                        <a href="expertise-development.html" class="expertise-section__link">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+                        <a href="expertise-development.html" class="expertise-section__link" aria-describedby="protocol-title">
+                            <span>Learn more</span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </span>
+                            <span class="sr-only">about Protocol Development services</span>
                         </a>
                     </div>
-                    <div class="expertise-section__image">
-                        <img src="https://isit.fr/photos/services/2083/expertise_protocoles_industriels.png" alt="Protocol Development - Industrial Protocol Expertise">
+                    <div class="expertise-section__image" aria-hidden="true">
+                        <img src="https://isit.fr/photos/services/2083/expertise_protocoles_industriels.png" alt="" role="presentation">
                     </div>
-                </div>
+                </article>
 
                 <!-- 3. Testing & Validation -->
-                <div class="expertise-section">
+                <article class="expertise-section" aria-labelledby="testing-title">
                     <div class="expertise-section__content">
-                        <h2 class="expertise-section__title">Testing & Validation</h2>
+                        <h2 id="testing-title" class="expertise-section__title">Testing & Validation</h2>
                         <p class="expertise-section__description">
                             AZIT offers comprehensive testing, conformance validation, and interoperability testing for protocol implementations. Using industry-standard tools and our extensive test infrastructure, we ensure your products meet all requirements before market release.
                         </p>
-                        <a href="expertise-testing.html" class="expertise-section__link">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+                        <a href="expertise-testing.html" class="expertise-section__link" aria-describedby="testing-title">
+                            <span>Learn more</span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </span>
+                            <span class="sr-only">about Testing and Validation services</span>
                         </a>
                     </div>
-                    <div class="expertise-section__image">
-                        <img src="https://isit.fr/photos/services/2083/tests_et_validation.png" alt="Testing & Validation Services">
+                    <div class="expertise-section__image" aria-hidden="true">
+                        <img src="https://isit.fr/photos/services/2083/tests_et_validation.png" alt="" role="presentation">
                     </div>
-                </div>
+                </article>
 
                 <!-- 4. Industrial Networks -->
-                <div class="expertise-section">
+                <article class="expertise-section" aria-labelledby="networks-title">
                     <div class="expertise-section__content">
-                        <h2 class="expertise-section__title">Industrial Networks</h2>
+                        <h2 id="networks-title" class="expertise-section__title">Industrial Networks</h2>
                         <p class="expertise-section__description">
                             AZIT provides tailored solutions for your needs based on field communication protocols. From network training and diagnostics to protocol gateway development and architecture consulting, we support your industrial network projects across CANopen, EtherCAT, FSoE, and more.
                         </p>
-                        <a href="expertise-networks.html" class="expertise-section__link">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+                        <a href="expertise-networks.html" class="expertise-section__link" aria-describedby="networks-title">
+                            <span>Learn more</span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </span>
+                            <span class="sr-only">about Industrial Networks services</span>
                         </a>
                     </div>
-                    <div class="expertise-section__image">
-                        <img src="https://isit.fr/photos/services/2083/reseaux_industriels.png" alt="Industrial Networks Services">
+                    <div class="expertise-section__image" aria-hidden="true">
+                        <img src="https://isit.fr/photos/services/2083/reseaux_industriels.png" alt="" role="presentation">
                     </div>
-                </div>
+                </article>
 
             </div>
         </section>
@@ -332,7 +349,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__grid">
                 <div class="footer__brand">
@@ -356,7 +373,7 @@
                 <div>
                     <h3 class="footer__section-title">Expertise</h3>
                     <ul class="footer__list">
-                        <li><a href="expertise.html" class="footer__link">Our Expertise</a></li>
+                        <li><a href="expertise.html" class="footer__link" aria-current="page">Our Expertise</a></li>
                         <li><a href="expertise-compliance.html" class="footer__link">Safety Compliance</a></li>
                         <li><a href="expertise-development.html" class="footer__link">Protocol Development</a></li>
                         <li><a href="expertise-testing.html" class="footer__link">Testing & Validation</a></li>
@@ -375,14 +392,22 @@
             </div>
 
             <div class="footer__bottom">
-                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
-                <ul class="footer__social">
-                    <li><a href="#" class="footer__social-link">Privacy</a></li>
-                    <li><a href="#" class="footer__social-link">Terms</a></li>
-                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
-                    <li><a href="#" class="footer__social-link">GitHub</a></li>
-                </ul>
+                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved. | Version 7</p>
+                <nav aria-label="Footer links">
+                    <ul class="footer__social">
+                        <li><a href="#" class="footer__social-link">Privacy</a></li>
+                        <li><a href="#" class="footer__social-link">Terms</a></li>
+                        <li><a href="../sitemap.html" class="footer__social-link">Site Map</a></li>
+                        <li><a href="../accessibilite.html" class="footer__social-link">Accessibility</a></li>
+                    </ul>
+                </nav>
             </div>
+
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="../accessibilite.html" class="a11y-badge">
+                    Accessibility: Partially Compliant
+                </a>
+            </p>
         </div>
     </footer>
 
@@ -390,5 +415,6 @@
     <script src="../../js/main.js"></script>
     <script src="../../js/navigation.js"></script>
     <script src="../../js/language-switcher.js"></script>
+    <script src="../../js/accessibility.js"></script>
 </body>
 </html>
