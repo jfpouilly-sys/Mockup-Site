@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/a11y-utils.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,12 +21,15 @@
 </head>
 <body>
     <!-- Skip to content for accessibility -->
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for Announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true"></div>
 
     <!-- Top Menu -->
     <div class="top-menu">
         <div class="top-menu-container">
-            <nav class="top-menu-nav">
+            <nav class="top-menu-nav" aria-label="Company information and settings">
                 <!-- Company Link -->
                 <a href="pages/company.html" class="top-menu-link">Company</a>
 
@@ -34,22 +38,22 @@
             </nav>
 
             <!-- Language Switcher (moved from main nav) -->
-            <div class="language-switcher">
-                <a href="index.html" class="language-button active" data-lang="en">EN</a>
-                <span class="language-separator">|</span>
-                <a href="fr/index.html" class="language-button" data-lang="fr">FR</a>
+            <div class="language-switcher" aria-label="Language selection">
+                <a href="index.html" class="language-button active" data-lang="en" lang="en" hreflang="en">EN</a>
+                <span class="language-separator" aria-hidden="true">|</span>
+                <a href="fr/index.html" class="language-button" data-lang="fr" lang="fr" hreflang="fr">FR</a>
             </div>
         </div>
     </div>
 
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="container header__container">
-            <a href="/" class="header__logo">
+            <a href="/" class="header__logo" aria-label="AZIT Homepage">
                 <span>AZIT</span>
             </a>
 
-            <nav class="header__nav" id="main-nav">
+            <nav class="header__nav" id="main-nav" aria-label="Main navigation">
                 <ul class="nav__list">
                     <li class="nav__item">
                         <a href="#" class="nav__link">
@@ -131,7 +135,7 @@
                 </ul>
             </nav>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
@@ -140,7 +144,7 @@
     </header>
 
     <!-- Main Content -->
-    <main id="main-content">
+    <main id="main-content" role="main" tabindex="-1">
         <!-- Hero Section -->
         <section class="hero">
             <div class="container hero__container">
@@ -583,7 +587,7 @@ fsoe_slave_start();</code></pre>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__grid">
                 <div class="footer__brand">
@@ -633,13 +637,21 @@ fsoe_slave_start();</code></pre>
 
             <div class="footer__bottom">
                 <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved. | Version 7</p>
-                <ul class="footer__social">
-                    <li><a href="#" class="footer__social-link">Privacy</a></li>
-                    <li><a href="#" class="footer__social-link">Terms</a></li>
-                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
-                    <li><a href="#" class="footer__social-link">GitHub</a></li>
-                </ul>
+                <nav aria-label="Footer links">
+                    <ul class="footer__social">
+                        <li><a href="#" class="footer__social-link">Privacy</a></li>
+                        <li><a href="#" class="footer__social-link">Terms</a></li>
+                        <li><a href="pages/sitemap.html" class="footer__social-link">Site Map</a></li>
+                        <li><a href="pages/accessibilite.html" class="footer__social-link">Accessibility</a></li>
+                    </ul>
+                </nav>
             </div>
+
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="pages/accessibilite.html" class="a11y-badge">
+                    Accessibility: Partially Compliant
+                </a>
+            </p>
         </div>
     </footer>
 
@@ -647,5 +659,6 @@ fsoe_slave_start();</code></pre>
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/language-switcher.js"></script>
+    <script src="js/accessibility.js"></script>
 </body>
 </html>

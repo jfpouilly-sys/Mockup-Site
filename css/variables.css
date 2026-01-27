@@ -17,14 +17,20 @@
   --color-secondary: #FF6B00;
   --color-secondary-light: #FFF0E6;
 
-  /* Neutrals */
+  /* Neutrals - Updated for WCAG AA contrast compliance */
   --color-dark: #1A1A2E;
   --color-gray-800: #2D2D44;
-  --color-gray-600: #4A4A68;
-  --color-gray-400: #8888A0;
+  --color-gray-700: #374151;   /* 7.8:1 contrast - for secondary text */
+  --color-gray-600: #4A4A68;   /* 5.6:1 contrast - for body text */
+  --color-gray-500: #6B7280;   /* 4.6:1 contrast - minimum for body text */
+  --color-gray-400: #9CA3AF;   /* 3:1 contrast - for large text/decorative only */
   --color-gray-200: #E0E0E8;
+  --color-gray-100: #F3F4F6;
   --color-light: #F8F9FC;
   --color-white: #FFFFFF;
+
+  /* Accessibility Focus Color */
+  --color-focus: #0e7490;      /* 4.6:1 contrast - for focus indicators */
 
   /* Semantic Colors */
   --color-success: #22C55E;

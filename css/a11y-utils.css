@@ -1,0 +1,238 @@
+/* ============================================
+   AZIT Accessibility Utilities - RGAA 4.1.2
+   ============================================ */
+
+/* Screen Reader Only - Hide visually but keep accessible to screen readers */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 9999;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #0e7490;
+  outline-offset: 2px;
+}
+
+/* Enhanced Focus Styles */
+*:focus {
+  outline: 3px solid #0e7490;
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 3px solid #0e7490;
+  outline-offset: 2px;
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid #0e7490;
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+
+  .btn,
+  button {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* ARIA Live Region for Announcements */
+#aria-live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Accessibility Badge in Footer */
+.a11y-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-gray-100, #f3f4f6);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: var(--color-gray-700, #374151);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.a11y-badge:hover {
+  background: var(--color-gray-200, #e5e7eb);
+}
+
+.a11y-badge:focus {
+  outline: 3px solid #0e7490;
+  outline-offset: 2px;
+}
+
+/* Error Messages for Forms */
+.error-message {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.form-control[aria-invalid="true"],
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #dc2626 !important;
+}
+
+/* Required Field Indicator */
+.required-indicator {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* Form Hints */
+.form-hint {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Accessibility Statement Page Styles */
+.accessibility-statement {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.accessibility-statement h1 {
+  margin-bottom: 1.5rem;
+}
+
+.accessibility-statement h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.accessibility-statement h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.accessibility-statement ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.accessibility-statement li {
+  margin-bottom: 0.5rem;
+}
+
+/* Sitemap Page Styles */
+.sitemap-nav {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.sitemap-nav > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sitemap-nav > ul > li {
+  margin-bottom: 1.5rem;
+}
+
+.sitemap-nav > ul > li > strong {
+  display: block;
+  font-size: 1.125rem;
+  color: var(--color-primary, #0066CC);
+  margin-bottom: 0.5rem;
+}
+
+.sitemap-nav > ul > li > ul {
+  list-style: none;
+  padding-left: 1.5rem;
+  border-left: 2px solid #e5e7eb;
+}
+
+.sitemap-nav > ul > li > ul > li {
+  margin-bottom: 0.5rem;
+}
+
+.sitemap-nav a {
+  color: var(--color-gray-700, #374151);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sitemap-nav a:hover {
+  color: var(--color-primary, #0066CC);
+  text-decoration: underline;
+}
+
+.sitemap-nav a:focus {
+  outline: 3px solid #0e7490;
+  outline-offset: 2px;
+}
