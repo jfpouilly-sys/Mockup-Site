@@ -107,18 +107,70 @@ add_action('after_setup_theme', 'azit_theme_setup');
 
 /**
  * Enqueue scripts and styles.
+ *
+ * Loads all CSS and JS from V7.1-RGAA static site in correct order.
  */
 function azit_enqueue_scripts() {
-    // Accessibility CSS - Load first (critical for skip links)
+    // ==========================================================================
+    // CSS FILES - V7.1-RGAA MIGRATION
+    // Load order: variables → base → layout → components → pages → a11y → main → style.css
+    // ==========================================================================
+
+    // 1. CSS Variables (design tokens)
     wp_enqueue_style(
-        'azit-accessibility',
-        AZIT_THEME_URI . '/assets/css/accessibility/a11y-utils.css',
+        'azit-variables',
+        AZIT_THEME_URI . '/assets/css/variables.css',
         array(),
         AZIT_VERSION,
         'all'
     );
 
-    // Main stylesheet
+    // 2. Base styles (reset, typography)
+    wp_enqueue_style(
+        'azit-base',
+        AZIT_THEME_URI . '/assets/css/base.css',
+        array('azit-variables'),
+        AZIT_VERSION,
+        'all'
+    );
+
+    // 3. Layout styles (grid, containers)
+    wp_enqueue_style(
+        'azit-layout',
+        AZIT_THEME_URI . '/assets/css/layout.css',
+        array('azit-base'),
+        AZIT_VERSION,
+        'all'
+    );
+
+    // 4. Component styles (buttons, cards, forms)
+    wp_enqueue_style(
+        'azit-components',
+        AZIT_THEME_URI . '/assets/css/components.css',
+        array('azit-layout'),
+        AZIT_VERSION,
+        'all'
+    );
+
+    // 5. Page-specific styles
+    wp_enqueue_style(
+        'azit-pages',
+        AZIT_THEME_URI . '/assets/css/pages.css',
+        array('azit-components'),
+        AZIT_VERSION,
+        'all'
+    );
+
+    // 6. Accessibility utilities (skip links, focus styles) - RGAA critical
+    wp_enqueue_style(
+        'azit-accessibility',
+        AZIT_THEME_URI . '/assets/css/accessibility/a11y-utils.css',
+        array('azit-pages'),
+        AZIT_VERSION,
+        'all'
+    );
+
+    // 7. Main stylesheet (WordPress theme additions)
     wp_enqueue_style(
         'azit-main-style',
         AZIT_THEME_URI . '/assets/css/main.css',
@@ -127,7 +179,7 @@ function azit_enqueue_scripts() {
         'all'
     );
 
-    // Theme stylesheet (style.css)
+    // 8. Theme stylesheet (style.css - theme header & overrides)
     wp_enqueue_style(
         'azit-style',
         get_stylesheet_uri(),
@@ -135,20 +187,61 @@ function azit_enqueue_scripts() {
         AZIT_VERSION
     );
 
-    // Accessibility JavaScript - Keyboard navigation
+    // ==========================================================================
+    // JAVASCRIPT FILES - V7.1-RGAA MIGRATION
+    // Load order: accessibility → navigation → tabs → language-switcher → main
+    // ==========================================================================
+
+    // 1. Accessibility JavaScript - Core a11y features
     wp_enqueue_script(
-        'azit-accessibility-js',
-        AZIT_THEME_URI . '/assets/js/accessibility/keyboard-nav.js',
+        'azit-accessibility-core',
+        AZIT_THEME_URI . '/assets/js/accessibility/accessibility.js',
         array(),
         AZIT_VERSION,
         true
     );
 
-    // Main JavaScript
+    // 2. Keyboard navigation for dropdowns
+    wp_enqueue_script(
+        'azit-keyboard-nav',
+        AZIT_THEME_URI . '/assets/js/accessibility/keyboard-nav.js',
+        array('azit-accessibility-core'),
+        AZIT_VERSION,
+        true
+    );
+
+    // 3. Navigation component (dropdown menus, mobile menu)
+    wp_enqueue_script(
+        'azit-navigation',
+        AZIT_THEME_URI . '/assets/js/navigation.js',
+        array('azit-keyboard-nav'),
+        AZIT_VERSION,
+        true
+    );
+
+    // 4. Tabs component (accessible tab panels)
+    wp_enqueue_script(
+        'azit-tabs',
+        AZIT_THEME_URI . '/assets/js/tabs.js',
+        array('azit-accessibility-core'),
+        AZIT_VERSION,
+        true
+    );
+
+    // 5. Language switcher (FR/EN toggle)
+    wp_enqueue_script(
+        'azit-language-switcher',
+        AZIT_THEME_URI . '/assets/js/language-switcher.js',
+        array('azit-navigation'),
+        AZIT_VERSION,
+        true
+    );
+
+    // 6. Main JavaScript (WordPress integration)
     wp_enqueue_script(
         'azit-main-js',
         AZIT_THEME_URI . '/assets/js/main.js',
-        array('jquery', 'azit-accessibility-js'),
+        array('jquery', 'azit-language-switcher'),
         AZIT_VERSION,
         true
     );
@@ -159,11 +252,13 @@ function azit_enqueue_scripts() {
         'nonce'       => wp_create_nonce('azit_nonce'),
         'home_url'    => home_url('/'),
         'theme_uri'   => AZIT_THEME_URI,
+        'current_lang' => azit_get_current_language(),
         'i18n'        => array(
             'menu_open'   => __('Open menu', 'azit-industrial'),
             'menu_close'  => __('Close menu', 'azit-industrial'),
             'loading'     => __('Loading...', 'azit-industrial'),
             'error'       => __('An error occurred', 'azit-industrial'),
+            'skip_to_content' => __('Skip to main content', 'azit-industrial'),
         ),
     ));
 
