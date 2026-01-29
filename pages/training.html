@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/a11y-utils.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,12 +20,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for Announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true"></div>
 
     <!-- Top Menu -->
     <div class="top-menu">
         <div class="top-menu-container">
-            <nav class="top-menu-nav">
+            <nav class="top-menu-nav" aria-label="Company information and settings">
                 <!-- Company Link -->
                 <a href="company.html" class="top-menu-link">Company</a>
 
@@ -33,18 +37,18 @@
             </nav>
 
             <!-- Language Switcher -->
-            <div class="language-switcher">
-                <a href="../index.html" class="language-button active" data-lang="en">EN</a>
-                <span class="language-separator">|</span>
-                <a href="../fr/pages/training.html" class="language-button" data-lang="fr">FR</a>
+            <div class="language-switcher" aria-label="Language selection">
+                <a href="../index.html" class="language-button active" data-lang="en" lang="en" hreflang="en">EN</a>
+                <span class="language-separator" aria-hidden="true">|</span>
+                <a href="../fr/pages/training.html" class="language-button" data-lang="fr" lang="fr" hreflang="fr">FR</a>
             </div>
         </div>
     </div>
 
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="container header__container">
-            <a href="../index.html" class="header__logo">
+            <a href="../index.html" class="header__logo" aria-label="AZIT Homepage">
                 <span>AZIT</span>
             </a>
 
@@ -966,7 +970,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__grid">
                 <div class="footer__brand">
@@ -1010,13 +1014,21 @@
 
             <div class="footer__bottom">
                 <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
-                <ul class="footer__social">
-                    <li><a href="#" class="footer__social-link">Privacy</a></li>
-                    <li><a href="#" class="footer__social-link">Terms</a></li>
-                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
-                    <li><a href="#" class="footer__social-link">GitHub</a></li>
-                </ul>
+                <nav aria-label="Footer links">
+                    <ul class="footer__social">
+                        <li><a href="#" class="footer__social-link">Privacy</a></li>
+                        <li><a href="#" class="footer__social-link">Terms</a></li>
+                        <li><a href="sitemap.html" class="footer__social-link">Site Map</a></li>
+                        <li><a href="accessibilite.html" class="footer__social-link">Accessibility</a></li>
+                    </ul>
+                </nav>
             </div>
+
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="accessibilite.html" class="a11y-badge">
+                    Accessibility: Partially Compliant
+                </a>
+            </p>
         </div>
     </footer>
 
@@ -1025,5 +1037,6 @@
     <script src="../js/navigation.js"></script>
     <script src="../js/language-switcher.js"></script>
     <script src="../js/tabs.js"></script>
+    <script src="../js/accessibility.js"></script>
 </body>
 </html>
