@@ -1,0 +1,652 @@
+<?php
+/**
+ * AZIT Industrial Theme Functions
+ *
+ * Theme functions and definitions for the AZIT Industrial WordPress theme.
+ * Migrated from V7.1-RGAA static site maintaining full accessibility compliance.
+ *
+ * @package AZIT_Industrial
+ * @since 7.1-RGAA-WP
+ */
+
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+// Theme version constant
+define('AZIT_VERSION', '7.1-RGAA-WP');
+
+// Theme directory path
+define('AZIT_THEME_DIR', get_template_directory());
+
+// Theme directory URI
+define('AZIT_THEME_URI', get_template_directory_uri());
+
+/**
+ * =============================================================================
+ * THEME SETUP
+ * =============================================================================
+ */
+
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ */
+function azit_theme_setup() {
+    // Add default posts and comments RSS feed links to head
+    add_theme_support('automatic-feed-links');
+
+    // Let WordPress manage the document title
+    add_theme_support('title-tag');
+
+    // Enable support for Post Thumbnails on posts and pages
+    add_theme_support('post-thumbnails');
+
+    // Add custom image sizes
+    add_image_size('azit-card', 400, 300, true);
+    add_image_size('azit-hero', 1920, 600, true);
+    add_image_size('azit-expertise', 600, 400, true);
+
+    // Enable HTML5 markup support
+    add_theme_support('html5', array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+        'style',
+        'script',
+        'navigation-widgets',
+    ));
+
+    // Add theme support for Custom Logo
+    add_theme_support('custom-logo', array(
+        'height'      => 80,
+        'width'       => 240,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array('site-title', 'site-description'),
+    ));
+
+    // Add theme support for selective refresh for widgets
+    add_theme_support('customize-selective-refresh-widgets');
+
+    // Add support for responsive embedded content
+    add_theme_support('responsive-embeds');
+
+    // Add support for wide and full alignment (Gutenberg)
+    add_theme_support('align-wide');
+
+    // Add support for editor styles
+    add_theme_support('editor-styles');
+    add_editor_style('assets/css/editor-style.css');
+
+    // Register navigation menus
+    register_nav_menus(array(
+        'top-menu' => __('Top Menu (Company, Language)', 'azit-industrial'),
+        'primary'  => __('Primary Menu', 'azit-industrial'),
+        'footer'   => __('Footer Menu', 'azit-industrial'),
+        'mobile'   => __('Mobile Menu', 'azit-industrial'),
+    ));
+
+    // Load text domain for translations
+    load_theme_textdomain('azit-industrial', AZIT_THEME_DIR . '/languages');
+
+    // Set content width
+    if (!isset($content_width)) {
+        $content_width = 1200;
+    }
+}
+add_action('after_setup_theme', 'azit_theme_setup');
+
+/**
+ * =============================================================================
+ * SCRIPTS AND STYLES
+ * =============================================================================
+ */
+
+/**
+ * Enqueue scripts and styles.
+ */
+function azit_enqueue_scripts() {
+    // Accessibility CSS - Load first (critical for skip links)
+    wp_enqueue_style(
+        'azit-accessibility',
+        AZIT_THEME_URI . '/assets/css/accessibility/a11y-utils.css',
+        array(),
+        AZIT_VERSION,
+        'all'
+    );
+
+    // Main stylesheet
+    wp_enqueue_style(
+        'azit-main-style',
+        AZIT_THEME_URI . '/assets/css/main.css',
+        array('azit-accessibility'),
+        AZIT_VERSION,
+        'all'
+    );
+
+    // Theme stylesheet (style.css)
+    wp_enqueue_style(
+        'azit-style',
+        get_stylesheet_uri(),
+        array('azit-main-style'),
+        AZIT_VERSION
+    );
+
+    // Accessibility JavaScript - Keyboard navigation
+    wp_enqueue_script(
+        'azit-accessibility-js',
+        AZIT_THEME_URI . '/assets/js/accessibility/keyboard-nav.js',
+        array(),
+        AZIT_VERSION,
+        true
+    );
+
+    // Main JavaScript
+    wp_enqueue_script(
+        'azit-main-js',
+        AZIT_THEME_URI . '/assets/js/main.js',
+        array('jquery', 'azit-accessibility-js'),
+        AZIT_VERSION,
+        true
+    );
+
+    // Localize script for AJAX and i18n
+    wp_localize_script('azit-main-js', 'azit_vars', array(
+        'ajax_url'    => admin_url('admin-ajax.php'),
+        'nonce'       => wp_create_nonce('azit_nonce'),
+        'home_url'    => home_url('/'),
+        'theme_uri'   => AZIT_THEME_URI,
+        'i18n'        => array(
+            'menu_open'   => __('Open menu', 'azit-industrial'),
+            'menu_close'  => __('Close menu', 'azit-industrial'),
+            'loading'     => __('Loading...', 'azit-industrial'),
+            'error'       => __('An error occurred', 'azit-industrial'),
+        ),
+    ));
+
+    // Comment reply script (only on single posts with comments)
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+}
+add_action('wp_enqueue_scripts', 'azit_enqueue_scripts');
+
+/**
+ * Add preload for critical assets
+ */
+function azit_preload_assets() {
+    echo '<link rel="preload" href="' . esc_url(AZIT_THEME_URI . '/assets/css/accessibility/a11y-utils.css') . '" as="style">' . "\n";
+}
+add_action('wp_head', 'azit_preload_assets', 1);
+
+/**
+ * =============================================================================
+ * ACCESSIBILITY FEATURES - RGAA 4.1.2 COMPLIANCE
+ * =============================================================================
+ */
+
+/**
+ * Add skip link to main content - RGAA Criterion 12.7
+ */
+function azit_add_skip_link() {
+    echo '<a href="#main-content" class="skip-link">' .
+         esc_html__('Skip to main content', 'azit-industrial') .
+         '</a>';
+}
+add_action('wp_body_open', 'azit_add_skip_link', 5);
+
+/**
+ * Add ARIA live region for dynamic content announcements
+ */
+function azit_add_aria_live_region() {
+    echo '<div id="aria-live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>' . "\n";
+    echo '<div id="aria-live-assertive" aria-live="assertive" aria-atomic="true" class="sr-only"></div>' . "\n";
+}
+add_action('wp_body_open', 'azit_add_aria_live_region', 10);
+
+/**
+ * Modify language attributes for proper RGAA compliance
+ */
+function azit_language_attributes($output) {
+    $lang = get_locale();
+
+    // Convert WordPress locale to HTML lang attribute
+    $lang_map = array(
+        'fr_FR' => 'fr',
+        'fr_BE' => 'fr',
+        'fr_CA' => 'fr',
+        'en_US' => 'en',
+        'en_GB' => 'en',
+        'en_AU' => 'en',
+    );
+
+    $html_lang = isset($lang_map[$lang]) ? $lang_map[$lang] : substr($lang, 0, 2);
+
+    return 'lang="' . esc_attr($html_lang) . '"';
+}
+add_filter('language_attributes', 'azit_language_attributes');
+
+/**
+ * Add body classes for accessibility and styling
+ */
+function azit_body_classes($classes) {
+    // Add RGAA compliance class
+    $classes[] = 'rgaa-compliant';
+
+    // Add language class
+    $classes[] = 'lang-' . esc_attr(substr(get_locale(), 0, 2));
+
+    // Add class for pages with sidebar
+    if (is_active_sidebar('sidebar-1')) {
+        $classes[] = 'has-sidebar';
+    }
+
+    // Add class for front page
+    if (is_front_page()) {
+        $classes[] = 'front-page';
+    }
+
+    // Add class for single expertise posts
+    if (is_singular('expertise')) {
+        $classes[] = 'single-expertise-page';
+    }
+
+    // Accessibility: Add no-js class (removed by JS if enabled)
+    $classes[] = 'no-js';
+
+    return $classes;
+}
+add_filter('body_class', 'azit_body_classes');
+
+/**
+ * Add script to remove no-js class
+ */
+function azit_no_js_script() {
+    echo "<script>document.documentElement.classList.remove('no-js');</script>\n";
+}
+add_action('wp_head', 'azit_no_js_script', 0);
+
+/**
+ * =============================================================================
+ * CUSTOM NAVIGATION WALKER - ACCESSIBLE MENUS
+ * =============================================================================
+ */
+
+/**
+ * Custom Walker for Accessible Navigation
+ * Adds ARIA attributes for dropdown menus
+ */
+class AZIT_Walker_Nav_Menu extends Walker_Nav_Menu {
+
+    /**
+     * Starts the element output.
+     */
+    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
+            $t = '';
+            $n = '';
+        } else {
+            $t = "\t";
+            $n = "\n";
+        }
+
+        $indent = ($depth) ? str_repeat($t, $depth) : '';
+
+        $classes   = empty($item->classes) ? array() : (array) $item->classes;
+        $classes[] = 'menu-item-' . $item->ID;
+
+        // Check if item has children
+        $has_children = in_array('menu-item-has-children', $classes, true);
+
+        $args = apply_filters('nav_menu_item_args', $args, $item, $depth);
+
+        $class_names = implode(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
+        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+
+        $id_attr = apply_filters('nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth);
+        $id_attr = $id_attr ? ' id="' . esc_attr($id_attr) . '"' : '';
+
+        $output .= $indent . '<li' . $id_attr . $class_names . '>';
+
+        $atts           = array();
+        $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
+        $atts['target'] = !empty($item->target) ? $item->target : '';
+        $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
+        $atts['href']   = !empty($item->url) ? $item->url : '';
+
+        // Add aria-current for current page - RGAA requirement
+        if ($item->current) {
+            $atts['aria-current'] = 'page';
+        }
+
+        // Add aria-haspopup for parent items
+        if ($has_children) {
+            $atts['aria-haspopup'] = 'true';
+            $atts['aria-expanded'] = 'false';
+        }
+
+        $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args, $depth);
+
+        $attributes = '';
+        foreach ($atts as $attr => $value) {
+            if (is_scalar($value) && '' !== $value && false !== $value) {
+                $value       = ('href' === $attr) ? esc_url($value) : esc_attr($value);
+                $attributes .= ' ' . $attr . '="' . $value . '"';
+            }
+        }
+
+        $title = apply_filters('the_title', $item->title, $item->ID);
+        $title = apply_filters('nav_menu_item_title', $title, $item, $args, $depth);
+
+        $item_output  = $args->before ?? '';
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= ($args->link_before ?? '') . $title . ($args->link_after ?? '');
+
+        // Add dropdown indicator for parent items
+        if ($has_children) {
+            $item_output .= ' <span class="dropdown-indicator" aria-hidden="true">&#9662;</span>';
+        }
+
+        $item_output .= '</a>';
+        $item_output .= $args->after ?? '';
+
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+    }
+
+    /**
+     * Starts the list before the elements are added.
+     */
+    public function start_lvl(&$output, $depth = 0, $args = null) {
+        if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
+            $t = '';
+            $n = '';
+        } else {
+            $t = "\t";
+            $n = "\n";
+        }
+
+        $indent = str_repeat($t, $depth);
+
+        // Add role="menu" for submenus - ARIA requirement
+        $output .= "{$n}{$indent}<ul class=\"sub-menu\" role=\"menu\">{$n}";
+    }
+
+    /**
+     * Ends the list of after the elements are added.
+     */
+    public function end_lvl(&$output, $depth = 0, $args = null) {
+        if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
+            $t = '';
+            $n = '';
+        } else {
+            $t = "\t";
+            $n = "\n";
+        }
+
+        $indent  = str_repeat($t, $depth);
+        $output .= "{$indent}</ul>{$n}";
+    }
+}
+
+/**
+ * =============================================================================
+ * WIDGET AREAS
+ * =============================================================================
+ */
+
+/**
+ * Register widget areas.
+ */
+function azit_widgets_init() {
+    // Footer Widgets
+    register_sidebar(array(
+        'name'          => __('Footer Widgets', 'azit-industrial'),
+        'id'            => 'footer-widgets',
+        'description'   => __('Add widgets to the footer area.', 'azit-industrial'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ));
+
+    // Sidebar
+    register_sidebar(array(
+        'name'          => __('Sidebar', 'azit-industrial'),
+        'id'            => 'sidebar-1',
+        'description'   => __('Add widgets to the sidebar.', 'azit-industrial'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+}
+add_action('widgets_init', 'azit_widgets_init');
+
+/**
+ * =============================================================================
+ * UTILITY FUNCTIONS
+ * =============================================================================
+ */
+
+/**
+ * Get the current language code
+ *
+ * @return string Language code (e.g., 'fr', 'en')
+ */
+function azit_get_current_language() {
+    // Check for WPML
+    if (defined('ICL_LANGUAGE_CODE')) {
+        return ICL_LANGUAGE_CODE;
+    }
+
+    // Check for Polylang
+    if (function_exists('pll_current_language')) {
+        return pll_current_language();
+    }
+
+    // Fallback to WordPress locale
+    return substr(get_locale(), 0, 2);
+}
+
+/**
+ * Get translated string based on current language
+ *
+ * @param string $fr French text
+ * @param string $en English text
+ * @return string Translated text
+ */
+function azit_translate($fr, $en) {
+    return (azit_get_current_language() === 'fr') ? $fr : $en;
+}
+
+/**
+ * Sanitize SVG for safe output
+ *
+ * @param string $svg SVG content
+ * @return string Sanitized SVG
+ */
+function azit_sanitize_svg($svg) {
+    return wp_kses($svg, array(
+        'svg'   => array(
+            'class'       => true,
+            'aria-hidden' => true,
+            'role'        => true,
+            'viewbox'     => true,
+            'xmlns'       => true,
+            'width'       => true,
+            'height'      => true,
+            'fill'        => true,
+        ),
+        'path'  => array(
+            'd'    => true,
+            'fill' => true,
+        ),
+        'g'     => array(
+            'fill' => true,
+        ),
+        'title' => array(),
+    ));
+}
+
+/**
+ * Generate breadcrumb navigation
+ *
+ * @return string HTML breadcrumb
+ */
+function azit_breadcrumb() {
+    if (is_front_page()) {
+        return '';
+    }
+
+    $output = '<nav aria-label="' . esc_attr__('Breadcrumb', 'azit-industrial') . '" class="breadcrumb">';
+    $output .= '<ol>';
+    $output .= '<li><a href="' . esc_url(home_url('/')) . '">' . esc_html__('Home', 'azit-industrial') . '</a></li>';
+
+    if (is_singular('expertise')) {
+        $output .= '<li><a href="' . esc_url(get_post_type_archive_link('expertise')) . '">' . esc_html__('Expertise', 'azit-industrial') . '</a></li>';
+        $output .= '<li aria-current="page">' . esc_html(get_the_title()) . '</li>';
+    } elseif (is_singular('product')) {
+        $output .= '<li><a href="' . esc_url(get_post_type_archive_link('product')) . '">' . esc_html__('Products', 'azit-industrial') . '</a></li>';
+        $output .= '<li aria-current="page">' . esc_html(get_the_title()) . '</li>';
+    } elseif (is_singular('training')) {
+        $output .= '<li><a href="' . esc_url(get_post_type_archive_link('training')) . '">' . esc_html__('Training', 'azit-industrial') . '</a></li>';
+        $output .= '<li aria-current="page">' . esc_html(get_the_title()) . '</li>';
+    } elseif (is_page()) {
+        $ancestors = get_post_ancestors(get_the_ID());
+        $ancestors = array_reverse($ancestors);
+        foreach ($ancestors as $ancestor) {
+            $output .= '<li><a href="' . esc_url(get_permalink($ancestor)) . '">' . esc_html(get_the_title($ancestor)) . '</a></li>';
+        }
+        $output .= '<li aria-current="page">' . esc_html(get_the_title()) . '</li>';
+    } elseif (is_archive()) {
+        $output .= '<li aria-current="page">' . esc_html(get_the_archive_title()) . '</li>';
+    } elseif (is_single()) {
+        $output .= '<li aria-current="page">' . esc_html(get_the_title()) . '</li>';
+    } elseif (is_search()) {
+        $output .= '<li aria-current="page">' . esc_html__('Search Results', 'azit-industrial') . '</li>';
+    } elseif (is_404()) {
+        $output .= '<li aria-current="page">' . esc_html__('Page Not Found', 'azit-industrial') . '</li>';
+    }
+
+    $output .= '</ol>';
+    $output .= '</nav>';
+
+    return $output;
+}
+
+/**
+ * =============================================================================
+ * INCLUDE ADDITIONAL FUNCTIONALITY
+ * =============================================================================
+ */
+
+/**
+ * Custom Post Types (Expertise, Products, Training)
+ */
+$custom_post_types_file = AZIT_THEME_DIR . '/inc/custom-post-types.php';
+if (file_exists($custom_post_types_file)) {
+    require_once $custom_post_types_file;
+}
+
+/**
+ * Custom Fields (ACF configuration)
+ */
+$custom_fields_file = AZIT_THEME_DIR . '/inc/custom-fields.php';
+if (file_exists($custom_fields_file)) {
+    require_once $custom_fields_file;
+}
+
+/**
+ * Additional Accessibility Functions
+ */
+$accessibility_file = AZIT_THEME_DIR . '/inc/accessibility.php';
+if (file_exists($accessibility_file)) {
+    require_once $accessibility_file;
+}
+
+/**
+ * Template Functions and Helpers
+ */
+$template_functions_file = AZIT_THEME_DIR . '/inc/template-functions.php';
+if (file_exists($template_functions_file)) {
+    require_once $template_functions_file;
+}
+
+/**
+ * =============================================================================
+ * SECURITY & PERFORMANCE
+ * =============================================================================
+ */
+
+/**
+ * Remove WordPress version from head for security
+ */
+remove_action('wp_head', 'wp_generator');
+
+/**
+ * Disable XML-RPC for security (if not needed)
+ */
+add_filter('xmlrpc_enabled', '__return_false');
+
+/**
+ * Add security headers
+ */
+function azit_security_headers() {
+    if (!is_admin()) {
+        header('X-Content-Type-Options: nosniff');
+        header('X-Frame-Options: SAMEORIGIN');
+        header('X-XSS-Protection: 1; mode=block');
+        header('Referrer-Policy: strict-origin-when-cross-origin');
+    }
+}
+add_action('send_headers', 'azit_security_headers');
+
+/**
+ * Defer parsing of JavaScript
+ */
+function azit_defer_scripts($tag, $handle, $src) {
+    // Scripts to defer
+    $defer_scripts = array('azit-main-js', 'azit-accessibility-js');
+
+    if (in_array($handle, $defer_scripts, true)) {
+        return str_replace(' src', ' defer src', $tag);
+    }
+
+    return $tag;
+}
+add_filter('script_loader_tag', 'azit_defer_scripts', 10, 3);
+
+/**
+ * =============================================================================
+ * ADMIN CUSTOMIZATIONS
+ * =============================================================================
+ */
+
+/**
+ * Add theme support notice in admin
+ */
+function azit_admin_notice() {
+    // Check if ACF is installed
+    if (!class_exists('ACF') && current_user_can('install_plugins')) {
+        echo '<div class="notice notice-warning is-dismissible">';
+        echo '<p><strong>' . esc_html__('AZIT Industrial Theme', 'azit-industrial') . ':</strong> ';
+        echo esc_html__('For full functionality, please install and activate the "Advanced Custom Fields" plugin.', 'azit-industrial');
+        echo '</p></div>';
+    }
+}
+add_action('admin_notices', 'azit_admin_notice');
+
+/**
+ * Customize admin footer text
+ */
+function azit_admin_footer_text($text) {
+    return sprintf(
+        /* translators: %s: theme version */
+        __('AZIT Industrial Theme v%s | RGAA 4.1.2 Compliant', 'azit-industrial'),
+        AZIT_VERSION
+    );
+}
+add_filter('admin_footer_text', 'azit_admin_footer_text');
