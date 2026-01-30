@@ -671,6 +671,30 @@ if (file_exists($template_functions_file)) {
 }
 
 /**
+ * WPML Integration (Multilingual)
+ */
+$wpml_integration_file = AZIT_THEME_DIR . '/inc/wpml-integration.php';
+if (file_exists($wpml_integration_file)) {
+    require_once $wpml_integration_file;
+}
+
+/**
+ * Contact Form 7 Integration
+ */
+$cf7_integration_file = AZIT_THEME_DIR . '/inc/contact-form-7.php';
+if (file_exists($cf7_integration_file)) {
+    require_once $cf7_integration_file;
+}
+
+/**
+ * Testing & Optimization Utilities
+ */
+$testing_optimization_file = AZIT_THEME_DIR . '/inc/testing-optimization.php';
+if (file_exists($testing_optimization_file)) {
+    require_once $testing_optimization_file;
+}
+
+/**
  * =============================================================================
  * SECURITY & PERFORMANCE
  * =============================================================================
