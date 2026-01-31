@@ -171,181 +171,379 @@
                         <li><button class="tabs__button" data-tab="automotive">Automotive</button></li>
                         <li><button class="tabs__button" data-tab="coming">Coming Soon</button></li>
                     </ul>
-                </div>
 
-                <!-- All Products Tab -->
-                <div class="tabs__content active" id="all-tab">
-                    <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Safety Protocols</h2>
-                    <div class="grid grid--3" style="margin-bottom: 3rem;">
-                        <div class="product-card">
-                            <div class="product-card__icon">⚡</div>
-                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
-                            <h3 class="product-card__title">FSoE Slave Stack</h3>
-                            <p class="product-card__description">
-                                IEC 61784-3 compliant Fail-Safe over EtherCAT implementation for safety slave devices.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>SIL3 / PLe certified by Bureau Véritas</li>
-                                <li>No third-party dependencies</li>
-                                <li>White channel architecture</li>
-                            </ul>
-                            <a href="fsoe-slave.html" class="product-card__cta">Learn More →</a>
+                    <!-- All Products Tab -->
+                    <div class="tabs__content active" id="all">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Safety Protocols</h2>
+                        <div class="grid grid--3" style="margin-bottom: 3rem;">
+                            <div class="product-card">
+                                <div class="product-card__icon">⚡</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">FSoE Slave Stack</h3>
+                                <p class="product-card__description">
+                                    IEC 61784-3 compliant Fail-Safe over EtherCAT implementation for safety slave devices.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified by Bureau Véritas</li>
+                                    <li>No third-party dependencies</li>
+                                    <li>White channel architecture</li>
+                                </ul>
+                                <a href="fsoe-slave.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">⚡</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">FSoE Master Stack</h3>
+                                <p class="product-card__description">
+                                    Complete FSoE master implementation for safety controllers and PLCs.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified</li>
+                                    <li>Multi-connection support</li>
+                                </ul>
+                                <a href="fsoe-master.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🛡️</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">PROFISAFE Slave</h3>
+                                <p class="product-card__description">
+                                    IEC 61784-3 compliant PROFIsafe slave implementation for PROFINET safety devices.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified by Bureau Véritas</li>
+                                    <li>PROFINET integration ready</li>
+                                    <li>Low hardware dependency</li>
+                                </ul>
+                                <a href="profisafe-slave.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🛡️</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">PROFISAFE Master</h3>
+                                <p class="product-card__description">
+                                    Complete PROFIsafe master for safety controllers and PLCs.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified</li>
+                                    <li>Multi-device support</li>
+                                    <li>Full diagnostics included</li>
+                                </ul>
+                                <a href="profisafe-master.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔐</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">CANopen Safety Slave</h3>
+                                <p class="product-card__description">
+                                    CiA 304 compliant safety protocol for CANopen networks.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certification</li>
+                                    <li>SRDO implementation</li>
+                                    <li>Low hardware dependency</li>
+                                </ul>
+                                <a href="canopen-safety-slave.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔐</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">CANopen Safety Master</h3>
+                                <p class="product-card__description">
+                                    Complete CANopen Safety master for safety controllers.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified</li>
+                                    <li>Multiple SRDO support</li>
+                                    <li>Configuration tools included</li>
+                                </ul>
+                                <a href="canopen-safety-master.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🚗</div>
+                                <span class="badge badge--warning product-card__badge">SIL2</span>
+                                <h3 class="product-card__title">J1939 / J1939 Safety</h3>
+                                <p class="product-card__description">
+                                    SAE J1939 implementation with optional safety extension.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SAE J1939 compliant</li>
+                                    <li>Transport protocol support</li>
+                                    <li>Safety extension available</li>
+                                </ul>
+                                <a href="j1939.html" class="product-card__cta">Learn More →</a>
+                            </div>
                         </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">⚡</div>
-                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
-                            <h3 class="product-card__title">FSoE Master Stack</h3>
-                            <p class="product-card__description">
-                                Complete FSoE master implementation for safety controllers and PLCs.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>SIL3 / PLe certified</li>
-                                <li>Multi-connection support</li>
-                            </ul>
-                            <a href="fsoe-master.html" class="product-card__cta">Learn More →</a>
+                        <h2 style="margin-bottom: 1.5rem;">Fieldbus Protocols</h2>
+                        <div class="grid grid--3" style="margin-bottom: 3rem;">
+                            <div class="product-card">
+                                <div class="product-card__icon">🔌</div>
+                                <h3 class="product-card__title">CANopen Slave</h3>
+                                <p class="product-card__description">
+                                    Full-featured CANopen slave stack with CiA 301/302 compliance.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>PDO, SDO, EMCY, SYNC</li>
+                                    <li>Object dictionary tools</li>
+                                    <li>LSS support</li>
+                                </ul>
+                                <a href="canopen-slave.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔌</div>
+                                <h3 class="product-card__title">CANopen Master</h3>
+                                <p class="product-card__description">
+                                    Complete CANopen master for controllers and gateways.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Network management</li>
+                                    <li>Multi-slave support</li>
+                                    <li>Configuration tools</li>
+                                </ul>
+                                <a href="canopen-master.html" class="product-card__cta">Learn More →</a>
+                            </div>
                         </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">🛡️</div>
-                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
-                            <h3 class="product-card__title">PROFISAFE Slave</h3>
-                            <p class="product-card__description">
-                                IEC 61784-3 compliant PROFIsafe slave implementation for PROFINET safety devices.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>SIL3 / PLe certified by Bureau Véritas</li>
-                                <li>PROFINET integration ready</li>
-                                <li>Low hardware dependency</li>
-                            </ul>
-                            <a href="profisafe-slave.html" class="product-card__cta">Learn More →</a>
-                        </div>
+                        <h2 style="margin-bottom: 1.5rem;">Coming Soon</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">📡</div>
+                                <span class="badge badge--gray product-card__badge">Coming Q3 2025</span>
+                                <h3 class="product-card__title">OPC-UA Stack</h3>
+                                <p class="product-card__description">
+                                    Full OPC-UA implementation with security profiles support.
+                                </p>
+                                <a href="opc-ua.html" class="product-card__cta">Get Notified →</a>
+                            </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">🛡️</div>
-                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
-                            <h3 class="product-card__title">PROFISAFE Master</h3>
-                            <p class="product-card__description">
-                                Complete PROFIsafe master for safety controllers and PLCs.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>SIL3 / PLe certified</li>
-                                <li>Multi-device support</li>
-                                <li>Full diagnostics included</li>
-                            </ul>
-                            <a href="profisafe-master.html" class="product-card__cta">Learn More →</a>
-                        </div>
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">🔒</div>
+                                <span class="badge badge--gray product-card__badge">Coming Q4 2025</span>
+                                <h3 class="product-card__title">CIP Safety</h3>
+                                <p class="product-card__description">
+                                    CIP Safety protocol for EtherNet/IP networks.
+                                </p>
+                                <a href="cip-safety.html" class="product-card__cta">Get Notified →</a>
+                            </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">🔐</div>
-                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
-                            <h3 class="product-card__title">CANopen Safety Slave</h3>
-                            <p class="product-card__description">
-                                CiA 304 compliant safety protocol for CANopen networks.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>SIL3 / PLe certification</li>
-                                <li>SRDO implementation</li>
-                                <li>Low hardware dependency</li>
-                            </ul>
-                            <a href="canopen-safety-slave.html" class="product-card__cta">Learn More →</a>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-card__icon">🔐</div>
-                            <span class="badge badge--success product-card__badge">SIL3 Certified</span>
-                            <h3 class="product-card__title">CANopen Safety Master</h3>
-                            <p class="product-card__description">
-                                Complete CANopen Safety master for safety controllers.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>SIL3 / PLe certified</li>
-                                <li>Multiple SRDO support</li>
-                                <li>Configuration tools included</li>
-                            </ul>
-                            <a href="canopen-safety-master.html" class="product-card__cta">Learn More →</a>
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">📶</div>
+                                <span class="badge badge--gray product-card__badge">Coming 2026</span>
+                                <h3 class="product-card__title">Wireless Safety</h3>
+                                <p class="product-card__description">
+                                    Wireless safety communication protocols.
+                                </p>
+                                <a href="wireless-safety.html" class="product-card__cta">Get Notified →</a>
+                            </div>
                         </div>
                     </div>
 
-                    <h2 style="margin-bottom: 1.5rem;">Fieldbus Protocols</h2>
-                    <div class="grid grid--3" style="margin-bottom: 3rem;">
-                        <div class="product-card">
-                            <div class="product-card__icon">🔌</div>
-                            <h3 class="product-card__title">CANopen Slave</h3>
-                            <p class="product-card__description">
-                                Full-featured CANopen slave stack with CiA 301/302 compliance.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>PDO, SDO, EMCY, SYNC</li>
-                                <li>Object dictionary tools</li>
-                                <li>LSS support</li>
-                            </ul>
-                            <a href="canopen-slave.html" class="product-card__cta">Learn More →</a>
-                        </div>
+                    <!-- Safety Protocols Tab -->
+                    <div class="tabs__content" id="safety">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Safety Protocols</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card">
+                                <div class="product-card__icon">⚡</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">FSoE Slave Stack</h3>
+                                <p class="product-card__description">
+                                    IEC 61784-3 compliant Fail-Safe over EtherCAT implementation for safety slave devices.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified by Bureau Véritas</li>
+                                    <li>No third-party dependencies</li>
+                                    <li>White channel architecture</li>
+                                </ul>
+                                <a href="fsoe-slave.html" class="product-card__cta">Learn More →</a>
+                            </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">🔌</div>
-                            <h3 class="product-card__title">CANopen Master</h3>
-                            <p class="product-card__description">
-                                Complete CANopen master for controllers and gateways.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Network management</li>
-                                <li>Multi-slave support</li>
-                                <li>Configuration tools</li>
-                            </ul>
-                            <a href="canopen-master.html" class="product-card__cta">Learn More →</a>
+                            <div class="product-card">
+                                <div class="product-card__icon">⚡</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">FSoE Master Stack</h3>
+                                <p class="product-card__description">
+                                    Complete FSoE master implementation for safety controllers and PLCs.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified</li>
+                                    <li>Multi-connection support</li>
+                                </ul>
+                                <a href="fsoe-master.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🛡️</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">PROFISAFE Slave</h3>
+                                <p class="product-card__description">
+                                    IEC 61784-3 compliant PROFIsafe slave implementation for PROFINET safety devices.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified by Bureau Véritas</li>
+                                    <li>PROFINET integration ready</li>
+                                    <li>Low hardware dependency</li>
+                                </ul>
+                                <a href="profisafe-slave.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🛡️</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">PROFISAFE Master</h3>
+                                <p class="product-card__description">
+                                    Complete PROFIsafe master for safety controllers and PLCs.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified</li>
+                                    <li>Multi-device support</li>
+                                    <li>Full diagnostics included</li>
+                                </ul>
+                                <a href="profisafe-master.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔐</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">CANopen Safety Slave</h3>
+                                <p class="product-card__description">
+                                    CiA 304 compliant safety protocol for CANopen networks.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certification</li>
+                                    <li>SRDO implementation</li>
+                                    <li>Low hardware dependency</li>
+                                </ul>
+                                <a href="canopen-safety-slave.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔐</div>
+                                <span class="badge badge--success product-card__badge">SIL3 Certified</span>
+                                <h3 class="product-card__title">CANopen Safety Master</h3>
+                                <p class="product-card__description">
+                                    Complete CANopen Safety master for safety controllers.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SIL3 / PLe certified</li>
+                                    <li>Multiple SRDO support</li>
+                                    <li>Configuration tools included</li>
+                                </ul>
+                                <a href="canopen-safety-master.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🚗</div>
+                                <span class="badge badge--warning product-card__badge">SIL2</span>
+                                <h3 class="product-card__title">J1939 / J1939 Safety</h3>
+                                <p class="product-card__description">
+                                    SAE J1939 implementation with optional safety extension.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SAE J1939 compliant</li>
+                                    <li>Transport protocol support</li>
+                                    <li>Safety extension available</li>
+                                </ul>
+                                <a href="j1939.html" class="product-card__cta">Learn More →</a>
+                            </div>
                         </div>
                     </div>
 
-                    <h2 style="margin-bottom: 1.5rem;">Automotive</h2>
-                    <div class="grid grid--3" style="margin-bottom: 3rem;">
-                        <div class="product-card">
-                            <div class="product-card__icon">🚗</div>
-                            <span class="badge badge--warning product-card__badge">SIL2</span>
-                            <h3 class="product-card__title">J1939 / J1939 Safety</h3>
-                            <p class="product-card__description">
-                                SAE J1939 implementation with optional safety extension.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>SAE J1939 compliant</li>
-                                <li>Transport protocol support</li>
-                                <li>Safety extension available</li>
-                            </ul>
-                            <a href="j1939.html" class="product-card__cta">Learn More →</a>
+                    <!-- Fieldbus Tab -->
+                    <div class="tabs__content" id="fieldbus">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Fieldbus Protocols</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card">
+                                <div class="product-card__icon">🔌</div>
+                                <h3 class="product-card__title">CANopen Slave</h3>
+                                <p class="product-card__description">
+                                    Full-featured CANopen slave stack with CiA 301/302 compliance.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>PDO, SDO, EMCY, SYNC</li>
+                                    <li>Object dictionary tools</li>
+                                    <li>LSS support</li>
+                                </ul>
+                                <a href="canopen-slave.html" class="product-card__cta">Learn More →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔌</div>
+                                <h3 class="product-card__title">CANopen Master</h3>
+                                <p class="product-card__description">
+                                    Complete CANopen master for controllers and gateways.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Network management</li>
+                                    <li>Multi-slave support</li>
+                                    <li>Configuration tools</li>
+                                </ul>
+                                <a href="canopen-master.html" class="product-card__cta">Learn More →</a>
+                            </div>
                         </div>
                     </div>
 
-                    <h2 style="margin-bottom: 1.5rem;">Coming Soon</h2>
-                    <div class="grid grid--3">
-                        <div class="product-card" style="opacity: 0.6;">
-                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">📡</div>
-                            <span class="badge badge--gray product-card__badge">Coming Q3 2025</span>
-                            <h3 class="product-card__title">OPC-UA Stack</h3>
-                            <p class="product-card__description">
-                                Full OPC-UA implementation with security profiles support.
-                            </p>
-                            <a href="opc-ua.html" class="product-card__cta">Get Notified →</a>
+                    <!-- Automotive Tab -->
+                    <div class="tabs__content" id="automotive">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Automotive Protocols</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card">
+                                <div class="product-card__icon">🚗</div>
+                                <span class="badge badge--warning product-card__badge">SIL2</span>
+                                <h3 class="product-card__title">J1939 / J1939 Safety</h3>
+                                <p class="product-card__description">
+                                    SAE J1939 implementation with optional safety extension.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>SAE J1939 compliant</li>
+                                    <li>Transport protocol support</li>
+                                    <li>Safety extension available</li>
+                                </ul>
+                                <a href="j1939.html" class="product-card__cta">Learn More →</a>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="product-card" style="opacity: 0.6;">
-                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">🔒</div>
-                            <span class="badge badge--gray product-card__badge">Coming Q4 2025</span>
-                            <h3 class="product-card__title">CIP Safety</h3>
-                            <p class="product-card__description">
-                                CIP Safety protocol for EtherNet/IP networks.
-                            </p>
-                            <a href="cip-safety.html" class="product-card__cta">Get Notified →</a>
-                        </div>
+                    <!-- Coming Soon Tab -->
+                    <div class="tabs__content" id="coming">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Coming Soon</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">📡</div>
+                                <span class="badge badge--gray product-card__badge">Coming Q3 2025</span>
+                                <h3 class="product-card__title">OPC-UA Stack</h3>
+                                <p class="product-card__description">
+                                    Full OPC-UA implementation with security profiles support.
+                                </p>
+                                <a href="opc-ua.html" class="product-card__cta">Get Notified →</a>
+                            </div>
 
-                        <div class="product-card" style="opacity: 0.6;">
-                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">📶</div>
-                            <span class="badge badge--gray product-card__badge">Coming 2026</span>
-                            <h3 class="product-card__title">Wireless Safety</h3>
-                            <p class="product-card__description">
-                                Wireless safety communication protocols.
-                            </p>
-                            <a href="wireless-safety.html" class="product-card__cta">Get Notified →</a>
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">🔒</div>
+                                <span class="badge badge--gray product-card__badge">Coming Q4 2025</span>
+                                <h3 class="product-card__title">CIP Safety</h3>
+                                <p class="product-card__description">
+                                    CIP Safety protocol for EtherNet/IP networks.
+                                </p>
+                                <a href="cip-safety.html" class="product-card__cta">Get Notified →</a>
+                            </div>
+
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">📶</div>
+                                <span class="badge badge--gray product-card__badge">Coming 2026</span>
+                                <h3 class="product-card__title">Wireless Safety</h3>
+                                <p class="product-card__description">
+                                    Wireless safety communication protocols.
+                                </p>
+                                <a href="wireless-safety.html" class="product-card__cta">Get Notified →</a>
+                            </div>
                         </div>
                     </div>
                 </div>

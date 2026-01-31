@@ -173,181 +173,379 @@
                         <li><button class="tabs__button" data-tab="automotive">Automobile</button></li>
                         <li><button class="tabs__button" data-tab="coming">Bientôt Disponible</button></li>
                     </ul>
-                </div>
 
-                <!-- All Products Tab -->
-                <div class="tabs__content active" id="all-tab">
-                    <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Protocoles de Sécurité</h2>
-                    <div class="grid grid--3" style="margin-bottom: 3rem;">
-                        <div class="product-card">
-                            <div class="product-card__icon">⚡</div>
-                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
-                            <h3 class="product-card__title">Pile FSoE Esclave</h3>
-                            <p class="product-card__description">
-                                Implémentation Fail-Safe over EtherCAT conforme IEC 61784-3 pour dispositifs esclaves de sécurité.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Certifié SIL3 / PLe par Bureau Véritas</li>
-                                <li>Sans dépendances tierces</li>
-                                <li>Architecture canal blanc</li>
-                            </ul>
-                            <a href="fsoe-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                    <!-- All Products Tab -->
+                    <div class="tabs__content active" id="all">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Protocoles de Sécurité</h2>
+                        <div class="grid grid--3" style="margin-bottom: 3rem;">
+                            <div class="product-card">
+                                <div class="product-card__icon">⚡</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">Pile FSoE Esclave</h3>
+                                <p class="product-card__description">
+                                    Implémentation Fail-Safe over EtherCAT conforme IEC 61784-3 pour dispositifs esclaves de sécurité.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe par Bureau Véritas</li>
+                                    <li>Sans dépendances tierces</li>
+                                    <li>Architecture canal blanc</li>
+                                </ul>
+                                <a href="fsoe-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">⚡</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">Pile FSoE Maître</h3>
+                                <p class="product-card__description">
+                                    Implémentation FSoE maître complète pour contrôleurs de sécurité et automates.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe</li>
+                                    <li>Support multi-connexions</li>
+                                </ul>
+                                <a href="fsoe-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🛡️</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">PROFISAFE Esclave</h3>
+                                <p class="product-card__description">
+                                    Implémentation esclave PROFIsafe conforme IEC 61784-3 pour dispositifs de sécurité PROFINET.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe par Bureau Véritas</li>
+                                    <li>Prêt pour intégration PROFINET</li>
+                                    <li>Faible dépendance matérielle</li>
+                                </ul>
+                                <a href="profisafe-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🛡️</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">PROFISAFE Maître</h3>
+                                <p class="product-card__description">
+                                    PROFIsafe maître complet pour contrôleurs de sécurité et automates.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe</li>
+                                    <li>Support multi-dispositifs</li>
+                                    <li>Diagnostics complets inclus</li>
+                                </ul>
+                                <a href="profisafe-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔐</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">CANopen Safety Esclave</h3>
+                                <p class="product-card__description">
+                                    Protocole de sécurité conforme CiA 304 pour réseaux CANopen.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certification SIL3 / PLe</li>
+                                    <li>Implémentation SRDO</li>
+                                    <li>Faible dépendance matérielle</li>
+                                </ul>
+                                <a href="canopen-safety-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔐</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">CANopen Safety Maître</h3>
+                                <p class="product-card__description">
+                                    CANopen Safety maître complet pour contrôleurs de sécurité.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe</li>
+                                    <li>Support SRDO multiples</li>
+                                    <li>Outils de configuration inclus</li>
+                                </ul>
+                                <a href="canopen-safety-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🚗</div>
+                                <span class="badge badge--warning product-card__badge">SIL2</span>
+                                <h3 class="product-card__title">J1939 / J1939 Safety</h3>
+                                <p class="product-card__description">
+                                    Implémentation SAE J1939 avec extension de sécurité optionnelle.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Conforme SAE J1939</li>
+                                    <li>Support protocole de transport</li>
+                                    <li>Extension de sécurité disponible</li>
+                                </ul>
+                                <a href="j1939.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
                         </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">⚡</div>
-                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
-                            <h3 class="product-card__title">Pile FSoE Maître</h3>
-                            <p class="product-card__description">
-                                Implémentation FSoE maître complète pour contrôleurs de sécurité et automates.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Certifié SIL3 / PLe</li>
-                                <li>Support multi-connexions</li>
-                            </ul>
-                            <a href="fsoe-master.html" class="product-card__cta">En Savoir Plus →</a>
+                        <h2 style="margin-bottom: 1.5rem;">Protocoles Fieldbus</h2>
+                        <div class="grid grid--3" style="margin-bottom: 3rem;">
+                            <div class="product-card">
+                                <div class="product-card__icon">🔌</div>
+                                <h3 class="product-card__title">CANopen Esclave</h3>
+                                <p class="product-card__description">
+                                    Pile CANopen esclave complète conforme CiA 301/302.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>PDO, SDO, EMCY, SYNC</li>
+                                    <li>Outils dictionnaire d'objets</li>
+                                    <li>Support LSS</li>
+                                </ul>
+                                <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔌</div>
+                                <h3 class="product-card__title">CANopen Maître</h3>
+                                <p class="product-card__description">
+                                    CANopen maître complet pour contrôleurs et passerelles.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Gestion de réseau</li>
+                                    <li>Support multi-esclaves</li>
+                                    <li>Outils de configuration</li>
+                                </ul>
+                                <a href="canopen-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
                         </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">🛡️</div>
-                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
-                            <h3 class="product-card__title">PROFISAFE Esclave</h3>
-                            <p class="product-card__description">
-                                Implémentation esclave PROFIsafe conforme IEC 61784-3 pour dispositifs de sécurité PROFINET.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Certifié SIL3 / PLe par Bureau Véritas</li>
-                                <li>Prêt pour intégration PROFINET</li>
-                                <li>Faible dépendance matérielle</li>
-                            </ul>
-                            <a href="profisafe-slave.html" class="product-card__cta">En Savoir Plus →</a>
-                        </div>
+                        <h2 style="margin-bottom: 1.5rem;">Bientôt Disponible</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">📡</div>
+                                <span class="badge badge--gray product-card__badge">Bientôt Q3 2025</span>
+                                <h3 class="product-card__title">Pile OPC-UA</h3>
+                                <p class="product-card__description">
+                                    Implémentation OPC-UA complète avec support des profils de sécurité.
+                                </p>
+                                <a href="opc-ua.html" class="product-card__cta">Être Notifié →</a>
+                            </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">🛡️</div>
-                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
-                            <h3 class="product-card__title">PROFISAFE Maître</h3>
-                            <p class="product-card__description">
-                                PROFIsafe maître complet pour contrôleurs de sécurité et automates.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Certifié SIL3 / PLe</li>
-                                <li>Support multi-dispositifs</li>
-                                <li>Diagnostics complets inclus</li>
-                            </ul>
-                            <a href="profisafe-master.html" class="product-card__cta">En Savoir Plus →</a>
-                        </div>
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">🔒</div>
+                                <span class="badge badge--gray product-card__badge">Bientôt Q4 2025</span>
+                                <h3 class="product-card__title">CIP Safety</h3>
+                                <p class="product-card__description">
+                                    Protocole CIP Safety pour réseaux EtherNet/IP.
+                                </p>
+                                <a href="cip-safety.html" class="product-card__cta">Être Notifié →</a>
+                            </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">🔐</div>
-                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
-                            <h3 class="product-card__title">CANopen Safety Esclave</h3>
-                            <p class="product-card__description">
-                                Protocole de sécurité conforme CiA 304 pour réseaux CANopen.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Certification SIL3 / PLe</li>
-                                <li>Implémentation SRDO</li>
-                                <li>Faible dépendance matérielle</li>
-                            </ul>
-                            <a href="canopen-safety-slave.html" class="product-card__cta">En Savoir Plus →</a>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-card__icon">🔐</div>
-                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
-                            <h3 class="product-card__title">CANopen Safety Maître</h3>
-                            <p class="product-card__description">
-                                CANopen Safety maître complet pour contrôleurs de sécurité.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Certifié SIL3 / PLe</li>
-                                <li>Support SRDO multiples</li>
-                                <li>Outils de configuration inclus</li>
-                            </ul>
-                            <a href="canopen-safety-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">📶</div>
+                                <span class="badge badge--gray product-card__badge">Bientôt 2026</span>
+                                <h3 class="product-card__title">Sécurité Sans Fil</h3>
+                                <p class="product-card__description">
+                                    Protocoles de communication de sécurité sans fil.
+                                </p>
+                                <a href="wireless-safety.html" class="product-card__cta">Être Notifié →</a>
+                            </div>
                         </div>
                     </div>
 
-                    <h2 style="margin-bottom: 1.5rem;">Protocoles Fieldbus</h2>
-                    <div class="grid grid--3" style="margin-bottom: 3rem;">
-                        <div class="product-card">
-                            <div class="product-card__icon">🔌</div>
-                            <h3 class="product-card__title">CANopen Esclave</h3>
-                            <p class="product-card__description">
-                                Pile CANopen esclave complète conforme CiA 301/302.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>PDO, SDO, EMCY, SYNC</li>
-                                <li>Outils dictionnaire d'objets</li>
-                                <li>Support LSS</li>
-                            </ul>
-                            <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
-                        </div>
+                    <!-- Safety Protocols Tab -->
+                    <div class="tabs__content" id="safety">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Protocoles de Sécurité</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card">
+                                <div class="product-card__icon">⚡</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">Pile FSoE Esclave</h3>
+                                <p class="product-card__description">
+                                    Implémentation Fail-Safe over EtherCAT conforme IEC 61784-3 pour dispositifs esclaves de sécurité.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe par Bureau Véritas</li>
+                                    <li>Sans dépendances tierces</li>
+                                    <li>Architecture canal blanc</li>
+                                </ul>
+                                <a href="fsoe-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
 
-                        <div class="product-card">
-                            <div class="product-card__icon">🔌</div>
-                            <h3 class="product-card__title">CANopen Maître</h3>
-                            <p class="product-card__description">
-                                CANopen maître complet pour contrôleurs et passerelles.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Gestion de réseau</li>
-                                <li>Support multi-esclaves</li>
-                                <li>Outils de configuration</li>
-                            </ul>
-                            <a href="canopen-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            <div class="product-card">
+                                <div class="product-card__icon">⚡</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">Pile FSoE Maître</h3>
+                                <p class="product-card__description">
+                                    Implémentation FSoE maître complète pour contrôleurs de sécurité et automates.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe</li>
+                                    <li>Support multi-connexions</li>
+                                </ul>
+                                <a href="fsoe-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🛡️</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">PROFISAFE Esclave</h3>
+                                <p class="product-card__description">
+                                    Implémentation esclave PROFIsafe conforme IEC 61784-3 pour dispositifs de sécurité PROFINET.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe par Bureau Véritas</li>
+                                    <li>Prêt pour intégration PROFINET</li>
+                                    <li>Faible dépendance matérielle</li>
+                                </ul>
+                                <a href="profisafe-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🛡️</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">PROFISAFE Maître</h3>
+                                <p class="product-card__description">
+                                    PROFIsafe maître complet pour contrôleurs de sécurité et automates.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe</li>
+                                    <li>Support multi-dispositifs</li>
+                                    <li>Diagnostics complets inclus</li>
+                                </ul>
+                                <a href="profisafe-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔐</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">CANopen Safety Esclave</h3>
+                                <p class="product-card__description">
+                                    Protocole de sécurité conforme CiA 304 pour réseaux CANopen.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certification SIL3 / PLe</li>
+                                    <li>Implémentation SRDO</li>
+                                    <li>Faible dépendance matérielle</li>
+                                </ul>
+                                <a href="canopen-safety-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔐</div>
+                                <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                                <h3 class="product-card__title">CANopen Safety Maître</h3>
+                                <p class="product-card__description">
+                                    CANopen Safety maître complet pour contrôleurs de sécurité.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Certifié SIL3 / PLe</li>
+                                    <li>Support SRDO multiples</li>
+                                    <li>Outils de configuration inclus</li>
+                                </ul>
+                                <a href="canopen-safety-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🚗</div>
+                                <span class="badge badge--warning product-card__badge">SIL2</span>
+                                <h3 class="product-card__title">J1939 / J1939 Safety</h3>
+                                <p class="product-card__description">
+                                    Implémentation SAE J1939 avec extension de sécurité optionnelle.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Conforme SAE J1939</li>
+                                    <li>Support protocole de transport</li>
+                                    <li>Extension de sécurité disponible</li>
+                                </ul>
+                                <a href="j1939.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
                         </div>
                     </div>
 
-                    <h2 style="margin-bottom: 1.5rem;">Automobile</h2>
-                    <div class="grid grid--3" style="margin-bottom: 3rem;">
-                        <div class="product-card">
-                            <div class="product-card__icon">🚗</div>
-                            <span class="badge badge--warning product-card__badge">SIL2</span>
-                            <h3 class="product-card__title">J1939 / J1939 Safety</h3>
-                            <p class="product-card__description">
-                                Implémentation SAE J1939 avec extension de sécurité optionnelle.
-                            </p>
-                            <ul class="product-card__features">
-                                <li>Conforme SAE J1939</li>
-                                <li>Support protocole de transport</li>
-                                <li>Extension de sécurité disponible</li>
-                            </ul>
-                            <a href="j1939.html" class="product-card__cta">En Savoir Plus →</a>
+                    <!-- Fieldbus Tab -->
+                    <div class="tabs__content" id="fieldbus">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Protocoles Fieldbus</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card">
+                                <div class="product-card__icon">🔌</div>
+                                <h3 class="product-card__title">CANopen Esclave</h3>
+                                <p class="product-card__description">
+                                    Pile CANopen esclave complète conforme CiA 301/302.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>PDO, SDO, EMCY, SYNC</li>
+                                    <li>Outils dictionnaire d'objets</li>
+                                    <li>Support LSS</li>
+                                </ul>
+                                <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-card__icon">🔌</div>
+                                <h3 class="product-card__title">CANopen Maître</h3>
+                                <p class="product-card__description">
+                                    CANopen maître complet pour contrôleurs et passerelles.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Gestion de réseau</li>
+                                    <li>Support multi-esclaves</li>
+                                    <li>Outils de configuration</li>
+                                </ul>
+                                <a href="canopen-master.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
                         </div>
                     </div>
 
-                    <h2 style="margin-bottom: 1.5rem;">Bientôt Disponible</h2>
-                    <div class="grid grid--3">
-                        <div class="product-card" style="opacity: 0.6;">
-                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">📡</div>
-                            <span class="badge badge--gray product-card__badge">Bientôt Q3 2025</span>
-                            <h3 class="product-card__title">Pile OPC-UA</h3>
-                            <p class="product-card__description">
-                                Implémentation OPC-UA complète avec support des profils de sécurité.
-                            </p>
-                            <a href="opc-ua.html" class="product-card__cta">Être Notifié →</a>
+                    <!-- Automotive Tab -->
+                    <div class="tabs__content" id="automotive">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Protocoles Automobile</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card">
+                                <div class="product-card__icon">🚗</div>
+                                <span class="badge badge--warning product-card__badge">SIL2</span>
+                                <h3 class="product-card__title">J1939 / J1939 Safety</h3>
+                                <p class="product-card__description">
+                                    Implémentation SAE J1939 avec extension de sécurité optionnelle.
+                                </p>
+                                <ul class="product-card__features">
+                                    <li>Conforme SAE J1939</li>
+                                    <li>Support protocole de transport</li>
+                                    <li>Extension de sécurité disponible</li>
+                                </ul>
+                                <a href="j1939.html" class="product-card__cta">En Savoir Plus →</a>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="product-card" style="opacity: 0.6;">
-                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">🔒</div>
-                            <span class="badge badge--gray product-card__badge">Bientôt Q4 2025</span>
-                            <h3 class="product-card__title">CIP Safety</h3>
-                            <p class="product-card__description">
-                                Protocole CIP Safety pour réseaux EtherNet/IP.
-                            </p>
-                            <a href="cip-safety.html" class="product-card__cta">Être Notifié →</a>
-                        </div>
+                    <!-- Coming Soon Tab -->
+                    <div class="tabs__content" id="coming">
+                        <h2 style="margin-top: 2rem; margin-bottom: 1.5rem;">Bientôt Disponible</h2>
+                        <div class="grid grid--3">
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">📡</div>
+                                <span class="badge badge--gray product-card__badge">Bientôt Q3 2025</span>
+                                <h3 class="product-card__title">Pile OPC-UA</h3>
+                                <p class="product-card__description">
+                                    Implémentation OPC-UA complète avec support des profils de sécurité.
+                                </p>
+                                <a href="opc-ua.html" class="product-card__cta">Être Notifié →</a>
+                            </div>
 
-                        <div class="product-card" style="opacity: 0.6;">
-                            <div class="product-card__icon" style="background-color: var(--color-gray-200);">📶</div>
-                            <span class="badge badge--gray product-card__badge">Bientôt 2026</span>
-                            <h3 class="product-card__title">Sécurité Sans Fil</h3>
-                            <p class="product-card__description">
-                                Protocoles de communication de sécurité sans fil.
-                            </p>
-                            <a href="wireless-safety.html" class="product-card__cta">Être Notifié →</a>
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">🔒</div>
+                                <span class="badge badge--gray product-card__badge">Bientôt Q4 2025</span>
+                                <h3 class="product-card__title">CIP Safety</h3>
+                                <p class="product-card__description">
+                                    Protocole CIP Safety pour réseaux EtherNet/IP.
+                                </p>
+                                <a href="cip-safety.html" class="product-card__cta">Être Notifié →</a>
+                            </div>
+
+                            <div class="product-card" style="opacity: 0.6;">
+                                <div class="product-card__icon" style="background-color: var(--color-gray-200);">📶</div>
+                                <span class="badge badge--gray product-card__badge">Bientôt 2026</span>
+                                <h3 class="product-card__title">Sécurité Sans Fil</h3>
+                                <p class="product-card__description">
+                                    Protocoles de communication de sécurité sans fil.
+                                </p>
+                                <a href="wireless-safety.html" class="product-card__cta">Être Notifié →</a>
+                            </div>
                         </div>
                     </div>
                 </div>
