@@ -697,6 +697,63 @@ if (file_exists($import_static_content_file)) {
 
 /**
  * =============================================================================
+ * FRENCH LANGUAGE SUPPORT
+ * =============================================================================
+ */
+
+/**
+ * Add rewrite rules for French pages
+ */
+function azit_add_french_rewrite_rules() {
+    // French pages
+    add_rewrite_rule('^fr/?$', 'index.php?azit_lang=fr&azit_page=home', 'top');
+    add_rewrite_rule('^fr/pages/training\.html?$', 'index.php?azit_lang=fr&azit_page=training', 'top');
+    add_rewrite_rule('^fr/pages/contact\.html?$', 'index.php?azit_lang=fr&azit_page=contact', 'top');
+    add_rewrite_rule('^fr/pages/company\.html?$', 'index.php?azit_lang=fr&azit_page=company', 'top');
+    add_rewrite_rule('^fr/pages/blog\.html?$', 'index.php?azit_lang=fr&azit_page=blog', 'top');
+    add_rewrite_rule('^fr/pages/sitemap\.html?$', 'index.php?azit_lang=fr&azit_page=sitemap', 'top');
+    add_rewrite_rule('^fr/pages/accessibilite\.html?$', 'index.php?azit_lang=fr&azit_page=accessibility', 'top');
+
+    // French products
+    add_rewrite_rule('^fr/pages/products/([^/]+)\.html?$', 'index.php?azit_lang=fr&azit_page=product&azit_product=$matches[1]', 'top');
+
+    // French expertise/services
+    add_rewrite_rule('^fr/pages/services/expertise\.html?$', 'index.php?azit_lang=fr&azit_page=expertise', 'top');
+    add_rewrite_rule('^fr/pages/services/expertise-([^/]+)\.html?$', 'index.php?azit_lang=fr&azit_page=expertise&azit_expertise=$matches[1]', 'top');
+}
+add_action('init', 'azit_add_french_rewrite_rules');
+
+/**
+ * Register query vars for French pages
+ */
+function azit_add_query_vars($vars) {
+    $vars[] = 'azit_lang';
+    $vars[] = 'azit_page';
+    $vars[] = 'azit_product';
+    $vars[] = 'azit_expertise';
+    return $vars;
+}
+add_filter('query_vars', 'azit_add_query_vars');
+
+/**
+ * Load French template when accessing French URLs
+ */
+function azit_load_french_template($template) {
+    $lang = get_query_var('azit_lang');
+    $page = get_query_var('azit_page');
+
+    if ($lang === 'fr' && !empty($page)) {
+        $french_template = locate_template('template-french.php');
+        if ($french_template) {
+            return $french_template;
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'azit_load_french_template');
+
+/**
+ * =============================================================================
  * CUSTOM TEMPLATE LOADING
  * =============================================================================
  */

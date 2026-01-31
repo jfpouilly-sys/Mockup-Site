@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibilite - AZIT</title>
+    <meta name="description" content="Declaration d'accessibilite AZIT et engagement de conformite RGAA 4.1.2 pour l'accessibilite web.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../css/a11y-utils.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ARIA Live Region for Announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav" aria-label="Informations entreprise et parametres">
+                <a href="company.html" class="top-menu-link">Entreprise</a>
+                <a href="blog.html" class="top-menu-link">Blog & Actualites</a>
+            </nav>
+
+            <div class="language-switcher" aria-label="Selection de la langue">
+                <a href="../../pages/accessibilite.html" class="language-button" data-lang="en" lang="en" hreflang="en">EN</a>
+                <span class="language-separator" aria-hidden="true">|</span>
+                <a href="accessibilite.html" class="language-button active" data-lang="fr" lang="fr" hreflang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="container header__container">
+            <a href="../index.html" class="header__logo" aria-label="Page d'accueil AZIT">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav" aria-label="Navigation principale">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="products/communication-stacks.html" class="nav__link">Produits</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="services/expertise.html" class="nav__link">Expertise</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="training.html" class="nav__link">Formation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="btn btn--secondary btn--small">Demande de Devis</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" tabindex="-1">
+        <article class="accessibility-statement">
+            <div class="container">
+                <h1>Declaration d'Accessibilite</h1>
+
+                <p>
+                    AZIT s'engage a rendre son site internet accessible conformement a
+                    l'article 47 de la loi n 2005-102 du 11 fevrier 2005.
+                </p>
+
+                <p>
+                    Cette declaration d'accessibilite s'applique au site
+                    <a href="https://www.azit.com">www.azit.com</a>.
+                </p>
+
+                <h2>Etat de conformite</h2>
+
+                <p>
+                    Le site <a href="https://www.azit.com">www.azit.com</a> est en
+                    <strong>conformite partielle</strong> avec le referentiel general
+                    d'amelioration de l'accessibilite (RGAA) version 4.1.2, en raison
+                    des non-conformites et des derogations enumerees ci-dessous.
+                </p>
+
+                <h2>Resultats des tests</h2>
+
+                <p>
+                    L'audit de conformite realise en janvier 2026 revele que :
+                </p>
+
+                <ul>
+                    <li>Le taux de conformite aux criteres du RGAA version 4.1.2 est en cours d'evaluation.</li>
+                    <li>Le taux moyen de conformite du service en ligne est en cours d'amelioration.</li>
+                </ul>
+
+                <h2>Contenus non accessibles</h2>
+
+                <p>
+                    Les contenus listes ci-dessous ne sont pas accessibles pour les
+                    raisons suivantes :
+                </p>
+
+                <h3>Non-conformites</h3>
+
+                <p>Nous travaillons activement a corriger les points suivants :</p>
+                <ul>
+                    <li>Certaines images peuvent manquer de texte alternatif descriptif</li>
+                    <li>Certains elements interactifs peuvent ne pas etre entierement accessibles au clavier</li>
+                    <li>Certains contrastes de couleurs peuvent ne pas repondre aux exigences WCAG AA</li>
+                </ul>
+
+                <h3>Contenus exemptes</h3>
+
+                <p>
+                    Aucun contenu n'est exempte de l'obligation d'accessibilite.
+                </p>
+
+                <h3>Derogations pour charge disproportionnee</h3>
+
+                <p>
+                    Aucune derogation pour charge disproportionnee n'a ete declaree.
+                </p>
+
+                <h2>Etablissement de cette declaration d'accessibilite</h2>
+
+                <p>
+                    Cette declaration a ete etablie en janvier 2026.
+                </p>
+
+                <h3>Technologies utilisees</h3>
+
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript (Vanilla)</li>
+                </ul>
+
+                <h3>Agents utilisateurs et technologies d'assistance</h3>
+
+                <p>
+                    Les tests ont ete effectues avec les combinaisons suivantes :
+                </p>
+
+                <ul>
+                    <li>NVDA 2023 / Firefox / Windows 11</li>
+                    <li>JAWS 2023 / Chrome / Windows 11</li>
+                    <li>VoiceOver / Safari / macOS Sonoma</li>
+                </ul>
+
+                <h3>Outils pour evaluer l'accessibilite</h3>
+
+                <ul>
+                    <li>WAVE (Web Accessibility Evaluation Tool)</li>
+                    <li>axe DevTools</li>
+                    <li>Contrast Checker</li>
+                    <li>Validateur HTML W3C</li>
+                </ul>
+
+                <h2>Retour d'information et contact</h2>
+
+                <p>
+                    Si vous n'arrivez pas a acceder a un contenu ou a un service, vous
+                    pouvez contacter le responsable du site internet pour etre oriente
+                    vers une alternative accessible ou obtenir le contenu sous une autre forme.
+                </p>
+
+                <ul>
+                    <li>
+                        Envoyer un message :
+                        <a href="mailto:accessibility@azit.com">accessibility@azit.com</a>
+                    </li>
+                    <li>
+                        Contacter AZIT :
+                        <a href="contact.html">Formulaire de contact</a>
+                    </li>
+                </ul>
+
+                <h2>Voies de recours</h2>
+
+                <p>
+                    Cette procedure est a utiliser dans le cas suivant : vous avez signale
+                    au responsable du site internet un defaut d'accessibilite qui vous
+                    empeche d'acceder a un contenu ou a un des services du portail et vous
+                    n'avez pas obtenu de reponse satisfaisante.
+                </p>
+
+                <p>Vous pouvez :</p>
+
+                <ul>
+                    <li>
+                        Ecrire un message au
+                        <a href="https://formulaire.defenseurdesdroits.fr/">Defenseur des droits</a>
+                    </li>
+                    <li>
+                        Contacter
+                        <a href="https://www.defenseurdesdroits.fr/saisir/delegues">
+                            le delegue du Defenseur des droits dans votre region
+                        </a>
+                    </li>
+                    <li>
+                        Envoyer un courrier par la poste (gratuit, ne pas mettre de timbre) :<br>
+                        Defenseur des droits<br>
+                        Libre reponse 71120<br>
+                        75342 Paris CEDEX 07
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <h3 class="footer__section-title">AZIT</h3>
+                    <p class="footer__description">
+                        Piles de protocoles industriels et solutions de securite pour systemes critiques.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="products/communication-stacks.html" class="footer__link">Piles de Communication</a></li>
+                        <li><a href="products/fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="products/canopen-slave.html" class="footer__link">CANopen</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="services/expertise.html" class="footer__link">Notre Expertise</a></li>
+                        <li><a href="services/expertise-compliance.html" class="footer__link">Conformite Securite</a></li>
+                        <li><a href="services/expertise-development.html" class="footer__link">Developpement Protocole</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="training.html" class="footer__link">Formation</a></li>
+                        <li><a href="blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="company.html" class="footer__link">Entreprise</a></li>
+                        <li><a href="contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 AZIT - ISIT. Tous droits reserves. | Version 7</p>
+                <nav aria-label="Liens de pied de page">
+                    <ul class="footer__social">
+                        <li><a href="#" class="footer__social-link">Confidentialite</a></li>
+                        <li><a href="#" class="footer__social-link">Conditions</a></li>
+                        <li><a href="sitemap.html" class="footer__social-link">Plan du Site</a></li>
+                        <li><a href="accessibilite.html" class="footer__social-link" aria-current="page">Accessibilite</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="accessibilite.html" class="a11y-badge">
+                    Accessibilite : partiellement conforme
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/language-switcher.js"></script>
+    <script src="../../js/accessibility.js"></script>
+</body>
+</html>

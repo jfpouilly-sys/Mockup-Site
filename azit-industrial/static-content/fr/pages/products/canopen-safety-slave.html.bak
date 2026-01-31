@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANopen Safety Esclave - AZIT</title>
+    <meta name="description" content="CiA 304 compliant CANopen Safety slave implementation. SIL3/PLe certified by Bureau Véritas.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/components.css">
+    <link rel="stylesheet" href="../../../css/layout.css">
+    <link rel="stylesheet" href="../../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../../fr/index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Produits
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Matériel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="protocol-gateway.html" class="mega-menu__link">Passerelle de Protocole (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Stacks de Communication</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Esclave</a></li>
+                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Maître</a></li>
+                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Esclave</a></li>
+                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Maître</a></li>
+                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Esclave</a></li>
+                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Maître</a></li>
+                                        <li><a href="j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Logiciel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Outils & Analyseurs</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="tools.html" class="mega-menu__link">Outils de Développement</a></li>
+                                        <li><a href="analyzers.html" class="mega-menu__link">Analyseurs de Protocole</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Services
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Intégration</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../../services/porting.html" class="mega-menu__link">Activités de Portage</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Expertise</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../../services/expertise.html" class="mega-menu__link">Conformité Sécurité</a></li>
+                                        <li><a href="../../services/expertise-development.html" class="mega-menu__link">Développement de Protocole</a></li>
+                                        <li><a href="../../services/expertise-testing.html" class="mega-menu__link">Test & Validation</a></li>
+                                        <li><a href="../../services/expertise-networks.html" class="mega-menu__link">Réseaux Industriels</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Support</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../../services/maintenance.html" class="mega-menu__link">Support Maintenance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../training.html" class="nav__link">Formation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../blog.html" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../company.html" class="nav__link">Entreprise</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
+                    </li>
+                </ul>
+
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn active" data-lang="fr">FR</button>
+                    <button class="lang-switcher__btn" data-lang="en">EN</button>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../../fr/index.html">Accueil</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Produits</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Stacks de Communication</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">CANopen Safety Esclave</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <div class="product-hero__icon">🔐</div>
+                <h1 class="product-hero__title">CANopen Safety Esclave Stack</h1>
+                <p class="product-hero__description">
+                    CiA 304 compliant safety protocol implementation for CANopen slave devices
+                </p>
+                <div class="product-hero__badges">
+                    <span class="badge badge--success">SIL3 Certified</span>
+                    <span class="badge badge--success">PLe Certified</span>
+                    <span class="badge badge--primary">BV Approved</span>
+                    <span class="badge badge--primary">Full Source Code</span>
+                </div>
+                <div class="product-hero__actions">
+                    <a href="../../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
+                    <a href="#" class="btn btn--outline btn--large">Télécharger la Fiche Technique</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="overview">Vue d'ensemble</button></li>
+                        <li><button class="tabs__button" data-tab="features">Fonctionnalités</button></li>
+                        <li><button class="tabs__button" data-tab="specs">Spécifications</button></li>
+                        <li><button class="tabs__button" data-tab="integration">Intégration</button></li>
+                    </ul>
+                </div>
+
+                <!-- Vue d'ensemble Tab -->
+                <div class="tabs__content active" id="overview-tab">
+                    <div class="two-column">
+                        <div>
+                            <h2>What is CANopen Safety?</h2>
+                            <p>
+                                CANopen Safety is defined in CiA 304 and provides a black channel safety layer on top of
+                                standard CANopen networks. It enables SIL3/PLe safety communication using standard CAN hardware,
+                                making it cost-effective for safety-critical applications in industrial automation, mobile machinery,
+                                and transportation.
+                            </p>
+
+                            <h2 style="margin-top: 2rem;">AZIT CANopen Safety Esclave Stack</h2>
+                            <p>
+                                Our CANopen Safety Esclave implementation provides a complete, certified solution for integrating
+                                safety functions into your CANopen devices. Built on 30+ years of embedded systems expertise,
+                                it features a modular architecture that works with any standard CANopen slave stack.
+                            </p>
+
+                            <h3 style="margin-top: 2rem;">Black Channel Architecture</h3>
+                            <p>
+                                The black channel architecture ensures safety communication even over potentially unsafe
+                                transmission media. This provides:
+                            </p>
+                            <ul>
+                                <li>Independent safety layer over standard CANopen</li>
+                                <li>Works with any CAN controller hardware</li>
+                                <li>Simplified certification process</li>
+                                <li>Cost-effective safety solution</li>
+                            </ul>
+
+                            <div class="architecture-diagram" style="margin-top: 2rem;">
+                                <div class="architecture-diagram__placeholder" style="aspect-ratio: 16/9;">
+                                    [CANopen Safety Architecture Diagram]
+                                    <br><br>
+                                    Safety Application ↔ AZIT CANopen Safety Esclave
+                                    <br>↓
+                                    <br>Standard CANopen Stack
+                                    <br>↓
+                                    <br>CAN Driver ↔ CAN Controller
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="specs-box">
+                                <h3 class="specs-box__title">Key Benefits</h3>
+                                <ul class="benefits-list">
+                                    <li>SIL3 / PLe certified by TÜV</li>
+                                    <li>CiA 304 compliant</li>
+                                    <li>Works with standard CAN</li>
+                                    <li>Full source code provided</li>
+                                    <li>Matériel agnostic</li>
+                                    <li>RTOS independent</li>
+                                    <li>Expert technical support</li>
+                                </ul>
+                            </div>
+
+                            <div class="specs-box" style="margin-top: 1.5rem;">
+                                <h3 class="specs-box__title">Quick Spécifications</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Level</span>
+                                    <span class="specs-box__value">SIL3 / PLe</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard</span>
+                                    <span class="specs-box__value">CiA 304</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Code Size</span>
+                                    <span class="specs-box__value">~45KB (typical)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">RAM</span>
+                                    <span class="specs-box__value">~6KB (typical)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Language</span>
+                                    <span class="specs-box__value">ANSI C</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Certification</span>
+                                    <span class="specs-box__value">Bureau Véritas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fonctionnalités Tab -->
+                <div class="tabs__content" id="features-tab">
+                    <h2>Complete Feature Set</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div class="card">
+                            <h3 class="card__title">Safety Fonctionnalités</h3>
+                            <ul>
+                                <li>SIL3 / PLe safety level</li>
+                                <li>CRC-16 protection</li>
+                                <li>Time stamp monitoring</li>
+                                <li>Consecutive counter checking</li>
+                                <li>Watchdog timeout</li>
+                                <li>Connection monitoring</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Communication Fonctionnalités</h3>
+                            <ul>
+                                <li>SRDO and SSDO support</li>
+                                <li>Configurable safety I/O</li>
+                                <li>Multiple safety connections</li>
+                                <li>Flexible TPDO/RPDO mapping</li>
+                                <li>Status and diagnostic data</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Intégration Fonctionnalités</h3>
+                            <ul>
+                                <li>Modular architecture</li>
+                                <li>Works with any CANopen stack</li>
+                                <li>RTOS or bare-metal operation</li>
+                                <li>Minimal footprint design</li>
+                                <li>Clean, documented API</li>
+                                <li>Example projects included</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Development Support</h3>
+                            <ul>
+                                <li>Comprehensive documentation</li>
+                                <li>Configuration tools</li>
+                                <li>Test suites</li>
+                                <li>Expert technical support</li>
+                                <li>Formation available</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spécifications Tab -->
+                <div class="tabs__content" id="specs-tab">
+                    <h2>Technical Spécifications</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div>
+                            <h3>Safety Certification</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">SIL3 per IEC 61508</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Performance Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">PLe per ISO 13849</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <td style="padding: 0.5rem 0;">CiA 304</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Certification Body</strong></td>
+                                    <td style="padding: 0.5rem 0;">Bureau Véritas</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Resource Requirements</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~45KB (typical)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~6KB (typical)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <td style="padding: 0.5rem 0;">~1.5KB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <td style="padding: 0.5rem 0;">16/32-bit processor</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div>
+                            <h3>Supported Fonctionnalités</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Max Safe I/O</strong></td>
+                                    <td style="padding: 0.5rem 0;">Up to 128 bytes</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Safety Connections</strong></td>
+                                    <td style="padding: 0.5rem 0;">Up to 4 per device</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>CAN Bitrates</strong></td>
+                                    <td style="padding: 0.5rem 0;">10 kbit/s to 1 Mbit/s</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Protocol Version</strong></td>
+                                    <td style="padding: 0.5rem 0;">CiA 304 v2.0</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Platform Support</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <td style="padding: 0.5rem 0;">Low hardware dependency</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>CANopen Stacks</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any standard stack</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intégration Tab -->
+                <div class="tabs__content" id="integration-tab">
+                    <h2>Quick Start Intégration</h2>
+                    <p style="margin-top: 1rem;">
+                        The AZIT CANopen Safety Esclave stack is designed for easy integration with minimal API surface.
+                    </p>
+
+                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copy</button>
+                        </div>
+                        <pre><code>/* CANopen Safety Esclave initialization */
+#include "canopen_safety_slave.h"
+
+COSS_CONFIG config = {
+    .node_id = 0x10,
+    .vendor_id = 0x12345678,
+    .product_code = 0x1000,
+    .safe_inputs = 8,      /* bytes */
+    .safe_outputs = 8      /* bytes */
+};
+
+/* Initialize CANopen Safety slave */
+if (coss_init(&config) == COSS_OK) {
+    /* Start safety communication */
+    coss_start();
+}</code></pre>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Cyclic Processing</h3>
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copy</button>
+                        </div>
+                        <pre><code>/* Call in your cyclic task */
+void safety_task(void) {
+    uint8_t safe_inputs[8];
+    uint8_t safe_outputs[8];
+
+    /* Read safe inputs from your application */
+    read_safe_inputs(safe_inputs);
+
+    /* Process CANopen Safety communication */
+    coss_process(safe_inputs, safe_outputs);
+
+    /* Write safe outputs to your application */
+    write_safe_outputs(safe_outputs);
+}</code></pre>
+                    </div>
+
+                    <div class="two-column" style="margin-top: 3rem;">
+                        <div>
+                            <h3>Intégration Steps</h3>
+                            <ol style="padding-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Add stack files to your project</strong><br>
+                                    Include source files and headers in your build system
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Integrate with CANopen stack</strong><br>
+                                    Connect to your existing CANopen implementation
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Configure safety parameters</strong><br>
+                                    Set node ID, I/O sizes, and safety connections
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Integrate in cyclic task</strong><br>
+                                    Call process function in your safety task
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Test and validate</strong><br>
+                                    Use provided test cases and validation tools
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div>
+                            <h3>What's Included</h3>
+                            <ul class="benefits-list">
+                                <li>Full source code with documentation</li>
+                                <li>Example projects for popular platforms</li>
+                                <li>Intégration guide and API reference</li>
+                                <li>EDS/DCF configuration files</li>
+                                <li>Test suites and validation tools</li>
+                                <li>TÜV certification documents</li>
+                                <li>Technical support package</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
+                        <h3>Need Help with Intégration?</h3>
+                        <p style="margin-top: 1rem;">
+                            Our team offers porting services to get your CANopen Safety implementation running quickly
+                            on your target platform. We handle integration, testing, and validation.
+                        </p>
+                        <a href="../../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Portage Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Produits -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Related Produits</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">🔐</div>
+                        <h3 class="product-card__title">CANopen Safety Maître</h3>
+                        <p class="product-card__description">
+                            Complete CANopen Safety master for controllers
+                        </p>
+                        <a href="canopen-safety-master.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔌</div>
+                        <h3 class="product-card__title">CANopen Esclave</h3>
+                        <p class="product-card__description">
+                            Standard CANopen slave implementation
+                        </p>
+                        <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔧</div>
+                        <h3 class="product-card__title">Portage Services</h3>
+                        <p class="product-card__description">
+                            Expert integration and porting support
+                        </p>
+                        <a href="../../services/porting.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Ready to Integrate CANopen Safety?</h2>
+                    <p>Request a quote or talk to our experts about your project</p>
+                    <div>
+                        <a href="../../contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>
+                        <a href="../../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">Plus de 30 ans d'expertise en systèmes embarqués</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Services</h3>
+                    <ul class="footer__list">
+                        <li><a href="../../services/porting.html" class="footer__link">Portage</a></li>
+                        <li><a href="../../services/maintenance.html" class="footer__link">Maintenance</a></li>
+                        <li><a href="../../services/expertise.html" class="footer__link">Expertise</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../../training.html" class="footer__link">Formation</a></li>
+                        <li><a href="../../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits réservés.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Conditions</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/language-switcher.js"></script>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack J1939 - AZIT</title>
+    <meta name="description" content="SAE J1939 protocol stack for heavy-duty vehicles and off-highway equipment.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/components.css">
+    <link rel="stylesheet" href="../../../css/layout.css">
+    <link rel="stylesheet" href="../../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav">
+                <!-- Company Link -->
+                <a href="../company.html" class="top-menu-link">Entreprise</a>
+
+                <!-- Blog & News Link -->
+                <a href="../blog.html" class="top-menu-link">Blog & Actualités</a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <a href="../../../pages/products/j1939.html" class="language-button" data-lang="en">EN</a>
+                <span class="language-separator">|</span>
+                <a href="../../../fr/index.html" class="language-button active" data-lang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../../fr/index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Produits
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Matériel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="protocol-gateway.html" class="mega-menu__link">Passerelle de Protocole (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Stacks de Communication</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Esclave</a></li>
+                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Maître</a></li>
+                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Esclave</a></li>
+                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Maître</a></li>
+                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Esclave</a></li>
+                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Maître</a></li>
+                                        <li><a href="j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Logiciel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Outils & Analyseurs</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="tools.html" class="mega-menu__link">Outils de Développement</a></li>
+                                        <li><a href="analyzers.html" class="mega-menu__link">Analyseurs de Protocole</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../services/expertise.html" class="nav__link">
+                            Expertise
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">NOTRE EXPERTISE</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/expertise-compliance.html" class="mega-menu__link">Conformite securite</a></li>
+                                        <li><a href="../services/expertise-development.html" class="mega-menu__link">Developpement protocole</a></li>
+                                        <li><a href="../services/expertise-testing.html" class="mega-menu__link">Tests & validation</a></li>
+                                        <li><a href="../services/expertise-networks.html" class="mega-menu__link">Reseaux industriels</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../training.html" class="nav__link">Formation</a>
+                    </li>                    <li class="nav__item">
+                        <a href="../../company.html" class="nav__link">Entreprise</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../../fr/index.html">Accueil</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Produits</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Stacks de Communication</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">J1939</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <div class="product-hero__icon">🚛</div>
+                <h1 class="product-hero__title">J1939 Protocol Stack</h1>
+                <p class="product-hero__description">
+                    Complete SAE J1939 implementation for heavy-duty vehicles and off-highway equipment
+                </p>
+                <div class="product-hero__badges">
+                    <span class="badge badge--primary">SAE J1939</span>
+                    <span class="badge badge--success">Production Ready</span>
+                </div>
+                <div class="product-hero__actions">
+                    <a href="../../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
+                    <a href="#" class="btn btn--outline btn--large">Télécharger la Fiche Technique</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="overview">Vue d'ensemble</button></li>
+                        <li><button class="tabs__button" data-tab="features">Fonctionnalités</button></li>
+                        <li><button class="tabs__button" data-tab="specs">Spécifications</button></li>
+                        <li><button class="tabs__button" data-tab="integration">Intégration</button></li>
+                    </ul>
+                </div>
+
+                <!-- Vue d'ensemble Tab -->
+                <div class="tabs__content active" id="overview-tab">
+                    <div class="two-column">
+                        <div>
+                            <h2>What is J1939?</h2>
+                            <p>
+                                SAE J1939 is the standard communication protocol for heavy-duty vehicles including trucks,
+                                buses, construction equipment, and agricultural machinery. It defines network architecture,
+                                message formats, and diagnostic functions for CAN-based vehicle networks.
+                            </p>
+
+                            <h2 style="margin-top: 2rem;">AZIT Stack J1939</h2>
+                            <p>
+                                Our J1939 implementation provides a complete, production-ready solution for vehicle ECU
+                                development. Built on decades of automotive expertise, it supports all major J1939 features
+                                including transport protocol, diagnostics, and proprietary PGN handling.
+                            </p>
+
+                            <h3 style="margin-top: 2rem;">Key Applications</h3>
+                            <ul>
+                                <li>Heavy-duty trucks and buses</li>
+                                <li>Construction and mining equipment</li>
+                                <li>Agricultural machinery</li>
+                                <li>Marine engines and systems</li>
+                                <li>Power generation equipment</li>
+                                <li>Industrial machinery</li>
+                            </ul>
+
+                            <div class="architecture-diagram" style="margin-top: 2rem;">
+                                <div class="architecture-diagram__placeholder" style="aspect-ratio: 16/9;">
+                                    [J1939 Network Architecture]
+                                    <br><br>
+                                    Vehicle Application (Engine, Transmission, etc.)
+                                    <br>↓
+                                    <br>AZIT Stack J1939
+                                    <br>↓
+                                    <br>CAN Driver
+                                    <br>↓
+                                    <br>CAN Bus → Multiple ECUs
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="specs-box">
+                                <h3 class="specs-box__title">Key Benefits</h3>
+                                <ul class="benefits-list">
+                                    <li>SAE J1939 compliant</li>
+                                    <li>Transport protocol support</li>
+                                    <li>DM1/DM2 diagnostics</li>
+                                    <li>Faible dépendance matérielle</li>
+                                    <li>Faible dépendance OS</li>
+                                    <li>Expert technical support</li>
+                                </ul>
+                            </div>
+
+                            <div class="specs-box" style="margin-top: 1.5rem;">
+                                <h3 class="specs-box__title">Quick Spécifications</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard</span>
+                                    <span class="specs-box__value">SAE J1939</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Code Size</span>
+                                    <span class="specs-box__value">~40KB (typical)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">RAM</span>
+                                    <span class="specs-box__value">~8KB (typical)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">CAN Bitrate</span>
+                                    <span class="specs-box__value">250 kbit/s</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Language</span>
+                                    <span class="specs-box__value">ANSI C</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">MCU</span>
+                                    <span class="specs-box__value">16/32-bit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fonctionnalités Tab -->
+                <div class="tabs__content" id="features-tab">
+                    <h2>Complete Feature Set</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div class="card">
+                            <h3 class="card__title">Protocol Fonctionnalités</h3>
+                            <ul>
+                                <li>Address claiming (dynamic/static)</li>
+                                <li>NAME management</li>
+                                <li>PGN transmission and reception</li>
+                                <li>Transport protocol (TP/BAM)</li>
+                                <li>Request handling</li>
+                                <li>Network management</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Diagnostic Fonctionnalités</h3>
+                            <ul>
+                                <li>DM1 - Active diagnostic codes</li>
+                                <li>DM2 - Previously active codes</li>
+                                <li>DM3 - Clear/reset codes</li>
+                                <li>DM13 - Stop/start broadcast</li>
+                                <li>SPN and FMI management</li>
+                                <li>Lamp status control</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Intégration Fonctionnalités</h3>
+                            <ul>
+                                <li>Matériel abstraction layer</li>
+                                <li>RTOS or bare-metal operation</li>
+                                <li>Minimal footprint design</li>
+                                <li>Clean, documented API</li>
+                                <li>Configurable PGN database</li>
+                                <li>Example projects included</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Development Support</h3>
+                            <ul>
+                                <li>Comprehensive documentation</li>
+                                <li>PGN configuration tools</li>
+                                <li>Network simulation</li>
+                                <li>Test suites</li>
+                                <li>Expert technical support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spécifications Tab -->
+                <div class="tabs__content" id="specs-tab">
+                    <h2>Technical Spécifications</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div>
+                            <h3>J1939 Compliance</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <td style="padding: 0.5rem 0;">SAE J1939</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>J1939-21</strong></td>
+                                    <td style="padding: 0.5rem 0;">Data Link Layer</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>J1939-71</strong></td>
+                                    <td style="padding: 0.5rem 0;">Vehicle Application Layer</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>J1939-73</strong></td>
+                                    <td style="padding: 0.5rem 0;">Diagnostics</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Resource Requirements</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~40KB (typical)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~8KB (typical)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <td style="padding: 0.5rem 0;">~1.5KB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <td style="padding: 0.5rem 0;">16/32-bit processor</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div>
+                            <h3>Supported Fonctionnalités</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>CAN Bitrate</strong></td>
+                                    <td style="padding: 0.5rem 0;">250 kbit/s</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Max PGN Size</strong></td>
+                                    <td style="padding: 0.5rem 0;">1785 bytes (TP)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Address Range</strong></td>
+                                    <td style="padding: 0.5rem 0;">0-253</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Transport Protocol</strong></td>
+                                    <td style="padding: 0.5rem 0;">TP.CM / TP.DT / BAM</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Platform Support</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <td style="padding: 0.5rem 0;">Low hardware dependency</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>CAN Controllers</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any CAN 2.0B controller</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intégration Tab -->
+                <div class="tabs__content" id="integration-tab">
+                    <h2>Quick Start Intégration</h2>
+                    <p style="margin-top: 1rem;">
+                        The AZIT J1939 stack is designed for easy integration with a simple, well-documented API.
+                    </p>
+
+                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copy</button>
+                        </div>
+                        <pre><code>/* J1939 stack initialization */
+#include "j1939.h"
+
+J1939_CONFIG config = {
+    .name = {
+        .identity_number = 12345,
+        .manufacturer_code = 123,
+        .ecu_instance = 0,
+        .function_instance = 0,
+        .function = 0,
+        .vehicle_system = 0,
+        .vehicle_system_instance = 0,
+        .industry_group = 0
+    },
+    .preferred_address = 0x80
+};
+
+/* Initialize J1939 stack */
+if (j1939_init(&config) == J1939_OK) {
+    j1939_start();
+}</code></pre>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Sending PGNs</h3>
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copy</button>
+                        </div>
+                        <pre><code>/* Send a J1939 PGN */
+void send_engine_speed(uint16_t rpm) {
+    J1939_MESSAGE msg;
+
+    msg.pgn = 61444;  /* Electronic Engine Controller 1 */
+    msg.priority = 3;
+    msg.dest_addr = 0xFF;  /* Broadcast */
+    msg.data_len = 8;
+
+    /* Encode engine speed (0.125 rpm/bit) */
+    uint16_t speed = rpm / 0.125;
+    msg.data[3] = speed & 0xFF;
+    msg.data[4] = (speed >> 8) & 0xFF;
+
+    j1939_send(&msg);
+}</code></pre>
+                    </div>
+
+                    <div class="two-column" style="margin-top: 3rem;">
+                        <div>
+                            <h3>Intégration Steps</h3>
+                            <ol style="padding-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Add stack files to your project</strong><br>
+                                    Include source files and headers in your build system
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Implement CAN driver interface</strong><br>
+                                    Connect stack to your CAN hardware
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Configure NAME and address</strong><br>
+                                    Set up device identification
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Register PGN handlers</strong><br>
+                                    Implement application-specific PGNs
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Test and validate</strong><br>
+                                    Use CANalyzer or similar tools
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div>
+                            <h3>What's Included</h3>
+                            <ul class="benefits-list">
+                                <li>Complete source code with documentation</li>
+                                <li>Example ECU implementations</li>
+                                <li>Intégration guide and API reference</li>
+                                <li>PGN database and configuration</li>
+                                <li>Test cases and validation tools</li>
+                                <li>DBC file examples</li>
+                                <li>Technical support package</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
+                        <h3>Need Help with Intégration?</h3>
+                        <p style="margin-top: 1rem;">
+                            Our team offers complete vehicle ECU development services including J1939 integration,
+                            custom PGN development, and certification support.
+                        </p>
+                        <a href="../../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elite Partners Section -->
+        <section class="elite-partners product-page-partners">
+            <div class="container">
+                <h2 class="section__title">Partenaires Elite</h2>
+                <div class="partners-grid">
+                    <div class="partners-grid__item">NXP Semiconductors</div>
+                    <div class="partners-grid__item">Intel</div>
+                    <div class="partners-grid__item">Texas Instruments</div>
+                    <div class="partners-grid__item">STMicroelectronics</div>
+                    <div class="partners-grid__item">Acontis</div>
+                    <div class="partners-grid__item">Infineon</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Produits -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Related Produits</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">🔍</div>
+                        <h3 class="product-card__title">UDS Diagnostic Stack</h3>
+                        <p class="product-card__description">
+                            Unified diagnostic services implementation
+                        </p>
+                        <a href="uds.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔌</div>
+                        <h3 class="product-card__title">CANopen</h3>
+                        <p class="product-card__description">
+                            Industrial automation protocol
+                        </p>
+                        <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔧</div>
+                        <h3 class="product-card__title">Analyseurs de Protocole</h3>
+                        <p class="product-card__description">
+                            Development and debugging tools
+                        </p>
+                        <a href="analyzers.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Ready to Develop J1939 ECUs?</h2>
+                    <p>Request a quote or talk to our experts about your project</p>
+                    <div>
+                        <a href="../../contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>
+                        <a href="../../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">Plus de 30 ans d'expertise en systèmes embarqués</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/expertise.html" class="footer__link">Notre expertise</a></li>
+                        <li><a href="../services/expertise-compliance.html" class="footer__link">Conformite securite</a></li>
+                        <li><a href="../services/expertise-development.html" class="footer__link">Developpement protocole</a></li>
+                        <li><a href="../services/expertise-testing.html" class="footer__link">Tests & validation</a></li>
+                        <li><a href="../services/expertise-networks.html" class="footer__link">Reseaux industriels</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../../training.html" class="footer__link">Formation</a></li>
+                        <li><a href="../../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits réservés.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Conditions</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/language-switcher.js"></script>
+</body>
+</html>
