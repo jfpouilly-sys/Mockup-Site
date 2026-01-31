@@ -778,6 +778,31 @@ function azit_load_custom_page_template($template) {
 add_filter('page_template', 'azit_load_custom_page_template');
 
 /**
+ * Alternative: Force training template for /training/ URL even if no WordPress page exists
+ * This ensures tabs work correctly by loading static HTML directly
+ */
+function azit_force_training_template($template) {
+    // Get current URL path
+    $request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+    $path = parse_url($request_uri, PHP_URL_PATH);
+
+    // Check if this is the training page URL
+    if (preg_match('#/training/?$#', $path)) {
+        $training_template = locate_template('page-training.php');
+        if ($training_template) {
+            // Check if static content exists
+            $static_file = get_template_directory() . '/static-content/training.html';
+            if (file_exists($static_file)) {
+                return $training_template;
+            }
+        }
+    }
+
+    return $template;
+}
+add_filter('template_include', 'azit_force_training_template', 99);
+
+/**
  * Load custom template for specific products with complex tab structures
  */
 function azit_load_custom_product_template($template) {
