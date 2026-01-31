@@ -759,6 +759,25 @@ add_filter('template_include', 'azit_load_french_template');
  */
 
 /**
+ * Load custom template for pages with complex tab structures
+ */
+function azit_load_custom_page_template($template) {
+    if (is_page()) {
+        global $post;
+
+        // Use custom template for training page (preserves tab structure)
+        if ($post->post_name === 'training' || $post->post_name === 'formation') {
+            $custom_template = locate_template('page-training.php');
+            if ($custom_template) {
+                return $custom_template;
+            }
+        }
+    }
+    return $template;
+}
+add_filter('page_template', 'azit_load_custom_page_template');
+
+/**
  * Load custom template for specific products with complex tab structures
  */
 function azit_load_custom_product_template($template) {
