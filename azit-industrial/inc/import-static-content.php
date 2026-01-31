@@ -35,7 +35,11 @@ function azit_extract_html_content($html_path) {
         $content = preg_replace('/<section[^>]*>.*?<nav class="breadcrumb">.*?<\/section>/s', '', $content);
 
         // Convert relative paths to absolute WordPress paths
+        // Home links
         $content = str_replace('href="../index.html"', 'href="' . home_url('/') . '"', $content);
+        $content = str_replace('href="../../index.html"', 'href="' . home_url('/') . '"', $content);
+
+        // Page links (from root level)
         $content = str_replace('href="contact.html"', 'href="' . home_url('/contact/') . '"', $content);
         $content = str_replace('href="company.html"', 'href="' . home_url('/company/') . '"', $content);
         $content = str_replace('href="training.html"', 'href="' . home_url('/training/') . '"', $content);
@@ -43,15 +47,41 @@ function azit_extract_html_content($html_path) {
         $content = str_replace('href="sitemap.html"', 'href="' . home_url('/sitemap/') . '"', $content);
         $content = str_replace('href="accessibilite.html"', 'href="' . home_url('/accessibility/') . '"', $content);
 
-        // Convert product links
+        // Page links (from subdirectory level - products/services)
+        $content = str_replace('href="../contact.html"', 'href="' . home_url('/contact/') . '"', $content);
+        $content = str_replace('href="../company.html"', 'href="' . home_url('/company/') . '"', $content);
+        $content = str_replace('href="../training.html"', 'href="' . home_url('/training/') . '"', $content);
+        $content = str_replace('href="../blog.html"', 'href="' . home_url('/blog/') . '"', $content);
+        $content = str_replace('href="../sitemap.html"', 'href="' . home_url('/sitemap/') . '"', $content);
+        $content = str_replace('href="../accessibilite.html"', 'href="' . home_url('/accessibility/') . '"', $content);
+
+        // Convert product links (from various paths)
+        // From root: href="products/fsoe-slave.html"
         $content = preg_replace('/href="products\/([^"]+)\.html"/', 'href="' . home_url('/products/$1/') . '"', $content);
+        // From parent: href="../products/fsoe-slave.html"
+        $content = preg_replace('/href="\.\.\/products\/([^"]+)\.html"/', 'href="' . home_url('/products/$1/') . '"', $content);
+        // Direct product links (from products folder): href="fsoe-slave.html"
+        $product_slugs = array(
+            'fsoe-slave', 'fsoe-master', 'profisafe-slave', 'profisafe-master',
+            'canopen-slave', 'canopen-master', 'canopen-safety-slave', 'canopen-safety-master',
+            'j1939', 'protocol-gateway', 'simulation', 'opc-ua', 'opc-ua-fx',
+            'communication-stacks', 'tools', 'analyzers', 'cip-safety', 'wireless-safety', 'uds'
+        );
+        foreach ($product_slugs as $slug) {
+            $content = str_replace('href="' . $slug . '.html"', 'href="' . home_url('/products/' . $slug . '/') . '"', $content);
+        }
 
         // Convert services/expertise links
         $content = preg_replace('/href="services\/expertise\.html"/', 'href="' . home_url('/expertise/') . '"', $content);
+        $content = preg_replace('/href="\.\.\/services\/expertise\.html"/', 'href="' . home_url('/expertise/') . '"', $content);
         $content = preg_replace('/href="services\/expertise-([^"]+)\.html"/', 'href="' . home_url('/expertise/$1/') . '"', $content);
+        $content = preg_replace('/href="\.\.\/services\/expertise-([^"]+)\.html"/', 'href="' . home_url('/expertise/$1/') . '"', $content);
 
-        // Fix image paths
+        // Fix image paths (various levels)
+        $content = str_replace('src="../assets/', 'src="' . get_template_directory_uri() . '/assets/', $content);
+        $content = str_replace('src="../../assets/', 'src="' . get_template_directory_uri() . '/assets/', $content);
         $content = str_replace('src="../', 'src="' . get_template_directory_uri() . '/assets/', $content);
+        $content = str_replace('src="../../', 'src="' . get_template_directory_uri() . '/assets/', $content);
 
         return trim($content);
     }

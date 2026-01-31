@@ -221,11 +221,20 @@ function azit_enqueue_scripts() {
         true
     );
 
-    // 4. Accessibility JavaScript - Core a11y features
+    // 4. Tabs JavaScript - For tab-based navigation on pages
+    wp_enqueue_script(
+        'azit-tabs-js',
+        AZIT_THEME_URI . '/assets/js/tabs.js',
+        array('azit-language-switcher'),
+        AZIT_VERSION,
+        true
+    );
+
+    // 5. Accessibility JavaScript - Core a11y features
     wp_enqueue_script(
         'azit-accessibility-js',
         AZIT_THEME_URI . '/assets/js/accessibility.js',
-        array('azit-language-switcher'),
+        array('azit-tabs-js'),
         AZIT_VERSION,
         true
     );
