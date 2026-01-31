@@ -753,3 +753,318 @@ function azit_admin_footer_text($text) {
     );
 }
 add_filter('admin_footer_text', 'azit_admin_footer_text');
+
+/**
+ * =============================================================================
+ * PERMALINK FLUSH & SETUP
+ * =============================================================================
+ */
+
+/**
+ * Add admin menu item to flush permalinks
+ */
+function azit_add_flush_permalink_menu() {
+    add_management_page(
+        __('AZIT Setup', 'azit-industrial'),
+        __('AZIT Setup', 'azit-industrial'),
+        'manage_options',
+        'azit-setup',
+        'azit_setup_page'
+    );
+}
+add_action('admin_menu', 'azit_add_flush_permalink_menu');
+
+/**
+ * AZIT Setup Page
+ */
+function azit_setup_page() {
+    // Handle actions
+    if (isset($_POST['azit_flush_permalinks']) && check_admin_referer('azit_flush_permalinks_nonce')) {
+        flush_rewrite_rules(true);
+        echo '<div class="notice notice-success"><p>' . esc_html__('Permalinks flushed successfully!', 'azit-industrial') . '</p></div>';
+    }
+
+    if (isset($_POST['azit_create_pages']) && check_admin_referer('azit_create_pages_nonce')) {
+        $created = azit_create_required_pages();
+        echo '<div class="notice notice-success"><p>' . sprintf(esc_html__('%d pages created successfully!', 'azit-industrial'), $created) . '</p></div>';
+    }
+
+    if (isset($_POST['azit_create_products']) && check_admin_referer('azit_create_products_nonce')) {
+        $created = azit_create_sample_products();
+        echo '<div class="notice notice-success"><p>' . sprintf(esc_html__('%d products created successfully!', 'azit-industrial'), $created) . '</p></div>';
+    }
+
+    ?>
+    <div class="wrap">
+        <h1><?php esc_html_e('AZIT Industrial Theme Setup', 'azit-industrial'); ?></h1>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px;">
+            <h2><?php esc_html_e('1. Flush Permalinks', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('If you see "Page Not Found" errors, flush the permalinks first.', 'azit-industrial'); ?></p>
+            <form method="post">
+                <?php wp_nonce_field('azit_flush_permalinks_nonce'); ?>
+                <input type="submit" name="azit_flush_permalinks" class="button button-primary" value="<?php esc_attr_e('Flush Permalinks', 'azit-industrial'); ?>">
+            </form>
+        </div>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px;">
+            <h2><?php esc_html_e('2. Create Required Pages', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('Creates pages: Home, Blog, Contact, Company, About, Training, Expertise, Products, Accessibility, Privacy, Terms, Sitemap.', 'azit-industrial'); ?></p>
+            <form method="post">
+                <?php wp_nonce_field('azit_create_pages_nonce'); ?>
+                <input type="submit" name="azit_create_pages" class="button button-secondary" value="<?php esc_attr_e('Create Pages', 'azit-industrial'); ?>">
+            </form>
+        </div>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px;">
+            <h2><?php esc_html_e('3. Create Sample Products', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('Creates sample products: FSoE Slave, FSoE Master, PROFISAFE, CANopen Safety, J1939, Protocol Gateway, etc.', 'azit-industrial'); ?></p>
+            <form method="post">
+                <?php wp_nonce_field('azit_create_products_nonce'); ?>
+                <input type="submit" name="azit_create_products" class="button button-secondary" value="<?php esc_attr_e('Create Products', 'azit-industrial'); ?>">
+            </form>
+        </div>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px;">
+            <h2><?php esc_html_e('URL Structure', 'azit-industrial'); ?></h2>
+            <table class="widefat striped">
+                <thead>
+                    <tr>
+                        <th><?php esc_html_e('URL', 'azit-industrial'); ?></th>
+                        <th><?php esc_html_e('Type', 'azit-industrial'); ?></th>
+                        <th><?php esc_html_e('Status', 'azit-industrial'); ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $urls_to_check = array(
+                        '/' => array('type' => 'Front Page', 'check' => 'front_page'),
+                        '/blog/' => array('type' => 'Page (Posts Page)', 'check' => 'page', 'slug' => 'blog'),
+                        '/products/' => array('type' => 'Product Archive', 'check' => 'archive'),
+                        '/expertise/' => array('type' => 'Expertise Archive', 'check' => 'archive'),
+                        '/training/' => array('type' => 'Page/Archive', 'check' => 'page', 'slug' => 'training'),
+                        '/contact/' => array('type' => 'Page', 'check' => 'page', 'slug' => 'contact'),
+                        '/company/' => array('type' => 'Page', 'check' => 'page', 'slug' => 'company'),
+                    );
+
+                    foreach ($urls_to_check as $url => $info) {
+                        $status = '❌ ' . __('Not Found', 'azit-industrial');
+                        if ($info['check'] === 'front_page') {
+                            $front_page_id = get_option('page_on_front');
+                            if ($front_page_id) {
+                                $status = '✅ ' . __('OK', 'azit-industrial');
+                            }
+                        } elseif ($info['check'] === 'page' && isset($info['slug'])) {
+                            $page = get_page_by_path($info['slug']);
+                            if ($page) {
+                                $status = '✅ ' . __('OK', 'azit-industrial');
+                            }
+                        } elseif ($info['check'] === 'archive') {
+                            $status = '✅ ' . __('Auto (CPT)', 'azit-industrial');
+                        }
+                        ?>
+                        <tr>
+                            <td><code><?php echo esc_html($url); ?></code></td>
+                            <td><?php echo esc_html($info['type']); ?></td>
+                            <td><?php echo $status; ?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php
+}
+
+/**
+ * Create required pages
+ */
+function azit_create_required_pages() {
+    $pages = array(
+        array('title' => 'Home', 'slug' => 'home', 'content' => ''),
+        array('title' => 'Blog', 'slug' => 'blog', 'content' => ''),
+        array('title' => 'Contact', 'slug' => 'contact', 'content' => '[contact-form-7 id="contact-form" title="Contact Form"]<p>Contact AZIT for your industrial protocol needs.</p>'),
+        array('title' => 'Company', 'slug' => 'company', 'content' => '<h2>About AZIT</h2><p>AZIT is a brand of ISIT with 30+ years of expertise in embedded systems and industrial communication protocols.</p>'),
+        array('title' => 'About', 'slug' => 'about', 'content' => '<h2>About Us</h2><p>Learn more about our company and expertise.</p>'),
+        array('title' => 'Accessibility', 'slug' => 'accessibility', 'content' => '<h2>Accessibility Statement</h2><p>This website strives to comply with RGAA 4.1.2 accessibility standards.</p>'),
+        array('title' => 'Privacy Policy', 'slug' => 'privacy', 'content' => '<h2>Privacy Policy</h2><p>Your privacy is important to us.</p>'),
+        array('title' => 'Terms of Service', 'slug' => 'terms', 'content' => '<h2>Terms of Service</h2><p>Terms and conditions for using our services.</p>'),
+        array('title' => 'Sitemap', 'slug' => 'sitemap', 'content' => '<h2>Site Map</h2><p>Navigate our website.</p>'),
+        array('title' => 'Partners', 'slug' => 'partners', 'content' => '<h2>Our Partners</h2><p>We collaborate with industry-leading technology partners.</p>'),
+        // Product category pages
+        array('title' => 'Communication Stacks', 'slug' => 'communication-stacks', 'content' => '<h2>Communication Stacks</h2><p>Production-ready industrial communication protocol stacks.</p>', 'parent' => 'products'),
+    );
+
+    $created = 0;
+
+    foreach ($pages as $page_data) {
+        // Check if page exists
+        $existing = get_page_by_path($page_data['slug']);
+        if (!$existing) {
+            $parent_id = 0;
+            if (isset($page_data['parent'])) {
+                $parent_page = get_page_by_path($page_data['parent']);
+                if ($parent_page) {
+                    $parent_id = $parent_page->ID;
+                }
+            }
+
+            wp_insert_post(array(
+                'post_title'   => $page_data['title'],
+                'post_name'    => $page_data['slug'],
+                'post_content' => $page_data['content'],
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_parent'  => $parent_id,
+            ));
+            $created++;
+        }
+    }
+
+    // Create Products parent page if not exists
+    $products_page = get_page_by_path('products');
+    if (!$products_page) {
+        wp_insert_post(array(
+            'post_title'   => 'Products',
+            'post_name'    => 'products',
+            'post_content' => '<h2>Our Products</h2><p>Explore our industrial protocol stacks and solutions.</p>',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+        ));
+        $created++;
+    }
+
+    return $created;
+}
+
+/**
+ * Create sample products
+ */
+function azit_create_sample_products() {
+    $products = array(
+        array(
+            'title' => 'FSoE Slave Stack',
+            'slug' => 'fsoe-slave',
+            'content' => '<h2>FSoE Slave Stack</h2>
+<p>IEC 61784-3 compliant Fail-Safe over EtherCAT implementation for safety slave devices.</p>
+<h3>Key Features</h3>
+<ul>
+<li>SIL3 / PLe certified by Bureau Veritas</li>
+<li>No third-party dependencies</li>
+<li>White channel architecture</li>
+<li>Full source code provided</li>
+</ul>',
+            'excerpt' => 'SIL3 certified FSoE slave implementation for safety-critical EtherCAT devices.',
+        ),
+        array(
+            'title' => 'FSoE Master Stack',
+            'slug' => 'fsoe-master',
+            'content' => '<h2>FSoE Master Stack</h2>
+<p>Complete FSoE master implementation for safety controllers and PLCs.</p>
+<h3>Key Features</h3>
+<ul>
+<li>SIL3 / PLe certified</li>
+<li>Multi-connection support</li>
+<li>Comprehensive diagnostics</li>
+</ul>',
+            'excerpt' => 'SIL3 certified FSoE master for safety controllers.',
+        ),
+        array(
+            'title' => 'PROFISAFE Slave',
+            'slug' => 'profisafe-slave',
+            'content' => '<h2>PROFISAFE Slave Stack</h2>
+<p>IEC 61784-3 compliant PROFIsafe slave implementation for PROFINET safety devices.</p>',
+            'excerpt' => 'SIL3 certified PROFIsafe slave implementation.',
+        ),
+        array(
+            'title' => 'PROFISAFE Master',
+            'slug' => 'profisafe-master',
+            'content' => '<h2>PROFISAFE Master Stack</h2>
+<p>Complete PROFIsafe master for safety controllers and PLCs.</p>',
+            'excerpt' => 'SIL3 certified PROFIsafe master for safety PLCs.',
+        ),
+        array(
+            'title' => 'CANopen Safety Slave',
+            'slug' => 'canopen-safety-slave',
+            'content' => '<h2>CANopen Safety Slave</h2>
+<p>CiA 304 compliant safety protocol for CANopen networks.</p>',
+            'excerpt' => 'SIL3 certified CANopen Safety slave implementation.',
+        ),
+        array(
+            'title' => 'CANopen Safety Master',
+            'slug' => 'canopen-safety-master',
+            'content' => '<h2>CANopen Safety Master</h2>
+<p>Complete CANopen Safety master implementation.</p>',
+            'excerpt' => 'SIL3 certified CANopen Safety master.',
+        ),
+        array(
+            'title' => 'CANopen Slave',
+            'slug' => 'canopen-slave',
+            'content' => '<h2>CANopen Slave Stack</h2>
+<p>Full-featured CANopen slave stack with CiA 301/302 compliance.</p>',
+            'excerpt' => 'Full-featured CANopen slave stack.',
+        ),
+        array(
+            'title' => 'CANopen Master',
+            'slug' => 'canopen-master',
+            'content' => '<h2>CANopen Master Stack</h2>
+<p>Complete CANopen master for controllers and gateways.</p>',
+            'excerpt' => 'Complete CANopen master implementation.',
+        ),
+        array(
+            'title' => 'J1939',
+            'slug' => 'j1939',
+            'content' => '<h2>J1939 Protocol Stack</h2>
+<p>SAE J1939 implementation with optional safety extension.</p>',
+            'excerpt' => 'SAE J1939 implementation with safety extension.',
+        ),
+        array(
+            'title' => 'ISI-GTW Protocol Gateway',
+            'slug' => 'protocol-gateway',
+            'content' => '<h2>ISI-GTW Protocol Gateway</h2>
+<p>Multi-protocol gateway platform for industrial networks.</p>',
+            'excerpt' => 'Multi-protocol gateway for industrial networks.',
+        ),
+        array(
+            'title' => 'EtherCAT Simulator',
+            'slug' => 'simulation',
+            'content' => '<h2>EtherCAT Simulator</h2>
+<p>Simulation tools for EtherCAT network development and testing.</p>',
+            'excerpt' => 'EtherCAT simulation and testing tools.',
+        ),
+        array(
+            'title' => 'OPC-UA',
+            'slug' => 'opc-ua',
+            'content' => '<h2>OPC-UA Stack (Coming Soon)</h2>
+<p>Industrial IoT connectivity with OPC-UA protocol support.</p>',
+            'excerpt' => 'OPC-UA protocol stack - Coming Soon.',
+        ),
+    );
+
+    $created = 0;
+
+    foreach ($products as $product_data) {
+        // Check if product exists
+        $existing = get_posts(array(
+            'name' => $product_data['slug'],
+            'post_type' => 'product',
+            'posts_per_page' => 1,
+        ));
+
+        if (empty($existing)) {
+            wp_insert_post(array(
+                'post_title'   => $product_data['title'],
+                'post_name'    => $product_data['slug'],
+                'post_content' => $product_data['content'],
+                'post_excerpt' => $product_data['excerpt'],
+                'post_status'  => 'publish',
+                'post_type'    => 'product',
+            ));
+            $created++;
+        }
+    }
+
+    return $created;
+}
