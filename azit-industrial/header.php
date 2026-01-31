@@ -2,12 +2,8 @@
 /**
  * The Header Template
  *
- * Displays all of the <head> section and header including:
- * - Skip link (RGAA Criterion 12.7)
- * - ARIA landmarks
- * - Top navigation
- * - Primary navigation with accessible dropdown menus
- * - Mobile menu toggle
+ * Displays all of the <head> section and header matching
+ * the original static site structure exactly.
  *
  * @package AZIT_Industrial
  * @since 7.1-RGAA-WP
@@ -19,11 +15,16 @@ if (!defined('ABSPATH')) {
 }
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> data-lang="<?php echo esc_attr(substr(get_locale(), 0, 2)); ?>">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <?php wp_head(); ?>
 </head>
@@ -31,232 +32,163 @@ if (!defined('ABSPATH')) {
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<?php
-// Skip link is added via wp_body_open hook in functions.php
-// ARIA live regions are added via wp_body_open hook in functions.php
-?>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link"><?php esc_html_e('Skip to main content', 'azit-industrial'); ?></a>
 
-<!-- Top Navigation Bar -->
-<nav aria-label="<?php esc_attr_e('Company information and settings', 'azit-industrial'); ?>"
-     class="top-nav"
-     id="top-navigation">
-    <div class="container">
-        <div class="top-nav-content">
+    <!-- ARIA Live Region for Announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true"></div>
 
-            <?php
-            // Top menu (Company, Blog & News)
-            if (has_nav_menu('top-menu')) :
-                wp_nav_menu(array(
-                    'theme_location' => 'top-menu',
-                    'container'      => false,
-                    'menu_class'     => 'top-menu-list',
-                    'menu_id'        => 'top-menu',
-                    'walker'         => new AZIT_Walker_Nav_Menu(),
-                    'depth'          => 2,
-                    'fallback_cb'    => false,
-                ));
-            endif;
-            ?>
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav" aria-label="<?php esc_attr_e('Company information and settings', 'azit-industrial'); ?>">
+                <!-- Company Link -->
+                <a href="<?php echo esc_url(home_url('/company/')); ?>" class="top-menu-link"><?php esc_html_e('Company', 'azit-industrial'); ?></a>
 
-            <!-- Language Switcher (WPML Compatible) -->
-            <?php if (function_exists('icl_get_languages')) : ?>
-                <?php
-                $languages = icl_get_languages('skip_missing=0');
-                if (!empty($languages)) :
-                    $current_lang = ICL_LANGUAGE_CODE;
-                    $current_lang_name = isset($languages[$current_lang]) ? $languages[$current_lang]['native_name'] : '';
-                ?>
-                <div class="language-switcher">
-                    <button type="button"
-                            aria-label="<?php echo esc_attr(sprintf(
-                                /* translators: %s: current language name */
-                                __('Language selection. Current language: %s', 'azit-industrial'),
-                                $current_lang_name
-                            )); ?>"
-                            aria-expanded="false"
-                            aria-controls="language-menu"
-                            id="language-toggle"
-                            class="language-toggle">
-                        <span aria-hidden="true">&#127760;</span>
-                        <span class="current-lang"><?php echo esc_html(strtoupper($current_lang)); ?></span>
-                        <span class="sr-only"><?php esc_html_e('Change language', 'azit-industrial'); ?></span>
-                    </button>
-                    <ul id="language-menu" class="language-menu" role="menu" hidden>
-                        <?php foreach ($languages as $lang) : ?>
-                        <li role="none">
-                            <a href="<?php echo esc_url($lang['url']); ?>"
-                               role="menuitem"
-                               lang="<?php echo esc_attr($lang['language_code']); ?>"
-                               hreflang="<?php echo esc_attr($lang['language_code']); ?>"
-                               <?php if ($lang['active']) : ?>aria-current="page"<?php endif; ?>>
-                                <?php echo esc_html($lang['native_name']); ?>
-                            </a>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-                <?php endif; ?>
-            <?php else : ?>
-                <!-- Fallback language links when WPML not active -->
-                <div class="language-switcher language-links">
-                    <span class="sr-only"><?php esc_html_e('Language:', 'azit-industrial'); ?></span>
-                    <a href="<?php echo esc_url(home_url('/')); ?>"
-                       lang="fr"
-                       hreflang="fr"
-                       <?php if (get_locale() === 'fr_FR') : ?>aria-current="page"<?php endif; ?>>
-                        FR
+                <!-- Blog & News Link -->
+                <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="top-menu-link"><?php esc_html_e('Blog & News', 'azit-industrial'); ?></a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher" aria-label="<?php esc_attr_e('Language selection', 'azit-industrial'); ?>">
+                <?php if (function_exists('azit_is_wpml_active') && azit_is_wpml_active()) : ?>
+                    <?php
+                    $languages = azit_get_languages();
+                    foreach ($languages as $lang) :
+                    ?>
+                    <a href="<?php echo esc_url($lang['url']); ?>"
+                       class="language-button <?php echo $lang['is_current'] ? 'active' : ''; ?>"
+                       data-lang="<?php echo esc_attr($lang['code']); ?>"
+                       lang="<?php echo esc_attr($lang['code']); ?>"
+                       hreflang="<?php echo esc_attr($lang['code']); ?>">
+                        <?php echo esc_html(strtoupper($lang['code'])); ?>
                     </a>
-                    <span aria-hidden="true">|</span>
-                    <a href="<?php echo esc_url(home_url('/en/')); ?>"
-                       lang="en"
-                       hreflang="en"
-                       <?php if (strpos(get_locale(), 'en') === 0) : ?>aria-current="page"<?php endif; ?>>
-                        EN
-                    </a>
-                </div>
-            <?php endif; ?>
-
-        </div>
-    </div>
-</nav>
-
-<!-- Main Header -->
-<header role="banner" class="site-header" id="site-header">
-    <div class="header-container">
-
-        <!-- Site Branding / Logo -->
-        <div class="site-branding">
-            <?php if (has_custom_logo()) : ?>
-                <?php
-                // Get custom logo with proper accessibility
-                $custom_logo_id = get_theme_mod('custom_logo');
-                $logo_attr = array(
-                    'class' => 'custom-logo',
-                    'alt'   => get_bloginfo('name') . ' - ' . __('Home', 'azit-industrial'),
-                );
-                ?>
-                <a href="<?php echo esc_url(home_url('/')); ?>"
-                   class="custom-logo-link"
-                   rel="home"
-                   aria-label="<?php echo esc_attr(get_bloginfo('name') . ' - ' . __('Return to homepage', 'azit-industrial')); ?>">
-                    <?php echo wp_get_attachment_image($custom_logo_id, 'full', false, $logo_attr); ?>
-                </a>
-            <?php else : ?>
-                <!-- Text fallback when no logo is set -->
-                <a href="<?php echo esc_url(home_url('/')); ?>"
-                   class="site-title-link"
-                   rel="home"
-                   aria-label="<?php echo esc_attr(get_bloginfo('name') . ' - ' . __('Return to homepage', 'azit-industrial')); ?>">
-                    <?php if (file_exists(AZIT_THEME_DIR . '/assets/images/logo.svg')) : ?>
-                        <img src="<?php echo esc_url(AZIT_THEME_URI . '/assets/images/logo.svg'); ?>"
-                             alt="<?php echo esc_attr(get_bloginfo('name')); ?>"
-                             class="site-logo"
-                             width="120"
-                             height="40" />
-                    <?php else : ?>
-                        <span class="site-title"><?php bloginfo('name'); ?></span>
+                    <?php if ($lang !== end($languages)) : ?>
+                        <span class="language-separator" aria-hidden="true">|</span>
                     <?php endif; ?>
-                </a>
-            <?php endif; ?>
-        </div>
-
-        <!-- Primary Navigation -->
-        <nav aria-label="<?php esc_attr_e('Main navigation', 'azit-industrial'); ?>"
-             class="main-navigation"
-             id="primary-navigation">
-            <?php
-            if (has_nav_menu('primary')) :
-                wp_nav_menu(array(
-                    'theme_location' => 'primary',
-                    'container'      => false,
-                    'menu_class'     => 'primary-menu',
-                    'menu_id'        => 'primary-menu',
-                    'walker'         => new AZIT_Walker_Nav_Menu(),
-                    'depth'          => 3,
-                    'fallback_cb'    => false,
-                ));
-            else :
-                // Fallback menu for development/testing
-            ?>
-                <ul class="primary-menu">
-                    <li><a href="<?php echo esc_url(home_url('/products/')); ?>"><?php esc_html_e('Products', 'azit-industrial'); ?></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/expertise/')); ?>"><?php esc_html_e('Expertise', 'azit-industrial'); ?></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/training/')); ?>"><?php esc_html_e('Training', 'azit-industrial'); ?></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Contact', 'azit-industrial'); ?></a></li>
-                </ul>
-            <?php endif; ?>
-        </nav>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button type="button"
-                class="mobile-menu-toggle"
-                aria-expanded="false"
-                aria-controls="mobile-navigation"
-                aria-label="<?php esc_attr_e('Open mobile menu', 'azit-industrial'); ?>"
-                id="mobile-menu-toggle">
-            <span class="menu-icon" aria-hidden="true">
-                <span class="menu-icon-bar"></span>
-                <span class="menu-icon-bar"></span>
-                <span class="menu-icon-bar"></span>
-            </span>
-            <span class="menu-text"><?php esc_html_e('Menu', 'azit-industrial'); ?></span>
-        </button>
-
-    </div>
-</header>
-
-<!-- Mobile Navigation -->
-<nav id="mobile-navigation"
-     class="mobile-navigation"
-     aria-label="<?php esc_attr_e('Mobile navigation', 'azit-industrial'); ?>"
-     hidden>
-    <div class="mobile-nav-container">
-        <?php
-        if (has_nav_menu('mobile')) :
-            wp_nav_menu(array(
-                'theme_location' => 'mobile',
-                'container'      => false,
-                'menu_class'     => 'mobile-menu-list',
-                'menu_id'        => 'mobile-menu',
-                'walker'         => new AZIT_Walker_Nav_Menu(),
-                'depth'          => 2,
-                'fallback_cb'    => false,
-            ));
-        elseif (has_nav_menu('primary')) :
-            // Fallback to primary menu if mobile menu not set
-            wp_nav_menu(array(
-                'theme_location' => 'primary',
-                'container'      => false,
-                'menu_class'     => 'mobile-menu-list',
-                'menu_id'        => 'mobile-menu',
-                'depth'          => 2,
-                'fallback_cb'    => false,
-            ));
-        endif;
-        ?>
-
-        <!-- Mobile language switcher -->
-        <?php if (function_exists('icl_get_languages')) : ?>
-            <?php
-            $languages = icl_get_languages('skip_missing=0');
-            if (!empty($languages)) :
-            ?>
-            <div class="mobile-language-switcher">
-                <span class="language-label"><?php esc_html_e('Language:', 'azit-industrial'); ?></span>
-                <ul class="mobile-language-list">
-                    <?php foreach ($languages as $lang) : ?>
-                    <li>
-                        <a href="<?php echo esc_url($lang['url']); ?>"
-                           lang="<?php echo esc_attr($lang['language_code']); ?>"
-                           hreflang="<?php echo esc_attr($lang['language_code']); ?>"
-                           <?php if ($lang['active']) : ?>aria-current="page" class="current-lang"<?php endif; ?>>
-                            <?php echo esc_html($lang['native_name']); ?>
-                        </a>
-                    </li>
                     <?php endforeach; ?>
-                </ul>
+                <?php else : ?>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="language-button active" data-lang="en" lang="en" hreflang="en">EN</a>
+                    <span class="language-separator" aria-hidden="true">|</span>
+                    <a href="<?php echo esc_url(home_url('/fr/')); ?>" class="language-button" data-lang="fr" lang="fr" hreflang="fr">FR</a>
+                <?php endif; ?>
             </div>
-            <?php endif; ?>
-        <?php endif; ?>
+        </div>
     </div>
-</nav>
+
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="container header__container">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo" aria-label="<?php esc_attr_e('AZIT Homepage', 'azit-industrial'); ?>">
+                <?php if (has_custom_logo()) : ?>
+                    <?php
+                    $custom_logo_id = get_theme_mod('custom_logo');
+                    echo wp_get_attachment_image($custom_logo_id, 'full', false, array(
+                        'class' => 'custom-logo',
+                        'alt'   => get_bloginfo('name'),
+                    ));
+                    ?>
+                <?php else : ?>
+                    <span>AZIT</span>
+                <?php endif; ?>
+            </a>
+
+            <nav class="header__nav" id="main-nav" aria-label="<?php esc_attr_e('Main navigation', 'azit-industrial'); ?>">
+                <ul class="nav__list">
+                    <!-- Products Mega Menu -->
+                    <li class="nav__item">
+                        <a href="<?php echo esc_url(home_url('/products/')); ?>" class="nav__link">
+                            <?php esc_html_e('Products', 'azit-industrial'); ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="<?php echo esc_url(home_url('/products/communication-stacks/')); ?>" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;"><?php esc_html_e('COMMUNICATION STACKS', 'azit-industrial'); ?></a>
+                                    <ul class="mega-menu__list">
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);"><?php esc_html_e('Safety Protocols', 'azit-industrial'); ?></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/fsoe-slave/')); ?>" class="mega-menu__link"><?php esc_html_e('FSoE Slave', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/fsoe-master/')); ?>" class="mega-menu__link"><?php esc_html_e('FSoE Master', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/profisafe-slave/')); ?>" class="mega-menu__link"><?php esc_html_e('PROFISAFE Slave', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/profisafe-master/')); ?>" class="mega-menu__link"><?php esc_html_e('PROFISAFE Master', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/canopen-safety-slave/')); ?>" class="mega-menu__link"><?php esc_html_e('CANopen Safety Slave', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/canopen-safety-master/')); ?>" class="mega-menu__link"><?php esc_html_e('CANopen Safety Master', 'azit-industrial'); ?></a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);"><?php esc_html_e('Fieldbus Protocols', 'azit-industrial'); ?></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/canopen-slave/')); ?>" class="mega-menu__link"><?php esc_html_e('CANopen Slave', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/canopen-master/')); ?>" class="mega-menu__link"><?php esc_html_e('CANopen Master', 'azit-industrial'); ?></a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);"><?php esc_html_e('Automotive', 'azit-industrial'); ?></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/j1939/')); ?>" class="mega-menu__link"><?php esc_html_e('J1939', 'azit-industrial'); ?></a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);"><?php esc_html_e('Industrial IoT', 'azit-industrial'); ?></li>
+                                        <li><a href="<?php echo esc_url(home_url('/products/opc-ua/')); ?>" class="mega-menu__link"><?php esc_html_e('OPC-UA (Coming Soon)', 'azit-industrial'); ?></a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title"><?php esc_html_e('PROTOCOL GATEWAYS', 'azit-industrial'); ?></div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="<?php echo esc_url(home_url('/products/protocol-gateway/')); ?>" class="mega-menu__link"><?php esc_html_e('ISI-GTW Gateway Platform', 'azit-industrial'); ?></a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title"><?php esc_html_e('TOOLS', 'azit-industrial'); ?></div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="<?php echo esc_url(home_url('/products/simulation/')); ?>" class="mega-menu__link"><?php esc_html_e('EtherCAT Simulator', 'azit-industrial'); ?></a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title"><?php esc_html_e('HARDWARE', 'azit-industrial'); ?></div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="<?php echo esc_url(home_url('/products/protocol-gateway/')); ?>" class="mega-menu__link"><?php esc_html_e('Hardware Solutions Overview', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mega-menu__link"><?php esc_html_e('Custom Development Boards', 'azit-industrial'); ?></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Expertise Mega Menu -->
+                    <li class="nav__item">
+                        <a href="<?php echo esc_url(home_url('/expertise/')); ?>" class="nav__link">
+                            <?php esc_html_e('Expertise', 'azit-industrial'); ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="<?php echo esc_url(home_url('/expertise/')); ?>" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;"><?php esc_html_e('OUR EXPERTISE', 'azit-industrial'); ?></a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="<?php echo esc_url(home_url('/expertise/safety-compliance/')); ?>" class="mega-menu__link"><?php esc_html_e('Safety Compliance', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/expertise/protocol-development/')); ?>" class="mega-menu__link"><?php esc_html_e('Protocol Development', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/expertise/testing-validation/')); ?>" class="mega-menu__link"><?php esc_html_e('Testing & Validation', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/expertise/industrial-networks/')); ?>" class="mega-menu__link"><?php esc_html_e('Industrial Networks', 'azit-industrial'); ?></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Training -->
+                    <li class="nav__item">
+                        <a href="<?php echo esc_url(home_url('/training/')); ?>" class="nav__link"><?php esc_html_e('Training', 'azit-industrial'); ?></a>
+                    </li>
+
+                    <!-- Request Quote Button -->
+                    <li class="nav__item">
+                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--secondary btn--small"><?php esc_html_e('Request Quote', 'azit-industrial'); ?></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="<?php esc_attr_e('Toggle mobile menu', 'azit-industrial'); ?>" aria-expanded="false">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" tabindex="-1">

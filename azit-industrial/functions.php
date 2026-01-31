@@ -164,20 +164,22 @@ function azit_enqueue_scripts() {
     // 6. Accessibility utilities (skip links, focus styles) - RGAA critical
     wp_enqueue_style(
         'azit-accessibility',
-        AZIT_THEME_URI . '/assets/css/accessibility/a11y-utils.css',
+        AZIT_THEME_URI . '/assets/css/a11y-utils.css',
         array('azit-pages'),
         AZIT_VERSION,
         'all'
     );
 
-    // 7. Main stylesheet (WordPress theme additions)
-    wp_enqueue_style(
-        'azit-main-style',
-        AZIT_THEME_URI . '/assets/css/main.css',
-        array('azit-accessibility'),
-        AZIT_VERSION,
-        'all'
-    );
+    // 7. Main stylesheet (WordPress theme additions - if exists)
+    if (file_exists(AZIT_THEME_DIR . '/assets/css/main.css')) {
+        wp_enqueue_style(
+            'azit-main-style',
+            AZIT_THEME_URI . '/assets/css/main.css',
+            array('azit-accessibility'),
+            AZIT_VERSION,
+            'all'
+        );
+    }
 
     // 8. Theme stylesheet (style.css - theme header & overrides)
     wp_enqueue_style(
@@ -189,46 +191,28 @@ function azit_enqueue_scripts() {
 
     // ==========================================================================
     // JAVASCRIPT FILES - V7.1-RGAA MIGRATION
-    // Load order: accessibility → navigation → tabs → language-switcher → main
+    // Load order: main → navigation → language-switcher → accessibility
     // ==========================================================================
 
-    // 1. Accessibility JavaScript - Core a11y features
+    // 1. Main JavaScript (general functionality)
     wp_enqueue_script(
-        'azit-accessibility-core',
-        AZIT_THEME_URI . '/assets/js/accessibility/accessibility.js',
+        'azit-main-js',
+        AZIT_THEME_URI . '/assets/js/main.js',
         array(),
         AZIT_VERSION,
         true
     );
 
-    // 2. Keyboard navigation for dropdowns
-    wp_enqueue_script(
-        'azit-keyboard-nav',
-        AZIT_THEME_URI . '/assets/js/accessibility/keyboard-nav.js',
-        array('azit-accessibility-core'),
-        AZIT_VERSION,
-        true
-    );
-
-    // 3. Navigation component (dropdown menus, mobile menu)
+    // 2. Navigation component (dropdown menus, mobile menu)
     wp_enqueue_script(
         'azit-navigation',
         AZIT_THEME_URI . '/assets/js/navigation.js',
-        array('azit-keyboard-nav'),
+        array('azit-main-js'),
         AZIT_VERSION,
         true
     );
 
-    // 4. Tabs component (accessible tab panels)
-    wp_enqueue_script(
-        'azit-tabs',
-        AZIT_THEME_URI . '/assets/js/tabs.js',
-        array('azit-accessibility-core'),
-        AZIT_VERSION,
-        true
-    );
-
-    // 5. Language switcher (FR/EN toggle)
+    // 3. Language switcher (FR/EN toggle)
     wp_enqueue_script(
         'azit-language-switcher',
         AZIT_THEME_URI . '/assets/js/language-switcher.js',
@@ -237,11 +221,11 @@ function azit_enqueue_scripts() {
         true
     );
 
-    // 6. Main JavaScript (WordPress integration)
+    // 4. Accessibility JavaScript - Core a11y features
     wp_enqueue_script(
-        'azit-main-js',
-        AZIT_THEME_URI . '/assets/js/main.js',
-        array('jquery', 'azit-language-switcher'),
+        'azit-accessibility-js',
+        AZIT_THEME_URI . '/assets/js/accessibility.js',
+        array('azit-language-switcher'),
         AZIT_VERSION,
         true
     );
@@ -273,7 +257,7 @@ add_action('wp_enqueue_scripts', 'azit_enqueue_scripts');
  * Add preload for critical assets
  */
 function azit_preload_assets() {
-    echo '<link rel="preload" href="' . esc_url(AZIT_THEME_URI . '/assets/css/accessibility/a11y-utils.css') . '" as="style">' . "\n";
+    echo '<link rel="preload" href="' . esc_url(AZIT_THEME_URI . '/assets/css/a11y-utils.css') . '" as="style">' . "\n";
 }
 add_action('wp_head', 'azit_preload_assets', 1);
 

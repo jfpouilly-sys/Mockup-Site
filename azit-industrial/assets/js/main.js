@@ -1,410 +1,246 @@
 /**
- * AZIT Industrial - Main JavaScript
- *
- * Core functionality for the AZIT Industrial WordPress theme.
- *
- * @package AZIT_Industrial
- * @since 7.1-RGAA-WP
+ * AZIT Website - Main JavaScript
+ * General functionality and interactions
  */
 
-(function($) {
+(function() {
     'use strict';
 
-    /**
-     * ==========================================================================
-     * GLOBAL VARIABLES
-     * ==========================================================================
-     */
+    // Sticky header on scroll
+    function initStickyHeader() {
+        const header = document.getElementById('header');
+        if (!header) return;
 
-    const AZIT = {
-        ajaxUrl: typeof azit_vars !== 'undefined' ? azit_vars.ajax_url : '/wp-admin/admin-ajax.php',
-        nonce: typeof azit_vars !== 'undefined' ? azit_vars.nonce : '',
-        i18n: typeof azit_vars !== 'undefined' ? azit_vars.i18n : {}
-    };
+        let lastScrollTop = 0;
+        const scrollThreshold = 100;
 
-    /**
-     * ==========================================================================
-     * UTILITY FUNCTIONS
-     * ==========================================================================
-     */
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    /**
-     * Debounce function
-     */
-    function debounce(func, wait, immediate) {
-        let timeout;
-        return function() {
-            const context = this;
-            const args = arguments;
-            const later = function() {
-                timeout = null;
-                if (!immediate) func.apply(context, args);
-            };
-            const callNow = immediate && !timeout;
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-            if (callNow) func.apply(context, args);
-        };
-    }
-
-    /**
-     * Throttle function
-     */
-    function throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
+            if (scrollTop > scrollThreshold) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-        };
-    }
 
-    /**
-     * ==========================================================================
-     * SMOOTH SCROLL
-     * ==========================================================================
-     */
-
-    function initSmoothScroll() {
-        // Only for internal anchor links
-        $('a[href^="#"]:not([href="#"])').on('click', function(e) {
-            const target = $(this.hash);
-
-            if (target.length) {
-                e.preventDefault();
-
-                // Check for reduced motion preference
-                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-                if (prefersReducedMotion) {
-                    target[0].scrollIntoView();
-                } else {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 100
-                    }, 500);
-                }
-
-                // Set focus for accessibility
-                target.attr('tabindex', '-1').focus();
-            }
+            lastScrollTop = scrollTop;
         });
     }
 
-    /**
-     * ==========================================================================
-     * HEADER SCROLL BEHAVIOR
-     * ==========================================================================
-     */
+    // Tab functionality
+    function initTabs() {
+        const tabButtons = document.querySelectorAll('.tabs__button');
 
-    function initHeaderScroll() {
-        const $header = $('.site-header');
-        let lastScroll = 0;
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const tabName = this.dataset.tab;
 
-        if (!$header.length) return;
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.tabs__button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tabs__content').forEach(content => {
+                    content.classList.remove('active');
+                });
 
-        const handleScroll = throttle(function() {
-            const currentScroll = $(window).scrollTop();
+                // Add active class to clicked button
+                this.classList.add('active');
 
-            // Add scrolled class when not at top
-            if (currentScroll > 50) {
-                $header.addClass('is-scrolled');
-            } else {
-                $header.removeClass('is-scrolled');
-            }
-
-            // Hide/show header on scroll (optional - uncomment if needed)
-            /*
-            if (currentScroll > lastScroll && currentScroll > 200) {
-                $header.addClass('is-hidden');
-            } else {
-                $header.removeClass('is-hidden');
-            }
-            */
-
-            lastScroll = currentScroll;
-        }, 100);
-
-        $(window).on('scroll', handleScroll);
+                // Show corresponding content
+                const activeContent = document.getElementById(`${tabName}-tab`);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                }
+            });
+        });
     }
 
-    /**
-     * ==========================================================================
-     * FORM VALIDATION
-     * ==========================================================================
-     */
+    // Code copy functionality
+    function initCodeCopy() {
+        const copyButtons = document.querySelectorAll('.code-block__copy');
 
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const codeBlock = this.closest('.code-block');
+                const code = codeBlock.querySelector('code');
+
+                if (code) {
+                    const text = code.textContent;
+
+                    // Copy to clipboard
+                    navigator.clipboard.writeText(text).then(() => {
+                        // Visual feedback
+                        const originalText = this.textContent;
+                        this.textContent = 'Copied!';
+
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                    });
+                }
+            });
+        });
+    }
+
+    // Form validation
     function initFormValidation() {
-        const $forms = $('form[data-validate]');
+        const forms = document.querySelectorAll('form');
 
-        if (!$forms.length) return;
-
-        $forms.each(function() {
-            const $form = $(this);
-
-            $form.on('submit', function(e) {
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
                 let isValid = true;
+                const requiredFields = this.querySelectorAll('[required]');
 
                 // Clear previous errors
-                $form.find('.field-error').remove();
-                $form.find('.has-error').removeClass('has-error');
-                $form.find('[aria-invalid]').removeAttr('aria-invalid');
+                this.querySelectorAll('.form-error').forEach(error => {
+                    error.remove();
+                });
 
-                // Validate required fields
-                $form.find('[required]').each(function() {
-                    const $field = $(this);
-                    const value = $field.val().trim();
-
-                    if (!value) {
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
                         isValid = false;
-                        showFieldError($field, AZIT.i18n.required || 'This field is required');
+
+                        // Add error message
+                        const errorMsg = document.createElement('span');
+                        errorMsg.className = 'form-error';
+                        errorMsg.textContent = 'This field is required';
+
+                        field.parentNode.appendChild(errorMsg);
+                        field.classList.add('error');
+                    } else {
+                        field.classList.remove('error');
                     }
                 });
 
-                // Validate email fields
-                $form.find('[type="email"]').each(function() {
-                    const $field = $(this);
-                    const value = $field.val().trim();
-
-                    if (value && !isValidEmail(value)) {
+                // Email validation
+                const emailFields = this.querySelectorAll('[type="email"]');
+                emailFields.forEach(field => {
+                    if (field.value && !isValidEmail(field.value)) {
                         isValid = false;
-                        showFieldError($field, AZIT.i18n.invalid_email || 'Please enter a valid email address');
+
+                        const errorMsg = document.createElement('span');
+                        errorMsg.className = 'form-error';
+                        errorMsg.textContent = 'Please enter a valid email address';
+
+                        field.parentNode.appendChild(errorMsg);
+                        field.classList.add('error');
                     }
                 });
 
                 if (!isValid) {
                     e.preventDefault();
-
-                    // Focus first error field
-                    $form.find('.has-error').first().find('input, textarea, select').focus();
-
-                    // Announce to screen readers
-                    announceError(AZIT.i18n.form_errors || 'Please correct the errors in the form');
                 }
-            });
-
-            // Real-time validation on blur
-            $form.find('input, textarea, select').on('blur', function() {
-                validateField($(this));
             });
         });
     }
 
-    function showFieldError($field, message) {
-        const $wrapper = $field.closest('.form-field');
-        const fieldId = $field.attr('id');
-        const errorId = fieldId + '-error';
-
-        $wrapper.addClass('has-error');
-        $field.attr('aria-invalid', 'true');
-        $field.attr('aria-describedby', errorId);
-
-        $('<p>', {
-            'class': 'field-error',
-            'id': errorId,
-            'role': 'alert',
-            'text': message
-        }).insertAfter($field);
-    }
-
-    function validateField($field) {
-        const $wrapper = $field.closest('.form-field');
-        const value = $field.val().trim();
-
-        // Clear previous error
-        $wrapper.removeClass('has-error');
-        $wrapper.find('.field-error').remove();
-        $field.removeAttr('aria-invalid');
-
-        // Check required
-        if ($field.prop('required') && !value) {
-            showFieldError($field, AZIT.i18n.required || 'This field is required');
-            return false;
-        }
-
-        // Check email
-        if ($field.attr('type') === 'email' && value && !isValidEmail(value)) {
-            showFieldError($field, AZIT.i18n.invalid_email || 'Please enter a valid email address');
-            return false;
-        }
-
-        return true;
-    }
-
+    // Email validation helper
     function isValidEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
 
-    function announceError(message) {
-        const $region = $('#aria-live-assertive');
-        if ($region.length) {
-            $region.text(message);
-            setTimeout(function() {
-                $region.text('');
-            }, 1000);
-        }
-    }
+    // Smooth scroll for anchor links
+    function initSmoothScroll() {
+        const links = document.querySelectorAll('a[href^="#"]');
 
-    /**
-     * ==========================================================================
-     * LAZY LOADING IMAGES
-     * ==========================================================================
-     */
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
 
-    function initLazyLoading() {
-        // Use native lazy loading if supported
-        if ('loading' in HTMLImageElement.prototype) {
-            const images = document.querySelectorAll('img[data-src]');
-            images.forEach(img => {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-            });
-        } else {
-            // Fallback to Intersection Observer
-            const lazyImages = document.querySelectorAll('img[data-src]');
+                if (href === '#') return;
 
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                            imageObserver.unobserve(img);
-                        }
+                const target = document.querySelector(href);
+
+                if (target) {
+                    e.preventDefault();
+
+                    const headerHeight = document.getElementById('header')?.offsetHeight || 0;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
-                }, {
-                    rootMargin: '50px 0px'
-                });
+                }
+            });
+        });
+    }
 
-                lazyImages.forEach(function(img) {
-                    imageObserver.observe(img);
+    // Notification signup (for coming soon pages)
+    function initNotificationSignup() {
+        const notifyForms = document.querySelectorAll('.coming-soon__notify');
+
+        notifyForms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const emailInput = this.querySelector('.form-input');
+                const button = this.querySelector('.btn');
+
+                if (emailInput && button) {
+                    // Simulate API call
+                    button.textContent = 'Subscribing...';
+                    button.disabled = true;
+
+                    setTimeout(() => {
+                        button.textContent = 'Subscribed!';
+                        button.classList.add('btn--success');
+                        emailInput.disabled = true;
+
+                        // Show success message
+                        const successMsg = document.createElement('p');
+                        successMsg.textContent = 'Thank you! We\'ll notify you when this product is available.';
+                        successMsg.style.color = 'var(--color-success)';
+                        successMsg.style.marginTop = 'var(--spacing-md)';
+                        this.parentNode.appendChild(successMsg);
+                    }, 1000);
+                }
+            });
+        });
+    }
+
+    // Lazy load images (if implemented)
+    function initLazyLoad() {
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.dataset.src;
+
+                        if (src) {
+                            img.src = src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
                 });
-            }
+            });
+
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            lazyImages.forEach(img => imageObserver.observe(img));
         }
     }
 
-    /**
-     * ==========================================================================
-     * RESPONSIVE TABLES
-     * ==========================================================================
-     */
-
-    function initResponsiveTables() {
-        const $tables = $('.entry-content table');
-
-        if (!$tables.length) return;
-
-        $tables.each(function() {
-            const $table = $(this);
-
-            // Wrap table for horizontal scroll
-            if (!$table.parent().hasClass('table-responsive')) {
-                $table.wrap('<div class="table-responsive" tabindex="0" role="region" aria-label="Scrollable table"></div>');
-            }
-        });
-    }
-
-    /**
-     * ==========================================================================
-     * EXTERNAL LINKS
-     * ==========================================================================
-     */
-
-    function initExternalLinks() {
-        // Add target="_blank" and rel attributes to external links
-        $('a[href^="http"]:not([href*="' + window.location.hostname + '"])').each(function() {
-            const $link = $(this);
-
-            // Skip if already has target
-            if (!$link.attr('target')) {
-                $link.attr('target', '_blank');
-            }
-
-            // Add security attributes
-            const currentRel = $link.attr('rel') || '';
-            if (currentRel.indexOf('noopener') === -1) {
-                $link.attr('rel', (currentRel + ' noopener noreferrer').trim());
-            }
-        });
-    }
-
-    /**
-     * ==========================================================================
-     * PRINT PREPARATION
-     * ==========================================================================
-     */
-
-    function initPrintPreparation() {
-        window.addEventListener('beforeprint', function() {
-            // Expand all collapsed content for printing
-            $('[aria-expanded="false"]').each(function() {
-                $(this).attr('data-was-collapsed', 'true');
-                $(this).attr('aria-expanded', 'true');
-            });
-
-            $('[hidden]').each(function() {
-                $(this).attr('data-was-hidden', 'true');
-                $(this).removeAttr('hidden');
-            });
-        });
-
-        window.addEventListener('afterprint', function() {
-            // Restore collapsed state
-            $('[data-was-collapsed="true"]').each(function() {
-                $(this).attr('aria-expanded', 'false');
-                $(this).removeAttr('data-was-collapsed');
-            });
-
-            $('[data-was-hidden="true"]').each(function() {
-                $(this).attr('hidden', '');
-                $(this).removeAttr('data-was-hidden');
-            });
-        });
-    }
-
-    /**
-     * ==========================================================================
-     * AJAX LOADING INDICATOR
-     * ==========================================================================
-     */
-
-    function showLoading($element) {
-        $element.addClass('is-loading');
-        $element.attr('aria-busy', 'true');
-    }
-
-    function hideLoading($element) {
-        $element.removeClass('is-loading');
-        $element.removeAttr('aria-busy');
-    }
-
-    /**
-     * ==========================================================================
-     * INITIALIZATION
-     * ==========================================================================
-     */
-
+    // Initialize all functions when DOM is ready
     function init() {
-        initSmoothScroll();
-        initHeaderScroll();
+        initStickyHeader();
+        initTabs();
+        initCodeCopy();
         initFormValidation();
-        initLazyLoading();
-        initResponsiveTables();
-        initExternalLinks();
-        initPrintPreparation();
+        initSmoothScroll();
+        initNotificationSignup();
+        initLazyLoad();
     }
 
-    // Initialize on document ready
-    $(document).ready(function() {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
         init();
-    });
+    }
 
-    // Expose public methods
-    window.AZIT = AZIT;
-
-})(jQuery);
+})();
