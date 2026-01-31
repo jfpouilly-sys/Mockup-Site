@@ -697,6 +697,31 @@ if (file_exists($import_static_content_file)) {
 
 /**
  * =============================================================================
+ * CUSTOM TEMPLATE LOADING
+ * =============================================================================
+ */
+
+/**
+ * Load custom template for specific products with complex tab structures
+ */
+function azit_load_custom_product_template($template) {
+    if (is_singular('product')) {
+        global $post;
+
+        // Use custom template for communication-stacks product
+        if ($post->post_name === 'communication-stacks') {
+            $custom_template = locate_template('single-product-communication-stacks.php');
+            if ($custom_template) {
+                return $custom_template;
+            }
+        }
+    }
+    return $template;
+}
+add_filter('single_template', 'azit_load_custom_product_template');
+
+/**
+ * =============================================================================
  * SECURITY & PERFORMANCE
  * =============================================================================
  */
