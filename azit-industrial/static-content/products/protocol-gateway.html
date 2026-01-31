@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISI-GTW Multi-Protocol Gateway | AZIT - Industrial Protocol Stacks</title>
+    <meta name="description" content="Custom multi-protocol gateway for serial, CAN and Ethernet industrial networks. Fully programmable C/C++ gateway solution by AZIT.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav">
+                <!-- Company Link -->
+                <a href="../company.html" class="top-menu-link">Company</a>
+
+                <!-- Blog & News Link -->
+                <a href="../blog.html" class="top-menu-link">Blog & News</a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <a href="../../index.html" class="language-button active" data-lang="en">EN</a>
+                <span class="language-separator">|</span>
+                <a href="../../fr/pages/products/protocol-gateway.html" class="language-button" data-lang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Products
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Hardware</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="protocol-gateway.html" class="mega-menu__link">Protocol Gateway (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Communication Stacks</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Slave</a></li>
+                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Master</a></li>
+                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Slave</a></li>
+                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Master</a></li>
+                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Slave</a></li>
+                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Master</a></li>
+                                        <li><a href="j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Software</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="simulation.html" class="mega-menu__link">Network Simulation (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Tools & Analyzers</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="tools.html" class="mega-menu__link">Development Tools</a></li>
+                                        <li><a href="analyzers.html" class="mega-menu__link">Protocol Analyzers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../services/expertise.html" class="nav__link">
+                            Expertise
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">OUR EXPERTISE</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/expertise-compliance.html" class="mega-menu__link">Safety Compliance</a></li>
+                                        <li><a href="../services/expertise-development.html" class="mega-menu__link">Protocol Development</a></li>
+                                        <li><a href="../services/expertise-testing.html" class="mega-menu__link">Testing & Validation</a></li>
+                                        <li><a href="../services/expertise-networks.html" class="mega-menu__link">Industrial Networks</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../training.html" class="nav__link">Training</a>
+                    </li>                    <li class="nav__item">
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../index.html">Home</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Products</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">Protocol Gateway</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Hero Section -->
+        <section class="product-hero product-hero--gateway">
+            <div class="container">
+                <div class="product-hero--gateway__layout">
+                    <div class="product-hero__gallery">
+                        <img src="../../assets/images/products/isi-gtw-hero.jpg"
+                             alt="ISI-GTW Multi-Protocol Gateway"
+                             class="product-hero__main-image">
+                        <div class="product-hero__thumbnails">
+                            <img src="../../assets/images/products/isi-gtw-pcb.jpg" alt="ISI-GTW PCB" class="active">
+                            <img src="../../assets/images/products/isi-gtw-case.jpg" alt="ISI-GTW Enclosure">
+                            <img src="../../assets/images/products/isi-gtw-ports.png" alt="ISI-GTW Ports">
+                        </div>
+                    </div>
+                    <div class="product-hero__info">
+                        <h1>ISI-GTW</h1>
+                        <p class="product-hero__subtitle">Multi-Protocol Gateway</p>
+                        <p class="product-hero__description">
+                            Custom protocol conversion for serial, CAN & Ethernet industrial networks.
+                        </p>
+                        <div class="product-hero__badges">
+                            <span class="badge badge--primary">Custom Development</span>
+                            <span class="badge badge--secondary">Made in France</span>
+                            <span class="badge badge--success">ST Partner</span>
+                        </div>
+                        <div class="product-hero__actions">
+                            <a href="../contact.html?product=gateway" class="btn btn--primary btn--large">Request Quote</a>
+                            <a href="../../assets/docs/isi-gtw-brochure.pdf" class="btn btn--outline btn--large" download>
+                                Download Brochure
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="section value-proposition">
+            <div class="container">
+                <blockquote class="highlight-box">
+                    <h2>A True Electronic Translator for Your Equipment</h2>
+                    <p>
+                        ISI-GTW is an intelligent, versatile, and fully programmable communication
+                        gateway for product designers and integrators. It enables communication
+                        between heterogeneous equipment with serial, CAN, or Ethernet interfaces
+                        using different and often incompatible protocols.
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Protocol Diagram -->
+        <section class="section protocol-diagram">
+            <div class="container">
+                <h2 style="text-align: center;">Supported Protocols</h2>
+                <div class="gateway-diagram">
+                    <img src="../../assets/images/diagrams/gateway-protocol-diagram.svg"
+                         alt="ISI-GTW Protocol Connections Diagram">
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed Content -->
+        <section class="section product-tabs">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="features">Features</button></li>
+                        <li><button class="tabs__button" data-tab="form-factors">Form Factors</button></li>
+                        <li><button class="tabs__button" data-tab="custom-dev">Custom Development</button></li>
+                        <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
+                    </ul>
+                </div>
+
+                <!-- Features Tab -->
+                <div class="tabs__content active" id="features-tab">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-card__icon">
+                                <span>&#128187;</span>
+                            </div>
+                            <h3>Fully Programmable</h3>
+                            <p>C/C++ programming in multitasking environment. Full access to process your data.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-card__icon">
+                                <span>&#128279;</span>
+                            </div>
+                            <h3>Multi-Protocol Support</h3>
+                            <p>CAN, CANopen, J1939, Ethernet, EtherNet/IP, Modbus RTU/TCP, Serial RS232/485</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-card__icon">
+                                <span>&#128230;</span>
+                            </div>
+                            <h3>Turnkey Solution</h3>
+                            <p>AZIT handles development, production, and packaging.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-card__icon">
+                                <span>&#128268;</span>
+                            </div>
+                            <h3>Expandable I/O</h3>
+                            <p>USB port, SD card slot, DIP switches, protected I/Os, JTAG access.</p>
+                        </div>
+                    </div>
+                    <div class="differentiator-box">
+                        <p>
+                            <strong>What sets ISI-GTW apart:</strong> Unlike standard market gateways,
+                            ISI-GTW offers complete C/C++ programmability in a multitasking environment —
+                            giving you full control over data processing that off-the-shelf solutions cannot match.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Form Factors Tab -->
+                <div class="tabs__content" id="form-factors-tab">
+                    <h3>Two Integration Options</h3>
+                    <div class="form-factors-grid">
+                        <div class="form-factor-card">
+                            <img src="../../assets/images/products/isi-gtw-pcb.jpg" alt="ISI-GTW PCB Format">
+                            <h4>PCB Format</h4>
+                            <p class="ref">Ref: ISI-GTW-PCB</p>
+                            <ul>
+                                <li>Bare board for custom enclosure</li>
+                                <li>4 mounting holes for standoffs</li>
+                                <li>Terminal block connectors</li>
+                            </ul>
+                            <a href="../contact.html?product=gateway-pcb" class="btn btn--outline">
+                                Request PCB Quote
+                            </a>
+                        </div>
+                        <div class="form-factor-card">
+                            <img src="../../assets/images/products/isi-gtw-case.jpg" alt="ISI-GTW Enclosure Format">
+                            <h4>Enclosure Format</h4>
+                            <p class="ref">Ref: ISI-GTW-CASE</p>
+                            <ul>
+                                <li>Aluminum enclosure</li>
+                                <li>DIN rail mounting</li>
+                                <li>Mechanical & EMC protection</li>
+                                <li>DB9 connectors for secure connections</li>
+                                <li>Industrial cabinet ready</li>
+                            </ul>
+                            <a href="../contact.html?product=gateway-case" class="btn btn--outline">
+                                Request Case Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Development Tab -->
+                <div class="tabs__content" id="custom-dev-tab">
+                    <h3>Tailored to Your Requirements</h3>
+                    <p>
+                        Leveraging our expertise in industrial networks and embedded systems,
+                        AZIT can study your specifications and propose a custom solution based on ISI-GTW.
+                    </p>
+                    <div class="process-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Requirements</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Design</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Development</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <span class="step-label">Testing</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <span class="step-label">Production</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            <span class="step-label">Delivery</span>
+                        </div>
+                    </div>
+                    <h4 style="margin-top: 2rem;">What We Offer</h4>
+                    <ul class="check-list">
+                        <li>Custom firmware development</li>
+                        <li>Pre-loaded application software</li>
+                        <li>Any quantity — from prototype to volume</li>
+                        <li>Flexible delivery scheduling</li>
+                        <li>Ongoing firmware updates via JTAG</li>
+                        <li>Long-term maintenance support</li>
+                    </ul>
+                    <a href="../contact.html?product=gateway-custom" class="btn btn--primary" style="margin-top: 1.5rem;">
+                        Request Custom Development Quote
+                    </a>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tabs__content" id="specs-tab">
+                    <h3>Hardware Specifications</h3>
+                    <table class="specs-table">
+                        <thead>
+                            <tr><th>Interface</th><th>Details</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ethernet</td><td>10/100 Mbps</td></tr>
+                            <tr><td>CAN</td><td>2x CAN 2.0B / CAN FD</td></tr>
+                            <tr><td>Serial</td><td>RS232, RS485</td></tr>
+                            <tr><td>USB</td><td>Device/Host</td></tr>
+                            <tr><td>Storage</td><td>SD Card slot</td></tr>
+                            <tr><td>Debug</td><td>JTAG interface</td></tr>
+                            <tr><td>I/O</td><td>Protected digital I/O</td></tr>
+                            <tr><td>Config</td><td>DIP switches</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 2rem;">Supported Protocols</h3>
+                    <table class="specs-table">
+                        <thead>
+                            <tr><th>Category</th><th>Protocols</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ethernet</td><td>TCP/IP, EtherNet/IP, Modbus TCP, EtherCAT</td></tr>
+                            <tr><td>CAN</td><td>CAN 2.0, CAN FD, CANopen, J1939, DeviceNet</td></tr>
+                            <tr><td>Serial</td><td>Modbus RTU, Custom</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 2rem;">Port Diagram</h3>
+                    <img src="../../assets/images/products/isi-gtw-ports.png"
+                         alt="ISI-GTW Port Diagram"
+                         class="port-diagram">
+                </div>
+            </div>
+        </section>
+
+        <!-- Elite Partners Section -->
+        <section class="elite-partners product-page-partners">
+            <div class="container">
+                <h2 class="section__title">Elite Partners</h2>
+                <div class="partners-grid">
+                    <div class="partners-grid__item">NXP Semiconductors</div>
+                    <div class="partners-grid__item">Intel</div>
+                    <div class="partners-grid__item">Texas Instruments</div>
+                    <div class="partners-grid__item">STMicroelectronics</div>
+                    <div class="partners-grid__item">Acontis</div>
+                    <div class="partners-grid__item">Infineon</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="section section--light related-products">
+            <div class="container">
+                <h2>Complete Your Solution</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">&#128268;</div>
+                        <h3 class="product-card__title">CANopen Stack</h3>
+                        <p class="product-card__description">
+                            Protocol stack for your gateway firmware
+                        </p>
+                        <a href="canopen-slave.html" class="product-card__cta">Learn More →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">&#128663;</div>
+                        <h3 class="product-card__title">J1939 Stack</h3>
+                        <p class="product-card__description">
+                            Automotive protocol support
+                        </p>
+                        <a href="j1939.html" class="product-card__cta">Learn More →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">&#128736;</div>
+                        <h3 class="product-card__title">Gateway Dev Services</h3>
+                        <p class="product-card__description">
+                            Custom development support
+                        </p>
+                        <a href="../services/expertise-networks.html" class="product-card__cta">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Training -->
+        <section class="section related-training">
+            <div class="container">
+                <h2>Build Your Protocol Expertise</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <h3>CAN Training</h3>
+                        <p>2 days</p>
+                        <a href="../training.html#can" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <h3>CANopen Training</h3>
+                        <p>2 days</p>
+                        <a href="../training.html#canopen" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 2rem;">
+                        <h3>J1939 Training</h3>
+                        <p>2 days</p>
+                        <a href="../training.html#j1939" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Need a Custom Gateway Solution?</h2>
+                    <p>
+                        Tell us about your protocol conversion requirements and our experts
+                        will propose a tailored solution.
+                    </p>
+                    <div>
+                        <a href="../contact.html?product=gateway" class="btn btn--secondary btn--large">Request Custom Quote</a>
+                        <a href="../../assets/docs/isi-gtw-brochure.pdf" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;" download>Download Brochure</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">A brand of ISIT</p>
+                    <p class="footer__tagline">30+ years expertise in embedded systems</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Products</h3>
+                    <ul class="footer__list">
+                        <li><a href="protocol-gateway.html" class="footer__link">Gateway</a></li>
+                        <li><a href="simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/expertise.html" class="footer__link">Our Expertise</a></li>
+                        <li><a href="../services/expertise-compliance.html" class="footer__link">Safety Compliance</a></li>
+                        <li><a href="../services/expertise-development.html" class="footer__link">Protocol Development</a></li>
+                        <li><a href="../services/expertise-testing.html" class="footer__link">Testing & Validation</a></li>
+                        <li><a href="../services/expertise-networks.html" class="footer__link">Industrial Networks</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Resources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../training.html" class="footer__link">Training</a></li>
+                        <li><a href="../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Privacy</a></li>
+                    <li><a href="#" class="footer__social-link">Terms</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/language-switcher.js"></script>
+    <script src="../../js/tabs.js"></script>
+</body>
+</html>

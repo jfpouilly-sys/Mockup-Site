@@ -92,8 +92,8 @@ function azit_extract_html_title($html_path) {
  * Import pages from static HTML files
  */
 function azit_import_static_pages() {
-    // Base path to static pages
-    $static_path = get_template_directory() . '/../pages/';
+    // Base path to static pages (bundled with theme)
+    $static_path = get_template_directory() . '/static-content/';
 
     // Pages to import
     $pages = array(
@@ -143,8 +143,8 @@ function azit_import_static_pages() {
  * Import products from static HTML files
  */
 function azit_import_static_products() {
-    // Base path to static product pages
-    $static_path = get_template_directory() . '/../pages/products/';
+    // Base path to static product pages (bundled with theme)
+    $static_path = get_template_directory() . '/static-content/products/';
 
     // Products to import
     $products = array(
@@ -215,8 +215,8 @@ function azit_import_static_products() {
  * Import expertise posts from static HTML files
  */
 function azit_import_static_expertise() {
-    // Base path to static expertise pages
-    $static_path = get_template_directory() . '/../pages/services/';
+    // Base path to static expertise pages (bundled with theme)
+    $static_path = get_template_directory() . '/static-content/services/';
 
     // Expertise pages to import
     $expertise = array(

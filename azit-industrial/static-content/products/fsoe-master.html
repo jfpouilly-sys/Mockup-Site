@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSoE Master Stack - AZIT</title>
+    <meta name="description" content="IEC 61784-3 compliant Fail-Safe over EtherCAT master implementation for safety controllers. SIL3/PLe certified by Bureau Véritas.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav">
+                <!-- Company Link -->
+                <a href="../company.html" class="top-menu-link">Company</a>
+
+                <!-- Blog & News Link -->
+                <a href="../blog.html" class="top-menu-link">Blog & News</a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <a href="../../index.html" class="language-button active" data-lang="en">EN</a>
+                <span class="language-separator">|</span>
+                <a href="../../fr/pages/products/fsoe-master.html" class="language-button" data-lang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Products
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Hardware</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="protocol-gateway.html" class="mega-menu__link">Protocol Gateway (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Communication Stacks</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Slave</a></li>
+                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Master</a></li>
+                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Slave</a></li>
+                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Master</a></li>
+                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Slave</a></li>
+                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Master</a></li>
+                                        <li><a href="j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Software</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="simulation.html" class="mega-menu__link">Network Simulation (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Tools & Analyzers</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="tools.html" class="mega-menu__link">Development Tools</a></li>
+                                        <li><a href="analyzers.html" class="mega-menu__link">Protocol Analyzers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../services/expertise.html" class="nav__link">
+                            Expertise
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">OUR EXPERTISE</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/expertise-compliance.html" class="mega-menu__link">Safety Compliance</a></li>
+                                        <li><a href="../services/expertise-development.html" class="mega-menu__link">Protocol Development</a></li>
+                                        <li><a href="../services/expertise-testing.html" class="mega-menu__link">Testing & Validation</a></li>
+                                        <li><a href="../services/expertise-networks.html" class="mega-menu__link">Industrial Networks</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../training.html" class="nav__link">Training</a>
+                    </li>                    <li class="nav__item">
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../index.html">Home</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Products</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Communication Stacks</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">FSoE Master</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31" alt="FSoE Master Stack" class="product-header-image" style="margin-bottom: 2rem; border-radius: 8px;">
+                <div class="product-hero__icon">⚡</div>
+                <h1 class="product-hero__title">FSoE Master Stack</h1>
+                <p class="product-hero__description">
+                    IEC 61784-3 compliant Fail-Safe over EtherCAT implementation for safety controllers and masters
+                </p>
+                <div class="product-hero__badges">
+                    <span class="badge badge--success">SIL3 Certified</span>
+                    <span class="badge badge--success">PLe Certified</span>
+                    <span class="badge badge--primary">BV Approved</span>
+                </div>
+                <div class="product-hero__actions">
+                    <a href="../contact.html" class="btn btn--primary btn--large">Request Quote</a>
+                    <a href="#" class="btn btn--outline btn--large">Download Datasheet</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="overview">Overview</button></li>
+                        <li><button class="tabs__button" data-tab="features">Features</button></li>
+                        <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
+                        <li><button class="tabs__button" data-tab="integration">Integration</button></li>
+                    </ul>
+                </div>
+
+                <!-- Overview Tab -->
+                <div class="tabs__content active" id="overview-tab">
+                    <div class="two-column">
+                        <div>
+                            <h2>Product Overview</h2>
+                            <p>
+                                ISIT's Safety over EtherCAT protocol stack delivers certified functional
+                                safety without hardware constraints. As a software solution, it integrates
+                                seamlessly with your existing EtherCAT applications. MainInstance (Master)
+                                or SubInstance (Slave): reduce integration complexity, accelerate certification
+                                and maintain complete control over your hardware choices.
+                            </p>
+
+                            <h2 style="margin-top: 2rem;">Key Benefits</h2>
+                            <ul class="benefits-list">
+                                <li><strong>IEC 61784-3-12 compliant:</strong> Fully standard and interoperable</li>
+                                <li><strong>Pre-certified up to SIL 3 (PLe):</strong> Reduces your certification time and cost</li>
+                                <li><strong>MainInstance / SubInstance versions:</strong> Implement full Safety solution</li>
+                                <li><strong>Easy API integration:</strong> Short learning curve for your teams</li>
+                                <li><strong>Interoperability:</strong> Works with most existing EtherCAT stacks</li>
+                                <li><strong>SiL Ready:</strong> Early safety network simulation powered by Acontis EC-Simulator</li>
+                                <li><strong>Expert support</strong></li>
+                            </ul>
+
+                            <h3 style="margin-top: 2rem;">White Channel Architecture</h3>
+                            <p>
+                                The white channel architecture means our FSoE MainInstance is independent of the underlying
+                                "black channel" EtherCAT master stack. This provides flexibility in choosing your
+                                EtherCAT implementation while maintaining full safety certification.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="specs-box">
+                                <h3 class="specs-box__title">Product Characteristics</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard Compliance</span>
+                                    <span class="specs-box__value">IEC 61784-3-12</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Certification</span>
+                                    <span class="specs-box__value">Pre-certified up to SIL 3 (PLe)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Certification Body</span>
+                                    <span class="specs-box__value">Bureau Véritas</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Hardware Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">OS Dependency</span>
+                                    <span class="specs-box__value">Low</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Versions Available</span>
+                                    <span class="specs-box__value">MainInstance (Master), SubInstance (Slave)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">EtherCAT Compatibility</span>
+                                    <span class="specs-box__value">Works with most existing EtherCAT stacks</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Simulation Support</span>
+                                    <span class="specs-box__value">Acontis EC-Simulator</span>
+                                </div>
+                            </div>
+
+                            <div class="specs-box" style="margin-top: 1.5rem;">
+                                <h3 class="specs-box__title">Quick Specifications</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Safety Level</span>
+                                    <span class="specs-box__value">SIL3 / PLe</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard</span>
+                                    <span class="specs-box__value">IEC 61784-3-12</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Max Connections</span>
+                                    <span class="specs-box__value">64 SubInstances</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Code Size</span>
+                                    <span class="specs-box__value">~80KB (typical)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Language</span>
+                                    <span class="specs-box__value">ANSI C</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Certification</span>
+                                    <span class="specs-box__value">Bureau Véritas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Tab -->
+                <div class="tabs__content" id="features-tab">
+                    <h2>Complete Feature Set</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div class="card">
+                            <h3 class="card__title">Safety Features</h3>
+                            <ul>
+                                <li>SIL3 / PLe safety level</li>
+                                <li>Multi-slave connection management</li>
+                                <li>Per-connection CRC and sequence numbers</li>
+                                <li>Watchdog monitoring for all connections</li>
+                                <li>Fail-safe state management</li>
+                                <li>Comprehensive diagnostics</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Communication Features</h3>
+                            <ul>
+                                <li>Up to 64 FSoE slave connections</li>
+                                <li>Configurable safety I/O per connection</li>
+                                <li>Flexible data mapping</li>
+                                <li>Individual watchdog timeouts</li>
+                                <li>Connection status monitoring</li>
+                                <li>Parameter management</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Integration Features</h3>
+                            <ul>
+                                <li>Hardware abstraction layer</li>
+                                <li>RTOS or bare-metal operation</li>
+                                <li>Optimized for real-time performance</li>
+                                <li>Clean, documented API</li>
+                                <li>Configuration tools</li>
+                                <li>Porting guidelines</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Development Support</h3>
+                            <ul>
+                                <li>Comprehensive documentation</li>
+                                <li>Network configuration tools</li>
+                                <li>Test and validation suites</li>
+                                <li>Example projects</li>
+                                <li>Expert technical support</li>
+                                <li>Training available</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tabs__content" id="specs-tab">
+                    <h2>Technical Specifications</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div>
+                            <h3>Safety Certification</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">SIL3 per IEC 61508</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Performance Level</strong></td>
+                                    <td style="padding: 0.5rem 0;">PLe per ISO 13849</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <td style="padding: 0.5rem 0;">IEC 61784-3</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Certification Body</strong></td>
+                                    <td style="padding: 0.5rem 0;">Bureau Véritas</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Resource Requirements</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~80KB (typical)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~16KB + per connection</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <td style="padding: 0.5rem 0;">~4KB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <td style="padding: 0.5rem 0;">32-bit processor</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div>
+                            <h3>Supported Features</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Max Connections</strong></td>
+                                    <td style="padding: 0.5rem 0;">64 FSoE slaves</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Safe I/O per Connection</strong></td>
+                                    <td style="padding: 0.5rem 0;">Up to 254 bytes</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Watchdog Range</strong></td>
+                                    <td style="padding: 0.5rem 0;">10-65535 ms</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>FSoE Protocol Version</strong></td>
+                                    <td style="padding: 0.5rem 0;">v1.1</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Platform Support</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <td style="padding: 0.5rem 0;">Low hardware dependency</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Black Channel Stacks</strong></td>
+                                    <td style="padding: 0.5rem 0;">Acontis, KPA, custom</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integration Tab -->
+                <div class="tabs__content" id="integration-tab">
+                    <h2>Quick Start Integration</h2>
+                    <p style="margin-top: 1rem;">
+                        The AZIT FSoE Master stack is designed for straightforward integration into safety controllers.
+                    </p>
+
+                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copy</button>
+                        </div>
+                        <pre><code>/* FSoE Master initialization */
+#include "fsoe_master.h"
+
+/* Configure master and connections */
+FSOE_MASTER_CONFIG master_config = {
+    .max_connections = 4,
+    .cycle_time = 10  /* ms */
+};
+
+/* Initialize FSoE master */
+if (fsoe_master_init(&master_config) == FSOE_OK) {
+    /* Add slave connections */
+    FSOE_CONNECTION_CONFIG conn = {
+        .connection_id = 0x0001,
+        .watchdog_time = 100,
+        .safe_inputs = 8,
+        .safe_outputs = 8
+    };
+    fsoe_master_add_connection(&conn);
+}</code></pre>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Cyclic Processing</h3>
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copy</button>
+                        </div>
+                        <pre><code>/* Call in your cyclic safety task */
+void safety_controller_task(void) {
+    uint8_t safe_outputs[8];
+    uint8_t safe_inputs[8];
+
+    /* Read local safety inputs */
+    read_local_safety_inputs(safe_outputs);
+
+    /* Process all FSoE connections */
+    fsoe_master_process();
+
+    /* Get data from specific slave */
+    fsoe_master_get_slave_data(0x0001, safe_inputs);
+
+    /* Process safety logic */
+    process_safety_logic(safe_inputs, safe_outputs);
+}</code></pre>
+                    </div>
+
+                    <div class="two-column" style="margin-top: 3rem;">
+                        <div>
+                            <h3>Integration Steps</h3>
+                            <ol style="padding-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Add stack files to your project</strong><br>
+                                    Include source files and headers in your build system
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Implement HAL functions</strong><br>
+                                    Provide timestamp and black channel interface
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Configure network topology</strong><br>
+                                    Define slave connections and parameters
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Integrate in safety task</strong><br>
+                                    Call process function in your controller cycle
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Test and validate</strong><br>
+                                    Use provided test cases and validation tools
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div>
+                            <h3>What's Included</h3>
+                            <ul class="benefits-list">
+                                <li>Complete source code with documentation</li>
+                                <li>Configuration tool for network setup</li>
+                                <li>Integration guide and API reference</li>
+                                <li>HAL template and porting guide</li>
+                                <li>Test suites and validation tools</li>
+                                <li>BV certification documents</li>
+                                <li>Technical support package</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
+                        <h3>Need Help with Integration?</h3>
+                        <p style="margin-top: 1rem;">
+                            Our team offers complete safety controller development services, from architecture
+                            design to BV certification support.
+                        </p>
+                        <a href="../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elite Partners Section -->
+        <section class="elite-partners product-page-partners">
+            <div class="container">
+                <h2 class="section__title">Elite Partners</h2>
+                <div class="partners-grid">
+                    <div class="partners-grid__item">NXP Semiconductors</div>
+                    <div class="partners-grid__item">Intel</div>
+                    <div class="partners-grid__item">Texas Instruments</div>
+                    <div class="partners-grid__item">STMicroelectronics</div>
+                    <div class="partners-grid__item">Acontis</div>
+                    <div class="partners-grid__item">Infineon</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Related Products</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">⚡</div>
+                        <h3 class="product-card__title">FSoE Slave Stack</h3>
+                        <p class="product-card__description">
+                            Complete FSoE slave for safety devices
+                        </p>
+                        <a href="fsoe-slave.html" class="product-card__cta">Learn More →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔐</div>
+                        <h3 class="product-card__title">CANopen Safety Master</h3>
+                        <p class="product-card__description">
+                            CiA 304 compliant safety master
+                        </p>
+                        <a href="canopen-safety-master.html" class="product-card__cta">Learn More →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔧</div>
+                        <h3 class="product-card__title">Safety Compliance</h3>
+                        <p class="product-card__description">
+                            Certification consulting and support
+                        </p>
+                        <a href="../services/expertise-compliance.html" class="product-card__cta">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Ready to Build Safety Controllers?</h2>
+                    <p>Request a quote or talk to our experts about your project</p>
+                    <div>
+                        <a href="../contact.html" class="btn btn--secondary btn--large">Request Quote</a>
+                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">A brand of ISIT</p>
+                    <p class="footer__tagline">30+ years expertise in embedded systems</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Products</h3>
+                    <ul class="footer__list">
+                        <li><a href="protocol-gateway.html" class="footer__link">Gateway</a></li>
+                        <li><a href="simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/expertise.html" class="footer__link">Our Expertise</a></li>
+                        <li><a href="../services/expertise-compliance.html" class="footer__link">Safety Compliance</a></li>
+                        <li><a href="../services/expertise-development.html" class="footer__link">Protocol Development</a></li>
+                        <li><a href="../services/expertise-testing.html" class="footer__link">Testing & Validation</a></li>
+                        <li><a href="../services/expertise-networks.html" class="footer__link">Industrial Networks</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Resources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../training.html" class="footer__link">Training</a></li>
+                        <li><a href="../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Privacy</a></li>
+                    <li><a href="#" class="footer__social-link">Terms</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/language-switcher.js"></script>
+</body>
+</html>
