@@ -679,6 +679,14 @@ if (file_exists($testing_optimization_file)) {
 }
 
 /**
+ * Static Content Import
+ */
+$import_static_content_file = AZIT_THEME_DIR . '/inc/import-static-content.php';
+if (file_exists($import_static_content_file)) {
+    require_once $import_static_content_file;
+}
+
+/**
  * =============================================================================
  * SECURITY & PERFORMANCE
  * =============================================================================
@@ -794,9 +802,42 @@ function azit_setup_page() {
         echo '<div class="notice notice-success"><p>' . sprintf(esc_html__('%d products created successfully!', 'azit-industrial'), $created) . '</p></div>';
     }
 
+    // Import static content from HTML files
+    if (isset($_POST['azit_import_static']) && check_admin_referer('azit_import_static_nonce')) {
+        if (function_exists('azit_import_all_static_content')) {
+            $results = azit_import_all_static_content();
+            $total = $results['pages'] + $results['products'] + $results['expertise'];
+            echo '<div class="notice notice-success"><p>' . sprintf(
+                esc_html__('Imported from static HTML: %d pages, %d products, %d expertise posts. Total: %d items.', 'azit-industrial'),
+                $results['pages'],
+                $results['products'],
+                $results['expertise'],
+                $total
+            ) . '</p></div>';
+        }
+    }
+
     ?>
     <div class="wrap">
         <h1><?php esc_html_e('AZIT Industrial Theme Setup', 'azit-industrial'); ?></h1>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px; background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%); border-left: 4px solid #4caf50;">
+            <h2 style="color: #2e7d32;"><?php esc_html_e('⭐ RECOMMENDED: Import from Static Site', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('Import all content from the original static HTML files (pages/). This preserves the exact content you created.', 'azit-industrial'); ?></p>
+            <p><strong><?php esc_html_e('This will import:', 'azit-industrial'); ?></strong></p>
+            <ul style="margin-left: 20px; list-style: disc;">
+                <li><?php esc_html_e('Pages: Contact, Company, Training, Blog, Sitemap, Accessibility', 'azit-industrial'); ?></li>
+                <li><?php esc_html_e('Products: FSoE, PROFISAFE, CANopen, J1939, Protocol Gateway, Simulation, and more', 'azit-industrial'); ?></li>
+                <li><?php esc_html_e('Expertise: Safety Compliance, Protocol Development, Testing, Industrial Networks', 'azit-industrial'); ?></li>
+            </ul>
+            <form method="post" style="margin-top: 15px;">
+                <?php wp_nonce_field('azit_import_static_nonce'); ?>
+                <input type="submit" name="azit_import_static" class="button button-primary button-hero" value="<?php esc_attr_e('Import Content from Static HTML Files', 'azit-industrial'); ?>">
+            </form>
+        </div>
+
+        <hr style="margin: 30px 0;">
+        <h2><?php esc_html_e('Alternative Setup Options', 'azit-industrial'); ?></h2>
 
         <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px;">
             <h2><?php esc_html_e('1. Flush Permalinks', 'azit-industrial'); ?></h2>
