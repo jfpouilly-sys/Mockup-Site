@@ -152,6 +152,20 @@ get_header();
                                class="btn btn-primary">
                                 <?php esc_html_e('Request Quote', 'azit-industrial'); ?>
                             </a>
+                            <?php
+                            $datasheet = null;
+                            if (function_exists('get_field')) {
+                                $datasheet = get_field('product_datasheet');
+                            }
+                            if ($datasheet && !empty($datasheet['url'])) :
+                            ?>
+                            <a href="<?php echo esc_url($datasheet['url']); ?>"
+                               class="btn btn-secondary"
+                               download
+                               aria-label="<?php echo esc_attr(sprintf(__('Download %s datasheet (PDF)', 'azit-industrial'), get_the_title())); ?>">
+                                <?php esc_html_e('Download Datasheet', 'azit-industrial'); ?>
+                            </a>
+                            <?php endif; ?>
                             <a href="#specifications" class="btn btn-secondary">
                                 <?php esc_html_e('View Specifications', 'azit-industrial'); ?>
                             </a>
