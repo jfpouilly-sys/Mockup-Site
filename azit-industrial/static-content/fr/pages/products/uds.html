@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDS Diagnostic Stack - AZIT</title>
+    <meta name="description" content="Unified Diagnostic Services (UDS) protocol stack for automotive diagnostics.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/components.css">
+    <link rel="stylesheet" href="../../../css/layout.css">
+    <link rel="stylesheet" href="../../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav">
+                <!-- Company Link -->
+                <a href="../company.html" class="top-menu-link">Entreprise</a>
+
+                <!-- Blog & News Link -->
+                <a href="../blog.html" class="top-menu-link">Blog & Actualités</a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <a href="../../../pages/products/uds.html" class="language-button" data-lang="en">EN</a>
+                <span class="language-separator">|</span>
+                <a href="../../../fr/index.html" class="language-button active" data-lang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../../fr/index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Produits
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Matériel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="protocol-gateway.html" class="mega-menu__link">Passerelle de Protocole (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Stacks de Communication</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Esclave</a></li>
+                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Maître</a></li>
+                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Esclave</a></li>
+                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Maître</a></li>
+                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Esclave</a></li>
+                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Maître</a></li>
+                                        <li><a href="j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Logiciel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Outils & Analyseurs</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="tools.html" class="mega-menu__link">Outils de Développement</a></li>
+                                        <li><a href="analyzers.html" class="mega-menu__link">Analyseurs de Protocole</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../services/expertise.html" class="nav__link">
+                            Expertise
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">NOTRE EXPERTISE</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/expertise-compliance.html" class="mega-menu__link">Conformite securite</a></li>
+                                        <li><a href="../services/expertise-development.html" class="mega-menu__link">Developpement protocole</a></li>
+                                        <li><a href="../services/expertise-testing.html" class="mega-menu__link">Tests & validation</a></li>
+                                        <li><a href="../services/expertise-networks.html" class="mega-menu__link">Reseaux industriels</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../training.html" class="nav__link">Formation</a>
+                    </li>                    <li class="nav__item">
+                        <a href="../../company.html" class="nav__link">Entreprise</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../../contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../../fr/index.html">Accueil</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Produits</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Stacks de Communication</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">UDS Diagnostics</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Prochainement Notice -->
+        <section class="section" style="padding-top: 1.5rem; padding-bottom: 0;">
+            <div class="container">
+                <div style="padding: 1rem 1.5rem; background-color: #FFF4E6; border-left: 4px solid var(--color-warning); border-radius: var(--border-radius-md); margin-bottom: 1rem;">
+                    <p style="margin: 0; color: #8B5700; font-weight: 500;">
+                        <strong>Prochainement :</strong> Ce produit est actuellement en développement. Contactez-nous pour des informations sur la disponibilité.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <div class="product-hero__icon">🔍</div>
+                <h1 class="product-hero__title">UDS Diagnostic Stack</h1>
+                <p class="product-hero__description">
+                    Unified Diagnostic Services (ISO 14229) implementation for automotive ECU diagnostics
+                </p>
+                <div class="product-hero__badges">
+                    <span class="badge badge--warning">Prochainement</span>
+                    <span class="badge badge--primary">ISO 14229</span>
+                </div>
+                <div class="product-hero__actions">
+                    <a href="../../contact.html" class="btn btn--primary btn--large">Nous Contacter</a>
+                    <a href="#" class="btn btn--outline btn--large">Manifester son Intérêt</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="overview">Vue d'ensemble</button></li>
+                        <li><button class="tabs__button" data-tab="features">Fonctionnalités</button></li>
+                        <li><button class="tabs__button" data-tab="specs">Spécifications</button></li>
+                    </ul>
+                </div>
+
+                <!-- Vue d'ensemble Tab -->
+                <div class="tabs__content active" id="overview-tab">
+                    <div class="two-column">
+                        <div>
+                            <h2>What is UDS?</h2>
+                            <p>
+                                Unified Diagnostic Services (UDS) is the international standard (ISO 14229) for automotive
+                                ECU diagnostics. It defines a comprehensive set of diagnostic services for reading fault
+                                codes, programming ECUs, accessing measurement data, and performing routine tests.
+                                UDS is mandatory for modern automotive systems and is used extensively in vehicle
+                                development, production, and service.
+                            </p>
+
+                            <h2 style="margin-top: 2rem;">AZIT Stack UDS (En Développement)</h2>
+                            <p>
+                                Our UDS implementation will provide a complete, production-ready diagnostic solution for
+                                automotive ECU development. Built on decades of automotive expertise, it will support
+                                all major UDS services and transport protocols including ISO-TP over CAN and DoIP over Ethernet.
+                            </p>
+
+                            <h3 style="margin-top: 2rem;">Key Applications (Planned)</h3>
+                            <ul>
+                                <li>Engine and powertrain ECUs</li>
+                                <li>Body and comfort systems</li>
+                                <li>ADAS and autonomous systems</li>
+                                <li>Battery management systems</li>
+                                <li>Passerelle and network controllers</li>
+                                <li>Diagnostic testers and tools</li>
+                            </ul>
+
+                            <div class="architecture-diagram" style="margin-top: 2rem;">
+                                <div class="architecture-diagram__placeholder" style="aspect-ratio: 16/9;">
+                                    [UDS Architecture Diagram]
+                                    <br><br>
+                                    Diagnostic Application
+                                    <br>↓
+                                    <br>AZIT Stack UDS (ISO 14229)
+                                    <br>↓
+                                    <br>Transport Layer (ISO-TP / DoIP)
+                                    <br>↓
+                                    <br>Network (CAN / Ethernet)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="specs-box">
+                                <h3 class="specs-box__title">Planned Benefits</h3>
+                                <ul class="benefits-list">
+                                    <li>ISO 14229 compliant</li>
+                                    <li>Comprehensive service support</li>
+                                    <li>ISO-TP and DoIP transport</li>
+                                    <li>Faible dépendance matérielle</li>
+                                    <li>AUTOSAR compatible</li>
+                                    <li>Expert support</li>
+                                </ul>
+                            </div>
+
+                            <div class="specs-box" style="margin-top: 1.5rem;">
+                                <h3 class="specs-box__title">Planned Spécifications</h3>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Standard</span>
+                                    <span class="specs-box__value">ISO 14229</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Transport</span>
+                                    <span class="specs-box__value">ISO-TP, DoIP</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Code Size</span>
+                                    <span class="specs-box__value">~35KB (estimated)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">RAM</span>
+                                    <span class="specs-box__value">~6KB (estimated)</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Language</span>
+                                    <span class="specs-box__value">ANSI C</span>
+                                </div>
+                                <div class="specs-box__item">
+                                    <span class="specs-box__label">Status</span>
+                                    <span class="specs-box__value">En Développement</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fonctionnalités Tab -->
+                <div class="tabs__content" id="features-tab">
+                    <h2>Planned Feature Set</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div class="card">
+                            <h3 class="card__title">Diagnostic Services</h3>
+                            <ul>
+                                <li>Diagnostic Session Control (0x10)</li>
+                                <li>ECU Reset (0x11)</li>
+                                <li>Security Access (0x27)</li>
+                                <li>Communication Control (0x28)</li>
+                                <li>Tester Present (0x3E)</li>
+                                <li>Read/Write Data By Identifier</li>
+                                <li>Read/Clear DTC Information</li>
+                                <li>Routine Control (0x31)</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Programming Services</h3>
+                            <ul>
+                                <li>Request Download (0x34)</li>
+                                <li>Request Upload (0x35)</li>
+                                <li>Transfer Data (0x36)</li>
+                                <li>Request Transfer Exit (0x37)</li>
+                                <li>Flash programming support</li>
+                                <li>Checksum verification</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Transport Protocols</h3>
+                            <ul>
+                                <li>ISO-TP (ISO 15765-2) over CAN</li>
+                                <li>DoIP (ISO 13400) over Ethernet</li>
+                                <li>Multi-frame support</li>
+                                <li>Flow control</li>
+                                <li>Configurable timing parameters</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card__title">Development Support</h3>
+                            <ul>
+                                <li>Comprehensive documentation</li>
+                                <li>ODX configuration support</li>
+                                <li>DTC management utilities</li>
+                                <li>Test suites</li>
+                                <li>AUTOSAR integration guide</li>
+                                <li>Expert technical support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spécifications Tab -->
+                <div class="tabs__content" id="specs-tab">
+                    <h2>Planned Technical Spécifications</h2>
+
+                    <div class="grid grid--2" style="margin-top: 2rem;">
+                        <div>
+                            <h3>UDS Compliance</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <td style="padding: 0.5rem 0;">ISO 14229</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>ISO-TP</strong></td>
+                                    <td style="padding: 0.5rem 0;">ISO 15765-2</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>DoIP</strong></td>
+                                    <td style="padding: 0.5rem 0;">ISO 13400</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>ODX</strong></td>
+                                    <td style="padding: 0.5rem 0;">ISO 22901-1</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Resource Requirements (Estimated)</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~35KB (estimated)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <td style="padding: 0.5rem 0;">~6KB (estimated)</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <td style="padding: 0.5rem 0;">~2KB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <td style="padding: 0.5rem 0;">32-bit processor</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div>
+                            <h3>Planned Fonctionnalités</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>UDS Services</strong></td>
+                                    <td style="padding: 0.5rem 0;">20+ services</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>DTC Format</strong></td>
+                                    <td style="padding: 0.5rem 0;">ISO 14229-1</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Max Message Size</strong></td>
+                                    <td style="padding: 0.5rem 0;">4095 bytes (ISO-TP)</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Security Levels</strong></td>
+                                    <td style="padding: 0.5rem 0;">Configurable</td>
+                                </tr>
+                            </table>
+
+                            <h3 style="margin-top: 2rem;">Platform Support</h3>
+                            <table style="width: 100%; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <td style="padding: 0.5rem 0;">Low hardware dependency</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-gray-200);">
+                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0;"><strong>Networks</strong></td>
+                                    <td style="padding: 0.5rem 0;">CAN, Ethernet</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section section--light">
+            <div class="container">
+                <div style="text-align: center; padding: 3rem 0;">
+                    <h2>Interested in UDS Diagnostics?</h2>
+                    <p style="margin-top: 1rem; font-size: 1.125rem;">
+                        This product is currently in development. Contact us to learn more about availability,
+                        beta testing opportunities, and early access programs.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="../../contact.html" class="btn btn--primary btn--large">Nous Contacter</a>
+                        <a href="../../contact.html" class="btn btn--outline btn--large">Manifester son Intérêt</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elite Partners Section -->
+        <section class="elite-partners product-page-partners">
+            <div class="container">
+                <h2 class="section__title">Partenaires Elite</h2>
+                <div class="partners-grid">
+                    <div class="partners-grid__item">NXP Semiconductors</div>
+                    <div class="partners-grid__item">Intel</div>
+                    <div class="partners-grid__item">Texas Instruments</div>
+                    <div class="partners-grid__item">STMicroelectronics</div>
+                    <div class="partners-grid__item">Acontis</div>
+                    <div class="partners-grid__item">Infineon</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Produits -->
+        <section class="section">
+            <div class="container">
+                <h2>Disponible Automotive Produits</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">🚛</div>
+                        <h3 class="product-card__title">J1939</h3>
+                        <p class="product-card__description">
+                            Heavy-duty vehicle communication
+                        </p>
+                        <a href="j1939.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔌</div>
+                        <h3 class="product-card__title">CANopen</h3>
+                        <p class="product-card__description">
+                            Industrial CAN protocol
+                        </p>
+                        <a href="canopen-slave.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🔧</div>
+                        <h3 class="product-card__title">Analyseurs de Protocole</h3>
+                        <p class="product-card__description">
+                            Development and debugging tools
+                        </p>
+                        <a href="analyzers.html" class="product-card__cta">En Savoir Plus →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">Plus de 30 ans d'expertise en systèmes embarqués</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/expertise.html" class="footer__link">Notre expertise</a></li>
+                        <li><a href="../services/expertise-compliance.html" class="footer__link">Conformite securite</a></li>
+                        <li><a href="../services/expertise-development.html" class="footer__link">Developpement protocole</a></li>
+                        <li><a href="../services/expertise-testing.html" class="footer__link">Tests & validation</a></li>
+                        <li><a href="../services/expertise-networks.html" class="footer__link">Reseaux industriels</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../../training.html" class="footer__link">Formation</a></li>
+                        <li><a href="../../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits réservés.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Conditions</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/language-switcher.js"></script>
+</body>
+</html>

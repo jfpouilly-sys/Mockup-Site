@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Tools - AZIT</title>
+    <meta name="description" content="Professional development and configuration tools for industrial communication protocols.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav">
+                <!-- Company Link -->
+                <a href="../company.html" class="top-menu-link">Company</a>
+
+                <!-- Blog & News Link -->
+                <a href="../blog.html" class="top-menu-link">Blog & News</a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <a href="../../index.html" class="language-button active" data-lang="en">EN</a>
+                <span class="language-separator">|</span>
+                <a href="../../fr/pages/products/tools.html" class="language-button" data-lang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Products
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Hardware</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="protocol-gateway.html" class="mega-menu__link">Protocol Gateway (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Communication Stacks</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="fsoe-slave.html" class="mega-menu__link">FSoE Slave</a></li>
+                                        <li><a href="fsoe-master.html" class="mega-menu__link">FSoE Master</a></li>
+                                        <li><a href="canopen-slave.html" class="mega-menu__link">CANopen Slave</a></li>
+                                        <li><a href="canopen-master.html" class="mega-menu__link">CANopen Master</a></li>
+                                        <li><a href="canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Slave</a></li>
+                                        <li><a href="canopen-safety-master.html" class="mega-menu__link">CANopen Safety Master</a></li>
+                                        <li><a href="j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Software</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="simulation.html" class="mega-menu__link">Network Simulation (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Tools & Analyzers</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="tools.html" class="mega-menu__link">Development Tools</a></li>
+                                        <li><a href="analyzers.html" class="mega-menu__link">Protocol Analyzers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../services/expertise.html" class="nav__link">
+                            Expertise
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">OUR EXPERTISE</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/expertise-compliance.html" class="mega-menu__link">Safety Compliance</a></li>
+                                        <li><a href="../services/expertise-development.html" class="mega-menu__link">Protocol Development</a></li>
+                                        <li><a href="../services/expertise-testing.html" class="mega-menu__link">Testing & Validation</a></li>
+                                        <li><a href="../services/expertise-networks.html" class="mega-menu__link">Industrial Networks</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../training.html" class="nav__link">Training</a>
+                    </li>                    <li class="nav__item">
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <div class="breadcrumb__item">
+                        <a href="../../index.html">Home</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="communication-stacks.html">Products</a>
+                        <span class="breadcrumb__separator">›</span>
+                    </div>
+                    <div class="breadcrumb__item">Development Tools</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Page Hero -->
+        <section class="section" style="padding-top: 2rem;">
+            <div class="container">
+                <div style="max-width: 800px;">
+                    <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Development Tools</h1>
+                    <p style="font-size: 1.25rem; color: var(--color-gray-600); line-height: 1.6;">
+                        Professional tools for configuring, testing, and debugging industrial communication protocols.
+                        Accelerate your development with our comprehensive toolset.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Grid -->
+        <section class="section">
+            <div class="container">
+                <div class="grid grid--2" style="gap: 2rem;">
+                    <!-- CANopen Configuration Tool -->
+                    <div class="card" style="height: 100%;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="font-size: 2.5rem;">⚙️</div>
+                            <h2 style="margin: 0;">CANopen Configurator</h2>
+                        </div>
+                        <p style="color: var(--color-gray-600); margin-bottom: 1.5rem;">
+                            Complete CANopen network configuration tool with EDS/DCF editor, device database,
+                            and network design capabilities.
+                        </p>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Key Features</h3>
+                        <ul style="margin-bottom: 1.5rem;">
+                            <li>EDS/DCF file editor</li>
+                            <li>Network topology design</li>
+                            <li>PDO and SDO configuration</li>
+                            <li>Object dictionary management</li>
+                            <li>Device parameter configuration</li>
+                            <li>Network validation</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <span class="badge badge--success">Available</span>
+                            <span class="badge badge--primary">Windows/Linux</span>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../contact.html" class="btn btn--primary">Request Quote</a>
+                            <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Download Trial</a>
+                        </div>
+                    </div>
+
+                    <!-- FSoE Configuration Tool -->
+                    <div class="card" style="height: 100%;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="font-size: 2.5rem;">🛡️</div>
+                            <h2 style="margin: 0;">FSoE Safety Configurator</h2>
+                        </div>
+                        <p style="color: var(--color-gray-600); margin-bottom: 1.5rem;">
+                            Safety network configuration tool for FSoE systems with validation and
+                            certification documentation generation.
+                        </p>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Key Features</h3>
+                        <ul style="margin-bottom: 1.5rem;">
+                            <li>Safety connection setup</li>
+                            <li>Safety parameter configuration</li>
+                            <li>Network validation</li>
+                            <li>Safety documentation export</li>
+                            <li>Timing analysis</li>
+                            <li>Certification report generation</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <span class="badge badge--success">Available</span>
+                            <span class="badge badge--primary">Windows</span>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../contact.html" class="btn btn--primary">Request Quote</a>
+                            <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Download Trial</a>
+                        </div>
+                    </div>
+
+                    <!-- J1939 Database Editor -->
+                    <div class="card" style="height: 100%;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="font-size: 2.5rem;">🚛</div>
+                            <h2 style="margin: 0;">J1939 Database Editor</h2>
+                        </div>
+                        <p style="color: var(--color-gray-600); margin-bottom: 1.5rem;">
+                            Comprehensive J1939 PGN database editor with DBC import/export and
+                            custom PGN definition capabilities.
+                        </p>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Key Features</h3>
+                        <ul style="margin-bottom: 1.5rem;">
+                            <li>PGN database management</li>
+                            <li>DBC file import/export</li>
+                            <li>Custom PGN definitions</li>
+                            <li>Signal scaling and conversion</li>
+                            <li>SPN and FMI management</li>
+                            <li>Code generation</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <span class="badge badge--success">Available</span>
+                            <span class="badge badge--primary">Cross-platform</span>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../contact.html" class="btn btn--primary">Request Quote</a>
+                            <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Download Trial</a>
+                        </div>
+                    </div>
+
+                    <!-- Protocol Simulator -->
+                    <div class="card" style="height: 100%;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="font-size: 2.5rem;">🎮</div>
+                            <h2 style="margin: 0;">Protocol Simulator</h2>
+                        </div>
+                        <p style="color: var(--color-gray-600); margin-bottom: 1.5rem;">
+                            Multi-protocol network simulator for testing ECUs without physical hardware.
+                            Supports CANopen, J1939, and custom protocols.
+                        </p>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Key Features</h3>
+                        <ul style="margin-bottom: 1.5rem;">
+                            <li>Virtual network simulation</li>
+                            <li>Multi-node emulation</li>
+                            <li>Scenario scripting</li>
+                            <li>Error injection</li>
+                            <li>Performance analysis</li>
+                            <li>Real-time monitoring</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <span class="badge badge--success">Available</span>
+                            <span class="badge badge--primary">Windows/Linux</span>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../contact.html" class="btn btn--primary">Request Quote</a>
+                            <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Download Trial</a>
+                        </div>
+                    </div>
+
+                    <!-- Code Generator -->
+                    <div class="card" style="height: 100%;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="font-size: 2.5rem;">💻</div>
+                            <h2 style="margin: 0;">Code Generator</h2>
+                        </div>
+                        <p style="color: var(--color-gray-600); margin-bottom: 1.5rem;">
+                            Automatic code generation from network configurations. Generate initialization
+                            code, object dictionaries, and data structures.
+                        </p>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Key Features</h3>
+                        <ul style="margin-bottom: 1.5rem;">
+                            <li>C/C++ code generation</li>
+                            <li>Object dictionary generation</li>
+                            <li>Configuration file parsing</li>
+                            <li>Custom template support</li>
+                            <li>Documentation generation</li>
+                            <li>Build system integration</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <span class="badge badge--success">Available</span>
+                            <span class="badge badge--primary">CLI/GUI</span>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../contact.html" class="btn btn--primary">Request Quote</a>
+                            <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Download Trial</a>
+                        </div>
+                    </div>
+
+                    <!-- Test Automation Framework -->
+                    <div class="card" style="height: 100%;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="font-size: 2.5rem;">🧪</div>
+                            <h2 style="margin: 0;">Test Automation Framework</h2>
+                        </div>
+                        <p style="color: var(--color-gray-600); margin-bottom: 1.5rem;">
+                            Automated testing framework for protocol conformance and regression testing.
+                            Python-based with extensive protocol support.
+                        </p>
+                        <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Key Features</h3>
+                        <ul style="margin-bottom: 1.5rem;">
+                            <li>Automated test execution</li>
+                            <li>Protocol conformance testing</li>
+                            <li>Regression test suites</li>
+                            <li>Python scripting API</li>
+                            <li>Report generation</li>
+                            <li>CI/CD integration</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <span class="badge badge--success">Available</span>
+                            <span class="badge badge--primary">Python</span>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../contact.html" class="btn btn--primary">Request Quote</a>
+                            <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tool Bundles Section -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Tool Bundles</h2>
+                <p style="color: var(--color-gray-600); margin-top: 1rem; margin-bottom: 2rem;">
+                    Save with our pre-configured tool bundles designed for specific workflows.
+                </p>
+
+                <div class="grid grid--3">
+                    <div class="card">
+                        <h3 class="card__title">CANopen Developer Bundle</h3>
+                        <p style="margin-top: 1rem;">Complete toolset for CANopen development including configurator, simulator, and code generator.</p>
+                        <ul style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                            <li>CANopen Configurator</li>
+                            <li>Protocol Simulator</li>
+                            <li>Code Generator</li>
+                            <li>Test Framework</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <p style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">Save 25%</p>
+                            <a href="../contact.html" class="btn btn--primary" style="margin-top: 1rem;">Get Quote</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">Safety Developer Bundle</h3>
+                        <p style="margin-top: 1rem;">Essential tools for safety protocol development with FSoE and CANopen Safety support.</p>
+                        <ul style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                            <li>FSoE Safety Configurator</li>
+                            <li>CANopen Configurator</li>
+                            <li>Protocol Simulator</li>
+                            <li>Test Framework</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <p style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">Save 30%</p>
+                            <a href="../contact.html" class="btn btn--primary" style="margin-top: 1rem;">Get Quote</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card__title">J1939 Developer Bundle</h3>
+                        <p style="margin-top: 1rem;">Specialized toolset for J1939 vehicle ECU development and testing.</p>
+                        <ul style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                            <li>J1939 Database Editor</li>
+                            <li>Protocol Simulator</li>
+                            <li>Code Generator</li>
+                            <li>Test Framework</li>
+                        </ul>
+                        <div style="margin-top: auto;">
+                            <p style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">Save 25%</p>
+                            <a href="../contact.html" class="btn btn--primary" style="margin-top: 1rem;">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section class="section">
+            <div class="container">
+                <div style="background-color: var(--color-light); padding: 3rem; border-radius: var(--border-radius-lg);">
+                    <div class="two-column">
+                        <div>
+                            <h2>Tool Support & Training</h2>
+                            <p style="margin-top: 1rem; color: var(--color-gray-600);">
+                                All tools include comprehensive documentation, video tutorials, and technical support.
+                                Professional training packages available.
+                            </p>
+                            <ul style="margin-top: 1.5rem;">
+                                <li>Online documentation and user guides</li>
+                                <li>Video tutorial library</li>
+                                <li>Email and phone support</li>
+                                <li>Regular software updates</li>
+                                <li>On-site training available</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Need Custom Tools?</h3>
+                            <p style="margin-top: 1rem; color: var(--color-gray-600);">
+                                We can develop custom tools and extensions tailored to your specific workflow
+                                and protocol requirements.
+                            </p>
+                            <a href="../services/expertise.html" class="btn btn--primary" style="margin-top: 1.5rem;">Learn About Custom Development</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elite Partners Section -->
+        <section class="elite-partners product-page-partners">
+            <div class="container">
+                <h2 class="section__title">Elite Partners</h2>
+                <div class="partners-grid">
+                    <div class="partners-grid__item">NXP Semiconductors</div>
+                    <div class="partners-grid__item">Intel</div>
+                    <div class="partners-grid__item">Texas Instruments</div>
+                    <div class="partners-grid__item">STMicroelectronics</div>
+                    <div class="partners-grid__item">Acontis</div>
+                    <div class="partners-grid__item">Infineon</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="section section--light">
+            <div class="container">
+                <h2>Related Products</h2>
+                <div class="grid grid--3" style="margin-top: 2rem;">
+                    <div class="product-card">
+                        <div class="product-card__icon">🔍</div>
+                        <h3 class="product-card__title">Protocol Analyzers</h3>
+                        <p class="product-card__description">
+                            Hardware and software analyzers for debugging
+                        </p>
+                        <a href="analyzers.html" class="product-card__cta">Learn More →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">⚡</div>
+                        <h3 class="product-card__title">Communication Stacks</h3>
+                        <p class="product-card__description">
+                            Production-ready protocol implementations
+                        </p>
+                        <a href="communication-stacks.html" class="product-card__cta">Learn More →</a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__icon">🎓</div>
+                        <h3 class="product-card__title">Training</h3>
+                        <p class="product-card__description">
+                            Professional protocol training courses
+                        </p>
+                        <a href="../training.html" class="product-card__cta">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">A brand of ISIT</p>
+                    <p class="footer__tagline">30+ years expertise in embedded systems</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Products</h3>
+                    <ul class="footer__list">
+                        <li><a href="protocol-gateway.html" class="footer__link">Gateway</a></li>
+                        <li><a href="simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/expertise.html" class="footer__link">Our Expertise</a></li>
+                        <li><a href="../services/expertise-compliance.html" class="footer__link">Safety Compliance</a></li>
+                        <li><a href="../services/expertise-development.html" class="footer__link">Protocol Development</a></li>
+                        <li><a href="../services/expertise-testing.html" class="footer__link">Testing & Validation</a></li>
+                        <li><a href="../services/expertise-networks.html" class="footer__link">Industrial Networks</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Resources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../training.html" class="footer__link">Training</a></li>
+                        <li><a href="../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. All rights reserved.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Privacy</a></li>
+                    <li><a href="#" class="footer__social-link">Terms</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/language-switcher.js"></script>
+</body>
+</html>

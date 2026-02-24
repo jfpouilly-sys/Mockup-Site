@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Statement - AZIT</title>
+    <meta name="description" content="AZIT's accessibility statement and commitment to RGAA 4.1.2 compliance for web accessibility.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/a11y-utils.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ARIA Live Region for Announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav" aria-label="Company information and settings">
+                <a href="company.html" class="top-menu-link">Company</a>
+                <a href="blog.html" class="top-menu-link">Blog & News</a>
+            </nav>
+
+            <div class="language-switcher" aria-label="Language selection">
+                <a href="accessibilite.html" class="language-button active" data-lang="en" lang="en" hreflang="en">EN</a>
+                <span class="language-separator" aria-hidden="true">|</span>
+                <a href="../fr/pages/accessibilite.html" class="language-button" data-lang="fr" lang="fr" hreflang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="container header__container">
+            <a href="../index.html" class="header__logo" aria-label="AZIT Homepage">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="products/communication-stacks.html" class="nav__link">Products</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="services/expertise.html" class="nav__link">Expertise</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="training.html" class="nav__link">Training</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="btn btn--secondary btn--small">Request Quote</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" tabindex="-1">
+        <article class="accessibility-statement">
+            <div class="container">
+                <h1>Accessibility Statement</h1>
+
+                <p>
+                    AZIT is committed to making its website accessible in accordance with
+                    Article 47 of Law No. 2005-102 of February 11, 2005.
+                </p>
+
+                <p>
+                    This accessibility statement applies to the website
+                    <a href="https://www.azit.com">www.azit.com</a>.
+                </p>
+
+                <h2>Compliance Status</h2>
+
+                <p>
+                    The website <a href="https://www.azit.com">www.azit.com</a> is in
+                    <strong>partial compliance</strong> with the French General Accessibility
+                    Improvement Framework (RGAA) version 4.1.2, due to the non-conformities
+                    and exemptions listed below.
+                </p>
+
+                <h2>Test Results</h2>
+
+                <p>
+                    The compliance audit conducted on January 2026 reveals that:
+                </p>
+
+                <ul>
+                    <li>The compliance rate with RGAA version 4.1.2 criteria is being evaluated.</li>
+                    <li>The average compliance rate of the online service is being improved.</li>
+                </ul>
+
+                <h2>Non-Accessible Content</h2>
+
+                <p>
+                    The content listed below is not accessible for the following reasons:
+                </p>
+
+                <h3>Non-Conformities</h3>
+
+                <p>We are actively working to address the following areas:</p>
+                <ul>
+                    <li>Some images may lack descriptive alternative text</li>
+                    <li>Some interactive elements may not be fully keyboard accessible</li>
+                    <li>Some color contrasts may not meet WCAG AA requirements</li>
+                </ul>
+
+                <h3>Exempted Content</h3>
+
+                <p>
+                    No content is exempt from the accessibility obligation.
+                </p>
+
+                <h3>Disproportionate Burden Exemptions</h3>
+
+                <p>
+                    No disproportionate burden exemption has been declared.
+                </p>
+
+                <h2>Establishment of This Accessibility Statement</h2>
+
+                <p>
+                    This statement was established on January 2026.
+                </p>
+
+                <h3>Technologies Used</h3>
+
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript (Vanilla)</li>
+                </ul>
+
+                <h3>User Agents and Assistive Technologies</h3>
+
+                <p>
+                    Tests were conducted with the following combinations:
+                </p>
+
+                <ul>
+                    <li>NVDA 2023 / Firefox / Windows 11</li>
+                    <li>JAWS 2023 / Chrome / Windows 11</li>
+                    <li>VoiceOver / Safari / macOS Sonoma</li>
+                </ul>
+
+                <h3>Tools Used to Evaluate Accessibility</h3>
+
+                <ul>
+                    <li>WAVE (Web Accessibility Evaluation Tool)</li>
+                    <li>axe DevTools</li>
+                    <li>Contrast Checker</li>
+                    <li>W3C HTML Validator</li>
+                </ul>
+
+                <h2>Feedback and Contact</h2>
+
+                <p>
+                    If you are unable to access content or a service, you can contact the
+                    website manager to be directed to an accessible alternative or to
+                    obtain the content in another form.
+                </p>
+
+                <ul>
+                    <li>
+                        Send a message:
+                        <a href="mailto:accessibility@azit.com">accessibility@azit.com</a>
+                    </li>
+                    <li>
+                        Contact AZIT:
+                        <a href="contact.html">Contact Form</a>
+                    </li>
+                </ul>
+
+                <h2>Remedies</h2>
+
+                <p>
+                    This procedure is to be used in the following case: you have reported
+                    to the website manager an accessibility defect that prevents you from
+                    accessing content or one of the portal's services and you have not
+                    received a satisfactory response.
+                </p>
+
+                <p>You can:</p>
+
+                <ul>
+                    <li>
+                        Write a message to the
+                        <a href="https://formulaire.defenseurdesdroits.fr/">Defender of Rights</a>
+                    </li>
+                    <li>
+                        Contact
+                        <a href="https://www.defenseurdesdroits.fr/saisir/delegues">
+                            the Defender of Rights delegate in your region
+                        </a>
+                    </li>
+                    <li>
+                        Send a letter by mail (free, no stamp required):<br>
+                        Defender of Rights<br>
+                        Libre response 71120<br>
+                        75342 Paris CEDEX 07
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <h3 class="footer__section-title">AZIT</h3>
+                    <p class="footer__description">
+                        Industrial protocol stacks and safety solutions for critical systems.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Products</h3>
+                    <ul class="footer__list">
+                        <li><a href="products/communication-stacks.html" class="footer__link">Communication Stacks</a></li>
+                        <li><a href="products/fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="products/canopen-slave.html" class="footer__link">CANopen</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="services/expertise.html" class="footer__link">Our Expertise</a></li>
+                        <li><a href="services/expertise-compliance.html" class="footer__link">Safety Compliance</a></li>
+                        <li><a href="services/expertise-development.html" class="footer__link">Protocol Development</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Resources</h3>
+                    <ul class="footer__list">
+                        <li><a href="training.html" class="footer__link">Training</a></li>
+                        <li><a href="blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="company.html" class="footer__link">Company</a></li>
+                        <li><a href="contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 AZIT - ISIT. All rights reserved. | Version 7</p>
+                <nav aria-label="Footer links">
+                    <ul class="footer__social">
+                        <li><a href="#" class="footer__social-link">Privacy</a></li>
+                        <li><a href="#" class="footer__social-link">Terms</a></li>
+                        <li><a href="sitemap.html" class="footer__social-link">Site Map</a></li>
+                        <li><a href="accessibilite.html" class="footer__social-link" aria-current="page">Accessibility</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="accessibilite.html" class="a11y-badge">
+                    Accessibility: Partially Compliant
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/language-switcher.js"></script>
+    <script src="../js/accessibility.js"></script>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZIT - Piles de protocoles industriels pour systèmes critiques</title>
+    <meta name="description" content="Piles de communication industrielle prêtes pour la production avec certification SIL3/PLe. Plus de 30 ans d'expertise en systèmes embarqués. Aucune dépendance tierce.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/a11y-utils.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ARIA Live Region for Announcements -->
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav" aria-label="Informations entreprise et parametres">
+                <!-- Company Link -->
+                <a href="pages/company.html" class="top-menu-link">Entreprise</a>
+
+                <!-- Blog & News Link -->
+                <a href="pages/blog.html" class="top-menu-link">Blog & Actualites</a>
+            </nav>
+
+            <!-- Language Switcher (moved from main nav) -->
+            <div class="language-switcher" aria-label="Selection de la langue">
+                <a href="../index.html" class="language-button" data-lang="en" lang="en" hreflang="en">EN</a>
+                <span class="language-separator" aria-hidden="true">|</span>
+                <a href="index.html" class="language-button active" data-lang="fr" lang="fr" hreflang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="container header__container">
+            <a href="/fr/" class="header__logo" aria-label="Page d'accueil AZIT">
+                <span>AZIT</span>
+            </a>
+
+            <nav class="header__nav" id="main-nav" aria-label="Navigation principale">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Produits
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="pages/products/communication-stacks.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">PILES DE COMMUNICATION</a>
+                                    <ul class="mega-menu__list">
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">Protocoles de sécurité</li>
+                                        <li><a href="pages/products/fsoe-slave.html" class="mega-menu__link">FSoE Slave</a></li>
+                                        <li><a href="pages/products/fsoe-master.html" class="mega-menu__link">FSoE Master</a></li>
+                                        <li><a href="pages/products/profisafe-slave.html" class="mega-menu__link">PROFISAFE Slave</a></li>
+                                        <li><a href="pages/products/profisafe-master.html" class="mega-menu__link">PROFISAFE Master</a></li>
+                                        <li><a href="pages/products/canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Slave</a></li>
+                                        <li><a href="pages/products/canopen-safety-master.html" class="mega-menu__link">CANopen Safety Master</a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">Protocoles Fieldbus</li>
+                                        <li><a href="pages/products/canopen-slave.html" class="mega-menu__link">CANopen Slave</a></li>
+                                        <li><a href="pages/products/canopen-master.html" class="mega-menu__link">CANopen Master</a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">Automobile</li>
+                                        <li><a href="pages/products/j1939.html" class="mega-menu__link">J1939</a></li>
+                                        <li style="font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem; color: var(--color-gray-700);">IoT Industriel</li>
+                                        <li><a href="pages/products/opc-ua.html" class="mega-menu__link">OPC-UA (Bientôt disponible)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">PASSERELLES PROTOCOLAIRES</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="pages/products/protocol-gateway.html" class="mega-menu__link">Plateforme de passerelle ISI-GTW</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">OUTILS</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="pages/products/simulation.html" class="mega-menu__link">Simulateur EtherCAT</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">MATÉRIEL</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="pages/products/protocol-gateway.html" class="mega-menu__link">Aperçu des solutions matérielles</a></li>
+                                        <li><a href="pages/contact.html" class="mega-menu__link">Cartes de développement personnalisées</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="pages/services/expertise.html" class="nav__link">
+                            Expertise
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="pages/services/expertise.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">NOTRE EXPERTISE</a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="pages/services/expertise-compliance.html" class="mega-menu__link">Conformité sécurité</a></li>
+                                        <li><a href="pages/services/expertise-development.html" class="mega-menu__link">Développement protocole</a></li>
+                                        <li><a href="pages/services/expertise-testing.html" class="mega-menu__link">Tests & validation</a></li>
+                                        <li><a href="pages/services/expertise-networks.html" class="mega-menu__link">Réseaux industriels</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="pages/training.html" class="nav__link">Formation</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="pages/contact.html" class="btn btn--secondary btn--small">Demander un devis</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" tabindex="-1">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Piles de protocoles industriels conçues pour les systèmes critiques</h1>
+                    <p class="hero__subtitle">
+                        Plus de 30 ans d'expertise en systèmes embarqués. Aucun code tiers. Contrôle total sur votre certification de sécurité.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="pages/contact.html" class="btn btn--primary btn--large">Demander un devis</a>
+                        <a href="pages/products/communication-stacks.html" class="btn btn--outline btn--large">Voir les produits</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protocol Logos Bar -->
+        <section class="protocol-logos">
+            <div class="protocol-logos__item">CANopen</div>
+            <div class="protocol-logos__item">PROFISAFE</div>
+            <div class="protocol-logos__item">EtherNet/IP</div>
+            <div class="protocol-logos__item">EtherCAT</div>
+            <div class="protocol-logos__item">PROFINET</div>
+            <div class="protocol-logos__item">FSoE</div>
+            <div class="protocol-logos__item">J1939</div>
+            <div class="protocol-logos__item">OPC-UA</div>
+        </section>
+
+        <!-- Key Advantages Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Pourquoi choisir les piles AZIT ?</h2>
+                </div>
+
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">✓</div>
+                        <h3 class="advantage-card__title">Piles de sécurité certifiées SIL3</h3>
+                        <p class="advantage-card__description">
+                            Certifiées SIL3/PLe par Bureau Véritas avec documentation complète pour votre processus de certification. Protocoles de sécurité éprouvés pour applications critiques.
+                        </p>
+                    </div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">⚙️</div>
+                        <h3 class="advantage-card__title">Faible dépendance matérielle</h3>
+                        <p class="advantage-card__description">
+                            Fonctionne avec n'importe quel MCU, n'importe quel RTOS. Pas de verrouillage fournisseur, aucune dépendance matérielle. Liberté totale dans vos choix de plateforme.
+                        </p>
+                    </div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">👨‍💻</div>
+                        <h3 class="advantage-card__title">Support expert et services</h3>
+                        <p class="advantage-card__description">
+                            Accès direct aux ingénieurs qui ont développé les piles. Plus de 30 ans d'expertise en systèmes embarqués avec support d'intégration complet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Overview Section -->
+        <section class="section section--light">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Piles de protocoles pour tous les besoins industriels</h2>
+                    <p class="section__subtitle">Implémentations prêtes pour la production pour applications critiques et standard</p>
+                </div>
+
+                <div class="tabs">
+                    <ul class="tabs__list">
+                        <li><button class="tabs__button active" data-tab="safety">Protocoles de sécurité</button></li>
+                        <li><button class="tabs__button" data-tab="fieldbus">Fieldbus</button></li>
+                        <li><button class="tabs__button" data-tab="automotive">Automobile</button></li>
+                    </ul>
+                </div>
+
+                <div class="tabs__content active" id="safety-tab">
+                    <div class="grid grid--3">
+                        <div class="product-card">
+                            <div class="product-card__icon">⚡</div>
+                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                            <h3 class="product-card__title">Pile FSoE Slave</h3>
+                            <p class="product-card__description">
+                                Implémentation Fail-Safe over EtherCAT conforme IEC 61784-3 pour dispositifs esclaves de sécurité.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>Certifié SIL3 / PLe par Bureau Véritas</li>
+                                <li>Aucune dépendance tierce</li>
+                                <li>Architecture canal blanc</li>
+                            </ul>
+                            <a href="pages/products/fsoe-slave.html" class="product-card__cta">En savoir plus →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">⚡</div>
+                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                            <h3 class="product-card__title">Pile FSoE Master</h3>
+                            <p class="product-card__description">
+                                Implémentation FSoE master complète pour contrôleurs de sécurité et automates.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>Certifié SIL3 / PLe</li>
+                                <li>Support multi-connexions</li>
+                            </ul>
+                            <a href="pages/products/fsoe-master.html" class="product-card__cta">En savoir plus →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">🛡️</div>
+                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                            <h3 class="product-card__title">PROFISAFE Slave</h3>
+                            <p class="product-card__description">
+                                Implémentation PROFIsafe slave conforme IEC 61784-3 pour dispositifs de sécurité PROFINET.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>Certifié SIL3 / PLe par Bureau Véritas</li>
+                                <li>Prêt pour l'intégration PROFINET</li>
+                                <li>Faible dépendance matérielle</li>
+                            </ul>
+                            <a href="pages/products/profisafe-slave.html" class="product-card__cta">En savoir plus →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">🛡️</div>
+                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                            <h3 class="product-card__title">PROFISAFE Master</h3>
+                            <p class="product-card__description">
+                                PROFIsafe master complet pour contrôleurs de sécurité et automates.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>Certifié SIL3 / PLe</li>
+                                <li>Support multi-dispositifs</li>
+                                <li>Diagnostics complets inclus</li>
+                            </ul>
+                            <a href="pages/products/profisafe-master.html" class="product-card__cta">En savoir plus →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">🔐</div>
+                            <span class="badge badge--success product-card__badge">Certifié SIL3</span>
+                            <h3 class="product-card__title">CANopen Safety</h3>
+                            <p class="product-card__description">
+                                Protocole de sécurité conforme CiA 304 pour réseaux CANopen.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>Certification SIL3 / PLe</li>
+                                <li>Implémentation SRDO</li>
+                                <li>Faible dépendance matérielle</li>
+                            </ul>
+                            <a href="pages/products/canopen-safety-slave.html" class="product-card__cta">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabs__content" id="fieldbus-tab">
+                    <div class="grid grid--3">
+                        <div class="product-card">
+                            <div class="product-card__icon">🔌</div>
+                            <h3 class="product-card__title">CANopen Slave</h3>
+                            <p class="product-card__description">
+                                Pile CANopen slave complète conforme CiA 301/302.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>PDO, SDO, EMCY, SYNC</li>
+                                <li>Outils de dictionnaire d'objets</li>
+                                <li>Support LSS</li>
+                            </ul>
+                            <a href="pages/products/canopen-slave.html" class="product-card__cta">En savoir plus →</a>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-card__icon">🔌</div>
+                            <h3 class="product-card__title">CANopen Master</h3>
+                            <p class="product-card__description">
+                                CANopen master complet pour contrôleurs et passerelles.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>Gestion de réseau</li>
+                                <li>Support multi-esclaves</li>
+                                <li>Outils de configuration</li>
+                            </ul>
+                            <a href="pages/products/canopen-master.html" class="product-card__cta">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabs__content" id="automotive-tab">
+                    <div class="grid grid--3">
+                        <div class="product-card">
+                            <div class="product-card__icon">🚗</div>
+                            <span class="badge badge--warning product-card__badge">SIL2</span>
+                            <h3 class="product-card__title">J1939 / J1939 Safety</h3>
+                            <p class="product-card__description">
+                                Implémentation SAE J1939 avec extension de sécurité en option.
+                            </p>
+                            <ul class="product-card__features">
+                                <li>Conforme SAE J1939</li>
+                                <li>Support du protocole de transport</li>
+                                <li>Extension de sécurité disponible</li>
+                            </ul>
+                            <a href="pages/products/j1939.html" class="product-card__cta">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="pages/products/communication-stacks.html" class="btn btn--outline">Voir tous les produits →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Example Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Intégration simple, résultats puissants</h2>
+                    <p class="section__subtitle">API épurées conçues pour les développeurs embarqués</p>
+                </div>
+
+                <div class="code-example-section">
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__language">C</span>
+                            <button class="code-block__copy">Copier</button>
+                        </div>
+                        <pre><code>/* Initialisation FSoE Slave */
+#include "fsoe_slave.h"
+
+FSOE_SLAVE_CONFIG config = {
+    .connection_id = 0x0001,
+    .watchdog_time = 100,  /* ms */
+    .safe_inputs = 8,
+    .safe_outputs = 8
+};
+
+fsoe_slave_init(&config);
+fsoe_slave_start();</code></pre>
+                    </div>
+
+                    <ul class="code-example__explanation">
+                        <li>Empreinte API minimale pour une intégration rapide</li>
+                        <li>Interfaces bien documentées avec exemples</li>
+                        <li>Projets d'exemple pour plateformes courantes</li>
+                        <li>Suites de tests complètes incluses</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Diagram Section -->
+        <section class="section section--light">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Approche logicielle complète avec architecture canal blanc</h2>
+                </div>
+
+                <div class="architecture-diagram">
+                    <div class="architecture-diagram__placeholder">
+                        [Placeholder de diagramme d'architecture]
+                        <br><br>
+                        Couche application → Pile de protocoles AZIT (Canal blanc) →
+                        <br>Pile canal noir → HAL/BSP → MCU/RTOS
+                    </div>
+                    <p class="architecture-diagram__caption">
+                        Notre architecture canal blanc assure un contrôle total sur la certification de sécurité sans verrouillage matériel
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elite Partners Section -->
+        <section class="elite-partners">
+            <div class="container">
+                <div class="elite-partners-container">
+                    <h2 class="section__title">Partenaires Elite</h2>
+                    <p class="section-subtitle">
+                        Nous collaborons avec des partenaires technologiques leaders
+                        pour fournir des solutions complètes
+                    </p>
+
+                    <div class="elite-partners-grid">
+                        <!-- Partenaire 1: Acontis Technologies -->
+                        <div class="elite-partner-card">
+                            <img
+                                src="/assets/partners/acontis-logo.png"
+                                alt="Acontis Technologies"
+                                class="elite-partner-logo"
+                            >
+                            <h3>Acontis Technologies</h3>
+                            <p class="elite-partner-description">
+                                Partenaire stratégique pour les solutions EtherCAT et les technologies
+                                temps réel. Ensemble, nous proposons des piles de communication
+                                industrielles de pointe pour les applications critiques.
+                            </p>
+                        </div>
+
+                        <!-- AJOUTER DES PARTENAIRES TECHNOLOGIQUES SUPPLÉMENTAIRES ICI -->
+                        <!-- Exemple de structure pour Partenaire 2:
+                        <div class="elite-partner-card">
+                            <img
+                                src="/assets/partners/partner2-logo.png"
+                                alt="Nom du Partenaire"
+                                class="elite-partner-logo"
+                            >
+                            <h3>Nom du Partenaire</h3>
+                            <p class="elite-partner-description">
+                                Description du partenariat et de la collaboration
+                            </p>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Ils nous font confiance</h2>
+                </div>
+
+                <div class="partner-logos">
+                    <img src="https://isit.fr/photos/ecoles-partenaires-clients/2076/wattalps-logo.png" alt="WattAlps" class="partner-logo">
+                    <img src="https://isit.fr/photos/2023/2139/whaller_logo_horizontal-couleur.png" alt="Whaller" class="partner-logo">
+                    <img src="https://isit.fr/photos/ecoles-partenaires-clients/2076/diehl_metering.png" alt="Diehl Metering" class="partner-logo">
+                    <img src="https://isit.fr/photos/ecoles-partenaires-clients/2076/coval.png" alt="Coval" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog/News Preview -->
+        <section class="section section--light">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Dernières actualités AZIT</h2>
+                </div>
+
+                <div class="blog-preview-grid">
+                    <a href="pages/blog.html" class="blog-card">
+                        <div class="blog-card__image">[Placeholder d'image de blog]</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span>15 janvier 2025</span>
+                                <span>•</span>
+                                <span>Conformité</span>
+                            </div>
+                            <h3 class="blog-card__title">Comprendre la loi européenne sur la cyber-résilience</h3>
+                            <p class="blog-card__excerpt">
+                                Ce que le nouveau CRA de l'UE signifie pour les fournisseurs et intégrateurs de piles de protocoles industriels.
+                            </p>
+                            <span class="blog-card__read-more">Lire la suite →</span>
+                        </div>
+                    </a>
+
+                    <a href="pages/blog.html" class="blog-card">
+                        <div class="blog-card__image">[Placeholder d'image de blog]</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span>10 janvier 2025</span>
+                                <span>•</span>
+                                <span>Technique</span>
+                            </div>
+                            <h3 class="blog-card__title">Mise à jour de la pile FSoE v3.2 publiée</h3>
+                            <p class="blog-card__excerpt">
+                                Nouvelles fonctionnalités et améliorations de performance dans notre dernière version de pile FSoE.
+                            </p>
+                            <span class="blog-card__read-more">Lire la suite →</span>
+                        </div>
+                    </a>
+
+                    <a href="pages/blog.html" class="blog-card">
+                        <div class="blog-card__image">[Placeholder d'image de blog]</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span>5 janvier 2025</span>
+                                <span>•</span>
+                                <span>Formation</span>
+                            </div>
+                            <h3 class="blog-card__title">Calendrier de formation T1 2025</h3>
+                            <p class="blog-card__excerpt">
+                                Rejoignez nos ateliers pratiques sur le développement CANopen Safety et FSoE.
+                            </p>
+                            <span class="blog-card__read-more">Lire la suite →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="pages/blog.html" class="btn btn--ghost">Voir tous les articles →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Prêt à démarrer votre projet ?</h2>
+                    <p>Obtenez un devis personnalisé pour vos besoins d'intégration de protocoles industriels</p>
+                    <div>
+                        <a href="pages/contact.html" class="btn btn--secondary btn--large">Demander un devis</a>
+                        <a href="pages/contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contacter les ventes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">Plus de 30 ans d'expertise en systèmes embarqués</p>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="pages/products/protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="pages/products/simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="pages/products/fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="pages/products/canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="pages/products/canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="pages/products/j1939.html" class="footer__link">J1939</a></li>
+                        <li><a href="pages/products/tools.html" class="footer__link">Outils</a></li>
+                        <li><a href="pages/products/analyzers.html" class="footer__link">Analyseurs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="pages/services/expertise.html" class="footer__link">Notre expertise</a></li>
+                        <li><a href="pages/services/expertise-compliance.html" class="footer__link">• Conformité sécurité</a></li>
+                        <li><a href="pages/services/expertise-development.html" class="footer__link">• Développement protocole</a></li>
+                        <li><a href="pages/services/expertise-testing.html" class="footer__link">• Tests & validation</a></li>
+                        <li><a href="pages/services/expertise-networks.html" class="footer__link">• Réseaux industriels</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="pages/training.html" class="footer__link">Formation</a></li>
+                        <li><a href="pages/blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="pages/company.html" class="footer__link">Entreprise</a></li>
+                        <li><a href="pages/company.html" class="footer__link">À propos</a></li>
+                        <li><a href="pages/contact.html" class="footer__link">Contact</a></li>
+                        <li><a href="pages/company.html" class="footer__link">Partenaires</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 AZIT - ISIT. Tous droits reserves. | Version 7</p>
+                <nav aria-label="Liens de pied de page">
+                    <ul class="footer__social">
+                        <li><a href="#" class="footer__social-link">Confidentialite</a></li>
+                        <li><a href="#" class="footer__social-link">Conditions</a></li>
+                        <li><a href="pages/sitemap.html" class="footer__social-link">Plan du Site</a></li>
+                        <li><a href="pages/accessibilite.html" class="footer__social-link">Accessibilite</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="pages/accessibilite.html" class="a11y-badge">
+                    Accessibilite : partiellement conforme
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/language-switcher.js"></script>
+    <script src="../js/accessibility.js"></script>
+</body>
+</html>

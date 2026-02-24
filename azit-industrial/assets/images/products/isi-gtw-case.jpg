@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect fill="#E0E0E8" width="400" height="300"/>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" x="200" y="140">ISI-GTW Enclosure</text>
+  <text fill="#888" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" x="200" y="170">Aluminum Case + DIN Rail</text>
+  <text fill="#999" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" x="200" y="200">400 x 300</text>
+</svg>
