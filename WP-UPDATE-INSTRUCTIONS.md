@@ -1,6 +1,6 @@
-# WordPress Update Instructions: Product Datasheets
+# WordPress Update Instructions: Product Datasheets & Integration Tab Removal
 
-These instructions explain how to deploy the product datasheet changes to your live WordPress instance.
+These instructions explain how to deploy the product datasheet and integration tab changes to your live WordPress instance.
 
 ---
 
@@ -125,7 +125,48 @@ If you're using WPML for translations:
 | `pages/products/j1939.html` | Fixed "Download Datasheet" link (EN) |
 | `fr/pages/products/protocol-gateway.html` | Added "Telecharger la Fiche Technique" button (FR) |
 | `fr/pages/products/j1939.html` | Fixed "Telecharger la Fiche Technique" link (FR) |
-| `azit-industrial/single-product.php` | Added datasheet download button from ACF field |
+| `azit-industrial/single-product.php` | Added datasheet download button; removed duplicate Related Products section |
+| `pages/products/*.html` (9 files) | Removed "Integration" tab from all communication stack product pages (EN) |
+| `fr/pages/products/*.html` (9 files) | Removed "Intégration" tab from all communication stack product pages (FR) |
+| `azit-industrial/static-content/products/*.html` (9 files) | Removed "Integration" tab from WP static content (EN) |
+| `azit-industrial/static-content/fr/pages/products/*.html` (9 files) | Removed "Intégration" tab from WP static content (FR) |
+
+### Products affected by Integration tab removal
+
+- canopen-master
+- canopen-slave
+- canopen-safety-master
+- canopen-safety-slave
+- fsoe-master
+- fsoe-slave
+- j1939
+- profisafe-master
+- profisafe-slave
+
+## 6. Re-import Static Content (if using static content importer)
+
+If your WordPress site was populated using the static content importer (`inc/import-static-content.php`), you need to re-import the updated product pages to pick up the Integration tab removal:
+
+```bash
+# Option A: Delete and re-import affected products via WP-CLI
+wp post list --post_type=product --fields=ID,post_name | grep -E '(canopen|fsoe|j1939|profisafe)'
+
+# For each product, delete and let the importer recreate it:
+wp post delete <ID> --force
+
+# Then trigger re-import (from theme directory):
+wp eval "define('AZIT_IMPORT_CONTENT', true); require get_template_directory() . '/inc/import-static-content.php'; azit_import_static_products();"
+```
+
+```bash
+# Option B: Manually update each product's content in the WordPress editor
+# 1. Go to Products > All Products
+# 2. Edit each affected product
+# 3. Remove the "Integration" tab button and content from the post editor
+# 4. Save/Update
+```
+
+---
 
 ## PDF Files to Place in `assets/docs/datasheets/`
 
