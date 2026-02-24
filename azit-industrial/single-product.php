@@ -245,34 +245,6 @@ get_header();
                 </section>
                 <?php endif; ?>
 
-                <!-- Related Products -->
-                <?php
-                $related = new WP_Query(array(
-                    'post_type'      => 'product',
-                    'posts_per_page' => 3,
-                    'post__not_in'   => array(get_the_ID()),
-                    'orderby'        => 'rand',
-                ));
-
-                if ($related->have_posts()) :
-                ?>
-                <section class="related-products" aria-labelledby="related-heading">
-                    <h2 id="related-heading" class="section-title">
-                        <?php esc_html_e('Related Products', 'azit-industrial'); ?>
-                    </h2>
-
-                    <div class="product-grid">
-                        <?php
-                        while ($related->have_posts()) :
-                            $related->the_post();
-                            echo azit_get_product_card();
-                        endwhile;
-                        wp_reset_postdata();
-                        ?>
-                    </div>
-                </section>
-                <?php endif; ?>
-
             </article>
 
         <?php endwhile; ?>
