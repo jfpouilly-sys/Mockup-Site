@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Top Menu -->
     <div class="top-menu">
@@ -51,9 +51,9 @@
             <nav class="header__nav" id="main-nav">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#" class="nav__link">
+                        <a href="communication-stacks.html" class="nav__link">
                             Products
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -94,7 +94,7 @@
                     <li class="nav__item">
                         <a href="../services/expertise.html" class="nav__link">
                             Expertise
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -113,7 +113,25 @@
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="../training.html" class="nav__link">Training</a>
+                        <a href="../training.html" class="nav__link">
+                            Training
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="../training.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">TRAINING COURSES</a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../training.html#protocols" class="mega-menu__link">Protocol Training</a></li>
+                                        <li><a href="../training.html#safety" class="mega-menu__link">Safety Standards</a></li>
+                                        <li><a href="../training.html#workshops" class="mega-menu__link">Hands-on Workshops</a></li>
+                                        <li><a href="../training.html#custom" class="mega-menu__link">Custom Training</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>                    <li class="nav__item">
                         <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
                     </li>
@@ -121,7 +139,7 @@
 
             </nav>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
@@ -133,7 +151,7 @@
         <!-- Breadcrumb -->
         <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
             <div class="container">
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
                     <div class="breadcrumb__item">
                         <a href="../../index.html">Home</a>
                         <span class="breadcrumb__separator">›</span>
@@ -167,7 +185,7 @@
                 </div>
                 <div class="product-hero__actions">
                     <a href="../contact.html" class="btn btn--primary btn--large">Request Quote</a>
-                    <a href="#" class="btn btn--outline btn--large">Download Datasheet</a>
+                    <a href="#" class="btn btn--outline btn--large">Download Datasheet (PDF)</a>
                 </div>
             </div>
         </section>
@@ -371,84 +389,96 @@
                         <div>
                             <h3>Safety Certification</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Safety certification details for FSoE Slave</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Safety Level</th>
                                     <td style="padding: 0.5rem 0;">SIL3 per IEC 61508</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Performance Level</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Performance Level</th>
                                     <td style="padding: 0.5rem 0;">PLe per ISO 13849</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Standard</th>
                                     <td style="padding: 0.5rem 0;">IEC 61784-3</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Certification Body</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Certification Body</th>
                                     <td style="padding: 0.5rem 0;">Bureau Véritas</td>
                                 </tr>
+                                                            </tbody>
                             </table>
 
                             <h3 style="margin-top: 2rem;">Resource Requirements</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Resource requirements for FSoE Slave</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Code Size (ROM)</th>
                                     <td style="padding: 0.5rem 0;">~50KB (typical)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Data Size (RAM)</th>
                                     <td style="padding: 0.5rem 0;">~8KB (typical)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Stack Size</th>
                                     <td style="padding: 0.5rem 0;">~2KB</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">MCU Requirements</th>
                                     <td style="padding: 0.5rem 0;">32-bit processor</td>
                                 </tr>
+                                                            </tbody>
                             </table>
                         </div>
 
                         <div>
                             <h3>Supported Features</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Supported features for FSoE Slave</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Max Safe I/O</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Max Safe I/O</th>
                                     <td style="padding: 0.5rem 0;">Configurable (up to 254 bytes)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Watchdog Timeout</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Watchdog Timeout</th>
                                     <td style="padding: 0.5rem 0;">Configurable (10-65535 ms)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Connection ID</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Connection ID</th>
                                     <td style="padding: 0.5rem 0;">0x0001-0xFFFF</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>FSoE Protocol Version</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">FSoE Protocol Version</th>
                                     <td style="padding: 0.5rem 0;">v1.1</td>
                                 </tr>
+                                                            </tbody>
                             </table>
 
                             <h3 style="margin-top: 2rem;">Platform Support</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Platform support for FSoE Slave</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Operating Systems</th>
                                     <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">MCU Families</th>
                                     <td style="padding: 0.5rem 0;">Low hardware dependency</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Compiler</th>
                                     <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Black Channel Stacks</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Black Channel Stacks</th>
                                     <td style="padding: 0.5rem 0;">Acontis, SSC, custom</td>
                                 </tr>
+                                                            </tbody>
                             </table>
                         </div>
                     </div>

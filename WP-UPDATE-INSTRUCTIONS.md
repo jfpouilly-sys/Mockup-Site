@@ -1,6 +1,44 @@
-# WordPress Update Instructions: Product Datasheets & Integration Tab Removal
+# WordPress Update Instructions: Training Menu, RGAA Fixes, Datasheets & Integration Tab Removal
 
-These instructions explain how to deploy the product datasheet and integration tab changes to your live WordPress instance.
+These instructions explain how to deploy the training mega-menu, RGAA 4.1.2 accessibility fixes, product datasheet, and integration tab changes to your live WordPress instance.
+
+---
+
+## 0. Training Mega-Menu & RGAA 4.1.2 Accessibility Fixes
+
+### Training Mega-Menu
+
+The Training navigation link now includes a dropdown mega-menu with 4 course categories:
+- **Protocol Training** (CAN, CANopen, J1939, EtherCAT, etc.)
+- **Safety Standards** (IEC 61508, ISO 26262, DO-178C, etc.)
+- **Hands-on Workshops** (Troubleshooting, Cybersecurity, FreeRTOS, etc.)
+- **Custom Training** (On-request tailored programs)
+
+Each links to the corresponding tab on the training page via URL hash anchors.
+
+**WordPress theme file changed:** `azit-industrial/header.php`
+- The Training menu item now has a mega-menu dropdown matching Products and Expertise
+- If using WordPress Menus (Appearance > Menus), re-create the Training sub-items manually
+
+### RGAA 4.1.2 Accessibility Fixes Applied
+
+**CSS Changes (deploy updated theme CSS files):**
+- `css/base.css`: Root font-size changed from `16px` to `100%` for proper browser zoom support
+- `css/layout.css`: Footer link/text color improved to `gray-300` for WCAG AA contrast; added `:focus-within` support for keyboard navigation of mega-menus
+- `css/components.css`: Fixed low-contrast colors (`#666`→`#595959`, `#ccc`→`#767676`) to meet WCAG AA 4.5:1 ratio
+
+**JavaScript Changes (deploy updated JS files):**
+- `js/tabs.js`: Added ARIA `role="tablist"`, `role="tab"`, `role="tabpanel"`, `aria-selected`, `aria-controls` attributes; added keyboard navigation (Arrow keys, Home/End)
+
+**HTML Changes applied to all pages:**
+- Navigation SVG icons: Added `aria-hidden="true"`
+- Products link: Fixed `href="#"` → actual page URL
+- Breadcrumbs: Added `aria-label="Breadcrumb"` (EN) / `aria-label="Fil d'Ariane"` (FR)
+- Skip links: Standardized class to `skip-link` across all pages
+- Mobile menu: Added `aria-label` and `aria-expanded="false"` where missing
+- Contact forms: Added `aria-required="true"`, `autocomplete` attributes, required field legend
+- Product tables: Added `<th scope="row">`, `<caption>` elements
+- Download links: Added file type info "(PDF)"
 
 ---
 
@@ -126,6 +164,14 @@ If you're using WPML for translations:
 | `fr/pages/products/protocol-gateway.html` | Added "Telecharger la Fiche Technique" button (FR) |
 | `fr/pages/products/j1939.html` | Fixed "Telecharger la Fiche Technique" link (FR) |
 | `azit-industrial/single-product.php` | Added datasheet download button; removed duplicate Related Products section |
+| `azit-industrial/header.php` | Added Training mega-menu dropdown; added `aria-hidden="true"` to SVG icons |
+| `css/base.css` | Changed root font-size from `16px` to `100%` for RGAA zoom compliance |
+| `css/layout.css` | Fixed footer link contrast (gray-300); added `:focus-within` for mega-menu keyboard support |
+| `css/components.css` | Fixed color contrast for WCAG AA: replaced `#666`→`#595959`, `#ccc`→`#767676` |
+| `js/tabs.js` | Added ARIA roles (tablist/tab/tabpanel), keyboard navigation (Arrow keys, Home/End) |
+| `pages/*.html`, `fr/pages/*.html` | Added Training mega-menu to all pages; RGAA fixes (skip links, breadcrumbs, SVG aria-hidden) |
+| `pages/contact.html`, `fr/pages/contact.html` | Form RGAA fixes (aria-required, autocomplete, required legend) |
+| `pages/products/*.html` | Table RGAA fixes (th scope, caption elements); download link file type info |
 | `pages/products/*.html` (9 files) | Removed "Integration" tab from all communication stack product pages (EN) |
 | `fr/pages/products/*.html` (9 files) | Removed "Intégration" tab from all communication stack product pages (FR) |
 | `azit-industrial/static-content/products/*.html` (9 files) | Removed "Integration" tab from WP static content (EN) |

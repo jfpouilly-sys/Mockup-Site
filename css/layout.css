@@ -181,7 +181,9 @@
   margin-top: var(--spacing-md);
 }
 
-.nav__item:hover .mega-menu {
+.nav__item:hover .mega-menu,
+.nav__item:focus-within .mega-menu,
+.nav__item.focus .mega-menu {
   opacity: 1;
   visibility: visible;
 }
@@ -268,7 +270,7 @@
 }
 
 .footer__tagline {
-  color: var(--color-gray-400);
+  color: var(--color-gray-300);
   font-size: var(--font-size-sm);
   margin: 0;
 }
@@ -291,7 +293,7 @@
 }
 
 .footer__link {
-  color: var(--color-gray-400);
+  color: var(--color-gray-300);
   font-size: var(--font-size-sm);
   transition: color var(--transition-fast);
 }
@@ -311,7 +313,7 @@
 }
 
 .footer__copyright {
-  color: var(--color-gray-400);
+  color: var(--color-gray-300);
   font-size: var(--font-size-sm);
   margin: 0;
 }
