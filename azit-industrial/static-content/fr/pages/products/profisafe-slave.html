@@ -191,7 +191,7 @@
                         <li><button class="tabs__button active" data-tab="overview">Aperçu</button></li>
                         <li><button class="tabs__button" data-tab="features">Fonctionnalités</button></li>
                         <li><button class="tabs__button" data-tab="specs">Spécifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Intégration</button></li>
+
                     </ul>
                 </div>
 
@@ -427,109 +427,6 @@
                     </div>
                 </div>
 
-                <!-- Integration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Intégration Rapide</h2>
-                    <p style="margin-top: 1rem;">
-                        La pile PROFIsafe Esclave AZIT est conçue pour une intégration facile avec une surface d'API minimale.
-                    </p>
-
-                    <h3 style="margin-top: 2rem;">Exemple d'Initialisation</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copier</button>
-                        </div>
-                        <pre><code>/* Initialisation PROFIsafe Esclave */
-#include "profisafe_slave.h"
-
-PROFISAFE_SLAVE_CONFIG config = {
-    .f_source_addr = 0x0001,
-    .f_dest_addr = 0x0002,
-    .watchdog_time = 100,  /* ms */
-    .safe_inputs = 8,      /* octets */
-    .safe_outputs = 8      /* octets */
-};
-
-/* Initialiser l'esclave PROFIsafe */
-if (profisafe_slave_init(&config) == PROFISAFE_OK) {
-    /* Démarrer la communication PROFIsafe */
-    profisafe_slave_start();
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Traitement Cyclique</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copier</button>
-                        </div>
-                        <pre><code>/* Appeler dans votre tâche cyclique */
-void safety_task(void) {
-    uint8_t safe_inputs[8];
-    uint8_t safe_outputs[8];
-
-    /* Lire les entrées de sécurité de votre application */
-    read_safe_inputs(safe_inputs);
-
-    /* Traiter la communication PROFIsafe */
-    profisafe_slave_process(safe_inputs, safe_outputs);
-
-    /* Écrire les sorties de sécurité vers votre application */
-    write_safe_outputs(safe_outputs);
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Étapes d'Intégration</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Ajouter les fichiers de la pile à votre projet</strong><br>
-                                    Inclure les fichiers sources et en-têtes dans votre système de build
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Implémenter les fonctions HAL</strong><br>
-                                    Fournir l'horodatage et l'interface du canal noir
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configurer les paramètres PROFIsafe</strong><br>
-                                    Définir les adresses F, le watchdog, les tailles E/S
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Intégrer dans la tâche cyclique</strong><br>
-                                    Appeler la fonction de traitement dans votre tâche de sécurité
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Tester et valider</strong><br>
-                                    Utiliser les cas de test et outils de validation fournis
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>Ce Qui Est Inclus</h3>
-                            <ul class="benefits-list">
-                                <li>Code source avec documentation</li>
-                                <li>Projets d'exemple pour plateformes populaires</li>
-                                <li>Guide d'intégration et référence API</li>
-                                <li>Modèle HAL et guide de portage</li>
-                                <li>Suites de tests et outils de validation</li>
-                                <li>Documents de certification Bureau Véritas</li>
-                                <li>Package de support technique</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
-                        <h3>Besoin d'Aide pour l'Intégration ?</h3>
-                        <p style="margin-top: 1rem;">
-                            Notre équipe offre des services de portage pour faire fonctionner rapidement votre implémentation PROFIsafe esclave
-                            sur votre plateforme cible. Nous gérons le développement HAL, les tests et la validation.
-                        </p>
-                        <a href="../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">En Savoir Plus sur les Services de Portage</a>
-                    </div>
-                </div>
             </div>
         </section>
 

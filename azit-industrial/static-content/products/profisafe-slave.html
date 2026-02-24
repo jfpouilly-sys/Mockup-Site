@@ -189,7 +189,6 @@
                         <li><button class="tabs__button active" data-tab="overview">Overview</button></li>
                         <li><button class="tabs__button" data-tab="features">Features</button></li>
                         <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Integration</button></li>
                     </ul>
                 </div>
 
@@ -417,110 +416,6 @@
                                 </tr>
                             </table>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Integration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Integration</h2>
-                    <p style="margin-top: 1rem;">
-                        The AZIT PROFIsafe Slave stack is designed for easy integration with minimal API surface.
-                    </p>
-
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* PROFIsafe Slave initialization */
-#include "profisafe_slave.h"
-
-PROFISAFE_SLAVE_CONFIG config = {
-    .f_source_addr = 0x0001,
-    .f_dest_addr = 0x0002,
-    .watchdog_time = 100,  /* ms */
-    .safe_inputs = 8,      /* bytes */
-    .safe_outputs = 8      /* bytes */
-};
-
-/* Initialize PROFIsafe slave */
-if (profisafe_slave_init(&config) == PROFISAFE_OK) {
-    /* Start PROFIsafe communication */
-    profisafe_slave_start();
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Cyclic Processing</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* Call in your cyclic task */
-void safety_task(void) {
-    uint8_t safe_inputs[8];
-    uint8_t safe_outputs[8];
-
-    /* Read safe inputs from your application */
-    read_safe_inputs(safe_inputs);
-
-    /* Process PROFIsafe communication */
-    profisafe_slave_process(safe_inputs, safe_outputs);
-
-    /* Write safe outputs to your application */
-    write_safe_outputs(safe_outputs);
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Integration Steps</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to your project</strong><br>
-                                    Include source files and headers in your build system
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Implement HAL functions</strong><br>
-                                    Provide timestamp and black channel interface
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configure PROFIsafe parameters</strong><br>
-                                    Set F-addresses, watchdog, I/O sizes
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Integrate in cyclic task</strong><br>
-                                    Call process function in your safety task
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test and validate</strong><br>
-                                    Use provided test cases and validation tools
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>What's Included</h3>
-                            <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Example projects for popular platforms</li>
-                                <li>Integration guide and API reference</li>
-                                <li>HAL template and porting guide</li>
-                                <li>Test suites and validation tools</li>
-                                <li>BV certification documents</li>
-                                <li>Technical support package</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
-                        <h3>Need Help with Integration?</h3>
-                        <p style="margin-top: 1rem;">
-                            Our team offers porting services to get your PROFIsafe slave implementation running quickly
-                            on your target platform. We handle HAL development, testing, and validation.
-                        </p>
-                        <a href="../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Porting Services</a>
                     </div>
                 </div>
             </div>
