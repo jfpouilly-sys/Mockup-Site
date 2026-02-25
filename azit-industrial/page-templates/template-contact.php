@@ -43,18 +43,42 @@ get_header();
                         <?php
                         // Check for Contact Form 7
                         if (shortcode_exists('contact-form-7')) :
-                            // Get contact form from custom field or use default
+                            // Priority 1: ACF field with a specific form ID
                             $form_id = '';
                             if (function_exists('get_field')) {
                                 $form_id = get_field('contact_form_id');
                             }
-                            if ($form_id) {
+
+                            if ($form_id) :
                                 echo do_shortcode('[contact-form-7 id="' . intval($form_id) . '"]');
-                            } else {
-                                // Display content which should include the shortcode
-                            }
-                        else :
-                            // Fallback accessible contact form
+                            else :
+                                // Priority 2: Find the default contact form by slug
+                                $contact_form = get_posts(array(
+                                    'post_type'   => 'wpcf7_contact_form',
+                                    'post_status' => 'publish',
+                                    'name'        => 'contact-form',
+                                    'numberposts' => 1,
+                                ));
+
+                                if (!empty($contact_form)) :
+                                    echo do_shortcode('[contact-form-7 id="' . intval($contact_form[0]->ID) . '" title="Contact Form"]');
+                                else :
+                                    // Priority 3: Use any available CF7 form
+                                    $any_form = get_posts(array(
+                                        'post_type'   => 'wpcf7_contact_form',
+                                        'post_status' => 'publish',
+                                        'numberposts' => 1,
+                                    ));
+                                    if (!empty($any_form)) :
+                                        echo do_shortcode('[contact-form-7 id="' . intval($any_form[0]->ID) . '"]');
+                                    else :
+                                    ?>
+                                    <p><?php esc_html_e('Please create a Contact Form 7 form with slug "contact-form" or go to Tools > AZIT Setup to generate it automatically.', 'azit-industrial'); ?></p>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php else :
+                            // Fallback accessible contact form (when CF7 is not installed)
                         ?>
                         <form id="contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="contact-form" novalidate>
                             <?php wp_nonce_field('azit_contact_form', 'azit_contact_nonce'); ?>

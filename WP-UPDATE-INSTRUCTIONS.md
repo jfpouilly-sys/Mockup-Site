@@ -525,6 +525,7 @@ All new fields are configured in the WPML config (`inc/wpml-integration.php`):
 | `azit-industrial/single-training.php` | Rewritten with 2-column layout (content left, sidebar right), badges, outline with nested topics, syllabus PDF download, instructor, benefits, sessions table; CTA section replaced with embedded CF7 training request form |
 | `azit-industrial/archive-training.php` | "Request Custom Training" CTA replaced with embedded CF7 training request form |
 | `azit-industrial/inc/contact-form-7.php` | Added `azit_create_training_request_form()` to auto-create CF7 training form on theme activation |
+| `azit-industrial/page-templates/template-contact.php` | Fixed CF7 integration: contact form now properly looks up CF7 form by slug `contact-form`, with fallback chain (ACF field > slug lookup > any form > HTML fallback) |
 | `azit-industrial/assets/css/components.css` | Added CSS for: training 2-column layout, product feature groups grid, spec tables grid, downloads list, expertise services grid, process steps with numbered circles, case studies grid, CTA sections |
 | `azit-industrial/inc/wpml-integration.php` | Added all new translatable/copyable fields for products, expertise, and training; added training_category and training_level taxonomies |
 | `azit-industrial/inc/sample-content.php` | Updated training sample content with new fields (max_participants, private_price, certification, instructor, category) |
