@@ -1,6 +1,28 @@
 # WordPress Update Instructions: Training Menu, RGAA Fixes, Datasheets & Integration Tab Removal
 
-These instructions explain how to deploy the training mega-menu, RGAA 4.1.2 accessibility fixes, product datasheet, and integration tab changes to your live WordPress instance.
+These instructions explain how to deploy the training mega-menu, RGAA 4.1.2 accessibility fixes, product datasheet, integration tab changes, and the **new fully-manageable ACF field architecture** for Training, Products, and Expertise to your live WordPress instance.
+
+---
+
+## Prerequisites: Required Plugin
+
+### ACF PRO (Advanced Custom Fields PRO) — **Required**
+
+All content management for Training, Products, and Expertise relies on **ACF PRO**. The theme registers all field groups in PHP (`inc/custom-fields.php`), so no JSON import is needed — fields auto-register when ACF PRO is active.
+
+**Why PRO?** Several field groups use **nested repeaters** (e.g., training outline with sub-topics, product feature groups with sub-features, product spec tables with rows), which is a PRO-only feature.
+
+**Without ACF PRO:** Basic fallback meta boxes are provided for price, SKU, duration, and level, but all advanced features (galleries, repeaters, grouped specs, PDF uploads) will be unavailable.
+
+### Other Recommended Plugins
+
+| Plugin | Purpose | Required? |
+|--------|---------|-----------|
+| **Contact Form 7** | Quote forms on product pages, contact forms | Recommended |
+| **WPML** or **Polylang** | FR/EN multilingual support | Recommended |
+| **Yoast SEO** | SEO meta for all post types | Optional |
+
+**No other plugins are needed.** Galleries, PDF downloads, process steps, spec tables, and badges all use native WordPress features through ACF PRO.
 
 ---
 
@@ -276,3 +298,209 @@ wp eval "define('AZIT_IMPORT_CONTENT', true); require get_template_directory() .
 | `isit-j1939-stack_isit-j1939-stack-en.pdf` | J1939 Protocol Stack |
 
 > **Reminder:** After placing PDF files in this directory, run the media import (see Section 1) to register them in the WordPress Media Library.
+
+---
+
+## 8. Training Pages — Full WordPress Manageability
+
+Training pages are now fully manageable through **Training > Edit** in wp-admin. No code editing needed.
+
+### ACF Field Tabs for Training
+
+All fields are organized in **6 tabs** in the editor:
+
+| Tab | Fields | Description |
+|-----|--------|-------------|
+| **General** | Duration, Max Participants, Level, Format, Certificate toggle | Core training metadata |
+| **Pricing** | Inter-Enterprise Price, Private Company Price | Two-tier pricing |
+| **Content** | Learning Objectives (repeater), Prerequisites (WYSIWYG), Target Audience (WYSIWYG), Instructor bio | Rich content sections |
+| **Program** | Course Outline (repeater with nested topics) | Day-by-day program, e.g., "Day 1 — CAN Fundamentals" with bullet-point topics |
+| **Sidebar** | Key Benefits (repeater), Syllabus PDF (file upload) | Sidebar content blocks |
+| **Sessions** | Upcoming Sessions (repeater: date, location, status) | Scheduled session management |
+
+### Taxonomies for Training
+
+| Taxonomy | Purpose | Examples |
+|----------|---------|----------|
+| **Training Category** (`training_category`) | Classify training by type | Protocol Training, Safety Standards, Hands-on Workshops |
+| **Training Level** (`training_level`) | Difficulty level | Beginner, Intermediate, Advanced, Expert |
+
+### Adding a Syllabus PDF
+
+1. Go to **Training > Edit** and open the training post
+2. Go to the **Sidebar** tab
+3. In the **Syllabus (PDF)** field, click "Add File"
+4. Upload or select a PDF from the **WordPress Media Library**
+5. Click **Update** to save
+6. A "Download PDF" button will automatically appear in the training page sidebar
+
+### Template Files
+
+| File | Purpose |
+|------|---------|
+| `single-training.php` | Single training detail page (2-column layout: content + sidebar) |
+| `archive-training.php` | Training listing with level filters |
+| `template-parts/content-training.php` | Reusable training card partial |
+
+---
+
+## 9. Product Pages — Full WordPress Manageability
+
+Product pages are now fully manageable through **Products > Edit** in wp-admin.
+
+### ACF Field Tabs for Products
+
+All fields are organized in **5 tabs**:
+
+| Tab | Fields | Description |
+|-----|--------|-------------|
+| **General** | Product Image, Image Gallery, Price, SKU/Reference, Availability, Certification Badges | Core product info + multi-image gallery |
+| **Features** | Feature Groups (categorized cards), Key Features (simple list) | "Safety Features", "Communication Features" as separate cards with sub-items |
+| **Specifications** | Specification Tables (grouped), Specifications (simple table) | Multiple named tables (e.g., "Safety Certification", "Resource Requirements") |
+| **Documentation** | Datasheet (PDF), Additional Downloads (repeater: title + file) | All downloadable files |
+| **Related** | Related Products (relationship picker, max 4) | Curated related product links |
+
+### How to Add Product Certification Badges
+
+1. Go to **Products > Edit** and open the product post
+2. In the **General** tab, find **Certification Badges**
+3. Click "Add Badge" and enter labels like `SIL3`, `PLe`, `BV Approved`, `Made in France`
+4. These appear as badge pills in the product hero section
+
+### How to Add Grouped Specification Tables
+
+1. Go to the **Specifications** tab
+2. Click "Add Specification Table"
+3. Enter a table title (e.g., "Safety Certification")
+4. Add rows with Parameter/Value pairs (e.g., "Safety Level" / "SIL3")
+5. Repeat for additional tables ("Resource Requirements", "Platform Support", etc.)
+6. Each group renders as a separate table with its own heading
+
+### How to Add Feature Groups
+
+1. Go to the **Features** tab
+2. Click "Add Feature Group"
+3. Enter a group title (e.g., "Safety Features")
+4. Add individual features as a list
+5. Repeat for additional groups ("Communication Features", "Integration Features", etc.)
+6. Each group renders as a separate card in a responsive grid
+
+### How to Attach a Datasheet
+
+1. Go to the **Documentation** tab
+2. In the **Datasheet** field, click "Add File" and upload/select the PDF
+3. A "Download Datasheet" button appears automatically in the product actions area
+
+### How to Add Additional Downloads
+
+1. Still in the **Documentation** tab, scroll to **Additional Downloads**
+2. Click "Add Download"
+3. Enter a title (e.g., "User Guide", "Integration Notes") and upload the file
+4. These appear in a "Documentation" section with file type and size
+
+### How to Set Product Availability
+
+1. In the **General** tab, find **Availability**
+2. Select: In Stock, Limited Availability, Out of Stock, Pre-Order, or Contact for Availability
+3. The status badge appears on the product page and in the admin list
+
+### Admin Columns for Products
+
+The Products admin list now shows: **Image | SKU | Price | Availability | Category**
+
+### Template Files
+
+| File | Purpose |
+|------|---------|
+| `single-product.php` | Single product detail page (gallery + info header, then feature groups, spec tables, docs, related) |
+| `archive-product.php` | Product listing with category filters |
+
+---
+
+## 10. Expertise Pages — Full WordPress Manageability
+
+Expertise pages are now fully manageable through **Expertise > Edit** in wp-admin.
+
+### ACF Field Tabs for Expertise
+
+All fields are organized in **4 tabs**:
+
+| Tab | Fields | Description |
+|-----|--------|-------------|
+| **General** | Icon/Illustration, Subtitle, Short Description, Badges | Hero section content |
+| **Services** | Key Services (repeater: name + description) | Service cards displayed as a grid |
+| **Features & Cases** | Key Features (icon + text), Case Studies (title, summary, link) | Why-choose-us grid and portfolio |
+| **Process & CTA** | Process Steps (numbered workflow), Call to Action (custom button text/link) | Certification or development process visualization |
+
+### How to Add Process Steps
+
+1. Go to **Expertise > Edit** and open the expertise post
+2. Go to the **Process & CTA** tab
+3. Click "Add Step" and enter a step title and description
+4. Steps are automatically numbered with circular badges (1, 2, 3...)
+5. Example: "Pre-Audit" → "Gap Analysis" → "Implementation" → "Certification"
+
+### How to Set a Custom CTA
+
+1. In the **Process & CTA** tab, scroll to **Call to Action**
+2. Enter custom button text (e.g., "Discuss Your Project") and link URL
+3. If left empty, defaults to "Contact Us" linking to `/contact/`
+
+### How to Add Badges
+
+1. In the **General** tab, find **Badges**
+2. Click "Add Badge" and enter labels like `SIL3 Expertise`, `Bureau Veritas`, `ISO 26262`
+3. These appear in the expertise hero section
+
+### How to Add Case Studies
+
+1. Go to the **Features & Cases** tab
+2. Scroll to **Case Studies / Use Cases**
+3. Click "Add Case Study" and fill in Title, Summary, and optional Link
+4. These display as cards in a responsive grid
+
+### Admin Columns for Expertise
+
+The Expertise admin list now shows: **Icon | Subtitle**
+
+### Template Files
+
+| File | Purpose |
+|------|---------|
+| `single-expertise.php` | Single expertise detail page (overview, services grid, process steps, features, case studies, CTA) |
+| `archive-expertise.php` | Expertise listing page |
+
+---
+
+## 11. WPML / Multilingual Field Configuration
+
+All new fields are configured in the WPML config (`inc/wpml-integration.php`):
+
+### Translatable Fields (need separate content per language)
+
+**Expertise:** subtitle, short_description, badges, services, features, case_studies, process, cta
+
+**Product:** features, feature_groups, spec_tables, specifications, downloads, badges
+
+**Training:** objectives, prerequisites, audience, instructor, outline, benefits, private_price
+
+### Copied Fields (same value in both languages)
+
+**Product:** price, sku, availability, image, gallery, datasheet, related_products
+
+**Training:** price, duration, level, format, certification, max_participants, syllabus, sessions
+
+---
+
+## 12. Summary of Changed Files (Latest Update)
+
+| File | Change |
+|------|--------|
+| `azit-industrial/inc/custom-fields.php` | Complete rewrite: added tabbed UI for all 3 CPTs; added product gallery, availability, badges, feature groups, spec tables, downloads; added expertise subtitle, badges, features, case studies, process steps; added training syllabus PDF, outline with nested topics, objectives as repeater, instructor, benefits, format, certification, participants |
+| `azit-industrial/inc/custom-post-types.php` | Added `training_category` taxonomy; updated admin columns for products (SKU, availability), expertise (subtitle) |
+| `azit-industrial/single-product.php` | Rewritten with badges, gallery with thumbnails, feature groups grid, grouped spec tables, downloads section, related products, quote form |
+| `azit-industrial/single-expertise.php` | Rewritten with badges, services card grid, process steps (numbered), features grid, case studies, wired CTA field with fallback |
+| `azit-industrial/single-training.php` | Rewritten with 2-column layout (content left, sidebar right), badges, outline with nested topics, syllabus PDF download, instructor, benefits, sessions table |
+| `azit-industrial/assets/css/components.css` | Added CSS for: training 2-column layout, product feature groups grid, spec tables grid, downloads list, expertise services grid, process steps with numbered circles, case studies grid, CTA sections |
+| `azit-industrial/inc/wpml-integration.php` | Added all new translatable/copyable fields for products, expertise, and training; added training_category and training_level taxonomies |
+| `azit-industrial/inc/sample-content.php` | Updated training sample content with new fields (max_participants, private_price, certification, instructor, category) |
