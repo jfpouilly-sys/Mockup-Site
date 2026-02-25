@@ -148,7 +148,7 @@ get_header();
 
                         <!-- CTA Buttons -->
                         <div class="product-actions">
-                            <a href="<?php echo esc_url(home_url('/contact/?subject=products&product=' . urlencode(get_the_title()))); ?>"
+                            <a href="#quote-form"
                                class="btn btn-primary">
                                 <?php esc_html_e('Request Quote', 'azit-industrial'); ?>
                             </a>
@@ -244,6 +244,52 @@ get_header();
                     </ul>
                 </section>
                 <?php endif; ?>
+
+                <!-- Quote Request Form (Contact Form 7) -->
+                <section id="quote-form" class="product-quote-form" aria-labelledby="quote-heading" tabindex="-1">
+                    <h2 id="quote-heading" class="section-title">
+                        <?php echo esc_html(sprintf(__('Request a Quote for %s', 'azit-industrial'), get_the_title())); ?>
+                    </h2>
+                    <p class="quote-intro">
+                        <?php esc_html_e('Fill out the form below and our team will get back to you with a customized quote.', 'azit-industrial'); ?>
+                    </p>
+
+                    <?php
+                    if (shortcode_exists('contact-form-7')) :
+                        // Look for a quote form by slug
+                        $quote_form = get_posts(array(
+                            'post_type'   => 'wpcf7_contact_form',
+                            'post_status' => 'publish',
+                            'name'        => 'product-quote-form',
+                            'numberposts' => 1,
+                        ));
+
+                        if (!empty($quote_form)) :
+                            echo do_shortcode('[contact-form-7 id="' . intval($quote_form[0]->ID) . '" title="Product Quote"]');
+                        else :
+                            // Fallback: use any CF7 form tagged as contact
+                            $any_form = get_posts(array(
+                                'post_type'   => 'wpcf7_contact_form',
+                                'post_status' => 'publish',
+                                'numberposts' => 1,
+                            ));
+                            if (!empty($any_form)) :
+                                echo do_shortcode('[contact-form-7 id="' . intval($any_form[0]->ID) . '"]');
+                            else :
+                            ?>
+                            <p><?php esc_html_e('Please create a Contact Form 7 form with slug "product-quote-form" or go to Tools > AZIT Setup to generate it automatically.', 'azit-industrial'); ?></p>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <!-- Fallback when CF7 is not installed -->
+                        <p>
+                            <?php esc_html_e('Contact us for a quote:', 'azit-industrial'); ?>
+                            <a href="<?php echo esc_url(home_url('/contact/?subject=products&product=' . urlencode(get_the_title()))); ?>" class="btn btn-primary">
+                                <?php esc_html_e('Go to Contact Page', 'azit-industrial'); ?>
+                            </a>
+                        </p>
+                    <?php endif; ?>
+                </section>
 
             </article>
 
