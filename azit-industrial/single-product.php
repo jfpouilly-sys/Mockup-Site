@@ -166,9 +166,6 @@ get_header();
                                 <?php esc_html_e('Download Datasheet', 'azit-industrial'); ?>
                             </a>
                             <?php endif; ?>
-                            <a href="#specifications" class="btn btn-secondary">
-                                <?php esc_html_e('View Specifications', 'azit-industrial'); ?>
-                            </a>
                         </div>
 
                     </div>
