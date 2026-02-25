@@ -386,6 +386,7 @@ function azit_expertise_admin_columns($columns) {
         $new_columns[$key] = $value;
         if ($key === 'title') {
             $new_columns['expertise_icon'] = __('Icon', 'azit-industrial');
+            $new_columns['expertise_subtitle'] = __('Subtitle', 'azit-industrial');
         }
     }
     return $new_columns;
@@ -396,12 +397,18 @@ add_filter('manage_expertise_posts_columns', 'azit_expertise_admin_columns');
  * Populate custom columns for Expertise
  */
 function azit_expertise_admin_column_content($column, $post_id) {
-    if ($column === 'expertise_icon') {
-        if (has_post_thumbnail($post_id)) {
-            echo get_the_post_thumbnail($post_id, array(50, 50));
-        } else {
-            echo '&mdash;';
-        }
+    switch ($column) {
+        case 'expertise_icon':
+            if (has_post_thumbnail($post_id)) {
+                echo get_the_post_thumbnail($post_id, array(50, 50));
+            } else {
+                echo '&mdash;';
+            }
+            break;
+        case 'expertise_subtitle':
+            $subtitle = get_post_meta($post_id, 'expertise_subtitle', true);
+            echo $subtitle ? esc_html($subtitle) : '&mdash;';
+            break;
     }
 }
 add_action('manage_expertise_posts_custom_column', 'azit_expertise_admin_column_content', 10, 2);
@@ -415,7 +422,9 @@ function azit_product_admin_columns($columns) {
         $new_columns[$key] = $value;
         if ($key === 'title') {
             $new_columns['product_image'] = __('Image', 'azit-industrial');
+            $new_columns['product_sku'] = __('SKU', 'azit-industrial');
             $new_columns['product_price'] = __('Price', 'azit-industrial');
+            $new_columns['product_availability'] = __('Availability', 'azit-industrial');
         }
     }
     return $new_columns;
@@ -434,9 +443,24 @@ function azit_product_admin_column_content($column, $post_id) {
                 echo '&mdash;';
             }
             break;
+        case 'product_sku':
+            $sku = get_post_meta($post_id, 'product_sku', true);
+            echo $sku ? '<code>' . esc_html($sku) . '</code>' : '&mdash;';
+            break;
         case 'product_price':
             $price = get_post_meta($post_id, 'product_price', true);
             echo $price ? esc_html($price) : '&mdash;';
+            break;
+        case 'product_availability':
+            $availability = get_post_meta($post_id, 'product_availability', true);
+            $labels = array(
+                'in_stock'     => __('In Stock', 'azit-industrial'),
+                'limited'      => __('Limited', 'azit-industrial'),
+                'out_of_stock' => __('Out of Stock', 'azit-industrial'),
+                'pre_order'    => __('Pre-Order', 'azit-industrial'),
+                'contact'      => __('Contact', 'azit-industrial'),
+            );
+            echo $availability ? esc_html($labels[$availability] ?? $availability) : '&mdash;';
             break;
     }
 }

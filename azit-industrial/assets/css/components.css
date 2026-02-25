@@ -1156,6 +1156,214 @@
 }
 
 /* ============================================
+   PRODUCT DETAIL PAGE
+   ============================================ */
+
+/* Feature groups grid (2 cols on desktop) */
+.feature-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.feature-group-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  color: var(--color-gray-600);
+}
+
+.feature-group-list li {
+  margin-bottom: 0.35rem;
+}
+
+/* Specification tables grid (2 cols on desktop) */
+.spec-tables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.spec-table-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+}
+
+/* Product grid for related products */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Download items */
+.downloads-list {
+  list-style: none;
+  padding: 0;
+}
+
+.download-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.download-item a {
+  font-weight: 600;
+}
+
+.download-meta {
+  color: var(--color-gray-500);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .feature-groups-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-tables-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   EXPERTISE DETAIL PAGE
+   ============================================ */
+
+/* Services grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.service-card .service-description {
+  color: var(--color-gray-600);
+  font-size: 0.95rem;
+}
+
+/* Features grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--color-gray-50, #f9fafb);
+  border-radius: 8px;
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.feature-text {
+  color: var(--color-gray-700);
+}
+
+/* Process steps */
+.process-steps {
+  list-style: none;
+  padding: 0;
+  counter-reset: process-counter;
+  margin-top: 1.5rem;
+}
+
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.process-step:last-child {
+  border-bottom: none;
+}
+
+.process-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.process-step-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.05rem;
+}
+
+.process-step-desc {
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+/* Case studies grid */
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.case-study-summary {
+  color: var(--color-gray-600);
+}
+
+.case-study-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* Expertise CTA */
+.expertise-cta {
+  text-align: center;
+  background: var(--color-primary);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.expertise-cta .cta-title {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.expertise-cta .cta-text {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .services-grid,
+  .features-grid,
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
    TIMELINE (V6.4)
    ============================================ */
 

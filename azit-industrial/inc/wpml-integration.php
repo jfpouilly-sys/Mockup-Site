@@ -464,13 +464,30 @@ function azit_get_wpml_config() {
     </taxonomies>
 
     <custom-fields>
-        <!-- Expertise -->
+        <!-- Expertise: translatable -->
         <custom-field action="translate">expertise_subtitle</custom-field>
         <custom-field action="translate">expertise_short_description</custom-field>
-        <!-- Product -->
-        <custom-field action="translate">product_description</custom-field>
+        <custom-field action="translate">expertise_badges</custom-field>
+        <custom-field action="translate">expertise_services</custom-field>
+        <custom-field action="translate">expertise_features</custom-field>
+        <custom-field action="translate">expertise_case_studies</custom-field>
+        <custom-field action="translate">expertise_process</custom-field>
+        <custom-field action="translate">expertise_cta</custom-field>
+        <!-- Product: translatable -->
         <custom-field action="translate">product_features</custom-field>
+        <custom-field action="translate">product_feature_groups</custom-field>
+        <custom-field action="translate">product_spec_tables</custom-field>
+        <custom-field action="translate">product_specifications</custom-field>
+        <custom-field action="translate">product_downloads</custom-field>
+        <custom-field action="translate">product_badges</custom-field>
+        <!-- Product: copy -->
         <custom-field action="copy">product_price</custom-field>
+        <custom-field action="copy">product_sku</custom-field>
+        <custom-field action="copy">product_availability</custom-field>
+        <custom-field action="copy">product_image</custom-field>
+        <custom-field action="copy">product_gallery</custom-field>
+        <custom-field action="copy">product_datasheet</custom-field>
+        <custom-field action="copy">related_products</custom-field>
         <!-- Training: translatable content -->
         <custom-field action="translate">training_objectives</custom-field>
         <custom-field action="translate">training_prerequisites</custom-field>

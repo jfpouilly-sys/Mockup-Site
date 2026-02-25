@@ -33,11 +33,24 @@ function azit_register_acf_fields() {
 
     /**
      * Expertise Field Group
+     *
+     * Organized in tabs:
+     * - General: icon, subtitle, short description, badges
+     * - Services: key services repeater
+     * - Features & Cases: features list, case studies
+     * - Process: process steps, CTA
      */
     acf_add_local_field_group(array(
         'key'      => 'group_azit_expertise',
         'title'    => __('Expertise Details', 'azit-industrial'),
         'fields'   => array(
+
+            // === TAB: General ===
+            array(
+                'key'   => 'field_expertise_tab_general',
+                'label' => __('General', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
             // Icon/Illustration
             array(
                 'key'           => 'field_expertise_icon',
@@ -50,6 +63,17 @@ function azit_register_acf_fields() {
                 'preview_size'  => 'medium',
                 'library'       => 'all',
                 'mime_types'    => 'svg,png,jpg,jpeg',
+                'wrapper'       => array('width' => '50'),
+            ),
+            // Subtitle
+            array(
+                'key'          => 'field_expertise_subtitle',
+                'label'        => __('Subtitle', 'azit-industrial'),
+                'name'         => 'expertise_subtitle',
+                'type'         => 'text',
+                'instructions' => __('Subtitle shown below the title (e.g., "IEC 61508, ISO 26262, EN 50129")', 'azit-industrial'),
+                'placeholder'  => __('e.g., IEC 61508, ISO 26262, EN 50129', 'azit-industrial'),
+                'wrapper'      => array('width' => '50'),
             ),
             // Short Description
             array(
@@ -62,13 +86,41 @@ function azit_register_acf_fields() {
                 'rows'         => 3,
                 'maxlength'    => 200,
             ),
+            // Badges (certification, competencies)
+            array(
+                'key'          => 'field_expertise_badges',
+                'label'        => __('Badges', 'azit-industrial'),
+                'name'         => 'expertise_badges',
+                'type'         => 'repeater',
+                'instructions' => __('Badge labels shown in the hero (e.g., "SIL3 Expertise", "Bureau Véritas")', 'azit-industrial'),
+                'layout'       => 'table',
+                'button_label' => __('Add Badge', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 6,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_expertise_badge_text',
+                        'label'    => __('Badge Label', 'azit-industrial'),
+                        'name'     => 'badge_text',
+                        'type'     => 'text',
+                        'required' => 1,
+                    ),
+                ),
+            ),
+
+            // === TAB: Services ===
+            array(
+                'key'   => 'field_expertise_tab_services',
+                'label' => __('Services', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
             // Key Services (Repeater)
             array(
                 'key'          => 'field_expertise_services',
                 'label'        => __('Key Services', 'azit-industrial'),
                 'name'         => 'expertise_services',
                 'type'         => 'repeater',
-                'instructions' => __('List of key services offered in this expertise area', 'azit-industrial'),
+                'instructions' => __('Service cards displayed in a grid (e.g., "Pre-Audit & Gap Analysis")', 'azit-industrial'),
                 'layout'       => 'block',
                 'button_label' => __('Add Service', 'azit-industrial'),
                 'min'          => 0,
@@ -87,8 +139,119 @@ function azit_register_acf_fields() {
                         'label'    => __('Service Description', 'azit-industrial'),
                         'name'     => 'service_description',
                         'type'     => 'textarea',
-                        'rows'     => 2,
+                        'rows'     => 3,
                         'wrapper'  => array('width' => '60'),
+                    ),
+                ),
+            ),
+
+            // === TAB: Features & Cases ===
+            array(
+                'key'   => 'field_expertise_tab_features',
+                'label' => __('Features & Cases', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
+            // Key Features
+            array(
+                'key'          => 'field_expertise_features',
+                'label'        => __('Key Features / Why Choose Us', 'azit-industrial'),
+                'name'         => 'expertise_features',
+                'type'         => 'repeater',
+                'instructions' => __('Feature highlights or "Why Choose Us" items displayed as a grid', 'azit-industrial'),
+                'layout'       => 'table',
+                'button_label' => __('Add Feature', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 12,
+                'sub_fields'   => array(
+                    array(
+                        'key'     => 'field_expertise_feature_icon',
+                        'label'   => __('Icon/Emoji', 'azit-industrial'),
+                        'name'    => 'feature_icon',
+                        'type'    => 'text',
+                        'instructions' => __('Optional icon or emoji (e.g., "🔒")', 'azit-industrial'),
+                        'wrapper' => array('width' => '20'),
+                    ),
+                    array(
+                        'key'      => 'field_expertise_feature_text',
+                        'label'    => __('Feature Text', 'azit-industrial'),
+                        'name'     => 'feature_text',
+                        'type'     => 'text',
+                        'required' => 1,
+                        'wrapper'  => array('width' => '80'),
+                    ),
+                ),
+            ),
+            // Case Studies / Use Cases
+            array(
+                'key'          => 'field_expertise_case_studies',
+                'label'        => __('Case Studies / Use Cases', 'azit-industrial'),
+                'name'         => 'expertise_case_studies',
+                'type'         => 'repeater',
+                'instructions' => __('Example projects or use cases to showcase expertise', 'azit-industrial'),
+                'layout'       => 'block',
+                'button_label' => __('Add Case Study', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 8,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_case_title',
+                        'label'    => __('Title', 'azit-industrial'),
+                        'name'     => 'case_title',
+                        'type'     => 'text',
+                        'required' => 1,
+                        'wrapper'  => array('width' => '40'),
+                    ),
+                    array(
+                        'key'     => 'field_case_summary',
+                        'label'   => __('Summary', 'azit-industrial'),
+                        'name'    => 'case_summary',
+                        'type'    => 'textarea',
+                        'rows'    => 2,
+                        'wrapper' => array('width' => '40'),
+                    ),
+                    array(
+                        'key'     => 'field_case_link',
+                        'label'   => __('Link', 'azit-industrial'),
+                        'name'    => 'case_link',
+                        'type'    => 'url',
+                        'wrapper' => array('width' => '20'),
+                    ),
+                ),
+            ),
+
+            // === TAB: Process & CTA ===
+            array(
+                'key'   => 'field_expertise_tab_process',
+                'label' => __('Process & CTA', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
+            // Process Steps
+            array(
+                'key'          => 'field_expertise_process',
+                'label'        => __('Process Steps', 'azit-industrial'),
+                'name'         => 'expertise_process',
+                'type'         => 'repeater',
+                'instructions' => __('Numbered process steps (e.g., certification workflow, development process)', 'azit-industrial'),
+                'layout'       => 'block',
+                'button_label' => __('Add Step', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 10,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_process_step_title',
+                        'label'    => __('Step Title', 'azit-industrial'),
+                        'name'     => 'step_title',
+                        'type'     => 'text',
+                        'required' => 1,
+                        'wrapper'  => array('width' => '40'),
+                    ),
+                    array(
+                        'key'     => 'field_process_step_desc',
+                        'label'   => __('Step Description', 'azit-industrial'),
+                        'name'    => 'step_description',
+                        'type'    => 'textarea',
+                        'rows'    => 2,
+                        'wrapper' => array('width' => '60'),
                     ),
                 ),
             ),
@@ -98,7 +261,7 @@ function azit_register_acf_fields() {
                 'label'        => __('Call to Action', 'azit-industrial'),
                 'name'         => 'expertise_cta',
                 'type'         => 'group',
-                'instructions' => __('Optional call-to-action button', 'azit-industrial'),
+                'instructions' => __('Optional custom call-to-action button (defaults to "Contact Us")', 'azit-industrial'),
                 'layout'       => 'block',
                 'sub_fields'   => array(
                     array(
@@ -106,6 +269,7 @@ function azit_register_acf_fields() {
                         'label'   => __('Button Text', 'azit-industrial'),
                         'name'    => 'cta_text',
                         'type'    => 'text',
+                        'placeholder' => __('e.g., Discuss Your Project', 'azit-industrial'),
                         'wrapper' => array('width' => '50'),
                     ),
                     array(
@@ -135,11 +299,25 @@ function azit_register_acf_fields() {
 
     /**
      * Products Field Group
+     *
+     * Organized in tabs:
+     * - General: image, gallery, price, SKU, availability, badges
+     * - Features: feature cards organized by category
+     * - Specifications: grouped specification tables
+     * - Documentation: datasheet, additional downloads
+     * - Related: related products
      */
     acf_add_local_field_group(array(
         'key'      => 'group_azit_product',
         'title'    => __('Product Details', 'azit-industrial'),
         'fields'   => array(
+
+            // === TAB: General ===
+            array(
+                'key'   => 'field_product_tab_general',
+                'label' => __('General', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
             // Product Image
             array(
                 'key'           => 'field_product_image',
@@ -151,14 +329,26 @@ function azit_register_acf_fields() {
                 'return_format' => 'array',
                 'preview_size'  => 'medium',
             ),
+            // Product Gallery
+            array(
+                'key'           => 'field_product_gallery',
+                'label'         => __('Image Gallery', 'azit-industrial'),
+                'name'          => 'product_gallery',
+                'type'          => 'gallery',
+                'instructions'  => __('Additional product images (PCB views, enclosure, ports, etc.)', 'azit-industrial'),
+                'return_format' => 'array',
+                'preview_size'  => 'thumbnail',
+                'library'       => 'all',
+            ),
             // Price
             array(
                 'key'          => 'field_product_price',
                 'label'        => __('Price', 'azit-industrial'),
                 'name'         => 'product_price',
                 'type'         => 'text',
-                'instructions' => __('Product price (e.g., "1 500 EUR" or "Contact us")', 'azit-industrial'),
-                'placeholder'  => __('e.g., 1 500 EUR', 'azit-industrial'),
+                'instructions' => __('Product price (e.g., "1 500 EUR", "Contact us", or "License")', 'azit-industrial'),
+                'placeholder'  => __('e.g., Contact us', 'azit-industrial'),
+                'wrapper'      => array('width' => '33'),
             ),
             // SKU/Reference
             array(
@@ -166,40 +356,178 @@ function azit_register_acf_fields() {
                 'label'        => __('SKU/Reference', 'azit-industrial'),
                 'name'         => 'product_sku',
                 'type'         => 'text',
-                'instructions' => __('Product reference number', 'azit-industrial'),
+                'instructions' => __('Product reference number (e.g., "ISI-GTW-PCB")', 'azit-industrial'),
+                'wrapper'      => array('width' => '34'),
             ),
-            // Features (Repeater)
+            // Availability
+            array(
+                'key'          => 'field_product_availability',
+                'label'        => __('Availability', 'azit-industrial'),
+                'name'         => 'product_availability',
+                'type'         => 'select',
+                'instructions' => __('Current availability status', 'azit-industrial'),
+                'choices'      => array(
+                    'in_stock'     => __('In Stock', 'azit-industrial'),
+                    'limited'      => __('Limited Availability', 'azit-industrial'),
+                    'out_of_stock' => __('Out of Stock', 'azit-industrial'),
+                    'pre_order'    => __('Pre-Order', 'azit-industrial'),
+                    'contact'      => __('Contact for Availability', 'azit-industrial'),
+                ),
+                'allow_null'    => 1,
+                'wrapper'       => array('width' => '33'),
+            ),
+            // Badges (certifications)
+            array(
+                'key'          => 'field_product_badges',
+                'label'        => __('Certification Badges', 'azit-industrial'),
+                'name'         => 'product_badges',
+                'type'         => 'repeater',
+                'instructions' => __('Certification or feature badges (e.g., "SIL3", "PLe", "BV Approved", "Made in France")', 'azit-industrial'),
+                'layout'       => 'table',
+                'button_label' => __('Add Badge', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 8,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_product_badge_text',
+                        'label'    => __('Badge Label', 'azit-industrial'),
+                        'name'     => 'badge_text',
+                        'type'     => 'text',
+                        'required' => 1,
+                    ),
+                ),
+            ),
+
+            // === TAB: Features ===
+            array(
+                'key'   => 'field_product_tab_features',
+                'label' => __('Features', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
+            // Feature Groups (categorized features)
+            array(
+                'key'          => 'field_product_feature_groups',
+                'label'        => __('Feature Groups', 'azit-industrial'),
+                'name'         => 'product_feature_groups',
+                'type'         => 'repeater',
+                'instructions' => __('Organize features into categories (e.g., "Safety Features", "Communication Features"). Each group becomes a card.', 'azit-industrial'),
+                'layout'       => 'block',
+                'button_label' => __('Add Feature Group', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 6,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_feature_group_title',
+                        'label'    => __('Group Title', 'azit-industrial'),
+                        'name'     => 'group_title',
+                        'type'     => 'text',
+                        'required' => 1,
+                        'instructions' => __('e.g., "Safety Features" or "Communication Features"', 'azit-industrial'),
+                    ),
+                    array(
+                        'key'          => 'field_feature_group_items',
+                        'label'        => __('Features', 'azit-industrial'),
+                        'name'         => 'features',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => __('Add Feature', 'azit-industrial'),
+                        'sub_fields'   => array(
+                            array(
+                                'key'      => 'field_feature_group_item',
+                                'label'    => __('Feature', 'azit-industrial'),
+                                'name'     => 'feature',
+                                'type'     => 'text',
+                                'required' => 1,
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            // Simple Features (backward compatible flat list)
             array(
                 'key'          => 'field_product_features',
-                'label'        => __('Features', 'azit-industrial'),
+                'label'        => __('Key Features (Simple List)', 'azit-industrial'),
                 'name'         => 'product_features',
                 'type'         => 'repeater',
-                'instructions' => __('List of product features and specifications', 'azit-industrial'),
+                'instructions' => __('Simple flat feature list. Use "Feature Groups" above for categorized features.', 'azit-industrial'),
                 'layout'       => 'table',
                 'button_label' => __('Add Feature', 'azit-industrial'),
                 'sub_fields'   => array(
                     array(
                         'key'      => 'field_feature_name',
                         'label'    => __('Feature', 'azit-industrial'),
-                        'name'     => 'feature_name',
+                        'name'     => 'feature',
                         'type'     => 'text',
                         'required' => 1,
                     ),
                 ),
             ),
-            // Technical Specifications
+
+            // === TAB: Specifications ===
+            array(
+                'key'   => 'field_product_tab_specs',
+                'label' => __('Specifications', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
+            // Specification Tables (grouped)
+            array(
+                'key'          => 'field_product_spec_tables',
+                'label'        => __('Specification Tables', 'azit-industrial'),
+                'name'         => 'product_spec_tables',
+                'type'         => 'repeater',
+                'instructions' => __('Multiple specification tables (e.g., "Safety Certification", "Resource Requirements", "Platform Support"). Each group becomes a separate table.', 'azit-industrial'),
+                'layout'       => 'block',
+                'button_label' => __('Add Specification Table', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 8,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_spec_table_title',
+                        'label'    => __('Table Title', 'azit-industrial'),
+                        'name'     => 'table_title',
+                        'type'     => 'text',
+                        'required' => 1,
+                        'instructions' => __('e.g., "Safety Certification" or "Resource Requirements"', 'azit-industrial'),
+                    ),
+                    array(
+                        'key'          => 'field_spec_table_rows',
+                        'label'        => __('Rows', 'azit-industrial'),
+                        'name'         => 'rows',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => __('Add Row', 'azit-industrial'),
+                        'sub_fields'   => array(
+                            array(
+                                'key'     => 'field_spec_table_param',
+                                'label'   => __('Parameter', 'azit-industrial'),
+                                'name'    => 'spec_name',
+                                'type'    => 'text',
+                                'wrapper' => array('width' => '40'),
+                            ),
+                            array(
+                                'key'     => 'field_spec_table_value',
+                                'label'   => __('Value', 'azit-industrial'),
+                                'name'    => 'spec_value',
+                                'type'    => 'text',
+                                'wrapper' => array('width' => '60'),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            // Simple Specifications (backward compatible flat table)
             array(
                 'key'          => 'field_product_specs',
-                'label'        => __('Technical Specifications', 'azit-industrial'),
+                'label'        => __('Specifications (Simple Table)', 'azit-industrial'),
                 'name'         => 'product_specifications',
                 'type'         => 'repeater',
-                'instructions' => __('Technical specifications table', 'azit-industrial'),
+                'instructions' => __('Simple flat spec table. Use "Specification Tables" above for grouped tables.', 'azit-industrial'),
                 'layout'       => 'table',
                 'button_label' => __('Add Specification', 'azit-industrial'),
                 'sub_fields'   => array(
                     array(
                         'key'     => 'field_spec_name',
-                        'label'   => __('Specification', 'azit-industrial'),
+                        'label'   => __('Parameter', 'azit-industrial'),
                         'name'    => 'spec_name',
                         'type'    => 'text',
                         'wrapper' => array('width' => '40'),
@@ -213,16 +541,61 @@ function azit_register_acf_fields() {
                     ),
                 ),
             ),
+
+            // === TAB: Documentation ===
+            array(
+                'key'   => 'field_product_tab_docs',
+                'label' => __('Documentation', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
             // Datasheet
             array(
                 'key'           => 'field_product_datasheet',
                 'label'         => __('Datasheet', 'azit-industrial'),
                 'name'          => 'product_datasheet',
                 'type'          => 'file',
-                'instructions'  => __('Upload product datasheet (PDF)', 'azit-industrial'),
+                'instructions'  => __('Upload product datasheet PDF', 'azit-industrial'),
                 'return_format' => 'array',
                 'library'       => 'all',
                 'mime_types'    => 'pdf',
+            ),
+            // Additional Downloads
+            array(
+                'key'          => 'field_product_downloads',
+                'label'        => __('Additional Downloads', 'azit-industrial'),
+                'name'         => 'product_downloads',
+                'type'         => 'repeater',
+                'instructions' => __('Additional documentation files (user guides, integration notes, etc.)', 'azit-industrial'),
+                'layout'       => 'block',
+                'button_label' => __('Add Download', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 10,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_download_title',
+                        'label'    => __('Title', 'azit-industrial'),
+                        'name'     => 'title',
+                        'type'     => 'text',
+                        'required' => 1,
+                        'wrapper'  => array('width' => '50'),
+                    ),
+                    array(
+                        'key'           => 'field_download_file',
+                        'label'         => __('File', 'azit-industrial'),
+                        'name'          => 'file',
+                        'type'          => 'file',
+                        'return_format' => 'array',
+                        'library'       => 'all',
+                        'wrapper'       => array('width' => '50'),
+                    ),
+                ),
+            ),
+
+            // === TAB: Related ===
+            array(
+                'key'   => 'field_product_tab_related',
+                'label' => __('Related', 'azit-industrial'),
+                'type'  => 'tab',
             ),
             // Related Products
             array(
@@ -230,7 +603,7 @@ function azit_register_acf_fields() {
                 'label'         => __('Related Products', 'azit-industrial'),
                 'name'          => 'related_products',
                 'type'          => 'relationship',
-                'instructions'  => __('Select related products', 'azit-industrial'),
+                'instructions'  => __('Select related products to display at the bottom of the page', 'azit-industrial'),
                 'post_type'     => array('product'),
                 'filters'       => array('search', 'taxonomy'),
                 'return_format' => 'object',
@@ -246,9 +619,10 @@ function azit_register_acf_fields() {
                 ),
             ),
         ),
-        'menu_order' => 0,
-        'position'   => 'normal',
-        'style'      => 'default',
+        'menu_order'      => 0,
+        'position'        => 'normal',
+        'style'           => 'default',
+        'label_placement' => 'top',
     ));
 
     /**
