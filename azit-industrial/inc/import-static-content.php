@@ -298,6 +298,249 @@ function azit_import_static_expertise() {
 }
 
 /**
+ * Import training courses from static training page data
+ *
+ * Creates individual training CPT posts with metadata extracted
+ * from the training.html course cards.
+ */
+function azit_import_static_training() {
+    // Training course data extracted from static-content/training.html
+    $courses = array(
+        // --- Protocol Training (category: protocols) ---
+        array(
+            'title'       => 'CAN Training',
+            'slug'        => 'can-training',
+            'description' => 'Implementation of the CAN bus. CiA member with over 10 years of experience in CAN/CANopen technologies.',
+            'duration'    => '2 days',
+            'price'       => '1 390 €',
+            'level'       => 'intermediate',
+            'category'    => 'protocols',
+        ),
+        array(
+            'title'       => 'CANopen Training',
+            'slug'        => 'canopen-training',
+            'description' => 'Complete CANopen protocol training including object dictionary, PDO, SDO, and network management.',
+            'duration'    => '2 days',
+            'price'       => '1 390 €',
+            'level'       => 'intermediate',
+            'category'    => 'protocols',
+        ),
+        array(
+            'title'       => 'J1939 Training',
+            'slug'        => 'j1939-training',
+            'description' => 'SAE J1939 protocol for automotive and off-highway applications including PGNs and transport protocol.',
+            'duration'    => '2 days',
+            'price'       => '1 390 €',
+            'level'       => 'intermediate',
+            'category'    => 'protocols',
+        ),
+        array(
+            'title'       => 'EtherCAT Training',
+            'slug'        => 'ethercat-training',
+            'description' => 'Industrial Ethernet protocol for real-time applications with high-speed communication and distributed clocks.',
+            'duration'    => '2 days',
+            'price'       => '1 390 €',
+            'level'       => 'intermediate',
+            'category'    => 'protocols',
+        ),
+        array(
+            'title'       => 'Industrial Ethernet Training',
+            'slug'        => 'industrial-ethernet-training',
+            'description' => 'Comprehensive overview of industrial Ethernet protocols and network architectures for automation.',
+            'duration'    => '2 days',
+            'price'       => '1 390 €',
+            'level'       => 'intermediate',
+            'category'    => 'protocols',
+        ),
+        array(
+            'title'       => 'Ethernet/IP - CIP Training',
+            'slug'        => 'ethernet-ip-cip-training',
+            'description' => 'Common Industrial Protocol (CIP) and Ethernet/IP implementation for industrial automation systems.',
+            'duration'    => '2 days',
+            'price'       => '1 590 €',
+            'level'       => 'intermediate',
+            'category'    => 'protocols',
+        ),
+        array(
+            'title'       => 'PROFINET Training',
+            'slug'        => 'profinet-training',
+            'description' => 'PROFINET IO protocol fundamentals including device development and network configuration.',
+            'duration'    => '2 days',
+            'price'       => '1 000 €',
+            'level'       => 'intermediate',
+            'category'    => 'protocols',
+        ),
+        // --- Safety Standards (category: safety) ---
+        array(
+            'title'       => 'IEC 61508',
+            'slug'        => 'iec-61508',
+            'description' => 'Functional safety standard for electrical/electronic/programmable electronic safety-related systems.',
+            'duration'    => '3 days',
+            'price'       => '2 450 €',
+            'level'       => 'advanced',
+            'category'    => 'safety',
+        ),
+        array(
+            'title'       => 'ISO 26262 (Automotive)',
+            'slug'        => 'iso-26262',
+            'description' => 'Functional safety for road vehicles including ASIL levels and automotive-specific requirements.',
+            'duration'    => '3 days',
+            'price'       => '2 450 €',
+            'level'       => 'advanced',
+            'category'    => 'safety',
+        ),
+        array(
+            'title'       => 'ISO 21434 (Automotive Cybersecurity)',
+            'slug'        => 'iso-21434',
+            'description' => 'Cybersecurity engineering for road vehicles including threat analysis and risk assessment.',
+            'duration'    => '3 days',
+            'price'       => '2 450 €',
+            'level'       => 'advanced',
+            'category'    => 'safety',
+        ),
+        array(
+            'title'       => 'IEC 62304 (Medical)',
+            'slug'        => 'iec-62304',
+            'description' => 'Medical device software lifecycle processes and safety classification requirements.',
+            'duration'    => '2 days',
+            'price'       => '1 750 €',
+            'level'       => 'advanced',
+            'category'    => 'safety',
+        ),
+        array(
+            'title'       => 'DO-178C (Aeronautics)',
+            'slug'        => 'do-178c',
+            'description' => 'Software considerations in airborne systems and equipment certification for aviation.',
+            'duration'    => '3 days',
+            'price'       => '2 450 €',
+            'level'       => 'advanced',
+            'category'    => 'safety',
+        ),
+        array(
+            'title'       => 'EN 50716 (Railway)',
+            'slug'        => 'en-50716',
+            'description' => 'Railway applications software development requirements and safety integrity levels.',
+            'duration'    => '2 days',
+            'price'       => '1 750 €',
+            'level'       => 'advanced',
+            'category'    => 'safety',
+        ),
+        array(
+            'title'       => 'ISO 13849 (Machinery)',
+            'slug'        => 'iso-13849',
+            'description' => 'Safety of machinery control systems and Performance Level (PL) determination.',
+            'duration'    => '2 days',
+            'price'       => '1 750 €',
+            'level'       => 'intermediate',
+            'category'    => 'safety',
+        ),
+        array(
+            'title'       => 'ISO 25119 (Agricultural)',
+            'slug'        => 'iso-25119',
+            'description' => 'Tractors and machinery for agriculture and forestry - safety-related control systems.',
+            'duration'    => '2 days',
+            'price'       => '1 750 €',
+            'level'       => 'intermediate',
+            'category'    => 'safety',
+        ),
+        // --- Hands-on Workshops (category: workshops) ---
+        array(
+            'title'       => 'Industrial Ethernet Troubleshooting',
+            'slug'        => 'industrial-ethernet-troubleshooting',
+            'description' => 'Advanced troubleshooting techniques for industrial Ethernet networks using protocol analyzers.',
+            'duration'    => '1 day',
+            'price'       => '790 €',
+            'level'       => 'advanced',
+            'category'    => 'workshops',
+        ),
+        array(
+            'title'       => 'Embedded Systems Cybersecurity',
+            'slug'        => 'embedded-systems-cybersecurity',
+            'description' => 'Security principles for embedded systems including threat modeling and secure coding practices.',
+            'duration'    => '2 days',
+            'price'       => '1 390 €',
+            'level'       => 'intermediate',
+            'category'    => 'workshops',
+        ),
+        array(
+            'title'       => 'Medical Device Cybersecurity',
+            'slug'        => 'medical-device-cybersecurity',
+            'description' => 'Cybersecurity requirements specific to medical devices including FDA and MDR compliance.',
+            'duration'    => '1 day',
+            'price'       => '960 €',
+            'level'       => 'advanced',
+            'category'    => 'workshops',
+        ),
+        array(
+            'title'       => 'FreeRTOS Implementation',
+            'slug'        => 'freertos-implementation',
+            'description' => 'Real-time operating system implementation including task management, synchronization, and best practices.',
+            'duration'    => '2 days',
+            'price'       => '1 490 €',
+            'level'       => 'intermediate',
+            'category'    => 'workshops',
+        ),
+        array(
+            'title'       => 'MISRA C:2025',
+            'slug'        => 'misra-c-2025',
+            'description' => 'Guidelines for the use of C language in critical systems including latest MISRA C:2025 updates.',
+            'duration'    => '2 days',
+            'price'       => '1 000 €',
+            'level'       => 'intermediate',
+            'category'    => 'workshops',
+        ),
+    );
+
+    $imported = 0;
+
+    foreach ($courses as $course) {
+        // Check if training already exists
+        $existing = get_posts(array(
+            'name'        => $course['slug'],
+            'post_type'   => 'training',
+            'post_status' => 'any',
+            'numberposts' => 1,
+        ));
+
+        if (!empty($existing)) {
+            continue;
+        }
+
+        // Build post content with course description and pricing info
+        $content  = '<p>' . $course['description'] . '</p>' . "\n";
+        $content .= '<h2>Practical Information</h2>' . "\n";
+        $content .= '<ul>' . "\n";
+        $content .= '<li><strong>Duration:</strong> ' . $course['duration'] . '</li>' . "\n";
+        $content .= '<li><strong>Capacity:</strong> Up to 6 participants</li>' . "\n";
+        $content .= '<li><strong>Inter-Enterprise:</strong> ' . $course['price'] . '</li>' . "\n";
+        $content .= '<li><strong>Private Company:</strong> On request</li>' . "\n";
+        $content .= '</ul>' . "\n";
+        $content .= '<p><a href="' . home_url('/contact/?subject=training&course=' . urlencode($course['title'])) . '">Request Information</a></p>';
+
+        $post_id = wp_insert_post(array(
+            'post_title'   => $course['title'],
+            'post_name'    => $course['slug'],
+            'post_content' => $content,
+            'post_status'  => 'publish',
+            'post_type'    => 'training',
+        ));
+
+        if ($post_id && !is_wp_error($post_id)) {
+            // Set custom fields (works with or without ACF)
+            update_post_meta($post_id, 'training_duration', $course['duration']);
+            update_post_meta($post_id, 'training_price', $course['price']);
+            update_post_meta($post_id, 'training_level', $course['level']);
+            update_post_meta($post_id, 'training_location', 'center');
+            update_post_meta($post_id, 'training_audience', 'Engineers and developers working with industrial communication protocols and safety systems.');
+            update_post_meta($post_id, '_azit_training_category', $course['category']);
+            $imported++;
+        }
+    }
+
+    return $imported;
+}
+
+/**
  * Import all static content
  */
 function azit_import_all_static_content() {
@@ -308,6 +551,7 @@ function azit_import_all_static_content() {
         'pages'     => azit_import_static_pages(),
         'products'  => azit_import_static_products(),
         'expertise' => azit_import_static_expertise(),
+        'training'  => azit_import_static_training(),
         'media'     => $media_results['imported'],
     );
 

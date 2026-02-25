@@ -181,8 +181,8 @@ If you're using WPML for translations:
 | File | Change |
 |------|--------|
 | `assets/docs/datasheets/` | New directory for product datasheets |
-| `azit-industrial/inc/import-static-content.php` | Added media import functions (`azit_import_media_to_library`, `azit_rewrite_content_media_urls`, `azit_import_media_only`) to register theme assets in WP Media Library |
-| `azit-industrial/functions.php` | Added "Import Media to Library" button and handler on AZIT Setup page |
+| `azit-industrial/inc/import-static-content.php` | Added media import functions (`azit_import_media_to_library`, `azit_rewrite_content_media_urls`, `azit_import_media_only`) to register theme assets in WP Media Library; Added `azit_import_static_training()` to import 20 training courses as Training CPT posts |
+| `azit-industrial/functions.php` | Added "Import Media to Library" button and handler on AZIT Setup page; Updated import UI to mention training courses and show training count in success message |
 | `pages/products/protocol-gateway.html` | Added "Download Datasheet" button (EN) |
 | `pages/products/j1939.html` | Fixed "Download Datasheet" link (EN) |
 | `fr/pages/products/protocol-gateway.html` | Added "Telecharger la Fiche Technique" button (FR) |
@@ -213,7 +213,37 @@ If you're using WPML for translations:
 - profisafe-master
 - profisafe-slave
 
-## 6. Re-import Static Content (if using static content importer)
+## 6. Training Courses Import
+
+The static content importer now includes **20 training courses** as individual Training custom post type entries. These are created automatically when you click "Import Content from Static HTML Files" on the AZIT Setup page.
+
+### Training courses imported:
+
+**Protocol Training (7 courses):** CAN, CANopen, J1939, EtherCAT, Industrial Ethernet, Ethernet/IP - CIP, PROFINET
+
+**Safety Standards (8 courses):** IEC 61508, ISO 26262, ISO 21434, IEC 62304, DO-178C, EN 50716, ISO 13849, ISO 25119
+
+**Hands-on Workshops (5 courses):** Industrial Ethernet Troubleshooting, Embedded Systems Cybersecurity, Medical Device Cybersecurity, FreeRTOS Implementation, MISRA C:2025
+
+Each training post includes:
+- Course title and description
+- Duration, price, and difficulty level (custom fields)
+- Practical information (capacity, pricing format)
+- Contact link for enrollment
+
+### To re-import training courses:
+
+```bash
+# Delete existing training posts
+wp post list --post_type=training --format=ids | xargs wp post delete --force
+
+# Re-import training courses
+wp eval "require get_template_directory() . '/inc/import-static-content.php'; echo 'Imported: ' . azit_import_static_training() . ' training courses' . PHP_EOL;"
+```
+
+---
+
+## 7. Re-import Static Content (if using static content importer)
 
 If your WordPress site was populated using the static content importer (`inc/import-static-content.php`), you need to re-import the updated product pages to pick up the Integration tab removal:
 

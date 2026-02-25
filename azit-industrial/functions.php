@@ -941,13 +941,15 @@ function azit_setup_page() {
     if (isset($_POST['azit_import_static']) && check_admin_referer('azit_import_static_nonce')) {
         if (function_exists('azit_import_all_static_content')) {
             $results = azit_import_all_static_content();
-            $total = $results['pages'] + $results['products'] + $results['expertise'];
+            $training_count = isset($results['training']) ? $results['training'] : 0;
+            $total = $results['pages'] + $results['products'] + $results['expertise'] + $training_count;
             $media_count = isset($results['media']) ? $results['media'] : 0;
             echo '<div class="notice notice-success"><p>' . sprintf(
-                esc_html__('Imported from static HTML: %d pages, %d products, %d expertise posts, %d media files. Total: %d items.', 'azit-industrial'),
+                esc_html__('Imported from static HTML: %d pages, %d products, %d expertise posts, %d training courses, %d media files. Total: %d items.', 'azit-industrial'),
                 $results['pages'],
                 $results['products'],
                 $results['expertise'],
+                $training_count,
                 $media_count,
                 $total + $media_count
             ) . '</p></div>';
@@ -979,6 +981,7 @@ function azit_setup_page() {
                 <li><?php esc_html_e('Pages: Contact, Company, Training, Blog, Sitemap, Accessibility', 'azit-industrial'); ?></li>
                 <li><?php esc_html_e('Products: FSoE, PROFISAFE, CANopen, J1939, Protocol Gateway, Simulation, and more', 'azit-industrial'); ?></li>
                 <li><?php esc_html_e('Expertise: Safety Compliance, Protocol Development, Testing, Industrial Networks', 'azit-industrial'); ?></li>
+                <li><?php esc_html_e('Training: CAN, CANopen, J1939, EtherCAT, PROFINET, IEC 61508, ISO 26262, and more (20 courses)', 'azit-industrial'); ?></li>
             </ul>
             <form method="post" style="margin-top: 15px;">
                 <?php wp_nonce_field('azit_import_static_nonce'); ?>
