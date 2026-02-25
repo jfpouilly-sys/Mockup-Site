@@ -301,11 +301,225 @@ function azit_import_static_expertise() {
  * Import all static content
  */
 function azit_import_all_static_content() {
+    // Import media first so URLs can be rewritten in content
+    $media_results = azit_import_media_to_library();
+
     $results = array(
         'pages'     => azit_import_static_pages(),
         'products'  => azit_import_static_products(),
         'expertise' => azit_import_static_expertise(),
+        'media'     => $media_results['imported'],
     );
 
+    // Rewrite theme asset URLs in all imported content to use Media Library URLs
+    if (!empty($media_results['url_map'])) {
+        azit_rewrite_content_media_urls($media_results['url_map']);
+    }
+
     return $results;
+}
+
+/**
+ * =============================================================================
+ * MEDIA LIBRARY IMPORT
+ * =============================================================================
+ */
+
+/**
+ * Import theme asset files (images, PDFs) into the WordPress Media Library.
+ *
+ * Files served from the theme's assets/ directory are not visible in
+ * Media > Library because WordPress only lists attachment posts. This
+ * function copies each file to wp-content/uploads/ and creates a proper
+ * attachment post so it appears in the Media Library.
+ *
+ * @return array {
+ *     @type int      $imported Number of newly imported files.
+ *     @type int      $skipped  Number of files already in the library.
+ *     @type string[] $url_map  Old theme URL => new Media Library URL.
+ * }
+ */
+function azit_import_media_to_library() {
+    if (!function_exists('wp_crop_image')) {
+        require_once ABSPATH . 'wp-admin/includes/image.php';
+    }
+    if (!function_exists('wp_handle_sideload')) {
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+    }
+    if (!function_exists('media_handle_sideload')) {
+        require_once ABSPATH . 'wp-admin/includes/media.php';
+    }
+
+    $theme_dir = get_template_directory();
+    $theme_uri = get_template_directory_uri();
+
+    // Directories inside the theme that contain media files
+    $media_dirs = array(
+        'assets/images/products',
+        'assets/images/diagrams',
+        'assets/docs',
+        'assets/docs/datasheets',
+    );
+
+    // Allowed MIME types
+    $allowed_types = array(
+        'jpg'  => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'png'  => 'image/png',
+        'gif'  => 'image/gif',
+        'svg'  => 'image/svg+xml',
+        'webp' => 'image/webp',
+        'pdf'  => 'application/pdf',
+    );
+
+    $imported = 0;
+    $skipped  = 0;
+    $url_map  = array();
+
+    foreach ($media_dirs as $rel_dir) {
+        $abs_dir = $theme_dir . '/' . $rel_dir;
+        if (!is_dir($abs_dir)) {
+            continue;
+        }
+
+        $files = scandir($abs_dir);
+        if ($files === false) {
+            continue;
+        }
+
+        foreach ($files as $filename) {
+            if ($filename === '.' || $filename === '..' || $filename === '.gitkeep') {
+                continue;
+            }
+
+            $file_path = $abs_dir . '/' . $filename;
+            if (!is_file($file_path)) {
+                continue;
+            }
+
+            $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+            if (!isset($allowed_types[$ext])) {
+                continue;
+            }
+
+            // Check if this file was already imported (by matching filename in attachments)
+            $existing = get_posts(array(
+                'post_type'   => 'attachment',
+                'post_status' => 'inherit',
+                'meta_key'    => '_azit_source_file',
+                'meta_value'  => $rel_dir . '/' . $filename,
+                'numberposts' => 1,
+            ));
+
+            $old_url = $theme_uri . '/' . $rel_dir . '/' . $filename;
+
+            if (!empty($existing)) {
+                $skipped++;
+                $url_map[$old_url] = wp_get_attachment_url($existing[0]->ID);
+                continue;
+            }
+
+            // Copy file to a temporary location for wp_handle_sideload
+            $tmp_file = wp_tempnam($filename);
+            if (!copy($file_path, $tmp_file)) {
+                continue;
+            }
+
+            $file_array = array(
+                'name'     => $filename,
+                'tmp_name' => $tmp_file,
+                'type'     => $allowed_types[$ext],
+                'error'    => 0,
+                'size'     => filesize($file_path),
+            );
+
+            // Generate a human-readable title from the filename
+            $title = pathinfo($filename, PATHINFO_FILENAME);
+            $title = str_replace(array('-', '_'), ' ', $title);
+            $title = ucwords($title);
+
+            // Use media_handle_sideload to create the attachment
+            $attachment_id = media_handle_sideload($file_array, 0, $title);
+
+            if (is_wp_error($attachment_id)) {
+                @unlink($tmp_file);
+                continue;
+            }
+
+            // Store the source file path so we can detect duplicates on re-import
+            update_post_meta($attachment_id, '_azit_source_file', $rel_dir . '/' . $filename);
+
+            $new_url = wp_get_attachment_url($attachment_id);
+            $url_map[$old_url] = $new_url;
+            $imported++;
+        }
+    }
+
+    return array(
+        'imported' => $imported,
+        'skipped'  => $skipped,
+        'url_map'  => $url_map,
+    );
+}
+
+/**
+ * Rewrite theme asset URLs in post content to use Media Library URLs.
+ *
+ * After media files have been imported into the Media Library, this function
+ * searches all posts/pages/products/expertise content and replaces old
+ * theme-directory URLs with the new wp-content/uploads/ URLs.
+ *
+ * @param string[] $url_map Old URL => New URL mapping.
+ * @return int Number of posts updated.
+ */
+function azit_rewrite_content_media_urls($url_map) {
+    if (empty($url_map)) {
+        return 0;
+    }
+
+    $post_types = array('post', 'page', 'product', 'expertise', 'training');
+    $updated = 0;
+
+    $posts = get_posts(array(
+        'post_type'   => $post_types,
+        'post_status' => 'any',
+        'numberposts' => -1,
+    ));
+
+    foreach ($posts as $post) {
+        $content = $post->post_content;
+        $new_content = str_replace(
+            array_keys($url_map),
+            array_values($url_map),
+            $content
+        );
+
+        if ($new_content !== $content) {
+            wp_update_post(array(
+                'ID'           => $post->ID,
+                'post_content' => $new_content,
+            ));
+            $updated++;
+        }
+    }
+
+    return $updated;
+}
+
+/**
+ * Import only media assets (can be triggered independently from content import).
+ *
+ * @return array Import results.
+ */
+function azit_import_media_only() {
+    $media_results = azit_import_media_to_library();
+
+    // Also rewrite URLs in existing content
+    $posts_updated = 0;
+    if (!empty($media_results['url_map'])) {
+        $posts_updated = azit_rewrite_content_media_urls($media_results['url_map']);
+    }
+
+    $media_results['posts_updated'] = $posts_updated;
+    return $media_results;
 }

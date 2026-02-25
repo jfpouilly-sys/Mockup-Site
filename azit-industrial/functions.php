@@ -942,12 +942,27 @@ function azit_setup_page() {
         if (function_exists('azit_import_all_static_content')) {
             $results = azit_import_all_static_content();
             $total = $results['pages'] + $results['products'] + $results['expertise'];
+            $media_count = isset($results['media']) ? $results['media'] : 0;
             echo '<div class="notice notice-success"><p>' . sprintf(
-                esc_html__('Imported from static HTML: %d pages, %d products, %d expertise posts. Total: %d items.', 'azit-industrial'),
+                esc_html__('Imported from static HTML: %d pages, %d products, %d expertise posts, %d media files. Total: %d items.', 'azit-industrial'),
                 $results['pages'],
                 $results['products'],
                 $results['expertise'],
-                $total
+                $media_count,
+                $total + $media_count
+            ) . '</p></div>';
+        }
+    }
+
+    // Import media assets to WordPress Media Library
+    if (isset($_POST['azit_import_media']) && check_admin_referer('azit_import_media_nonce')) {
+        if (function_exists('azit_import_media_only')) {
+            $results = azit_import_media_only();
+            echo '<div class="notice notice-success"><p>' . sprintf(
+                esc_html__('Media import complete: %d files imported, %d already in library, %d posts updated with new URLs.', 'azit-industrial'),
+                $results['imported'],
+                $results['skipped'],
+                $results['posts_updated']
             ) . '</p></div>';
         }
     }
@@ -968,6 +983,23 @@ function azit_setup_page() {
             <form method="post" style="margin-top: 15px;">
                 <?php wp_nonce_field('azit_import_static_nonce'); ?>
                 <input type="submit" name="azit_import_static" class="button button-primary button-hero" value="<?php esc_attr_e('Import Content from Static HTML Files', 'azit-industrial'); ?>">
+            </form>
+        </div>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px; background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%); border-left: 4px solid #1976d2;">
+            <h2 style="color: #1565c0;"><?php esc_html_e('Import Media to Library', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('Import images and PDF files from the theme\'s assets/ directory into the WordPress Media Library. This makes them visible under Media > Library and allows you to manage them from the admin panel.', 'azit-industrial'); ?></p>
+            <p><strong><?php esc_html_e('Files imported from:', 'azit-industrial'); ?></strong></p>
+            <ul style="margin-left: 20px; list-style: disc;">
+                <li><code>assets/images/products/</code> — <?php esc_html_e('Product photos (JPG, PNG)', 'azit-industrial'); ?></li>
+                <li><code>assets/images/diagrams/</code> — <?php esc_html_e('Technical diagrams (SVG)', 'azit-industrial'); ?></li>
+                <li><code>assets/docs/</code> — <?php esc_html_e('Documents and brochures (PDF)', 'azit-industrial'); ?></li>
+                <li><code>assets/docs/datasheets/</code> — <?php esc_html_e('Product datasheets (PDF)', 'azit-industrial'); ?></li>
+            </ul>
+            <p class="description"><?php esc_html_e('Already imported files are skipped automatically. Existing post content is updated to use the new Media Library URLs.', 'azit-industrial'); ?></p>
+            <form method="post" style="margin-top: 15px;">
+                <?php wp_nonce_field('azit_import_media_nonce'); ?>
+                <input type="submit" name="azit_import_media" class="button button-primary" value="<?php esc_attr_e('Import Media to Library', 'azit-industrial'); ?>">
             </form>
         </div>
 

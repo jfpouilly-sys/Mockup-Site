@@ -42,23 +42,45 @@ Each links to the corresponding tab on the training page via URL hash anchors.
 
 ---
 
-## 1. Upload Datasheet PDF Files
+## 1. Import Media Files to WordPress Media Library
 
-### Via WordPress Admin (Media Library)
+**Why:** Images, PDFs, and other media files bundled in the theme's `assets/` directory do **not** appear in **Media > Library** by default. WordPress only lists files that were uploaded through its media system (i.e., stored as attachment posts in the database). You must import them so they are visible and manageable from the WordPress admin.
+
+### Option A: One-Click Import (Recommended)
 
 1. Log in to your WordPress admin panel (`https://your-site.com/wp-admin/`)
-2. Go to **Media > Add New**
-3. Upload the following PDF files:
+2. Go to **Tools > AZIT Setup**
+3. Click the **"Import Media to Library"** button
+4. This will:
+   - Copy all images from `assets/images/products/` and `assets/images/diagrams/` to `wp-content/uploads/`
+   - Copy all PDFs from `assets/docs/` and `assets/docs/datasheets/` to `wp-content/uploads/`
+   - Register each file as a WordPress attachment (visible in **Media > Library**)
+   - Update any existing post content to reference the new Media Library URLs
+5. Already-imported files are skipped automatically, so it is safe to run multiple times
+
+### Option B: WP-CLI
+
+```bash
+# Import all theme media assets to the WordPress Media Library
+wp eval "require get_template_directory() . '/inc/import-static-content.php'; \$r = azit_import_media_only(); echo 'Imported: ' . \$r['imported'] . ', Skipped: ' . \$r['skipped'] . ', Posts updated: ' . \$r['posts_updated'] . PHP_EOL;"
+```
+
+### Option C: Manual Upload via Media > Add New
+
+1. Go to **Media > Add New**
+2. Upload the following files manually:
+   - All images from `assets/images/products/` (JPG, PNG files)
+   - All diagrams from `assets/images/diagrams/` (SVG files)
+   - All PDFs from `assets/docs/` and `assets/docs/datasheets/`
+3. After uploading, you will need to manually update the image/file URLs in your product posts
+
+### Note on Datasheets
+
+The following product datasheets should be placed in `assets/docs/datasheets/` before importing:
    - `isit-custom-multi-protocol-gateway_fp-isigtw-en-20221102.pdf` (Protocol Gateway datasheet)
    - `isit-j1939-stack_isit-j1939-stack-en.pdf` (J1939 Stack datasheet)
-4. After upload, note the **attachment URLs** for each file (you'll need them in step 3)
 
-### Via FTP/SFTP (Alternative)
-
-1. Connect to your server via FTP/SFTP
-2. Navigate to `wp-content/uploads/` (or a custom datasheets directory)
-3. Create a `datasheets/` subdirectory if desired
-4. Upload both PDF files
+If you add new datasheets later, run the media import again (Option A or B) to register them in the Media Library.
 
 ---
 
@@ -159,6 +181,8 @@ If you're using WPML for translations:
 | File | Change |
 |------|--------|
 | `assets/docs/datasheets/` | New directory for product datasheets |
+| `azit-industrial/inc/import-static-content.php` | Added media import functions (`azit_import_media_to_library`, `azit_rewrite_content_media_urls`, `azit_import_media_only`) to register theme assets in WP Media Library |
+| `azit-industrial/functions.php` | Added "Import Media to Library" button and handler on AZIT Setup page |
 | `pages/products/protocol-gateway.html` | Added "Download Datasheet" button (EN) |
 | `pages/products/j1939.html` | Fixed "Download Datasheet" link (EN) |
 | `fr/pages/products/protocol-gateway.html` | Added "Telecharger la Fiche Technique" button (FR) |
@@ -220,3 +244,5 @@ wp eval "define('AZIT_IMPORT_CONTENT', true); require get_template_directory() .
 |----------|---------|
 | `isit-custom-multi-protocol-gateway_fp-isigtw-en-20221102.pdf` | ISI-GTW Protocol Gateway |
 | `isit-j1939-stack_isit-j1939-stack-en.pdf` | J1939 Protocol Stack |
+
+> **Reminder:** After placing PDF files in this directory, run the media import (see Section 1) to register them in the WordPress Media Library.
