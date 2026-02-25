@@ -18,7 +18,7 @@ All content management for Training, Products, and Expertise relies on **ACF PRO
 
 | Plugin | Purpose | Required? |
 |--------|---------|-----------|
-| **Contact Form 7** | Quote forms on product pages, contact forms | Recommended |
+| **Contact Form 7** | Quote forms on product pages, training registration/request forms, contact forms | Recommended |
 | **WPML** or **Polylang** | FR/EN multilingual support | Recommended |
 | **Yoast SEO** | SEO meta for all post types | Optional |
 
@@ -334,12 +334,34 @@ All fields are organized in **6 tabs** in the editor:
 5. Click **Update** to save
 6. A "Download PDF" button will automatically appear in the training page sidebar
 
+### Contact Form 7 Integration for Training
+
+The **"Request Information"** button (sidebar), **"Register"** links (session table), and the bottom CTA section all use **Contact Form 7** to embed a training request form directly on the page.
+
+**Automatic form creation:** On theme activation, a CF7 form named `training-request-form` is created with fields for:
+- Name, Email, Company, Job Title
+- Training Course (dropdown)
+- Preferred Date, Number of Attendees
+- Additional Comments
+
+**On the training archive page** (`archive-training.php`), the "Need Custom Training?" CTA also embeds this same CF7 form.
+
+**Fallback behavior:**
+- If CF7 is installed but no `training-request-form` exists: the first available CF7 form is used
+- If CF7 is not installed: a "Go to Contact Page" link is shown instead
+
+**To customize the training form:**
+1. Go to **Contact > Contact Forms** in wp-admin
+2. Find the form named **"Training Request"** (slug: `training-request-form`)
+3. Edit the form fields, email template, and messages as needed
+4. Changes are reflected immediately on all training pages
+
 ### Template Files
 
 | File | Purpose |
 |------|---------|
-| `single-training.php` | Single training detail page (2-column layout: content + sidebar) |
-| `archive-training.php` | Training listing with level filters |
+| `single-training.php` | Single training detail page (2-column layout: content + sidebar) with CF7 registration form |
+| `archive-training.php` | Training listing with level filters and CF7 custom training request form |
 | `template-parts/content-training.php` | Reusable training card partial |
 
 ---
@@ -500,7 +522,9 @@ All new fields are configured in the WPML config (`inc/wpml-integration.php`):
 | `azit-industrial/inc/custom-post-types.php` | Added `training_category` taxonomy; updated admin columns for products (SKU, availability), expertise (subtitle) |
 | `azit-industrial/single-product.php` | Rewritten with badges, gallery with thumbnails, feature groups grid, grouped spec tables, downloads section, related products, quote form |
 | `azit-industrial/single-expertise.php` | Rewritten with badges, services card grid, process steps (numbered), features grid, case studies, wired CTA field with fallback |
-| `azit-industrial/single-training.php` | Rewritten with 2-column layout (content left, sidebar right), badges, outline with nested topics, syllabus PDF download, instructor, benefits, sessions table |
+| `azit-industrial/single-training.php` | Rewritten with 2-column layout (content left, sidebar right), badges, outline with nested topics, syllabus PDF download, instructor, benefits, sessions table; CTA section replaced with embedded CF7 training request form |
+| `azit-industrial/archive-training.php` | "Request Custom Training" CTA replaced with embedded CF7 training request form |
+| `azit-industrial/inc/contact-form-7.php` | Added `azit_create_training_request_form()` to auto-create CF7 training form on theme activation |
 | `azit-industrial/assets/css/components.css` | Added CSS for: training 2-column layout, product feature groups grid, spec tables grid, downloads list, expertise services grid, process steps with numbered circles, case studies grid, CTA sections |
 | `azit-industrial/inc/wpml-integration.php` | Added all new translatable/copyable fields for products, expertise, and training; added training_category and training_level taxonomies |
 | `azit-industrial/inc/sample-content.php` | Updated training sample content with new fields (max_participants, private_price, certification, instructor, category) |

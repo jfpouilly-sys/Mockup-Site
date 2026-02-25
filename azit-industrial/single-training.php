@@ -237,7 +237,7 @@ get_header();
                                             <td><?php echo esc_html($status_labels[$session['session_status']] ?? $session['session_status']); ?></td>
                                             <td>
                                                 <?php if ($session['session_status'] !== 'full') : ?>
-                                                <a href="<?php echo esc_url(home_url('/contact/?subject=training&course=' . urlencode(get_the_title()) . '&date=' . urlencode($session['session_date']))); ?>"
+                                                <a href="#training-form"
                                                    class="btn btn-small">
                                                     <?php esc_html_e('Register', 'azit-industrial'); ?>
                                                 </a>
@@ -316,7 +316,7 @@ get_header();
                                 <?php endif; ?>
                             </dl>
 
-                            <a href="<?php echo esc_url(home_url('/contact/?subject=training&course=' . urlencode(get_the_title()))); ?>"
+                            <a href="#training-form"
                                class="btn btn-primary training-cta-btn">
                                 <?php esc_html_e('Request Information', 'azit-industrial'); ?>
                             </a>
@@ -388,25 +388,56 @@ get_header();
 
                 </div>
 
-                <!-- CTA Section -->
-                <section class="training-cta" aria-labelledby="cta-heading">
-                    <h2 id="cta-heading" class="cta-title">
-                        <?php esc_html_e('Ready to enroll?', 'azit-industrial'); ?>
+                <!-- Training Request Form (Contact Form 7) -->
+                <section id="training-form" class="training-request-form" aria-labelledby="training-form-heading" tabindex="-1">
+                    <h2 id="training-form-heading" class="section-title">
+                        <?php echo esc_html(sprintf(__('Register for %s', 'azit-industrial'), get_the_title())); ?>
                     </h2>
-                    <p class="cta-text">
-                        <?php esc_html_e('Contact us to register for this training or request a custom session for your team.', 'azit-industrial'); ?>
+                    <p class="form-intro">
+                        <?php esc_html_e('Fill out the form below to register for this training or request a custom session for your team.', 'azit-industrial'); ?>
                     </p>
-                    <div class="cta-buttons">
-                        <a href="<?php echo esc_url(home_url('/contact/?subject=training&course=' . urlencode(get_the_title()))); ?>"
-                           class="btn btn-primary">
-                            <?php esc_html_e('Register Now', 'azit-industrial'); ?>
-                        </a>
-                        <a href="<?php echo esc_url(get_post_type_archive_link('training')); ?>"
-                           class="btn btn-secondary">
-                            <?php esc_html_e('View All Training', 'azit-industrial'); ?>
-                        </a>
-                    </div>
+
+                    <?php
+                    if (shortcode_exists('contact-form-7')) :
+                        $training_form = get_posts(array(
+                            'post_type'   => 'wpcf7_contact_form',
+                            'post_status' => 'publish',
+                            'name'        => 'training-request-form',
+                            'numberposts' => 1,
+                        ));
+
+                        if (!empty($training_form)) :
+                            echo do_shortcode('[contact-form-7 id="' . intval($training_form[0]->ID) . '" title="Training Request"]');
+                        else :
+                            $any_form = get_posts(array(
+                                'post_type'   => 'wpcf7_contact_form',
+                                'post_status' => 'publish',
+                                'numberposts' => 1,
+                            ));
+                            if (!empty($any_form)) :
+                                echo do_shortcode('[contact-form-7 id="' . intval($any_form[0]->ID) . '"]');
+                            else :
+                            ?>
+                            <p><?php esc_html_e('Please create a Contact Form 7 form with slug "training-request-form" or go to Tools > AZIT Setup to generate it automatically.', 'azit-industrial'); ?></p>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <p>
+                            <?php esc_html_e('Contact us to register:', 'azit-industrial'); ?>
+                            <a href="<?php echo esc_url(home_url('/contact/?subject=training&course=' . urlencode(get_the_title()))); ?>" class="btn btn-primary">
+                                <?php esc_html_e('Go to Contact Page', 'azit-industrial'); ?>
+                            </a>
+                        </p>
+                    <?php endif; ?>
                 </section>
+
+                <!-- View All Training -->
+                <div class="training-cta-links" style="text-align: center; margin: 2rem 0;">
+                    <a href="<?php echo esc_url(get_post_type_archive_link('training')); ?>"
+                       class="btn btn-secondary">
+                        <?php esc_html_e('View All Training', 'azit-industrial'); ?>
+                    </a>
+                </div>
 
                 <!-- Related Training -->
                 <?php

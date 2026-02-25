@@ -636,3 +636,78 @@ This quote request was sent from ' . get_bloginfo('name') . ' (' . home_url() . 
     }
 }
 add_action('after_switch_theme', 'azit_create_product_quote_form');
+
+/**
+ * Create training request form on theme activation
+ */
+function azit_create_training_request_form() {
+    if (!azit_is_cf7_active()) {
+        return;
+    }
+
+    // Check if form already exists
+    $existing = get_posts(array(
+        'post_type'   => 'wpcf7_contact_form',
+        'post_status' => 'publish',
+        'name'        => 'training-request-form',
+        'numberposts' => 1,
+    ));
+
+    if (!empty($existing)) {
+        return;
+    }
+
+    // Create training request form
+    $form_content = azit_get_cf7_training_form_template();
+
+    $mail_template = 'Training Request
+
+From: [attendee-name] <[attendee-email]>
+Company: [attendee-company]
+Job Title: [attendee-role]
+
+Training Course: [training-course]
+Preferred Date: [preferred-date]
+Number of Attendees: [attendee-count]
+
+Additional Comments:
+[training-comments]
+
+--
+This training request was sent from ' . get_bloginfo('name') . ' (' . home_url() . ')';
+
+    $form = WPCF7_ContactForm::get_template();
+    $form->set_title('Training Request');
+    $form->set_properties(array(
+        'form'     => $form_content,
+        'mail'     => array(
+            'subject'            => '[' . get_bloginfo('name') . '] Training Request: [training-course]',
+            'sender'             => '[attendee-name] <[attendee-email]>',
+            'recipient'          => get_option('admin_email'),
+            'body'               => $mail_template,
+            'additional_headers' => 'Reply-To: [attendee-email]',
+            'attachments'        => '',
+            'use_html'           => false,
+        ),
+        'messages' => array(
+            'mail_sent_ok'         => __('Thank you for your training request. We will contact you within 48 hours.', 'azit-industrial'),
+            'mail_sent_ng'         => __('There was an error sending your request. Please try again.', 'azit-industrial'),
+            'validation_error'     => __('Please correct the errors below.', 'azit-industrial'),
+            'invalid_required'     => __('This field is required.', 'azit-industrial'),
+            'invalid_email'        => __('Please enter a valid email address.', 'azit-industrial'),
+            'invalid_tel'          => __('Please enter a valid phone number.', 'azit-industrial'),
+        ),
+    ));
+
+    $form->save();
+
+    // Set the slug to 'training-request-form' so the template can find it
+    $form_id = $form->id();
+    if ($form_id) {
+        wp_update_post(array(
+            'ID'        => $form_id,
+            'post_name' => 'training-request-form',
+        ));
+    }
+}
+add_action('after_switch_theme', 'azit_create_training_request_form');
