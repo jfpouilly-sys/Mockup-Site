@@ -987,6 +987,145 @@
   font-size: 0.95rem;
 }
 
+/* ---- Single Training Detail Page (2-column layout) ---- */
+
+/* Two-column grid: content left, sidebar right */
+.training-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.training-main .training-section {
+  margin-bottom: 2rem;
+}
+
+/* Sidebar */
+.training-sidebar .card {
+  margin-bottom: 2rem;
+}
+
+/* Info card with border highlight */
+.training-info-card {
+  border: 2px solid var(--color-primary);
+}
+
+/* Info card definition list rows */
+.training-info-list {
+  margin: 0;
+}
+
+.training-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.training-info-row:last-child {
+  border-bottom: none;
+}
+
+.training-info-row dt {
+  font-weight: 600;
+}
+
+.training-info-row--price dd {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.training-cta-btn {
+  width: 100%;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Module titles in program section */
+.module-title {
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.module-description {
+  color: var(--color-gray-600);
+  margin-bottom: 0.5rem;
+}
+
+.module-topics {
+  color: var(--color-gray-600);
+  margin-bottom: 1rem;
+}
+
+.module-topics li {
+  margin-bottom: 0.5rem;
+}
+
+/* Objectives list */
+.objectives-list li {
+  margin-bottom: 0.5rem;
+  color: var(--color-gray-600);
+}
+
+/* Benefits list in sidebar */
+.training-sidebar .benefits-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.training-sidebar .benefits-list li {
+  margin-bottom: 0.5rem;
+  color: var(--color-gray-600);
+}
+
+/* CTA section */
+.training-cta {
+  text-align: center;
+  background: var(--color-primary);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.training-cta .cta-title {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.training-cta .cta-text {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.training-cta .cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Sessions table */
+.sessions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sessions-table th,
+.sessions-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.sessions-table thead th {
+  font-weight: 600;
+  background: var(--color-gray-100);
+}
+
 /* Responsive Training */
 @media (max-width: 768px) {
   .training-header {
@@ -1004,6 +1143,15 @@
 
   .training-grid {
     grid-template-columns: 1fr;
+  }
+
+  .training-grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .training-cta .cta-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 }
 

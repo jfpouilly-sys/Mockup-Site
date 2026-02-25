@@ -459,18 +459,35 @@ function azit_get_wpml_config() {
     <taxonomies>
         <taxonomy translate="1">product_category</taxonomy>
         <taxonomy translate="1">expertise_category</taxonomy>
+        <taxonomy translate="1">training_category</taxonomy>
+        <taxonomy translate="1">training_level</taxonomy>
     </taxonomies>
 
     <custom-fields>
+        <!-- Expertise -->
         <custom-field action="translate">expertise_subtitle</custom-field>
         <custom-field action="translate">expertise_short_description</custom-field>
+        <!-- Product -->
         <custom-field action="translate">product_description</custom-field>
         <custom-field action="translate">product_features</custom-field>
-        <custom-field action="translate">training_objectives</custom-field>
         <custom-field action="copy">product_price</custom-field>
+        <!-- Training: translatable content -->
+        <custom-field action="translate">training_objectives</custom-field>
+        <custom-field action="translate">training_prerequisites</custom-field>
+        <custom-field action="translate">training_audience</custom-field>
+        <custom-field action="translate">training_instructor</custom-field>
+        <custom-field action="translate">training_outline</custom-field>
+        <custom-field action="translate">training_benefits</custom-field>
+        <custom-field action="translate">training_private_price</custom-field>
+        <!-- Training: copy (same in both languages) -->
         <custom-field action="copy">training_price</custom-field>
         <custom-field action="copy">training_duration</custom-field>
         <custom-field action="copy">training_level</custom-field>
+        <custom-field action="copy">training_format</custom-field>
+        <custom-field action="copy">training_certification</custom-field>
+        <custom-field action="copy">training_max_participants</custom-field>
+        <custom-field action="copy">training_syllabus</custom-field>
+        <custom-field action="copy">training_sessions</custom-field>
     </custom-fields>
 
     <admin-texts>

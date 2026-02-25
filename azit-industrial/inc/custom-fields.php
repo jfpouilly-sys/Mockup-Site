@@ -253,30 +253,45 @@ function azit_register_acf_fields() {
 
     /**
      * Training Field Group
+     *
+     * Organized in tabs for better admin UX:
+     * - General: core info (duration, price, level, format, participants)
+     * - Content: objectives, prerequisites, audience, instructor
+     * - Program: course outline with day-by-day modules and topics
+     * - Sidebar: benefits, syllabus PDF, certification
+     * - Sessions: upcoming scheduled sessions
      */
     acf_add_local_field_group(array(
         'key'      => 'group_azit_training',
         'title'    => __('Training Details', 'azit-industrial'),
         'fields'   => array(
+
+            // === TAB: General ===
+            array(
+                'key'   => 'field_training_tab_general',
+                'label' => __('General', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
             // Duration
             array(
                 'key'          => 'field_training_duration',
                 'label'        => __('Duration', 'azit-industrial'),
                 'name'         => 'training_duration',
                 'type'         => 'text',
-                'instructions' => __('Training duration (e.g., "3 days" or "21 hours")', 'azit-industrial'),
+                'instructions' => __('Training duration (e.g., "2 days (14 hours)")', 'azit-industrial'),
                 'required'     => 1,
-                'placeholder'  => __('e.g., 3 days', 'azit-industrial'),
+                'placeholder'  => __('e.g., 3 days (21 hours)', 'azit-industrial'),
+                'wrapper'      => array('width' => '50'),
             ),
-            // Price
+            // Max Participants
             array(
-                'key'          => 'field_training_price',
-                'label'        => __('Price', 'azit-industrial'),
-                'name'         => 'training_price',
+                'key'          => 'field_training_max_participants',
+                'label'        => __('Max Participants', 'azit-industrial'),
+                'name'         => 'training_max_participants',
                 'type'         => 'text',
-                'instructions' => __('Training price per person', 'azit-industrial'),
-                'required'     => 1,
-                'placeholder'  => __('e.g., 1 500 EUR', 'azit-industrial'),
+                'instructions' => __('Maximum participants per session (e.g., "Up to 6")', 'azit-industrial'),
+                'placeholder'  => __('e.g., Up to 6', 'azit-industrial'),
+                'wrapper'      => array('width' => '50'),
             ),
             // Level
             array(
@@ -293,38 +308,99 @@ function azit_register_acf_fields() {
                     'expert'       => __('Expert', 'azit-industrial'),
                 ),
                 'default_value' => 'intermediate',
+                'wrapper'       => array('width' => '33'),
             ),
-            // Location
+            // Format
             array(
-                'key'          => 'field_training_location',
-                'label'        => __('Location', 'azit-industrial'),
-                'name'         => 'training_location',
+                'key'          => 'field_training_format',
+                'label'        => __('Format', 'azit-industrial'),
+                'name'         => 'training_format',
                 'type'         => 'select',
-                'instructions' => __('Where the training takes place', 'azit-industrial'),
+                'instructions' => __('Training delivery format', 'azit-industrial'),
                 'choices'      => array(
-                    'onsite'   => __('On-site (client location)', 'azit-industrial'),
-                    'center'   => __('Training Center', 'azit-industrial'),
-                    'online'   => __('Online', 'azit-industrial'),
-                    'hybrid'   => __('Hybrid (Online + On-site)', 'azit-industrial'),
+                    'onsite'  => __('On-site', 'azit-industrial'),
+                    'center'  => __('Training Center', 'azit-industrial'),
+                    'online'  => __('Online', 'azit-industrial'),
+                    'hybrid'  => __('Hybrid (Online + On-site)', 'azit-industrial'),
                 ),
-                'default_value' => 'center',
+                'default_value' => 'onsite',
+                'wrapper'       => array('width' => '34'),
+            ),
+            // Certification
+            array(
+                'key'          => 'field_training_certification',
+                'label'        => __('Certificate Included', 'azit-industrial'),
+                'name'         => 'training_certification',
+                'type'         => 'true_false',
+                'instructions' => __('Does this training include a certificate of completion?', 'azit-industrial'),
+                'default_value' => 1,
+                'ui'            => 1,
+                'wrapper'       => array('width' => '33'),
+            ),
+
+            // === TAB: Pricing ===
+            array(
+                'key'   => 'field_training_tab_pricing',
+                'label' => __('Pricing', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
+            // Inter-Enterprise Price
+            array(
+                'key'          => 'field_training_price',
+                'label'        => __('Inter-Enterprise Price', 'azit-industrial'),
+                'name'         => 'training_price',
+                'type'         => 'text',
+                'instructions' => __('Price per person for inter-enterprise sessions (e.g., "1 390 €")', 'azit-industrial'),
+                'required'     => 1,
+                'placeholder'  => __('e.g., 1 390 €', 'azit-industrial'),
+                'wrapper'      => array('width' => '50'),
+            ),
+            // Private/Company Price
+            array(
+                'key'          => 'field_training_private_price',
+                'label'        => __('Private Company Price', 'azit-industrial'),
+                'name'         => 'training_private_price',
+                'type'         => 'text',
+                'instructions' => __('Price for private/in-company sessions (e.g., "On request" or "4 500 €")', 'azit-industrial'),
+                'placeholder'  => __('e.g., On request', 'azit-industrial'),
+                'default_value' => __('On request', 'azit-industrial'),
+                'wrapper'      => array('width' => '50'),
+            ),
+
+            // === TAB: Content ===
+            array(
+                'key'   => 'field_training_tab_content',
+                'label' => __('Content', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
+            // Learning Objectives (repeater for structured list)
+            array(
+                'key'          => 'field_training_objectives',
+                'label'        => __('Learning Objectives', 'azit-industrial'),
+                'name'         => 'training_objectives',
+                'type'         => 'repeater',
+                'instructions' => __('List what participants will be able to do after the training', 'azit-industrial'),
+                'layout'       => 'table',
+                'button_label' => __('Add Objective', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 15,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_objective_text',
+                        'label'    => __('Objective', 'azit-industrial'),
+                        'name'     => 'objective',
+                        'type'     => 'text',
+                        'required' => 1,
+                    ),
+                ),
             ),
             // Prerequisites
             array(
                 'key'          => 'field_training_prerequisites',
                 'label'        => __('Prerequisites', 'azit-industrial'),
                 'name'         => 'training_prerequisites',
-                'type'         => 'textarea',
-                'instructions' => __('Required knowledge or experience', 'azit-industrial'),
-                'rows'         => 3,
-            ),
-            // Learning Objectives
-            array(
-                'key'          => 'field_training_objectives',
-                'label'        => __('Learning Objectives', 'azit-industrial'),
-                'name'         => 'training_objectives',
                 'type'         => 'wysiwyg',
-                'instructions' => __('What participants will learn', 'azit-industrial'),
+                'instructions' => __('Required knowledge or experience before attending', 'azit-industrial'),
                 'tabs'         => 'visual',
                 'toolbar'      => 'basic',
                 'media_upload' => 0,
@@ -334,36 +410,119 @@ function azit_register_acf_fields() {
                 'key'          => 'field_training_audience',
                 'label'        => __('Target Audience', 'azit-industrial'),
                 'name'         => 'training_audience',
+                'type'         => 'wysiwyg',
+                'instructions' => __('Who should attend this training (roles, profiles)', 'azit-industrial'),
+                'tabs'         => 'visual',
+                'toolbar'      => 'basic',
+                'media_upload' => 0,
+            ),
+            // Instructor
+            array(
+                'key'          => 'field_training_instructor',
+                'label'        => __('Instructor', 'azit-industrial'),
+                'name'         => 'training_instructor',
                 'type'         => 'textarea',
-                'instructions' => __('Who should attend this training', 'azit-industrial'),
+                'instructions' => __('Brief instructor bio or qualifications', 'azit-industrial'),
                 'rows'         => 3,
             ),
-            // Program/Agenda
+
+            // === TAB: Program ===
             array(
-                'key'          => 'field_training_program',
-                'label'        => __('Program', 'azit-industrial'),
-                'name'         => 'training_program',
+                'key'   => 'field_training_tab_program',
+                'label' => __('Program', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
+            // Course Outline (repeater with nested topics)
+            array(
+                'key'          => 'field_training_outline',
+                'label'        => __('Course Outline', 'azit-industrial'),
+                'name'         => 'training_outline',
                 'type'         => 'repeater',
-                'instructions' => __('Training program/agenda', 'azit-industrial'),
+                'instructions' => __('Day-by-day or module-by-module program (e.g., "Day 1 — CAN Fundamentals")', 'azit-industrial'),
                 'layout'       => 'block',
-                'button_label' => __('Add Module', 'azit-industrial'),
+                'button_label' => __('Add Module/Day', 'azit-industrial'),
                 'sub_fields'   => array(
                     array(
-                        'key'     => 'field_module_title',
-                        'label'   => __('Module Title', 'azit-industrial'),
-                        'name'    => 'module_title',
-                        'type'    => 'text',
-                        'wrapper' => array('width' => '30'),
+                        'key'      => 'field_outline_module_title',
+                        'label'    => __('Module Title', 'azit-industrial'),
+                        'name'     => 'module_title',
+                        'type'     => 'text',
+                        'required' => 1,
+                        'instructions' => __('e.g., "Day 1 — CAN Fundamentals"', 'azit-industrial'),
                     ),
                     array(
-                        'key'     => 'field_module_content',
-                        'label'   => __('Module Content', 'azit-industrial'),
-                        'name'    => 'module_content',
-                        'type'    => 'textarea',
-                        'rows'    => 3,
-                        'wrapper' => array('width' => '70'),
+                        'key'   => 'field_outline_module_description',
+                        'label' => __('Module Description', 'azit-industrial'),
+                        'name'  => 'module_description',
+                        'type'  => 'textarea',
+                        'rows'  => 2,
+                        'instructions' => __('Optional short description of this module', 'azit-industrial'),
+                    ),
+                    array(
+                        'key'          => 'field_outline_module_topics',
+                        'label'        => __('Topics', 'azit-industrial'),
+                        'name'         => 'module_topics',
+                        'type'         => 'repeater',
+                        'instructions' => __('Individual topics covered in this module', 'azit-industrial'),
+                        'layout'       => 'table',
+                        'button_label' => __('Add Topic', 'azit-industrial'),
+                        'sub_fields'   => array(
+                            array(
+                                'key'      => 'field_topic_text',
+                                'label'    => __('Topic', 'azit-industrial'),
+                                'name'     => 'topic',
+                                'type'     => 'text',
+                                'required' => 1,
+                            ),
+                        ),
                     ),
                 ),
+            ),
+
+            // === TAB: Sidebar ===
+            array(
+                'key'   => 'field_training_tab_sidebar',
+                'label' => __('Sidebar', 'azit-industrial'),
+                'type'  => 'tab',
+            ),
+            // Key Benefits
+            array(
+                'key'          => 'field_training_benefits',
+                'label'        => __('Key Benefits', 'azit-industrial'),
+                'name'         => 'training_benefits',
+                'type'         => 'repeater',
+                'instructions' => __('Highlight key benefits of this training', 'azit-industrial'),
+                'layout'       => 'table',
+                'button_label' => __('Add Benefit', 'azit-industrial'),
+                'min'          => 0,
+                'max'          => 10,
+                'sub_fields'   => array(
+                    array(
+                        'key'      => 'field_benefit_text',
+                        'label'    => __('Benefit', 'azit-industrial'),
+                        'name'     => 'benefit',
+                        'type'     => 'text',
+                        'required' => 1,
+                    ),
+                ),
+            ),
+            // Syllabus PDF
+            array(
+                'key'           => 'field_training_syllabus',
+                'label'         => __('Syllabus (PDF)', 'azit-industrial'),
+                'name'          => 'training_syllabus',
+                'type'          => 'file',
+                'instructions'  => __('Upload a downloadable PDF syllabus/program. Uses WordPress Media Library.', 'azit-industrial'),
+                'return_format' => 'array',
+                'library'       => 'all',
+                'mime_types'    => 'pdf',
+            ),
+
+            // === TAB: Sessions ===
+            array(
+                'key'   => 'field_training_tab_sessions',
+                'label' => __('Sessions', 'azit-industrial'),
+                'type'  => 'tab',
             ),
             // Upcoming Sessions
             array(
@@ -376,12 +535,12 @@ function azit_register_acf_fields() {
                 'button_label' => __('Add Session', 'azit-industrial'),
                 'sub_fields'   => array(
                     array(
-                        'key'           => 'field_session_date',
-                        'label'         => __('Date', 'azit-industrial'),
-                        'name'          => 'session_date',
-                        'type'          => 'date_picker',
+                        'key'            => 'field_session_date',
+                        'label'          => __('Date', 'azit-industrial'),
+                        'name'           => 'session_date',
+                        'type'           => 'date_picker',
                         'display_format' => 'd/m/Y',
-                        'return_format' => 'd/m/Y',
+                        'return_format'  => 'd/m/Y',
                     ),
                     array(
                         'key'   => 'field_session_location',
@@ -390,10 +549,10 @@ function azit_register_acf_fields() {
                         'type'  => 'text',
                     ),
                     array(
-                        'key'   => 'field_session_status',
-                        'label' => __('Status', 'azit-industrial'),
-                        'name'  => 'session_status',
-                        'type'  => 'select',
+                        'key'     => 'field_session_status',
+                        'label'   => __('Status', 'azit-industrial'),
+                        'name'    => 'session_status',
+                        'type'    => 'select',
                         'choices' => array(
                             'available' => __('Available', 'azit-industrial'),
                             'limited'   => __('Limited spots', 'azit-industrial'),
@@ -412,9 +571,10 @@ function azit_register_acf_fields() {
                 ),
             ),
         ),
-        'menu_order' => 0,
-        'position'   => 'normal',
-        'style'      => 'default',
+        'menu_order'      => 0,
+        'position'        => 'normal',
+        'style'           => 'default',
+        'label_placement' => 'top',
     ));
 }
 add_action('acf/init', 'azit_register_acf_fields');

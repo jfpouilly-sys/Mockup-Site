@@ -454,72 +454,52 @@ function azit_create_sample_training() {
         array(
             'title'   => 'Formation PROFINET - Fondamentaux',
             'slug'    => 'formation-profinet-fondamentaux',
-            'content' => '<p>Formation complète aux fondamentaux du protocole PROFINET.</p>
-
-<h2>Programme</h2>
-<ol>
-<li>Introduction à PROFINET</li>
-<li>Architecture et topologie</li>
-<li>Configuration et diagnostic</li>
-<li>Travaux pratiques</li>
-</ol>
-
-<h2>Public Visé</h2>
-<p>Ingénieurs automaticiens, techniciens maintenance, intégrateurs.</p>',
+            'content' => '<p>Formation complète aux fondamentaux du protocole PROFINET. Membre du PI (PROFINET International), AZIT propose une formation alliant théorie et pratique.</p>',
             'excerpt' => 'Maîtrisez les fondamentaux du protocole PROFINET en 3 jours.',
+            'category' => 'Protocol Training',
             'fields'  => array(
-                'training_duration' => '3 jours',
-                'training_price'    => '1 500 € HT',
-                'training_level'    => 'beginner',
-                'training_format'   => 'onsite',
+                'training_duration'         => '3 jours (21 heures)',
+                'training_price'            => '1 500 € HT',
+                'training_private_price'    => 'Sur demande',
+                'training_level'            => 'beginner',
+                'training_format'           => 'onsite',
+                'training_certification'    => true,
+                'training_max_participants' => 'Jusqu\'à 6',
+                'training_instructor'       => 'Ingénieur expert avec 20+ ans d\'expérience en réseaux industriels et systèmes temps réel.',
             ),
         ),
         array(
             'title'   => 'Formation Sécurité Fonctionnelle IEC 61508',
             'slug'    => 'formation-securite-fonctionnelle-iec-61508',
-            'content' => '<p>Formation approfondie à la norme IEC 61508 pour la sécurité fonctionnelle.</p>
-
-<h2>Programme</h2>
-<ol>
-<li>Concepts de sécurité fonctionnelle</li>
-<li>Structure de la norme IEC 61508</li>
-<li>Niveaux SIL et calculs</li>
-<li>Cycle de vie de sécurité</li>
-<li>Études de cas</li>
-</ol>
-
-<h2>Public Visé</h2>
-<p>Ingénieurs sécurité, chefs de projet, responsables qualité.</p>',
+            'content' => '<p>Formation approfondie à la norme IEC 61508 pour la sécurité fonctionnelle des systèmes électriques, électroniques et électroniques programmables.</p>',
             'excerpt' => 'Formation complète IEC 61508 - Sécurité fonctionnelle et niveaux SIL.',
+            'category' => 'Safety Standards',
             'fields'  => array(
-                'training_duration' => '4 jours',
-                'training_price'    => '2 200 € HT',
-                'training_level'    => 'intermediate',
-                'training_format'   => 'onsite',
+                'training_duration'         => '4 jours (28 heures)',
+                'training_price'            => '2 200 € HT',
+                'training_private_price'    => 'Sur demande',
+                'training_level'            => 'intermediate',
+                'training_format'           => 'onsite',
+                'training_certification'    => true,
+                'training_max_participants' => 'Jusqu\'à 8',
+                'training_instructor'       => 'Expert certifié en sécurité fonctionnelle avec 15+ ans d\'expérience dans l\'industrie.',
             ),
         ),
         array(
             'title'   => 'Formation EtherCAT Avancée',
             'slug'    => 'formation-ethercat-avancee',
-            'content' => '<p>Formation avancée pour experts EtherCAT.</p>
-
-<h2>Programme</h2>
-<ol>
-<li>Architecture EtherCAT avancée</li>
-<li>Développement de slaves</li>
-<li>Distributed Clocks</li>
-<li>Diagnostic et dépannage</li>
-<li>Certification CTT</li>
-</ol>
-
-<h2>Prérequis</h2>
-<p>Connaissance des bases EtherCAT requise.</p>',
+            'content' => '<p>Formation avancée pour experts EtherCAT. Développement de slaves, Distributed Clocks, diagnostic et préparation à la certification CTT.</p>',
             'excerpt' => 'Formation avancée EtherCAT - Développement slaves et certification.',
+            'category' => 'Protocol Training',
             'fields'  => array(
-                'training_duration' => '5 jours',
-                'training_price'    => '3 000 € HT',
-                'training_level'    => 'advanced',
-                'training_format'   => 'onsite',
+                'training_duration'         => '5 jours (35 heures)',
+                'training_price'            => '3 000 € HT',
+                'training_private_price'    => 'Sur demande',
+                'training_level'            => 'advanced',
+                'training_format'           => 'onsite',
+                'training_certification'    => true,
+                'training_max_participants' => 'Jusqu\'à 6',
+                'training_instructor'       => 'Ingénieur spécialisé EtherCAT avec une expertise approfondie en développement d\'esclaves et certification CTT.',
             ),
         ),
     );
@@ -548,6 +528,12 @@ function azit_create_sample_training() {
                     update_post_meta($post_id, $key, $value);
                 }
             }
+
+            // Assign training category taxonomy
+            if (!empty($post_data['category'])) {
+                wp_set_object_terms($post_id, $post_data['category'], 'training_category');
+            }
+
             echo "Created training: {$post_data['title']}\n";
         }
     }

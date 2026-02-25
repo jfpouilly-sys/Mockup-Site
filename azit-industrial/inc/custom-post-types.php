@@ -276,6 +276,46 @@ function azit_register_training_post_type() {
 add_action('init', 'azit_register_training_post_type');
 
 /**
+ * Register Training Category Taxonomy
+ */
+function azit_register_training_category_taxonomy() {
+    $labels = array(
+        'name'                       => _x('Training Categories', 'Taxonomy general name', 'azit-industrial'),
+        'singular_name'              => _x('Training Category', 'Taxonomy singular name', 'azit-industrial'),
+        'search_items'               => __('Search Training Categories', 'azit-industrial'),
+        'all_items'                  => __('All Training Categories', 'azit-industrial'),
+        'parent_item'                => __('Parent Training Category', 'azit-industrial'),
+        'parent_item_colon'          => __('Parent Training Category:', 'azit-industrial'),
+        'edit_item'                  => __('Edit Training Category', 'azit-industrial'),
+        'update_item'                => __('Update Training Category', 'azit-industrial'),
+        'add_new_item'               => __('Add New Training Category', 'azit-industrial'),
+        'new_item_name'              => __('New Training Category Name', 'azit-industrial'),
+        'menu_name'                  => __('Categories', 'azit-industrial'),
+        'back_to_items'              => __('&larr; Back to Training Categories', 'azit-industrial'),
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_nav_menus' => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array(
+            'slug'         => 'training-category',
+            'with_front'   => false,
+            'hierarchical' => true,
+        ),
+    );
+
+    register_taxonomy('training_category', array('training'), $args);
+}
+add_action('init', 'azit_register_training_category_taxonomy', 0);
+
+/**
  * Register Training Level Taxonomy
  */
 function azit_register_training_level_taxonomy() {
@@ -325,6 +365,7 @@ function azit_rewrite_flush() {
     azit_register_products_post_type();
     azit_register_product_taxonomy();
     azit_register_training_post_type();
+    azit_register_training_category_taxonomy();
     azit_register_training_level_taxonomy();
     flush_rewrite_rules();
 }
