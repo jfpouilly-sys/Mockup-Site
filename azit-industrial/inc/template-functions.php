@@ -163,7 +163,9 @@ function azit_get_expertise_card($post = null) {
 
             <div class="expertise-content">
                 <h2 id="expertise-<?php echo esc_attr($post->ID); ?>" class="expertise-title">
-                    <?php echo esc_html($post->post_title); ?>
+                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                        <?php echo esc_html($post->post_title); ?>
+                    </a>
                 </h2>
 
                 <p class="expertise-description">
@@ -266,7 +268,9 @@ function azit_get_product_card($post = null) {
 
             <div class="product-content">
                 <h2 id="product-<?php echo esc_attr($post->ID); ?>" class="product-title">
-                    <?php echo esc_html($post->post_title); ?>
+                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                        <?php echo esc_html($post->post_title); ?>
+                    </a>
                 </h2>
 
                 <?php if ($price) : ?>
@@ -350,7 +354,9 @@ function azit_get_training_card($post = null) {
             <?php endif; ?>
 
             <h2 id="training-<?php echo esc_attr($post->ID); ?>" class="training-title">
-                <?php echo esc_html($post->post_title); ?>
+                <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                    <?php echo esc_html($post->post_title); ?>
+                </a>
             </h2>
 
             <p class="training-excerpt">
@@ -377,6 +383,7 @@ function azit_get_training_card($post = null) {
                class="training-link"
                aria-describedby="training-<?php echo esc_attr($post->ID); ?>">
                 <?php esc_html_e('View Training', 'azit-industrial'); ?>
+                <span aria-hidden="true"> &rarr;</span>
                 <span class="sr-only">
                     <?php echo esc_html($post->post_title); ?>
                 </span>
