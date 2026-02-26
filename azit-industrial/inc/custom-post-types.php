@@ -353,6 +353,23 @@ add_action('init', 'azit_register_training_level_taxonomy', 0);
 
 /**
  * =============================================================================
+ * DISABLE BLOCK EDITOR FOR ACF-MANAGED CPTs
+ * =============================================================================
+ *
+ * Training, Product, and Expertise posts are fully managed via ACF field groups.
+ * The block editor (Gutenberg) hides ACF meta boxes below the editor, making
+ * them hard to find. The classic editor displays ACF's tabbed UI prominently.
+ */
+function azit_disable_gutenberg_for_cpts($use_block_editor, $post_type) {
+    if (in_array($post_type, array('training', 'product', 'expertise'), true)) {
+        return false;
+    }
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post_type', 'azit_disable_gutenberg_for_cpts', 10, 2);
+
+/**
+ * =============================================================================
  * FLUSH REWRITE RULES ON ACTIVATION
  * =============================================================================
  */
