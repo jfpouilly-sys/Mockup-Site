@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "source": "https://isit.fr",
+    "extraction_date": "2026-02-26",
+    "total_trainings": 8,
+    "note": "Programme field must be extracted from PDF brochures"
+  },
+  "trainings": [
+    {
+      "post_slug": "formation-j1939",
+      "language": "fr",
+      "title": "Formation J1939",
+      "url": "https://isit.fr/fr/formation/formation-j1939.php",
+      "objectives": "Savant mélange entre théorie et pratique, cette formation J1939 a pour objectifs de présenter les principaux mécanismes de communication du protocole J1939 et d'accompagner de manière efficace et concrète nos clients dans l'implémentation d'une pile logicielle, en présentant quelques exemples de messagerie afin de permettre une compréhension et une mise en œuvre rapide de ce protocole.",
+      "programme": "[TO EXTRACT FROM PDF: https://isit.fr/uploads/files/produit/formation-j1939_brochure-sae-j1939-20241018-vv.pdf]",
+      "duration": "2 jours (14 heures)",
+      "price": "1 390,00 €",
+      "target_audience": "Ce stage s'adresse aux Chefs de projets, ingénieurs et techniciens pouvant être amenés à mettre en œuvre un réseau J1939 ou participer au développement d'applications J1939.",
+      "prerequisites": "Notions sur les réseaux de terrains et l'informatique industrielle.",
+      "pdf_brochure_url": "https://isit.fr/uploads/files/produit/formation-j1939_brochure-sae-j1939-20241018-vv.pdf",
+      "training_date": "04/03/2026",
+      "location": "Toulouse"
+    },
+    {
+      "post_slug": "j1939-training",
+      "language": "en",
+      "title": "J1939 Training",
+      "url": "https://isit.fr/en/formation/j1939-training.php",
+      "objectives": "A skilful blend of theory and practice, this J1939 training course aims to present the main communication mechanisms of the J1939 protocol, and to provide our customers with effective, practical support in implementing a software stack, by presenting a few messaging examples to enable rapid understanding and implementation of this protocol.",
+      "programme": "[TO EXTRACT FROM PDF: https://isit.fr/uploads/files/produit/formation-j1939_brochure-sae-j1939-20241018-vv.pdf]",
+      "duration": "2 days (14 hours)",
+      "price": "1 390,00 €",
+      "target_audience": "This course is aimed at project managers, engineers and technicians who may be required to implement a J1939 network or participate in the development of J1939 applications.",
+      "prerequisites": "Basic knowledge of field networks and industrial computing.",
+      "pdf_brochure_url": "https://isit.fr/uploads/files/produit/formation-j1939_brochure-sae-j1939-20241018-vv.pdf",
+      "training_date": "04/03/2026",
+      "location": ""
+    },
+    {
+      "post_slug": "formation-canopen",
+      "language": "fr",
+      "title": "Formation CANopen",
+      "url": "https://isit.fr/fr/formation/formation-canopen.php",
+      "objectives": "Cette formation CANopen fournit la théorie tout en présentant aussi des exemples pratiques pour vous accompagner dans la compréhension et une mise en œuvre rapide de ce protocole CAN/CANopen.",
+      "programme": "[TO EXTRACT FROM PDF: https://isit.fr/uploads/files/produit/formation-canopen_brochure-canopen-20241018-vv.pdf]",
+      "duration": "2 jours (14 heures)",
+      "price": "1 390,00 €",
+      "target_audience": "Ce stage s'adresse aux Chefs de projets, Ingénieurs et Techniciens pouvant être amenés à démarrer, superviser ou participer au développement de systèmes et/ou d'équipements CANopen.",
+      "prerequisites": "Notions sur les réseaux de terrains et l'informatique industrielle.",
+      "pdf_brochure_url": "https://isit.fr/uploads/files/produit/formation-canopen_brochure-canopen-20241018-vv.pdf",
+      "training_date": "18/03/2026",
+      "location": "Toulouse"
+    },
+    {
+      "post_slug": "canopen-training",
+      "language": "en",
+      "title": "CANopen Training",
+      "url": "https://isit.fr/en/formation/canopen-training.php",
+      "objectives": "This CANopen training provides theory while also presenting practical examples to help you understand and quickly implement this CAN/CANopen protocol.",
+      "programme": "[TO EXTRACT FROM PDF: https://isit.fr/uploads/files/produit/formation-canopen_brochure-canopen-20241018-vv.pdf]",
+      "duration": "2 days (14 hours)",
+      "price": "1 390,00 €",
+      "target_audience": "This course is aimed at project managers, engineers and technicians who may be required to start, supervise or participate in the development of CANopen systems and/or equipment.",
+      "prerequisites": "Basic knowledge of field networks and industrial computing.",
+      "pdf_brochure_url": "https://isit.fr/uploads/files/produit/formation-canopen_brochure-canopen-20241018-vv.pdf",
+      "training_date": "18/03/2026",
+      "location": ""
+    },
+    {
+      "post_slug": "formation-norme-avionique-do178c-1",
+      "language": "fr",
+      "title": "Formation Norme Avionique DO178C",
+      "url": "https://isit.fr/fr/formation/formation-norme-avionique-do178c-1.php",
+      "objectives": "[TO BE EXTRACTED FROM WEB PAGE]",
+      "programme": "[TO EXTRACT FROM PDF]",
+      "duration": "3 jours",
+      "price": "2 450,00 €",
+      "target_audience": "[TO BE EXTRACTED]",
+      "prerequisites": "[TO BE EXTRACTED]",
+      "pdf_brochure_url": "[TO BE EXTRACTED]",
+      "training_date": "24/03/2026",
+      "location": "A distance"
+    },
+    {
+      "post_slug": "formation-norme-medicale-iec-62304",
+      "language": "fr",
+      "title": "Formation Norme Médicale IEC 62304",
+      "url": "https://isit.fr/fr/formation/formation-norme-medicale-iec-62304.php",
+      "objectives": "[TO BE EXTRACTED FROM WEB PAGE]",
+      "programme": "[TO EXTRACT FROM PDF]",
+      "duration": "2 jours",
+      "price": "1 490,00 €",
+      "target_audience": "[TO BE EXTRACTED]",
+      "prerequisites": "[TO BE EXTRACTED]",
+      "pdf_brochure_url": "[TO BE EXTRACTED]",
+      "training_date": "31/03/2026",
+      "location": "Toulouse"
+    },
+    {
+      "post_slug": "formation-ethercat",
+      "language": "fr",
+      "title": "Formation EtherCAT",
+      "url": "https://isit.fr/fr/formation/formation-ethercat.php",
+      "objectives": "[TO BE EXTRACTED FROM WEB PAGE]",
+      "programme": "[TO EXTRACT FROM PDF]",
+      "duration": "2 jours",
+      "price": "1 390,00 €",
+      "target_audience": "[TO BE EXTRACTED]",
+      "prerequisites": "[TO BE EXTRACTED]",
+      "pdf_brochure_url": "[TO BE EXTRACTED]",
+      "training_date": "01/04/2026",
+      "location": "Toulouse"
+    },
+    {
+      "post_slug": "ethercat-training",
+      "language": "en",
+      "title": "EtherCAT Training",
+      "url": "https://isit.fr/en/formation/ethercat-training.php",
+      "objectives": "[TO BE EXTRACTED FROM WEB PAGE]",
+      "programme": "[TO EXTRACT FROM PDF]",
+      "duration": "2 days",
+      "price": "1 390,00 €",
+      "target_audience": "[TO BE EXTRACTED]",
+      "prerequisites": "[TO BE EXTRACTED]",
+      "pdf_brochure_url": "[TO BE EXTRACTED]",
+      "training_date": "01/04/2026",
+      "location": ""
+    }
+  ],
+  "extraction_instructions": {
+    "step_1": "Visit each training URL listed above",
+    "step_2": "Extract objectives, target_audience, and prerequisites from the web page HTML",
+    "step_3": "Download PDF from pdf_brochure_url link on each page",
+    "step_4": "Extract 'Programme' section from each PDF file",
+    "step_5": "Populate all [TO BE EXTRACTED] placeholders with actual content",
+    "step_6": "Generate WordPress import script using this completed JSON"
+  },
+  "complete_url_lists": {
+    "french_trainings_page": "https://isit.fr/fr/formations/formations.php",
+    "english_trainings_page": "https://isit.fr/en/formations/training.php",
+    "note": "Visit these pages to get the complete list of all training URLs"
+  }
+}
