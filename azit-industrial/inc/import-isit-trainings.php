@@ -327,6 +327,5 @@ function azit_parse_programme_to_outline($html) {
     return $outline;
 }
 
-// Admin UI is integrated into Tools > AZIT Setup (see azit-industrial/functions.php).
-// This standalone file can be used with WP-CLI: wp eval-file wordpress_import_trainings.php
+// Admin UI is integrated into Tools > AZIT Setup (see functions.php).
 

@@ -696,6 +696,14 @@ if (file_exists($import_static_content_file)) {
 }
 
 /**
+ * ISIT Training Data Import (ACF)
+ */
+$import_isit_trainings_file = AZIT_THEME_DIR . '/inc/import-isit-trainings.php';
+if (file_exists($import_isit_trainings_file)) {
+    require_once $import_isit_trainings_file;
+}
+
+/**
  * =============================================================================
  * FRENCH LANGUAGE SUPPORT
  * =============================================================================
@@ -967,6 +975,30 @@ function azit_setup_page() {
         echo '<div class="notice notice-success"><p>' . esc_html__('Contact Form 7 forms created successfully! Go to Contact > Contact Forms to manage them.', 'azit-industrial') . '</p></div>';
     }
 
+    // Import ISIT training data into ACF fields
+    if (isset($_POST['azit_import_isit_trainings']) && check_admin_referer('azit_import_isit_trainings_nonce')) {
+        if (function_exists('azit_import_isit_trainings')) {
+            ob_start();
+            $result = azit_import_isit_trainings();
+            $output = ob_get_clean();
+            if (!empty($result['error'])) {
+                echo '<div class="notice notice-error"><p>' . esc_html($result['error']) . '</p></div>';
+            } else {
+                echo '<div class="notice notice-success"><p>' . sprintf(
+                    esc_html__('ISIT Training Import complete: %d created, %d updated, %d errors.', 'azit-industrial'),
+                    $result['created'], $result['updated'], $result['errors']
+                ) . '</p></div>';
+                if ($output) {
+                    echo '<div style="background: #f0f0f0; padding: 15px; font-family: monospace; white-space: pre-wrap; max-height: 300px; overflow-y: auto; margin-bottom: 15px;">';
+                    echo esc_html($output);
+                    echo '</div>';
+                }
+            }
+        } else {
+            echo '<div class="notice notice-error"><p>' . esc_html__('Import function not available. Ensure wordpress_import_trainings.php is loaded.', 'azit-industrial') . '</p></div>';
+        }
+    }
+
     // Import media assets to WordPress Media Library
     if (isset($_POST['azit_import_media']) && check_admin_referer('azit_import_media_nonce')) {
         if (function_exists('azit_import_media_only')) {
@@ -1032,6 +1064,47 @@ function azit_setup_page() {
             <form method="post" style="margin-top: 15px;">
                 <?php wp_nonce_field('azit_import_media_nonce'); ?>
                 <input type="submit" name="azit_import_media" class="button button-primary" value="<?php esc_attr_e('Import Media to Library', 'azit-industrial'); ?>">
+            </form>
+        </div>
+
+        <?php
+        // ISIT Training Import card
+        $json_path = get_template_directory() . '/data/isit_trainings_data.json';
+        $json_exists = file_exists($json_path);
+        $training_count = 0;
+        $complete_count = 0;
+        $pending_count = 0;
+        if ($json_exists) {
+            $preview_data = json_decode(file_get_contents($json_path), true);
+            $trainings_arr = $preview_data['trainings'] ?? array();
+            $training_count = count($trainings_arr);
+            foreach ($trainings_arr as $t) {
+                if (($t['status'] ?? '') === 'complete') {
+                    $complete_count++;
+                } else {
+                    $pending_count++;
+                }
+            }
+        }
+        ?>
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px; background: linear-gradient(135deg, #f3e5f5 0%, #ffffff 100%); border-left: 4px solid #7b1fa2;">
+            <h2 style="color: #6a1b9a;"><?php esc_html_e('Import ISIT Training Data (ACF)', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('Import training data from the ISIT JSON file into WordPress training posts, populating all ACF tabs: General, Pricing, Content, Program, Sidebar, Sessions.', 'azit-industrial'); ?></p>
+            <p>
+                <strong><?php esc_html_e('JSON file:', 'azit-industrial'); ?></strong>
+                <code>data/isit_trainings_data.json</code>
+                <?php if ($json_exists) : ?>
+                    <span style="color: green;">&#10003; <?php echo esc_html(sprintf(
+                        __('Found — %d trainings (%d complete, %d pending)', 'azit-industrial'),
+                        $training_count, $complete_count, $pending_count
+                    )); ?></span>
+                <?php else : ?>
+                    <span style="color: red;">&#10007; <?php esc_html_e('Not found — place isit_trainings_data.json in theme data/ directory', 'azit-industrial'); ?></span>
+                <?php endif; ?>
+            </p>
+            <form method="post" style="margin-top: 15px;">
+                <?php wp_nonce_field('azit_import_isit_trainings_nonce'); ?>
+                <input type="submit" name="azit_import_isit_trainings" class="button button-primary" value="<?php esc_attr_e('Import ISIT Trainings', 'azit-industrial'); ?>"<?php echo !$json_exists ? ' disabled' : ''; ?>>
             </form>
         </div>
 
