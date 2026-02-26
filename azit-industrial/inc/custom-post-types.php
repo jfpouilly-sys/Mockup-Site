@@ -276,6 +276,46 @@ function azit_register_training_post_type() {
 add_action('init', 'azit_register_training_post_type');
 
 /**
+ * Register Training Category Taxonomy
+ */
+function azit_register_training_category_taxonomy() {
+    $labels = array(
+        'name'                       => _x('Training Categories', 'Taxonomy general name', 'azit-industrial'),
+        'singular_name'              => _x('Training Category', 'Taxonomy singular name', 'azit-industrial'),
+        'search_items'               => __('Search Training Categories', 'azit-industrial'),
+        'all_items'                  => __('All Training Categories', 'azit-industrial'),
+        'parent_item'                => __('Parent Training Category', 'azit-industrial'),
+        'parent_item_colon'          => __('Parent Training Category:', 'azit-industrial'),
+        'edit_item'                  => __('Edit Training Category', 'azit-industrial'),
+        'update_item'                => __('Update Training Category', 'azit-industrial'),
+        'add_new_item'               => __('Add New Training Category', 'azit-industrial'),
+        'new_item_name'              => __('New Training Category Name', 'azit-industrial'),
+        'menu_name'                  => __('Categories', 'azit-industrial'),
+        'back_to_items'              => __('&larr; Back to Training Categories', 'azit-industrial'),
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_nav_menus' => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array(
+            'slug'         => 'training-category',
+            'with_front'   => false,
+            'hierarchical' => true,
+        ),
+    );
+
+    register_taxonomy('training_category', array('training'), $args);
+}
+add_action('init', 'azit_register_training_category_taxonomy', 0);
+
+/**
  * Register Training Level Taxonomy
  */
 function azit_register_training_level_taxonomy() {
@@ -313,6 +353,23 @@ add_action('init', 'azit_register_training_level_taxonomy', 0);
 
 /**
  * =============================================================================
+ * DISABLE BLOCK EDITOR FOR ACF-MANAGED CPTs
+ * =============================================================================
+ *
+ * Training, Product, and Expertise posts are fully managed via ACF field groups.
+ * The block editor (Gutenberg) hides ACF meta boxes below the editor, making
+ * them hard to find. The classic editor displays ACF's tabbed UI prominently.
+ */
+function azit_disable_gutenberg_for_cpts($use_block_editor, $post_type) {
+    if (in_array($post_type, array('training', 'product', 'expertise'), true)) {
+        return false;
+    }
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post_type', 'azit_disable_gutenberg_for_cpts', 10, 2);
+
+/**
+ * =============================================================================
  * FLUSH REWRITE RULES ON ACTIVATION
  * =============================================================================
  */
@@ -325,6 +382,7 @@ function azit_rewrite_flush() {
     azit_register_products_post_type();
     azit_register_product_taxonomy();
     azit_register_training_post_type();
+    azit_register_training_category_taxonomy();
     azit_register_training_level_taxonomy();
     flush_rewrite_rules();
 }
@@ -345,6 +403,7 @@ function azit_expertise_admin_columns($columns) {
         $new_columns[$key] = $value;
         if ($key === 'title') {
             $new_columns['expertise_icon'] = __('Icon', 'azit-industrial');
+            $new_columns['expertise_subtitle'] = __('Subtitle', 'azit-industrial');
         }
     }
     return $new_columns;
@@ -355,12 +414,18 @@ add_filter('manage_expertise_posts_columns', 'azit_expertise_admin_columns');
  * Populate custom columns for Expertise
  */
 function azit_expertise_admin_column_content($column, $post_id) {
-    if ($column === 'expertise_icon') {
-        if (has_post_thumbnail($post_id)) {
-            echo get_the_post_thumbnail($post_id, array(50, 50));
-        } else {
-            echo '&mdash;';
-        }
+    switch ($column) {
+        case 'expertise_icon':
+            if (has_post_thumbnail($post_id)) {
+                echo get_the_post_thumbnail($post_id, array(50, 50));
+            } else {
+                echo '&mdash;';
+            }
+            break;
+        case 'expertise_subtitle':
+            $subtitle = get_post_meta($post_id, 'expertise_subtitle', true);
+            echo $subtitle ? esc_html($subtitle) : '&mdash;';
+            break;
     }
 }
 add_action('manage_expertise_posts_custom_column', 'azit_expertise_admin_column_content', 10, 2);
@@ -374,7 +439,9 @@ function azit_product_admin_columns($columns) {
         $new_columns[$key] = $value;
         if ($key === 'title') {
             $new_columns['product_image'] = __('Image', 'azit-industrial');
+            $new_columns['product_sku'] = __('SKU', 'azit-industrial');
             $new_columns['product_price'] = __('Price', 'azit-industrial');
+            $new_columns['product_availability'] = __('Availability', 'azit-industrial');
         }
     }
     return $new_columns;
@@ -393,9 +460,24 @@ function azit_product_admin_column_content($column, $post_id) {
                 echo '&mdash;';
             }
             break;
+        case 'product_sku':
+            $sku = get_post_meta($post_id, 'product_sku', true);
+            echo $sku ? '<code>' . esc_html($sku) . '</code>' : '&mdash;';
+            break;
         case 'product_price':
             $price = get_post_meta($post_id, 'product_price', true);
             echo $price ? esc_html($price) : '&mdash;';
+            break;
+        case 'product_availability':
+            $availability = get_post_meta($post_id, 'product_availability', true);
+            $labels = array(
+                'in_stock'     => __('In Stock', 'azit-industrial'),
+                'limited'      => __('Limited', 'azit-industrial'),
+                'out_of_stock' => __('Out of Stock', 'azit-industrial'),
+                'pre_order'    => __('Pre-Order', 'azit-industrial'),
+                'contact'      => __('Contact', 'azit-industrial'),
+            );
+            echo $availability ? esc_html($labels[$availability] ?? $availability) : '&mdash;';
             break;
     }
 }

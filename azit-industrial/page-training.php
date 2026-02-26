@@ -41,6 +41,38 @@ if (file_exists($static_file)) {
         $content = preg_replace('/href="services\/expertise\.html"/', 'href="' . home_url('/expertise/') . '"', $content);
         $content = preg_replace('/href="services\/expertise-([^"]+)\.html"/', 'href="' . home_url('/expertise/$1/') . '"', $content);
 
+        // Convert training detail links (static filename → WordPress post slug)
+        $training_slug_map = array(
+            'can'                   => 'can-training',
+            'canopen'               => 'canopen-training',
+            'j1939'                 => 'j1939-training',
+            'ethercat'              => 'ethercat-training',
+            'industrial-ethernet'   => 'industrial-ethernet-training',
+            'ethernet-ip'           => 'ethernet-ip-cip-training',
+            'profinet'              => 'profinet-training',
+            'iec61508'              => 'iec-61508',
+            'iso26262'              => 'iso-26262',
+            'iso21434'              => 'iso-21434',
+            'iec62304'              => 'iec-62304',
+            'do178c'                => 'do-178c',
+            'en50716'               => 'en-50716',
+            'iso13849'              => 'iso-13849',
+            'iso25119'              => 'iso-25119',
+            'troubleshooting'       => 'industrial-ethernet-troubleshooting',
+            'cybersecurity'         => 'embedded-systems-cybersecurity',
+            'medical-cybersecurity' => 'medical-device-cybersecurity',
+            'freertos'              => 'freertos-implementation',
+            'misra'                 => 'misra-c-2025',
+        );
+
+        foreach ($training_slug_map as $static_name => $wp_slug) {
+            $content = str_replace(
+                'href="training/' . $static_name . '.html"',
+                'href="' . home_url('/training/' . $wp_slug . '/') . '"',
+                $content
+            );
+        }
+
         // Fix image paths
         $content = str_replace('src="../assets/', 'src="' . get_template_directory_uri() . '/assets/', $content);
         $content = str_replace('src="../', 'src="' . get_template_directory_uri() . '/assets/', $content);

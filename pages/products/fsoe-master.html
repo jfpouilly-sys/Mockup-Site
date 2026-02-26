@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Top Menu -->
     <div class="top-menu">
@@ -51,9 +51,9 @@
             <nav class="header__nav" id="main-nav">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#" class="nav__link">
+                        <a href="communication-stacks.html" class="nav__link">
                             Products
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -94,7 +94,7 @@
                     <li class="nav__item">
                         <a href="../services/expertise.html" class="nav__link">
                             Expertise
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -113,7 +113,25 @@
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="../training.html" class="nav__link">Training</a>
+                        <a href="../training.html" class="nav__link">
+                            Training
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="../training.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">TRAINING COURSES</a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../training.html#protocols" class="mega-menu__link">Protocol Training</a></li>
+                                        <li><a href="../training.html#safety" class="mega-menu__link">Safety Standards</a></li>
+                                        <li><a href="../training.html#workshops" class="mega-menu__link">Hands-on Workshops</a></li>
+                                        <li><a href="../training.html#custom" class="mega-menu__link">Custom Training</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>                    <li class="nav__item">
                         <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
                     </li>
@@ -121,7 +139,7 @@
 
             </nav>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
@@ -133,7 +151,7 @@
         <!-- Breadcrumb -->
         <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
             <div class="container">
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
                     <div class="breadcrumb__item">
                         <a href="../../index.html">Home</a>
                         <span class="breadcrumb__separator">›</span>
@@ -166,8 +184,6 @@
                     <span class="badge badge--primary">BV Approved</span>
                 </div>
                 <div class="product-hero__actions">
-                    <a href="../contact.html" class="btn btn--primary btn--large">Request Quote</a>
-                    <a href="#" class="btn btn--outline btn--large">Download Datasheet</a>
                 </div>
             </div>
         </section>
@@ -180,7 +196,6 @@
                         <li><button class="tabs__button active" data-tab="overview">Overview</button></li>
                         <li><button class="tabs__button" data-tab="features">Features</button></li>
                         <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Integration</button></li>
                     </ul>
                 </div>
 
@@ -347,199 +362,101 @@
                         <div>
                             <h3>Safety Certification</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Safety certification details for FSoE Master</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Safety Level</th>
                                     <td style="padding: 0.5rem 0;">SIL3 per IEC 61508</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Performance Level</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Performance Level</th>
                                     <td style="padding: 0.5rem 0;">PLe per ISO 13849</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Standard</th>
                                     <td style="padding: 0.5rem 0;">IEC 61784-3</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Certification Body</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Certification Body</th>
                                     <td style="padding: 0.5rem 0;">Bureau Véritas</td>
                                 </tr>
+                                                            </tbody>
                             </table>
 
                             <h3 style="margin-top: 2rem;">Resource Requirements</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Resource requirements for FSoE Master</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Code Size (ROM)</th>
                                     <td style="padding: 0.5rem 0;">~80KB (typical)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Data Size (RAM)</th>
                                     <td style="padding: 0.5rem 0;">~16KB + per connection</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Stack Size</th>
                                     <td style="padding: 0.5rem 0;">~4KB</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">MCU Requirements</th>
                                     <td style="padding: 0.5rem 0;">32-bit processor</td>
                                 </tr>
+                                                            </tbody>
                             </table>
                         </div>
 
                         <div>
                             <h3>Supported Features</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Supported features for FSoE Master</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Max Connections</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Max Connections</th>
                                     <td style="padding: 0.5rem 0;">64 FSoE slaves</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Safe I/O per Connection</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Safe I/O per Connection</th>
                                     <td style="padding: 0.5rem 0;">Up to 254 bytes</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Watchdog Range</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Watchdog Range</th>
                                     <td style="padding: 0.5rem 0;">10-65535 ms</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>FSoE Protocol Version</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">FSoE Protocol Version</th>
                                     <td style="padding: 0.5rem 0;">v1.1</td>
                                 </tr>
+                                                            </tbody>
                             </table>
 
                             <h3 style="margin-top: 2rem;">Platform Support</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Platform support for FSoE Master</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Operating Systems</th>
                                     <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">MCU Families</th>
                                     <td style="padding: 0.5rem 0;">Low hardware dependency</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Compiler</th>
                                     <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Black Channel Stacks</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Black Channel Stacks</th>
                                     <td style="padding: 0.5rem 0;">Acontis, KPA, custom</td>
                                 </tr>
+                                                            </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- Integration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Integration</h2>
-                    <p style="margin-top: 1rem;">
-                        The AZIT FSoE Master stack is designed for straightforward integration into safety controllers.
-                    </p>
-
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* FSoE Master initialization */
-#include "fsoe_master.h"
-
-/* Configure master and connections */
-FSOE_MASTER_CONFIG master_config = {
-    .max_connections = 4,
-    .cycle_time = 10  /* ms */
-};
-
-/* Initialize FSoE master */
-if (fsoe_master_init(&master_config) == FSOE_OK) {
-    /* Add slave connections */
-    FSOE_CONNECTION_CONFIG conn = {
-        .connection_id = 0x0001,
-        .watchdog_time = 100,
-        .safe_inputs = 8,
-        .safe_outputs = 8
-    };
-    fsoe_master_add_connection(&conn);
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Cyclic Processing</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* Call in your cyclic safety task */
-void safety_controller_task(void) {
-    uint8_t safe_outputs[8];
-    uint8_t safe_inputs[8];
-
-    /* Read local safety inputs */
-    read_local_safety_inputs(safe_outputs);
-
-    /* Process all FSoE connections */
-    fsoe_master_process();
-
-    /* Get data from specific slave */
-    fsoe_master_get_slave_data(0x0001, safe_inputs);
-
-    /* Process safety logic */
-    process_safety_logic(safe_inputs, safe_outputs);
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Integration Steps</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to your project</strong><br>
-                                    Include source files and headers in your build system
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Implement HAL functions</strong><br>
-                                    Provide timestamp and black channel interface
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configure network topology</strong><br>
-                                    Define slave connections and parameters
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Integrate in safety task</strong><br>
-                                    Call process function in your controller cycle
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test and validate</strong><br>
-                                    Use provided test cases and validation tools
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>What's Included</h3>
-                            <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Configuration tool for network setup</li>
-                                <li>Integration guide and API reference</li>
-                                <li>HAL template and porting guide</li>
-                                <li>Test suites and validation tools</li>
-                                <li>BV certification documents</li>
-                                <li>Technical support package</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
-                        <h3>Need Help with Integration?</h3>
-                        <p style="margin-top: 1rem;">
-                            Our team offers complete safety controller development services, from architecture
-                            design to BV certification support.
-                        </p>
-                        <a href="../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Our Services</a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -600,8 +517,6 @@ void safety_controller_task(void) {
                     <h2>Ready to Build Safety Controllers?</h2>
                     <p>Request a quote or talk to our experts about your project</p>
                     <div>
-                        <a href="../contact.html" class="btn btn--secondary btn--large">Request Quote</a>
-                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
                     </div>
                 </div>
             </div>

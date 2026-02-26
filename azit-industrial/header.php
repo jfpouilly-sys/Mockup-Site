@@ -99,7 +99,7 @@ if (!defined('ABSPATH')) {
                     <li class="nav__item">
                         <a href="<?php echo esc_url(home_url('/products/')); ?>" class="nav__link">
                             <?php esc_html_e('Products', 'azit-industrial'); ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -151,7 +151,7 @@ if (!defined('ABSPATH')) {
                     <li class="nav__item">
                         <a href="<?php echo esc_url(home_url('/expertise/')); ?>" class="nav__link">
                             <?php esc_html_e('Expertise', 'azit-industrial'); ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -170,9 +170,27 @@ if (!defined('ABSPATH')) {
                         </div>
                     </li>
 
-                    <!-- Training -->
+                    <!-- Training Mega Menu -->
                     <li class="nav__item">
-                        <a href="<?php echo esc_url(home_url('/training/')); ?>" class="nav__link"><?php esc_html_e('Training', 'azit-industrial'); ?></a>
+                        <a href="<?php echo esc_url(home_url('/training/')); ?>" class="nav__link">
+                            <?php esc_html_e('Training', 'azit-industrial'); ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="<?php echo esc_url(home_url('/training/')); ?>" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;"><?php esc_html_e('TRAINING COURSES', 'azit-industrial'); ?></a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="<?php echo esc_url(home_url('/training/#protocols')); ?>" class="mega-menu__link"><?php esc_html_e('Protocol Training', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/training/#safety')); ?>" class="mega-menu__link"><?php esc_html_e('Safety Standards', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/training/#workshops')); ?>" class="mega-menu__link"><?php esc_html_e('Hands-on Workshops', 'azit-industrial'); ?></a></li>
+                                        <li><a href="<?php echo esc_url(home_url('/training/#custom')); ?>" class="mega-menu__link"><?php esc_html_e('Custom Training', 'azit-industrial'); ?></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>
 
                     <!-- Request Quote Button -->

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation EtherCAT - AZIT</title>
+    <meta name="description" content="Découverte de la technologie EtherCAT. Protocole Ethernet industriel pour applications temps réel avec communication haute vitesse et horloges distribuées.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/components.css">
+    <link rel="stylesheet" href="../../../css/layout.css">
+    <link rel="stylesheet" href="../../../css/pages.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-container">
+            <nav class="top-menu-nav">
+                <a href="../company.html" class="top-menu-link">Entreprise</a>
+                <a href="../blog.html" class="top-menu-link">Blog & Actualités</a>
+            </nav>
+            <div class="language-switcher">
+                <a href="../../../pages/training/ethercat.html" class="language-button" data-lang="en">EN</a>
+                <span class="language-separator">|</span>
+                <a href="../../index.html" class="language-button active" data-lang="fr">FR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo"><span>AZIT</span></a>
+            <nav class="header__nav" id="main-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../products/communication-stacks.html" class="nav__link">
+                            Produits
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Matériel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../products/protocol-gateway.html" class="mega-menu__link">Passerelle de Protocole (ISI-GTW)</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Piles de Communication</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../products/fsoe-slave.html" class="mega-menu__link">FSoE Esclave</a></li>
+                                        <li><a href="../products/fsoe-master.html" class="mega-menu__link">FSoE Maître</a></li>
+                                        <li><a href="../products/canopen-slave.html" class="mega-menu__link">CANopen Esclave</a></li>
+                                        <li><a href="../products/canopen-master.html" class="mega-menu__link">CANopen Maître</a></li>
+                                        <li><a href="../products/canopen-safety-slave.html" class="mega-menu__link">CANopen Safety Esclave</a></li>
+                                        <li><a href="../products/canopen-safety-master.html" class="mega-menu__link">CANopen Safety Maître</a></li>
+                                        <li><a href="../products/j1939.html" class="mega-menu__link">J1939 / J1939 Safety</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">Logiciel</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../products/simulation.html" class="mega-menu__link">Simulation Réseau (AZIT-SIM)</a></li>
+                                    </ul>
+                                    <div class="mega-menu__title" style="margin-top: 1rem;">Outils & Analyseurs</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../products/tools.html" class="mega-menu__link">Outils de Développement</a></li>
+                                        <li><a href="../products/analyzers.html" class="mega-menu__link">Analyseurs de Protocole</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../services/expertise.html" class="nav__link">
+                            Expertise
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <div class="mega-menu__title">NOTRE EXPERTISE</div>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../services/expertise-compliance.html" class="mega-menu__link">Conformité Sécurité</a></li>
+                                        <li><a href="../services/expertise-development.html" class="mega-menu__link">Développement Protocole</a></li>
+                                        <li><a href="../services/expertise-testing.html" class="mega-menu__link">Tests & Validation</a></li>
+                                        <li><a href="../services/expertise-networks.html" class="mega-menu__link">Réseaux Industriels</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../training.html" class="nav__link">
+                            Formation
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="../training.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">PROGRAMMES DE FORMATION</a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../training.html#protocols" class="mega-menu__link">Formation Protocoles</a></li>
+                                        <li><a href="../training.html#safety" class="mega-menu__link">Normes de Sécurité</a></li>
+                                        <li><a href="../training.html#workshops" class="mega-menu__link">Ateliers Pratiques</a></li>
+                                        <li><a href="../training.html#custom" class="mega-menu__link">Formation Sur Mesure</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../contact.html" class="btn btn--secondary btn--small">Demander un Devis</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Breadcrumb -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                    <div class="breadcrumb__item">
+                        <a href="../../index.html">Accueil</a>
+                        <span class="breadcrumb__separator">&rsaquo;</span>
+                    </div>
+                    <div class="breadcrumb__item">
+                        <a href="../training.html">Formation</a>
+                        <span class="breadcrumb__separator">&rsaquo;</span>
+                    </div>
+                    <div class="breadcrumb__item">Formation EtherCAT</div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Training Hero -->
+        <section class="product-hero">
+            <div class="container">
+                <div class="product-hero__badges">
+                    <span class="badge badge--primary">Formation Protocoles</span>
+                    <span class="badge badge--primary">2 Jours (14 heures)</span>
+                    <span class="badge badge--primary">Jusqu'à 6 Participants</span>
+                </div>
+                <h1 class="product-hero__title">Formation EtherCAT</h1>
+                <p class="product-hero__description">
+                    Découverte de la technologie EtherCAT. Protocole Ethernet industriel pour applications temps réel avec communication haute vitesse et horloges distribuées.
+                </p>
+            </div>
+        </section>
+
+        <!-- Training Info Grid -->
+        <section class="section">
+            <div class="container">
+                <div class="grid grid--2" style="gap: 2rem;">
+
+                    <!-- Left Column: Training Details -->
+                    <div>
+                        <!-- Objectives -->
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <h2 class="card__title">Objectifs Pédagogiques</h2>
+                            <p>À l'issue de cette formation, les participants seront capables de :</p>
+                            <ul style="color: var(--color-gray-600); margin-top: 0.5rem;">
+                                <li style="margin-bottom: 0.5rem;">Comprendre les principes de fonctionnement d'EtherCAT et ses capacités temps réel</li>
+                                <li style="margin-bottom: 0.5rem;">Configurer des dispositifs maître et esclave EtherCAT</li>
+                                <li style="margin-bottom: 0.5rem;">Implémenter la synchronisation par horloges distribuées</li>
+                                <li style="margin-bottom: 0.5rem;">Travailler avec CoE (CANopen over EtherCAT) et autres protocoles mailbox</li>
+                                <li style="margin-bottom: 0.5rem;">Diagnostiquer les problèmes réseau EtherCAT</li>
+                            </ul>
+                        </div>
+
+                        <!-- Program -->
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <h2 class="card__title">Programme de la Formation</h2>
+
+                            <h3 style="color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Jour 1 &mdash; Fondamentaux EtherCAT</h3>
+                            <ul style="color: var(--color-gray-600);">
+                                <li style="margin-bottom: 0.5rem;">Vue d'ensemble de la technologie EtherCAT et comparaison avec d'autres protocoles Ethernet industriels</li>
+                                <li style="margin-bottom: 0.5rem;">Principe de communication EtherCAT (traitement à la volée)</li>
+                                <li style="margin-bottom: 0.5rem;">Structure des télégrammes et modes d'adressage</li>
+                                <li style="margin-bottom: 0.5rem;">Profils de dispositifs et fichiers ESI</li>
+                                <li style="margin-bottom: 0.5rem;">Pratique : mise en place d'un réseau EtherCAT</li>
+                            </ul>
+
+                            <h3 style="color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Jour 2 &mdash; EtherCAT Avancé &amp; Implémentation</h3>
+                            <ul style="color: var(--color-gray-600);">
+                                <li style="margin-bottom: 0.5rem;">Horloges distribuées et synchronisation</li>
+                                <li style="margin-bottom: 0.5rem;">Protocoles mailbox (CoE, EoE, FoE, SoE)</li>
+                                <li style="margin-bottom: 0.5rem;">Machine d'états des dispositifs et configuration</li>
+                                <li style="margin-bottom: 0.5rem;">Optimisation des performances et diagnostics</li>
+                                <li style="margin-bottom: 0.5rem;">Atelier pratique : implémentation complète d'un système EtherCAT</li>
+                            </ul>
+                        </div>
+
+                        <!-- Target Audience -->
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <h2 class="card__title">Public Concerné</h2>
+                            <p style="color: var(--color-gray-600);">
+                                Cette formation s'adresse aux ingénieurs en automatisation, développeurs embarqués, intégrateurs systèmes travaillant avec l'Ethernet industriel.
+                            </p>
+                        </div>
+
+                        <!-- Prerequisites -->
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <h2 class="card__title">Prérequis</h2>
+                            <p style="color: var(--color-gray-600);">
+                                Notions de base en réseau. Familiarité avec les concepts d'automatisation industrielle.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Sidebar -->
+                    <div>
+                        <!-- Pricing Card -->
+                        <div class="card" style="margin-bottom: 2rem; border: 2px solid var(--color-primary);">
+                            <h2 class="card__title">Informations Formation</h2>
+                            <dl style="color: var(--color-gray-600);">
+                                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-200);">
+                                    <dt style="font-weight: 600;">Durée</dt>
+                                    <dd>2 jours (14 heures)</dd>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-200);">
+                                    <dt style="font-weight: 600;">Participants</dt>
+                                    <dd>Jusqu'à 6</dd>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-200);">
+                                    <dt style="font-weight: 600;">Format</dt>
+                                    <dd>Sur site ou à distance</dd>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-200);">
+                                    <dt style="font-weight: 600;">Certificat</dt>
+                                    <dd>Oui, inclus</dd>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-200);">
+                                    <dt style="font-weight: 600;">Inter-entreprise</dt>
+                                    <dd style="font-weight: 700; color: var(--color-primary);">1 390 &euro;</dd>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0;">
+                                    <dt style="font-weight: 600;">Intra-entreprise</dt>
+                                    <dd>Sur demande</dd>
+                                </div>
+                            </dl>
+                            <p style="font-size: 0.85rem; color: var(--color-gray-500); margin-top: 0.5rem;">Tarif par session</p>
+                            <a href="../contact.html?training=ethercat" class="btn btn--primary" style="width: 100%; margin-top: 1rem; text-align: center;">Demander des Informations</a>
+                        </div>
+
+                        <!-- Instructor -->
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <h2 class="card__title">Intervenant</h2>
+                            <p style="color: var(--color-gray-600);">
+                                Ingénieur expérimenté, 25 ans d'expérience dans les domaines temps réels embarqués et réseaux industriels.
+                            </p>
+                        </div>
+
+                        <!-- Key Benefits -->
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <h2 class="card__title">Points Forts</h2>
+                            <ul style="color: var(--color-gray-600);">
+                                <li style="margin-bottom: 0.5rem;">Théorie et pratique combinées</li>
+                                <li style="margin-bottom: 0.5rem;">Équipement de laboratoire réel</li>
+                                <li style="margin-bottom: 0.5rem;">Support de formation complet</li>
+                                <li style="margin-bottom: 0.5rem;">Support expert post-formation</li>
+                                <li style="margin-bottom: 0.5rem;">Certificat de réussite</li>
+                            </ul>
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="card">
+                            <h2 class="card__title">Contact</h2>
+                            <p style="color: var(--color-gray-600);">
+                                Service formation<br>
+                                Email : formation@isit.fr<br>
+                                Tél : +33 (0)5 61 30 69 00
+                            </p>
+                            <p style="font-size: 0.8rem; color: var(--color-gray-500); margin-top: 0.5rem;">
+                                Organisme de formation enregistré sous le numéro 73 31 04675 31.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Prêt à Vous Inscrire ?</h2>
+                    <p>Contactez-nous pour vous inscrire à cette formation ou demander une session personnalisée pour votre équipe.</p>
+                    <div>
+                        <a href="../contact.html?training=ethercat" class="btn btn--secondary btn--large">S'inscrire</a>
+                        <a href="../training.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Voir Toutes les Formations</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">AZIT</div>
+                    <p class="footer__tagline">Une marque d'ISIT</p>
+                    <p class="footer__tagline">Plus de 30 ans d'expertise en systèmes embarqués</p>
+                </div>
+                <div>
+                    <h3 class="footer__section-title">Produits</h3>
+                    <ul class="footer__list">
+                        <li><a href="../products/protocol-gateway.html" class="footer__link">Passerelle</a></li>
+                        <li><a href="../products/simulation.html" class="footer__link">Simulation</a></li>
+                        <li><a href="../products/fsoe-slave.html" class="footer__link">FSoE</a></li>
+                        <li><a href="../products/canopen-slave.html" class="footer__link">CANopen</a></li>
+                        <li><a href="../products/canopen-safety-slave.html" class="footer__link">CANopen Safety</a></li>
+                        <li><a href="../products/j1939.html" class="footer__link">J1939</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer__section-title">Expertise</h3>
+                    <ul class="footer__list">
+                        <li><a href="../services/expertise.html" class="footer__link">Notre expertise</a></li>
+                        <li><a href="../services/expertise-compliance.html" class="footer__link">Conformité Sécurité</a></li>
+                        <li><a href="../services/expertise-development.html" class="footer__link">Développement Protocole</a></li>
+                        <li><a href="../services/expertise-testing.html" class="footer__link">Tests & Validation</a></li>
+                        <li><a href="../services/expertise-networks.html" class="footer__link">Réseaux Industriels</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer__section-title">Ressources</h3>
+                    <ul class="footer__list">
+                        <li><a href="../training.html" class="footer__link">Formation</a></li>
+                        <li><a href="../blog.html" class="footer__link">Blog</a></li>
+                        <li><a href="../contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 AZIT - ISIT. Tous droits réservés.</p>
+                <ul class="footer__social">
+                    <li><a href="#" class="footer__social-link">Confidentialité</a></li>
+                    <li><a href="#" class="footer__social-link">Conditions</a></li>
+                    <li><a href="#" class="footer__social-link">LinkedIn</a></li>
+                    <li><a href="#" class="footer__social-link">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/language-switcher.js"></script>
+</body>
+</html>

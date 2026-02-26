@@ -20,6 +20,100 @@ if (!defined('ABSPATH')) {
  */
 
 /**
+ * Get cleaned post content for CPTs where the template manages sections via ACF.
+ *
+ * Imported static HTML posts may contain sections (pricing tables, feature
+ * lists, hero markup …) that the single-*.php template already renders from
+ * ACF fields. This helper strips those duplicate sections and returns only
+ * the editorial description, ready for apply_filters('the_content', …).
+ *
+ * @param string $post_type  One of 'training', 'product', 'expertise'.
+ * @return string  Cleaned HTML (un-wpautop'd; caller must apply the_content filter).
+ */
+function azit_get_clean_description($post_type = '') {
+    $raw = get_the_content();
+
+    if (empty($raw)) {
+        return '';
+    }
+
+    if (empty($post_type)) {
+        $post_type = get_post_type();
+    }
+
+    // --- Training ---
+    if ($post_type === 'training') {
+        // Strip "Practical Information" / "Informations Pratiques" heading + everything after
+        $raw = preg_replace('/<h2[^>]*>\s*Practical Information\s*<\/h2>.*/si', '', $raw);
+        $raw = preg_replace('/<h2[^>]*>\s*Informations Pratiques\s*<\/h2>.*/si', '', $raw);
+        // Strip orphan "Request Information" links
+        $raw = preg_replace('/<p[^>]*>\s*<a[^>]*>[^<]*(?:Request Information|Demander)[^<]*<\/a>\s*<\/p>/i', '', $raw);
+    }
+
+    // --- Products ---
+    if ($post_type === 'product') {
+        // Strip all CTA buttons/links (Request Quote, Contact Us, etc.)
+        $raw = preg_replace('/<a[^>]*class="[^"]*btn[^"]*"[^>]*>.*?<\/a>/si', '', $raw);
+        // Strip CTA sections (div/section wrappers with cta classes)
+        $raw = preg_replace('/<(?:div|section)[^>]*class="[^"]*cta[^"]*"[^>]*>.*?<\/(?:div|section)>/si', '', $raw);
+
+        // Imported content is the full static page from <main>. Extract only
+        // plain description paragraphs (skip structural/tab/hero HTML).
+        if (preg_match('/class="(section|tab|product-hero|mega-menu|hero-|breadcrumb)/i', $raw)) {
+            $clean = azit_extract_description_paragraphs($raw);
+            if ($clean !== '') {
+                $raw = $clean;
+            }
+        }
+    }
+
+    // --- Expertise ---
+    if ($post_type === 'expertise') {
+        // Strip all CTA buttons/links (Request Consultation, Contact Expert, Request Quote, Contact Us, Get Started)
+        $raw = preg_replace('/<a[^>]*class="[^"]*btn[^"]*"[^>]*>.*?<\/a>/si', '', $raw);
+        // Strip CTA sections (div/section wrappers with cta classes)
+        $raw = preg_replace('/<(?:div|section)[^>]*class="[^"]*cta[^"]*"[^>]*>.*?<\/(?:div|section)>/si', '', $raw);
+
+        if (preg_match('/class="(section|tab|expertise-hero|mega-menu|hero-|breadcrumb)/i', $raw)) {
+            $clean = azit_extract_description_paragraphs($raw);
+            if ($clean !== '') {
+                $raw = $clean;
+            }
+        }
+    }
+
+    return trim($raw);
+}
+
+/**
+ * Extract meaningful description paragraphs from imported static HTML.
+ *
+ * Keeps only <p> tags whose visible text is longer than 50 characters
+ * (filters out nav items, tiny labels, etc.). Returns up to 5 paragraphs.
+ *
+ * @param string $html  Raw imported HTML.
+ * @return string       Concatenated paragraph HTML, or empty string.
+ */
+function azit_extract_description_paragraphs($html) {
+    if (!preg_match_all('/<p[^>]*>(.+?)<\/p>/si', $html, $matches)) {
+        return '';
+    }
+
+    $paragraphs = array();
+    foreach ($matches[0] as $p) {
+        $text = trim(strip_tags($p));
+        if (strlen($text) > 50) {
+            $paragraphs[] = $p;
+        }
+        if (count($paragraphs) >= 5) {
+            break;
+        }
+    }
+
+    return implode("\n", $paragraphs);
+}
+
+/**
  * Display post thumbnail with accessibility support
  *
  * @param string $size Image size
@@ -163,7 +257,9 @@ function azit_get_expertise_card($post = null) {
 
             <div class="expertise-content">
                 <h2 id="expertise-<?php echo esc_attr($post->ID); ?>" class="expertise-title">
-                    <?php echo esc_html($post->post_title); ?>
+                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                        <?php echo esc_html($post->post_title); ?>
+                    </a>
                 </h2>
 
                 <p class="expertise-description">
@@ -266,7 +362,9 @@ function azit_get_product_card($post = null) {
 
             <div class="product-content">
                 <h2 id="product-<?php echo esc_attr($post->ID); ?>" class="product-title">
-                    <?php echo esc_html($post->post_title); ?>
+                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                        <?php echo esc_html($post->post_title); ?>
+                    </a>
                 </h2>
 
                 <?php if ($price) : ?>
@@ -350,7 +448,9 @@ function azit_get_training_card($post = null) {
             <?php endif; ?>
 
             <h2 id="training-<?php echo esc_attr($post->ID); ?>" class="training-title">
-                <?php echo esc_html($post->post_title); ?>
+                <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                    <?php echo esc_html($post->post_title); ?>
+                </a>
             </h2>
 
             <p class="training-excerpt">
@@ -377,6 +477,7 @@ function azit_get_training_card($post = null) {
                class="training-link"
                aria-describedby="training-<?php echo esc_attr($post->ID); ?>">
                 <?php esc_html_e('View Training', 'azit-industrial'); ?>
+                <span aria-hidden="true"> &rarr;</span>
                 <span class="sr-only">
                     <?php echo esc_html($post->post_title); ?>
                 </span>

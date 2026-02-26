@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Top Menu -->
     <div class="top-menu">
@@ -51,9 +51,9 @@
             <nav class="header__nav" id="main-nav">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#" class="nav__link">
+                        <a href="communication-stacks.html" class="nav__link">
                             Products
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -94,7 +94,7 @@
                     <li class="nav__item">
                         <a href="../services/expertise.html" class="nav__link">
                             Expertise
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -113,7 +113,25 @@
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="../training.html" class="nav__link">Training</a>
+                        <a href="../training.html" class="nav__link">
+                            Training
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="../training.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">TRAINING COURSES</a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../training.html#protocols" class="mega-menu__link">Protocol Training</a></li>
+                                        <li><a href="../training.html#safety" class="mega-menu__link">Safety Standards</a></li>
+                                        <li><a href="../training.html#workshops" class="mega-menu__link">Hands-on Workshops</a></li>
+                                        <li><a href="../training.html#custom" class="mega-menu__link">Custom Training</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>                    <li class="nav__item">
                         <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
                     </li>
@@ -121,7 +139,7 @@
 
             </nav>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
@@ -133,7 +151,7 @@
         <!-- Breadcrumb -->
         <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
             <div class="container">
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
                     <div class="breadcrumb__item">
                         <a href="../../index.html">Home</a>
                         <span class="breadcrumb__separator">›</span>
@@ -166,8 +184,6 @@
                     <span class="badge badge--primary">BV Approved</span>
                 </div>
                 <div class="product-hero__actions">
-                    <a href="../contact.html" class="btn btn--primary btn--large">Request Quote</a>
-                    <a href="#" class="btn btn--outline btn--large">Download Datasheet</a>
                 </div>
             </div>
         </section>
@@ -180,7 +196,6 @@
                         <li><button class="tabs__button active" data-tab="overview">Overview</button></li>
                         <li><button class="tabs__button" data-tab="features">Features</button></li>
                         <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Integration</button></li>
                     </ul>
                 </div>
 
@@ -333,6 +348,7 @@
                         <div>
                             <h3>Safety Certification</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Safety certification details for CANopen Safety Slave</caption>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
                                     <td style="padding: 0.5rem 0;">SIL3 per IEC 61508</td>
@@ -353,6 +369,7 @@
 
                             <h3 style="margin-top: 2rem;">Resource Requirements</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Resource requirements for CANopen Safety Slave</caption>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
                                     <td style="padding: 0.5rem 0;">~45KB (typical)</td>
@@ -375,6 +392,7 @@
                         <div>
                             <h3>Supported Features</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Supported features for CANopen Safety Slave</caption>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Max Safe I/O</strong></td>
                                     <td style="padding: 0.5rem 0;">Up to 128 bytes</td>
@@ -395,6 +413,7 @@
 
                             <h3 style="margin-top: 2rem;">Platform Support</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Platform support for CANopen Safety Slave</caption>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
                                     <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
                                     <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
@@ -416,109 +435,6 @@
                     </div>
                 </div>
 
-                <!-- Integration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Integration</h2>
-                    <p style="margin-top: 1rem;">
-                        The AZIT CANopen Safety Slave stack is designed for easy integration with minimal API surface.
-                    </p>
-
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* CANopen Safety Slave initialization */
-#include "canopen_safety_slave.h"
-
-COSS_CONFIG config = {
-    .node_id = 0x10,
-    .vendor_id = 0x12345678,
-    .product_code = 0x1000,
-    .safe_inputs = 8,      /* bytes */
-    .safe_outputs = 8      /* bytes */
-};
-
-/* Initialize CANopen Safety slave */
-if (coss_init(&config) == COSS_OK) {
-    /* Start safety communication */
-    coss_start();
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Cyclic Processing</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* Call in your cyclic task */
-void safety_task(void) {
-    uint8_t safe_inputs[8];
-    uint8_t safe_outputs[8];
-
-    /* Read safe inputs from your application */
-    read_safe_inputs(safe_inputs);
-
-    /* Process CANopen Safety communication */
-    coss_process(safe_inputs, safe_outputs);
-
-    /* Write safe outputs to your application */
-    write_safe_outputs(safe_outputs);
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Integration Steps</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to your project</strong><br>
-                                    Include source files and headers in your build system
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Integrate with CANopen stack</strong><br>
-                                    Connect to your existing CANopen implementation
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configure safety parameters</strong><br>
-                                    Set node ID, I/O sizes, and safety connections
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Integrate in cyclic task</strong><br>
-                                    Call process function in your safety task
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test and validate</strong><br>
-                                    Use provided test cases and validation tools
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>What's Included</h3>
-                            <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Example projects for popular platforms</li>
-                                <li>Integration guide and API reference</li>
-                                <li>EDS/DCF configuration files</li>
-                                <li>Test suites and validation tools</li>
-                                <li>BV certification documents</li>
-                                <li>Technical support package</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
-                        <h3>Need Help with Integration?</h3>
-                        <p style="margin-top: 1rem;">
-                            Our team offers porting services to get your CANopen Safety implementation running quickly
-                            on your target platform. We handle integration, testing, and validation.
-                        </p>
-                        <a href="../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Porting Services</a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -579,8 +495,6 @@ void safety_task(void) {
                     <h2>Ready to Integrate CANopen Safety?</h2>
                     <p>Request a quote or talk to our experts about your project</p>
                     <div>
-                        <a href="../contact.html" class="btn btn--secondary btn--large">Request Quote</a>
-                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
                     </div>
                 </div>
             </div>

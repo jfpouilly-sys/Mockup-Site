@@ -113,17 +113,47 @@ get_header();
             </ul>
         </section>
 
-        <!-- CTA Section -->
-        <section class="archive-cta" aria-labelledby="cta-heading">
+        <!-- Custom Training Request Form (Contact Form 7) -->
+        <section id="custom-training-form" class="archive-cta training-request-form" aria-labelledby="cta-heading" tabindex="-1">
             <h2 id="cta-heading" class="cta-title">
                 <?php esc_html_e('Need Custom Training?', 'azit-industrial'); ?>
             </h2>
             <p class="cta-text">
-                <?php esc_html_e('We offer tailored training programs designed to meet your specific organizational needs.', 'azit-industrial'); ?>
+                <?php esc_html_e('We offer tailored training programs designed to meet your specific organizational needs. Fill out the form below and our team will get back to you.', 'azit-industrial'); ?>
             </p>
-            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary">
-                <?php esc_html_e('Request Custom Training', 'azit-industrial'); ?>
-            </a>
+
+            <?php
+            if (shortcode_exists('contact-form-7')) :
+                $training_form = get_posts(array(
+                    'post_type'   => 'wpcf7_contact_form',
+                    'post_status' => 'publish',
+                    'name'        => 'training-request-form',
+                    'numberposts' => 1,
+                ));
+
+                if (!empty($training_form)) :
+                    echo do_shortcode('[contact-form-7 id="' . intval($training_form[0]->ID) . '" title="Training Request"]');
+                else :
+                    $any_form = get_posts(array(
+                        'post_type'   => 'wpcf7_contact_form',
+                        'post_status' => 'publish',
+                        'numberposts' => 1,
+                    ));
+                    if (!empty($any_form)) :
+                        echo do_shortcode('[contact-form-7 id="' . intval($any_form[0]->ID) . '"]');
+                    else :
+                    ?>
+                    <p><?php esc_html_e('Please create a Contact Form 7 form with slug "training-request-form" or go to Tools > AZIT Setup to generate it automatically.', 'azit-industrial'); ?></p>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php else : ?>
+                <p>
+                    <?php esc_html_e('Contact us for custom training:', 'azit-industrial'); ?>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary">
+                        <?php esc_html_e('Go to Contact Page', 'azit-industrial'); ?>
+                    </a>
+                </p>
+            <?php endif; ?>
         </section>
 
     </div>

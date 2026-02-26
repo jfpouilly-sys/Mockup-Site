@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <!-- Top Menu -->
     <div class="top-menu">
@@ -51,9 +51,9 @@
             <nav class="header__nav" id="main-nav">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#" class="nav__link">
+                        <a href="../products/communication-stacks.html" class="nav__link">
                             Produits
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -94,7 +94,7 @@
                     <li class="nav__item">
                         <a href="../services/expertise.html" class="nav__link">
                             Expertise
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -113,7 +113,25 @@
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="../../training.html" class="nav__link">Formation</a>
+                        <a href="../training.html" class="nav__link">
+                            Formation
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="../training.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">PROGRAMMES DE FORMATION</a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../training.html#protocols" class="mega-menu__link">Formation Protocoles</a></li>
+                                        <li><a href="../training.html#safety" class="mega-menu__link">Normes de Sécurité</a></li>
+                                        <li><a href="../training.html#workshops" class="mega-menu__link">Ateliers Pratiques</a></li>
+                                        <li><a href="../training.html#custom" class="mega-menu__link">Formation Sur Mesure</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>                    <li class="nav__item">
                         <a href="../../company.html" class="nav__link">Entreprise</a>
                     </li>
@@ -124,7 +142,7 @@
 
             </nav>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu mobile" aria-expanded="false">
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
@@ -136,7 +154,7 @@
         <!-- Breadcrumb -->
         <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
             <div class="container">
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Fil d'Ariane">
                     <div class="breadcrumb__item">
                         <a href="../../../fr/index.html">Accueil</a>
                         <span class="breadcrumb__separator">›</span>
@@ -191,7 +209,6 @@
                             <span class="badge badge--primary">Windows/Linux</span>
                         </div>
                         <div style="margin-top: 1.5rem;">
-                            <a href="../../contact.html" class="btn btn--primary">Demander un Devis</a>
                             <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Télécharger la Version d'Essai</a>
                         </div>
                     </div>
@@ -220,7 +237,6 @@
                             <span class="badge badge--primary">Windows</span>
                         </div>
                         <div style="margin-top: 1.5rem;">
-                            <a href="../../contact.html" class="btn btn--primary">Demander un Devis</a>
                             <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Télécharger la Version d'Essai</a>
                         </div>
                     </div>
@@ -249,7 +265,6 @@
                             <span class="badge badge--primary">Multi-plateforme</span>
                         </div>
                         <div style="margin-top: 1.5rem;">
-                            <a href="../../contact.html" class="btn btn--primary">Demander un Devis</a>
                             <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Télécharger la Version d'Essai</a>
                         </div>
                     </div>
@@ -278,7 +293,6 @@
                             <span class="badge badge--primary">Windows/Linux</span>
                         </div>
                         <div style="margin-top: 1.5rem;">
-                            <a href="../../contact.html" class="btn btn--primary">Demander un Devis</a>
                             <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Télécharger la Version d'Essai</a>
                         </div>
                     </div>
@@ -307,7 +321,6 @@
                             <span class="badge badge--primary">CLI/GUI</span>
                         </div>
                         <div style="margin-top: 1.5rem;">
-                            <a href="../../contact.html" class="btn btn--primary">Demander un Devis</a>
                             <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Télécharger la Version d'Essai</a>
                         </div>
                     </div>
@@ -336,7 +349,6 @@
                             <span class="badge badge--primary">Python</span>
                         </div>
                         <div style="margin-top: 1.5rem;">
-                            <a href="../../contact.html" class="btn btn--primary">Demander un Devis</a>
                             <a href="#" class="btn btn--outline" style="margin-left: 0.5rem;">Learn More</a>
                         </div>
                     </div>
@@ -364,7 +376,6 @@
                         </ul>
                         <div style="margin-top: auto;">
                             <p style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">Save 25%</p>
-                            <a href="../../contact.html" class="btn btn--primary" style="margin-top: 1rem;">Obtenir un Devis</a>
                         </div>
                     </div>
 
@@ -379,7 +390,6 @@
                         </ul>
                         <div style="margin-top: auto;">
                             <p style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">Save 30%</p>
-                            <a href="../../contact.html" class="btn btn--primary" style="margin-top: 1rem;">Obtenir un Devis</a>
                         </div>
                     </div>
 
@@ -394,7 +404,6 @@
                         </ul>
                         <div style="margin-top: auto;">
                             <p style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">Save 25%</p>
-                            <a href="../../contact.html" class="btn btn--primary" style="margin-top: 1rem;">Obtenir un Devis</a>
                         </div>
                     </div>
                 </div>

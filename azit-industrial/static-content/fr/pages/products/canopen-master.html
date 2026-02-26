@@ -167,8 +167,6 @@
                     <span class="badge badge--success">Network Management</span>
                 </div>
                 <div class="product-hero__actions">
-                    <a href="../../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
-                    <a href="#" class="btn btn--outline btn--large">Télécharger la Fiche Technique</a>
                 </div>
             </div>
         </section>
@@ -181,7 +179,6 @@
                         <li><button class="tabs__button active" data-tab="overview">Vue d'ensemble</button></li>
                         <li><button class="tabs__button" data-tab="features">Fonctionnalités</button></li>
                         <li><button class="tabs__button" data-tab="specs">Spécifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Intégration</button></li>
                     </ul>
                 </div>
 
@@ -391,100 +388,6 @@
                     </div>
                 </div>
 
-                <!-- Intégration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Intégration</h2>
-
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* CANopen Maître initialization */
-#include "canopen_master.h"
-
-CO_MASTER_CONFIG config = {
-    .bitrate = CO_BITRATE_250K,
-    .sync_period = 10  /* ms */
-};
-
-/* Initialize CANopen maître */
-if (co_master_init(&config) == CO_OK) {
-    /* Add slave nodes */
-    co_master_add_node(10, "slave1.eds");
-    co_master_add_node(11, "slave2.eds");
-
-    /* Start network */
-    co_master_start_network();
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Network Management Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* Network control */
-void network_control(void) {
-    /* Start all slaves */
-    co_master_nmt_start_all();
-
-    /* Configure slave via SDO */
-    uint32_t param = 1000;
-    co_master_sdo_write(10, 0x1800, 0x05,
-                        &param, sizeof(param));
-
-    /* Monitor slave state */
-    if (co_master_is_slave_operational(10)) {
-        /* Process PDO data */
-        process_slave_data(10);
-    }
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Intégration Steps</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configure network topology</strong><br>
-                                    Define slaves and import EDS files
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to project</strong><br>
-                                    Include source and configuration files
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Implement CAN driver</strong><br>
-                                    Provide hardware-specific CAN functions
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Initialize and start master</strong><br>
-                                    Configure and boot network
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test network operation</strong><br>
-                                    Verify communication with all slaves
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>What's Included</h3>
-                            <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Network configuration tool</li>
-                                <li>EDS file parser and importer</li>
-                                <li>Intégration guide and API reference</li>
-                                <li>Example master applications</li>
-                                <li>Test and diagnostic tools</li>
-                                <li>Technical support package</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -545,8 +448,6 @@ void network_control(void) {
                     <h2>Ready to Control CANopen Networks?</h2>
                     <p>Request a quote or talk to our experts about your project</p>
                     <div>
-                        <a href="../../contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>
-                        <a href="../../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
                     </div>
                 </div>
             </div>

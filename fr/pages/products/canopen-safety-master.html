@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <!-- Top Menu -->
     <div class="top-menu">
@@ -51,9 +51,9 @@
             <nav class="header__nav" id="main-nav">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#" class="nav__link">
+                        <a href="../products/communication-stacks.html" class="nav__link">
                             Produits
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -94,7 +94,7 @@
                     <li class="nav__item">
                         <a href="../services/expertise.html" class="nav__link">
                             Expertise
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -113,7 +113,25 @@
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="../../training.html" class="nav__link">Formation</a>
+                        <a href="../training.html" class="nav__link">
+                            Formation
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="../training.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">PROGRAMMES DE FORMATION</a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../training.html#protocols" class="mega-menu__link">Formation Protocoles</a></li>
+                                        <li><a href="../training.html#safety" class="mega-menu__link">Normes de Sécurité</a></li>
+                                        <li><a href="../training.html#workshops" class="mega-menu__link">Ateliers Pratiques</a></li>
+                                        <li><a href="../training.html#custom" class="mega-menu__link">Formation Sur Mesure</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>                    <li class="nav__item">
                         <a href="../../company.html" class="nav__link">Entreprise</a>
                     </li>
@@ -124,7 +142,7 @@
 
             </nav>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu mobile" aria-expanded="false">
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
@@ -136,7 +154,7 @@
         <!-- Breadcrumb -->
         <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
             <div class="container">
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Fil d'Ariane">
                     <div class="breadcrumb__item">
                         <a href="../../../fr/index.html">Accueil</a>
                         <span class="breadcrumb__separator">›</span>
@@ -168,8 +186,6 @@
                     <span class="badge badge--primary">BV Approved</span>
                 </div>
                 <div class="product-hero__actions">
-                    <a href="../../contact.html" class="btn btn--primary btn--large">Demander un Devis</a>
-                    <a href="#" class="btn btn--outline btn--large">Télécharger la Fiche Technique</a>
                 </div>
             </div>
         </section>
@@ -182,7 +198,7 @@
                         <li><button class="tabs__button active" data-tab="overview">Vue d'ensemble</button></li>
                         <li><button class="tabs__button" data-tab="features">Fonctionnalités</button></li>
                         <li><button class="tabs__button" data-tab="specs">Spécifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Intégration</button></li>
+
                     </ul>
                 </div>
 
@@ -334,40 +350,42 @@
                         <div>
                             <h3>Safety Certification</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Certification de sécurité</caption>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Safety Level</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Safety Level</th>
                                     <td style="padding: 0.5rem 0;">SIL3 per IEC 61508</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Performance Level</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Performance Level</th>
                                     <td style="padding: 0.5rem 0;">PLe per ISO 13849</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Standard</th>
                                     <td style="padding: 0.5rem 0;">CiA 304</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Certification Body</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Certification Body</th>
                                     <td style="padding: 0.5rem 0;">Bureau Véritas</td>
                                 </tr>
                             </table>
 
                             <h3 style="margin-top: 2rem;">Resource Requirements</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Configuration requise</caption>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Code Size (ROM)</th>
                                     <td style="padding: 0.5rem 0;">~65KB (typical)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Data Size (RAM)</th>
                                     <td style="padding: 0.5rem 0;">~12KB + per slave</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Stack Size</th>
                                     <td style="padding: 0.5rem 0;">~2KB</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">MCU Requirements</th>
                                     <td style="padding: 0.5rem 0;">32-bit processor</td>
                                 </tr>
                             </table>
@@ -376,40 +394,42 @@
                         <div>
                             <h3>Supported Fonctionnalités</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Fonctionnalités supportées</caption>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Max Safety Slaves</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Max Safety Slaves</th>
                                     <td style="padding: 0.5rem 0;">127</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Max I/O per Slave</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Max I/O per Slave</th>
                                     <td style="padding: 0.5rem 0;">Up to 128 bytes</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>CAN Bitrates</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">CAN Bitrates</th>
                                     <td style="padding: 0.5rem 0;">10 kbit/s to 1 Mbit/s</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Protocol Version</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Protocol Version</th>
                                     <td style="padding: 0.5rem 0;">CiA 304 v2.0</td>
                                 </tr>
                             </table>
 
                             <h3 style="margin-top: 2rem;">Platform Support</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Plateformes supportées</caption>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Operating Systems</th>
                                     <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">MCU Families</th>
                                     <td style="padding: 0.5rem 0;">Low hardware dependency</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Compiler</th>
                                     <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>CANopen Stacks</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">CANopen Stacks</th>
                                     <td style="padding: 0.5rem 0;">Any standard master stack</td>
                                 </tr>
                             </table>
@@ -417,108 +437,6 @@
                     </div>
                 </div>
 
-                <!-- Intégration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Intégration</h2>
-                    <p style="margin-top: 1rem;">
-                        The AZIT CANopen Safety Maître stack provides comprehensive API for managing safety networks.
-                    </p>
-
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* CANopen Safety Maître initialization */
-#include "canopen_safety_master.h"
-
-COSM_CONFIG config = {
-    .node_id = 0x01,
-    .max_slaves = 16,
-    .vendor_id = 0x12345678,
-    .product_code = 0x2000
-};
-
-/* Initialize CANopen Safety master */
-if (cosm_init(&config) == COSM_OK) {
-    /* Start safety master */
-    cosm_start();
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Adding Safety Slaves</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* Add and configure a safety slave */
-COSM_SLAVE_CONFIG slave_cfg = {
-    .node_id = 0x10,
-    .safe_inputs = 8,
-    .safe_outputs = 8,
-    .watchdog_time = 100  /* ms */
-};
-
-/* Add slave to network */
-if (cosm_add_slave(&slave_cfg) == COSM_OK) {
-    /* Configure and activate slave */
-    cosm_configure_slave(0x10);
-    cosm_activate_slave(0x10);
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Intégration Steps</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to your project</strong><br>
-                                    Include source files and headers in your build system
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Integrate with CANopen master</strong><br>
-                                    Connect to your existing CANopen implementation
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configure network topology</strong><br>
-                                    Define safety slaves and connections
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Implement application logic</strong><br>
-                                    Handle safety data and diagnostics
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test and validate</strong><br>
-                                    Use provided test tools and validation suite
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>What's Included</h3>
-                            <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Example projects and applications</li>
-                                <li>Intégration guide and API reference</li>
-                                <li>Network configuration tools</li>
-                                <li>Test suites and validation tools</li>
-                                <li>BV certification documents</li>
-                                <li>Technical support package</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
-                        <h3>Need Help with Intégration?</h3>
-                        <p style="margin-top: 1rem;">
-                            Our team offers complete integration services for safety controller development including
-                            architecture design, implementation, and certification support.
-                        </p>
-                        <a href="../../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Our Services</a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -579,8 +497,6 @@ if (cosm_add_slave(&slave_cfg) == COSM_OK) {
                     <h2>Ready to Build Your Safety Controller?</h2>
                     <p>Request a quote or talk to our experts about your project</p>
                     <div>
-                        <a href="../../contact.html" class="btn btn--secondary btn--large">Demander un Devis</a>
-                        <a href="../../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
                     </div>
                 </div>
             </div>

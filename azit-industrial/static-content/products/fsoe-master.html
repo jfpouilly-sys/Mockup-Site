@@ -166,8 +166,6 @@
                     <span class="badge badge--primary">BV Approved</span>
                 </div>
                 <div class="product-hero__actions">
-                    <a href="../contact.html" class="btn btn--primary btn--large">Request Quote</a>
-                    <a href="#" class="btn btn--outline btn--large">Download Datasheet</a>
                 </div>
             </div>
         </section>
@@ -180,7 +178,6 @@
                         <li><button class="tabs__button active" data-tab="overview">Overview</button></li>
                         <li><button class="tabs__button" data-tab="features">Features</button></li>
                         <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Integration</button></li>
                     </ul>
                 </div>
 
@@ -430,116 +427,6 @@
                     </div>
                 </div>
 
-                <!-- Integration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Integration</h2>
-                    <p style="margin-top: 1rem;">
-                        The AZIT FSoE Master stack is designed for straightforward integration into safety controllers.
-                    </p>
-
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* FSoE Master initialization */
-#include "fsoe_master.h"
-
-/* Configure master and connections */
-FSOE_MASTER_CONFIG master_config = {
-    .max_connections = 4,
-    .cycle_time = 10  /* ms */
-};
-
-/* Initialize FSoE master */
-if (fsoe_master_init(&master_config) == FSOE_OK) {
-    /* Add slave connections */
-    FSOE_CONNECTION_CONFIG conn = {
-        .connection_id = 0x0001,
-        .watchdog_time = 100,
-        .safe_inputs = 8,
-        .safe_outputs = 8
-    };
-    fsoe_master_add_connection(&conn);
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Cyclic Processing</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* Call in your cyclic safety task */
-void safety_controller_task(void) {
-    uint8_t safe_outputs[8];
-    uint8_t safe_inputs[8];
-
-    /* Read local safety inputs */
-    read_local_safety_inputs(safe_outputs);
-
-    /* Process all FSoE connections */
-    fsoe_master_process();
-
-    /* Get data from specific slave */
-    fsoe_master_get_slave_data(0x0001, safe_inputs);
-
-    /* Process safety logic */
-    process_safety_logic(safe_inputs, safe_outputs);
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Integration Steps</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to your project</strong><br>
-                                    Include source files and headers in your build system
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Implement HAL functions</strong><br>
-                                    Provide timestamp and black channel interface
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configure network topology</strong><br>
-                                    Define slave connections and parameters
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Integrate in safety task</strong><br>
-                                    Call process function in your controller cycle
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test and validate</strong><br>
-                                    Use provided test cases and validation tools
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>What's Included</h3>
-                            <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Configuration tool for network setup</li>
-                                <li>Integration guide and API reference</li>
-                                <li>HAL template and porting guide</li>
-                                <li>Test suites and validation tools</li>
-                                <li>BV certification documents</li>
-                                <li>Technical support package</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: var(--border-radius-lg);">
-                        <h3>Need Help with Integration?</h3>
-                        <p style="margin-top: 1rem;">
-                            Our team offers complete safety controller development services, from architecture
-                            design to BV certification support.
-                        </p>
-                        <a href="../services/porting.html" class="btn btn--primary" style="margin-top: 1rem;">Learn About Our Services</a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -600,8 +487,6 @@ void safety_controller_task(void) {
                     <h2>Ready to Build Safety Controllers?</h2>
                     <p>Request a quote or talk to our experts about your project</p>
                     <div>
-                        <a href="../contact.html" class="btn btn--secondary btn--large">Request Quote</a>
-                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
                     </div>
                 </div>
             </div>

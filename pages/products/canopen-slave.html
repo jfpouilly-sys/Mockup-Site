@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Top Menu -->
     <div class="top-menu">
@@ -51,9 +51,9 @@
             <nav class="header__nav" id="main-nav">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#" class="nav__link">
+                        <a href="communication-stacks.html" class="nav__link">
                             Products
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -94,7 +94,7 @@
                     <li class="nav__item">
                         <a href="../services/expertise.html" class="nav__link">
                             Expertise
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </a>
@@ -113,7 +113,25 @@
                         </div>
                     </li>
                     <li class="nav__item">
-                        <a href="../training.html" class="nav__link">Training</a>
+                        <a href="../training.html" class="nav__link">
+                            Training
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu__grid">
+                                <div class="mega-menu__section">
+                                    <a href="../training.html" class="mega-menu__title" style="cursor: pointer; text-decoration: none; color: inherit;">TRAINING COURSES</a>
+                                    <ul class="mega-menu__list">
+                                        <li><a href="../training.html#protocols" class="mega-menu__link">Protocol Training</a></li>
+                                        <li><a href="../training.html#safety" class="mega-menu__link">Safety Standards</a></li>
+                                        <li><a href="../training.html#workshops" class="mega-menu__link">Hands-on Workshops</a></li>
+                                        <li><a href="../training.html#custom" class="mega-menu__link">Custom Training</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>                    <li class="nav__item">
                         <a href="../contact.html" class="btn btn--secondary btn--small">Request Quote</a>
                     </li>
@@ -121,7 +139,7 @@
 
             </nav>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
                 <span class="mobile-menu-toggle__line"></span>
@@ -133,7 +151,7 @@
         <!-- Breadcrumb -->
         <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
             <div class="container">
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
                     <div class="breadcrumb__item">
                         <a href="../../index.html">Home</a>
                         <span class="breadcrumb__separator">›</span>
@@ -165,8 +183,6 @@
                     <span class="badge badge--success">Low Hardware Dependency</span>
                 </div>
                 <div class="product-hero__actions">
-                    <a href="../contact.html" class="btn btn--primary btn--large">Request Quote</a>
-                    <a href="#" class="btn btn--outline btn--large">Download Datasheet</a>
                 </div>
             </div>
         </section>
@@ -179,7 +195,6 @@
                         <li><button class="tabs__button active" data-tab="overview">Overview</button></li>
                         <li><button class="tabs__button" data-tab="features">Features</button></li>
                         <li><button class="tabs__button" data-tab="specs">Specifications</button></li>
-                        <li><button class="tabs__button" data-tab="integration">Integration</button></li>
                     </ul>
                 </div>
 
@@ -315,168 +330,93 @@
                         <div>
                             <h3>Protocol Compliance</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Protocol compliance details for CANopen Slave</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Standard</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Standard</th>
                                     <td style="padding: 0.5rem 0;">CiA 301 v4.2</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Conformance Class</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Conformance Class</th>
                                     <td style="padding: 0.5rem 0;">Configurable</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Device Profile</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Device Profile</th>
                                     <td style="padding: 0.5rem 0;">CiA 401/402/etc.</td>
                                 </tr>
+                                                            </tbody>
                             </table>
 
                             <h3 style="margin-top: 2rem;">Resource Requirements</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Resource requirements for CANopen Slave</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Code Size (ROM)</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Code Size (ROM)</th>
                                     <td style="padding: 0.5rem 0;">~40KB (typical)</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Data Size (RAM)</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Data Size (RAM)</th>
                                     <td style="padding: 0.5rem 0;">~6KB + OD size</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Stack Size</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Stack Size</th>
                                     <td style="padding: 0.5rem 0;">~2KB</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Requirements</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">MCU Requirements</th>
                                     <td style="padding: 0.5rem 0;">16/32-bit processor</td>
                                 </tr>
+                                                            </tbody>
                             </table>
                         </div>
 
                         <div>
                             <h3>Supported Features</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Supported features for CANopen Slave</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Bitrates</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Bitrates</th>
                                     <td style="padding: 0.5rem 0;">10 kbps - 1 Mbps</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Node ID</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Node ID</th>
                                     <td style="padding: 0.5rem 0;">1-127</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>PDOs</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">PDOs</th>
                                     <td style="padding: 0.5rem 0;">Up to 512 (TPDO+RPDO)</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>SDO</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">SDO</th>
                                     <td style="padding: 0.5rem 0;">Expedited & segmented</td>
                                 </tr>
+                                                            </tbody>
                             </table>
 
                             <h3 style="margin-top: 2rem;">Platform Support</h3>
                             <table style="width: 100%; margin-top: 1rem;">
+                                <caption class="sr-only">Platform support for CANopen Slave</caption>
+                                <tbody>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>Operating Systems</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Operating Systems</th>
                                     <td style="padding: 0.5rem 0;">Any RTOS or bare-metal</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--color-gray-200);">
-                                    <td style="padding: 0.5rem 0;"><strong>MCU Families</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">MCU Families</th>
                                     <td style="padding: 0.5rem 0;">Low hardware dependency</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 0.5rem 0;"><strong>Compiler</strong></td>
+                                    <th scope="row" style="padding: 0.5rem 0;">Compiler</th>
                                     <td style="padding: 0.5rem 0;">Any ANSI C compiler</td>
                                 </tr>
+                                                            </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- Integration Tab -->
-                <div class="tabs__content" id="integration-tab">
-                    <h2>Quick Start Integration</h2>
-
-                    <h3 style="margin-top: 2rem;">Initialization Example</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* CANopen Slave initialization */
-#include "canopen_slave.h"
-
-CO_CONFIG config = {
-    .node_id = 10,
-    .bitrate = CO_BITRATE_250K,
-    .heartbeat_time = 1000  /* ms */
-};
-
-/* Initialize CANopen stack */
-if (co_slave_init(&config) == CO_OK) {
-    /* Start communication */
-    co_slave_start();
-}</code></pre>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Cyclic Processing</h3>
-                    <div class="code-block">
-                        <div class="code-block__header">
-                            <span class="code-block__language">C</span>
-                            <button class="code-block__copy">Copy</button>
-                        </div>
-                        <pre><code>/* Call in your main loop */
-void main_task(void) {
-    while(1) {
-        /* Process CANopen communication */
-        co_slave_process();
-
-        /* Application code */
-        update_application_data();
-
-        delay_ms(1);
-    }
-}</code></pre>
-                    </div>
-
-                    <div class="two-column" style="margin-top: 3rem;">
-                        <div>
-                            <h3>Integration Steps</h3>
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Configure Object Dictionary</strong><br>
-                                    Use OD configuration tool to define your device profile
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Add stack files to project</strong><br>
-                                    Include source and generated OD files
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Implement CAN driver interface</strong><br>
-                                    Provide hardware-specific CAN functions
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Initialize and start stack</strong><br>
-                                    Configure node ID and bitrate
-                                </li>
-                                <li style="margin-bottom: 1rem;">
-                                    <strong>Test with CANopen tools</strong><br>
-                                    Verify communication using standard tools
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div>
-                            <h3>What's Included</h3>
-                            <ul class="benefits-list">
-                                <li>Complete source code with documentation</li>
-                                <li>Object Dictionary configuration tool</li>
-                                <li>Example device profiles</li>
-                                <li>Integration guide and API reference</li>
-                                <li>CAN driver templates</li>
-                                <li>Test and validation tools</li>
-                                <li>Technical support package</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -537,8 +477,6 @@ void main_task(void) {
                     <h2>Ready to Integrate CANopen?</h2>
                     <p>Request a quote or talk to our experts about your project</p>
                     <div>
-                        <a href="../contact.html" class="btn btn--secondary btn--large">Request Quote</a>
-                        <a href="../contact.html" class="btn btn--outline btn--large" style="background-color: rgba(255,255,255,0.1); border-color: white; color: white;">Contact Expert</a>
                     </div>
                 </div>
             </div>

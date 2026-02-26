@@ -941,13 +941,41 @@ function azit_setup_page() {
     if (isset($_POST['azit_import_static']) && check_admin_referer('azit_import_static_nonce')) {
         if (function_exists('azit_import_all_static_content')) {
             $results = azit_import_all_static_content();
-            $total = $results['pages'] + $results['products'] + $results['expertise'];
+            $training_count = isset($results['training']) ? $results['training'] : 0;
+            $total = $results['pages'] + $results['products'] + $results['expertise'] + $training_count;
+            $media_count = isset($results['media']) ? $results['media'] : 0;
             echo '<div class="notice notice-success"><p>' . sprintf(
-                esc_html__('Imported from static HTML: %d pages, %d products, %d expertise posts. Total: %d items.', 'azit-industrial'),
+                esc_html__('Imported from static HTML: %d pages, %d products, %d expertise posts, %d training courses, %d media files. Total: %d items.', 'azit-industrial'),
                 $results['pages'],
                 $results['products'],
                 $results['expertise'],
-                $total
+                $training_count,
+                $media_count,
+                $total + $media_count
+            ) . '</p></div>';
+        }
+    }
+
+    // Create CF7 forms
+    if (isset($_POST['azit_create_cf7_forms']) && check_admin_referer('azit_create_cf7_forms_nonce')) {
+        if (function_exists('azit_create_default_contact_form')) {
+            azit_create_default_contact_form();
+        }
+        if (function_exists('azit_create_product_quote_form')) {
+            azit_create_product_quote_form();
+        }
+        echo '<div class="notice notice-success"><p>' . esc_html__('Contact Form 7 forms created successfully! Go to Contact > Contact Forms to manage them.', 'azit-industrial') . '</p></div>';
+    }
+
+    // Import media assets to WordPress Media Library
+    if (isset($_POST['azit_import_media']) && check_admin_referer('azit_import_media_nonce')) {
+        if (function_exists('azit_import_media_only')) {
+            $results = azit_import_media_only();
+            echo '<div class="notice notice-success"><p>' . sprintf(
+                esc_html__('Media import complete: %d files imported, %d already in library, %d posts updated with new URLs.', 'azit-industrial'),
+                $results['imported'],
+                $results['skipped'],
+                $results['posts_updated']
             ) . '</p></div>';
         }
     }
@@ -964,10 +992,46 @@ function azit_setup_page() {
                 <li><?php esc_html_e('Pages: Contact, Company, Training, Blog, Sitemap, Accessibility', 'azit-industrial'); ?></li>
                 <li><?php esc_html_e('Products: FSoE, PROFISAFE, CANopen, J1939, Protocol Gateway, Simulation, and more', 'azit-industrial'); ?></li>
                 <li><?php esc_html_e('Expertise: Safety Compliance, Protocol Development, Testing, Industrial Networks', 'azit-industrial'); ?></li>
+                <li><?php esc_html_e('Training: CAN, CANopen, J1939, EtherCAT, PROFINET, IEC 61508, ISO 26262, and more (20 courses)', 'azit-industrial'); ?></li>
             </ul>
             <form method="post" style="margin-top: 15px;">
                 <?php wp_nonce_field('azit_import_static_nonce'); ?>
                 <input type="submit" name="azit_import_static" class="button button-primary button-hero" value="<?php esc_attr_e('Import Content from Static HTML Files', 'azit-industrial'); ?>">
+            </form>
+        </div>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px; background: linear-gradient(135deg, #fff3e0 0%, #ffffff 100%); border-left: 4px solid #f57c00;">
+            <h2 style="color: #e65100;"><?php esc_html_e('Create Contact Form 7 Forms', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('Creates the Contact Form 7 forms used by the theme. Requires the Contact Form 7 plugin to be installed and active.', 'azit-industrial'); ?></p>
+            <p><strong><?php esc_html_e('Forms created:', 'azit-industrial'); ?></strong></p>
+            <ul style="margin-left: 20px; list-style: disc;">
+                <li><?php esc_html_e('Contact Form — General contact form with name, email, company, subject, message', 'azit-industrial'); ?></li>
+                <li><?php esc_html_e('Product Quote Form — Quote request form displayed on product pages (name, email, company, product, requirements, budget)', 'azit-industrial'); ?></li>
+            </ul>
+            <p class="description"><?php esc_html_e('Existing forms with the same slug are not duplicated. The product "Request Quote" button on product pages uses this form.', 'azit-industrial'); ?></p>
+            <form method="post" style="margin-top: 15px;">
+                <?php wp_nonce_field('azit_create_cf7_forms_nonce'); ?>
+                <input type="submit" name="azit_create_cf7_forms" class="button button-primary" value="<?php esc_attr_e('Create CF7 Forms', 'azit-industrial'); ?>"<?php echo !azit_is_cf7_active() ? ' disabled title="' . esc_attr__('Contact Form 7 plugin is not active', 'azit-industrial') . '"' : ''; ?>>
+                <?php if (!azit_is_cf7_active()) : ?>
+                <p style="color: #dc3545; margin-top: 8px;"><?php esc_html_e('Contact Form 7 plugin is not installed or active. Please install it first.', 'azit-industrial'); ?></p>
+                <?php endif; ?>
+            </form>
+        </div>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px; background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%); border-left: 4px solid #1976d2;">
+            <h2 style="color: #1565c0;"><?php esc_html_e('Import Media to Library', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('Import images and PDF files from the theme\'s assets/ directory into the WordPress Media Library. This makes them visible under Media > Library and allows you to manage them from the admin panel.', 'azit-industrial'); ?></p>
+            <p><strong><?php esc_html_e('Files imported from:', 'azit-industrial'); ?></strong></p>
+            <ul style="margin-left: 20px; list-style: disc;">
+                <li><code>assets/images/products/</code> — <?php esc_html_e('Product photos (JPG, PNG)', 'azit-industrial'); ?></li>
+                <li><code>assets/images/diagrams/</code> — <?php esc_html_e('Technical diagrams (SVG)', 'azit-industrial'); ?></li>
+                <li><code>assets/docs/</code> — <?php esc_html_e('Documents and brochures (PDF)', 'azit-industrial'); ?></li>
+                <li><code>assets/docs/datasheets/</code> — <?php esc_html_e('Product datasheets (PDF)', 'azit-industrial'); ?></li>
+            </ul>
+            <p class="description"><?php esc_html_e('Already imported files are skipped automatically. Existing post content is updated to use the new Media Library URLs.', 'azit-industrial'); ?></p>
+            <form method="post" style="margin-top: 15px;">
+                <?php wp_nonce_field('azit_import_media_nonce'); ?>
+                <input type="submit" name="azit_import_media" class="button button-primary" value="<?php esc_attr_e('Import Media to Library', 'azit-industrial'); ?>">
             </form>
         </div>
 
