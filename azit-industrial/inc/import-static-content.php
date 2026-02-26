@@ -506,16 +506,10 @@ function azit_import_static_training() {
             continue;
         }
 
-        // Build post content with course description and pricing info
-        $content  = '<p>' . $course['description'] . '</p>' . "\n";
-        $content .= '<h2>Practical Information</h2>' . "\n";
-        $content .= '<ul>' . "\n";
-        $content .= '<li><strong>Duration:</strong> ' . $course['duration'] . '</li>' . "\n";
-        $content .= '<li><strong>Capacity:</strong> Up to 6 participants</li>' . "\n";
-        $content .= '<li><strong>Inter-Enterprise:</strong> ' . $course['price'] . '</li>' . "\n";
-        $content .= '<li><strong>Private Company:</strong> On request</li>' . "\n";
-        $content .= '</ul>' . "\n";
-        $content .= '<p><a href="' . home_url('/contact/?subject=training&course=' . urlencode($course['title'])) . '">Request Information</a></p>';
+        // Build post content with course description only
+        // (Duration, capacity, pricing, and contact links are managed by ACF fields
+        // and rendered by the single-training.php template sidebar)
+        $content = '<p>' . $course['description'] . '</p>';
 
         $post_id = wp_insert_post(array(
             'post_title'   => $course['title'],
@@ -527,10 +521,12 @@ function azit_import_static_training() {
 
         if ($post_id && !is_wp_error($post_id)) {
             // Set custom fields (works with or without ACF)
+            // These are rendered by single-training.php from ACF/meta — NOT from post_content
             update_post_meta($post_id, 'training_duration', $course['duration']);
             update_post_meta($post_id, 'training_price', $course['price']);
             update_post_meta($post_id, 'training_level', $course['level']);
-            update_post_meta($post_id, 'training_location', 'center');
+            update_post_meta($post_id, 'training_format', 'center');
+            update_post_meta($post_id, 'training_max_participants', 'Up to 6 participants');
             update_post_meta($post_id, 'training_audience', 'Engineers and developers working with industrial communication protocols and safety systems.');
             update_post_meta($post_id, '_azit_training_category', $course['category']);
             $imported++;

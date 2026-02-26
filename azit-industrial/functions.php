@@ -823,6 +823,104 @@ add_filter('single_template', 'azit_load_custom_product_template');
 
 /**
  * =============================================================================
+ * CONTENT CLEANUP FOR IMPORTED STATIC HTML
+ * =============================================================================
+ * When static HTML pages are imported into WordPress via the static content
+ * importer, post_content may contain sections that the single-*.php templates
+ * already render from ACF fields. This filter strips those duplicate sections
+ * so content editors see clean output on the front end.
+ */
+
+/**
+ * Clean imported content to remove sections managed by ACF/template
+ */
+function azit_clean_imported_content($content) {
+    if (!is_singular()) {
+        return $content;
+    }
+
+    $post_type = get_post_type();
+
+    // --- Training: strip "Practical Information" section & "Request Information" link ---
+    if ($post_type === 'training') {
+        // Remove <h2>Practical Information</h2> and everything after it
+        $content = preg_replace(
+            '/<h2[^>]*>\s*Practical Information\s*<\/h2>.*$/si',
+            '',
+            $content
+        );
+        // Also handle French variant
+        $content = preg_replace(
+            '/<h2[^>]*>\s*Informations Pratiques\s*<\/h2>.*$/si',
+            '',
+            $content
+        );
+        // Remove orphaned "Request Information" links
+        $content = preg_replace(
+            '/<p[^>]*>\s*<a[^>]*>Request Information<\/a>\s*<\/p>/i',
+            '',
+            $content
+        );
+        $content = preg_replace(
+            '/<p[^>]*>\s*<a[^>]*>Demander des informations<\/a>\s*<\/p>/i',
+            '',
+            $content
+        );
+    }
+
+    // --- Products: strip static HTML structure, keep only description ---
+    if ($post_type === 'product') {
+        // If content looks like imported static HTML (has section/tab classes),
+        // extract only the first meaningful description block
+        if (preg_match('/class="(section|tab|product-hero|mega-menu)/i', $content)) {
+            // Try to extract description from first section after hero
+            if (preg_match('/<section[^>]*class="[^"]*product-description[^"]*"[^>]*>(.*?)<\/section>/si', $content, $matches)) {
+                $content = $matches[1];
+            } elseif (preg_match_all('/<p[^>]*>(.+?)<\/p>/si', $content, $matches)) {
+                // Fallback: gather the first few meaningful paragraphs
+                $paragraphs = array();
+                foreach ($matches[0] as $p) {
+                    $text = strip_tags($p);
+                    // Skip very short or navigation-like paragraphs
+                    if (strlen($text) > 40) {
+                        $paragraphs[] = $p;
+                    }
+                    if (count($paragraphs) >= 3) {
+                        break;
+                    }
+                }
+                $content = implode("\n", $paragraphs);
+            }
+        }
+    }
+
+    // --- Expertise: strip static HTML structure, keep only description ---
+    if ($post_type === 'expertise') {
+        if (preg_match('/class="(section|tab|expertise-hero|mega-menu)/i', $content)) {
+            if (preg_match('/<section[^>]*class="[^"]*expertise-description[^"]*"[^>]*>(.*?)<\/section>/si', $content, $matches)) {
+                $content = $matches[1];
+            } elseif (preg_match_all('/<p[^>]*>(.+?)<\/p>/si', $content, $matches)) {
+                $paragraphs = array();
+                foreach ($matches[0] as $p) {
+                    $text = strip_tags($p);
+                    if (strlen($text) > 40) {
+                        $paragraphs[] = $p;
+                    }
+                    if (count($paragraphs) >= 3) {
+                        break;
+                    }
+                }
+                $content = implode("\n", $paragraphs);
+            }
+        }
+    }
+
+    return trim($content);
+}
+add_filter('the_content', 'azit_clean_imported_content', 5);
+
+/**
+ * =============================================================================
  * SECURITY & PERFORMANCE
  * =============================================================================
  */
