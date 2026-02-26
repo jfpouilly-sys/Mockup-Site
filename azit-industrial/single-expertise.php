@@ -88,14 +88,17 @@ get_header();
 
                 <div class="expertise-content">
 
-                    <!-- Main Content (WordPress editor) -->
-                    <?php if (get_the_content()) : ?>
+                    <!-- Main Content (WordPress editor, cleaned) -->
+                    <?php
+                    $clean_description = azit_get_clean_description('expertise');
+                    if ($clean_description) :
+                    ?>
                     <section class="expertise-description" aria-labelledby="description-heading">
                         <h2 id="description-heading" class="section-title">
                             <?php esc_html_e('Overview', 'azit-industrial'); ?>
                         </h2>
                         <div class="entry-content">
-                            <?php the_content(); ?>
+                            <?php echo apply_filters('the_content', $clean_description); ?>
                         </div>
                     </section>
                     <?php endif; ?>

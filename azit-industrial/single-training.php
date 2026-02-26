@@ -121,14 +121,17 @@ get_header();
                     <!-- ============================================= -->
                     <div class="training-main">
 
-                        <!-- Course Description (WordPress editor content) -->
-                        <?php if (get_the_content()) : ?>
+                        <!-- Course Description (WordPress editor content, cleaned) -->
+                        <?php
+                        $clean_description = azit_get_clean_description('training');
+                        if ($clean_description) :
+                        ?>
                         <section class="training-section card" aria-labelledby="description-heading">
                             <h2 id="description-heading" class="card__title">
                                 <?php esc_html_e('Course Description', 'azit-industrial'); ?>
                             </h2>
                             <div class="entry-content">
-                                <?php the_content(); ?>
+                                <?php echo apply_filters('the_content', $clean_description); ?>
                             </div>
                         </section>
                         <?php endif; ?>
