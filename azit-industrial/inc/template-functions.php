@@ -64,6 +64,11 @@ function azit_get_clean_description($post_type = '') {
 
     // --- Expertise ---
     if ($post_type === 'expertise') {
+        // Strip all CTA buttons/links (Request Consultation, Contact Expert, Request Quote, Contact Us, Get Started)
+        $raw = preg_replace('/<a[^>]*class="[^"]*btn[^"]*"[^>]*>.*?<\/a>/si', '', $raw);
+        // Strip CTA sections (div/section wrappers with cta classes)
+        $raw = preg_replace('/<(?:div|section)[^>]*class="[^"]*cta[^"]*"[^>]*>.*?<\/(?:div|section)>/si', '', $raw);
+
         if (preg_match('/class="(section|tab|expertise-hero|mega-menu|hero-|breadcrumb)/i', $raw)) {
             $clean = azit_extract_description_paragraphs($raw);
             if ($clean !== '') {

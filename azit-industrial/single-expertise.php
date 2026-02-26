@@ -208,21 +208,49 @@ get_header();
 
                 </div>
 
-                <!-- CTA Section -->
-                <section class="expertise-cta" aria-labelledby="cta-heading">
+                <!-- Contact Form (Contact Form 7) -->
+                <section id="expertise-contact-form" class="expertise-cta training-request-form" aria-labelledby="cta-heading" tabindex="-1">
                     <h2 id="cta-heading" class="cta-title">
-                        <?php esc_html_e('Need our expertise?', 'azit-industrial'); ?>
+                        <?php echo esc_html(sprintf(__('Request a %s Consultation', 'azit-industrial'), get_the_title())); ?>
                     </h2>
                     <p class="cta-text">
-                        <?php esc_html_e('Contact us to discuss your project requirements.', 'azit-industrial'); ?>
+                        <?php esc_html_e('Fill out the form below and our team will get back to you to discuss your project requirements.', 'azit-industrial'); ?>
                     </p>
+
                     <?php
-                    $cta_text = (!empty($cta['cta_text'])) ? $cta['cta_text'] : __('Contact Us', 'azit-industrial');
-                    $cta_link = (!empty($cta['cta_link'])) ? $cta['cta_link'] : home_url('/contact/');
-                    ?>
-                    <a href="<?php echo esc_url($cta_link); ?>" class="btn btn-primary">
-                        <?php echo esc_html($cta_text); ?>
-                    </a>
+                    if (shortcode_exists('contact-form-7')) :
+                        // Look for the default contact form
+                        $contact_form = get_posts(array(
+                            'post_type'   => 'wpcf7_contact_form',
+                            'post_status' => 'publish',
+                            'name'        => 'contact-form',
+                            'numberposts' => 1,
+                        ));
+
+                        if (!empty($contact_form)) :
+                            echo do_shortcode('[contact-form-7 id="' . intval($contact_form[0]->ID) . '" title="Contact Form"]');
+                        else :
+                            // Fallback: use any available CF7 form
+                            $any_form = get_posts(array(
+                                'post_type'   => 'wpcf7_contact_form',
+                                'post_status' => 'publish',
+                                'numberposts' => 1,
+                            ));
+                            if (!empty($any_form)) :
+                                echo do_shortcode('[contact-form-7 id="' . intval($any_form[0]->ID) . '"]');
+                            else :
+                            ?>
+                            <p><?php esc_html_e('Please create a Contact Form 7 form with slug "contact-form" or go to Tools > AZIT Setup to generate it automatically.', 'azit-industrial'); ?></p>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <p>
+                            <?php esc_html_e('Contact us to discuss your project:', 'azit-industrial'); ?>
+                            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary">
+                                <?php esc_html_e('Go to Contact Page', 'azit-industrial'); ?>
+                            </a>
+                        </p>
+                    <?php endif; ?>
                 </section>
 
                 <!-- Related Expertise -->
