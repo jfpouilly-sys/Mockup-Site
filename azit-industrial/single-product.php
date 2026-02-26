@@ -176,9 +176,6 @@ get_header();
 
                         <!-- CTA Buttons -->
                         <div class="product-actions">
-                            <a href="#quote-form" class="btn btn-primary">
-                                <?php esc_html_e('Request Quote', 'azit-industrial'); ?>
-                            </a>
                             <?php if ($datasheet && !empty($datasheet['url'])) : ?>
                             <a href="<?php echo esc_url($datasheet['url']); ?>"
                                class="btn btn-secondary"

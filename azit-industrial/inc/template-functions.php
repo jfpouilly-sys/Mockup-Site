@@ -52,6 +52,11 @@ function azit_get_clean_description($post_type = '') {
 
     // --- Products ---
     if ($post_type === 'product') {
+        // Strip all CTA buttons/links (Request Quote, Contact Us, etc.)
+        $raw = preg_replace('/<a[^>]*class="[^"]*btn[^"]*"[^>]*>.*?<\/a>/si', '', $raw);
+        // Strip CTA sections (div/section wrappers with cta classes)
+        $raw = preg_replace('/<(?:div|section)[^>]*class="[^"]*cta[^"]*"[^>]*>.*?<\/(?:div|section)>/si', '', $raw);
+
         // Imported content is the full static page from <main>. Extract only
         // plain description paragraphs (skip structural/tab/hero HTML).
         if (preg_match('/class="(section|tab|product-hero|mega-menu|hero-|breadcrumb)/i', $raw)) {
