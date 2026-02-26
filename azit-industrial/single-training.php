@@ -42,16 +42,21 @@ get_header();
 
             // Content
             $objectives    = $has_acf ? get_field('training_objectives') : array();
+            $objectives_text = $has_acf ? get_field('training_objectives_text') : get_post_meta(get_the_ID(), 'training_objectives_text', true);
             $prerequisites = $has_acf ? get_field('training_prerequisites') : '';
             $audience      = $has_acf ? get_field('training_audience') : '';
             $instructor    = $has_acf ? get_field('training_instructor') : '';
 
             // Program
-            $outline = $has_acf ? get_field('training_outline') : array();
+            $outline        = $has_acf ? get_field('training_outline') : array();
+            $programme_text = $has_acf ? get_field('training_programme_text') : get_post_meta(get_the_ID(), 'training_programme_text', true);
 
             // Sidebar
-            $benefits = $has_acf ? get_field('training_benefits') : array();
-            $syllabus = $has_acf ? get_field('training_syllabus') : null;
+            $benefits    = $has_acf ? get_field('training_benefits') : array();
+            $syllabus    = $has_acf ? get_field('training_syllabus') : null;
+            $pdf_url     = $has_acf ? get_field('training_pdf_url') : get_post_meta(get_the_ID(), 'training_pdf_url', true);
+            $source_url  = $has_acf ? get_field('training_source_url') : get_post_meta(get_the_ID(), 'training_source_url', true);
+            $language    = $has_acf ? get_field('training_language') : get_post_meta(get_the_ID(), 'training_language', true);
 
             // Sessions
             $sessions = $has_acf ? get_field('training_sessions') : array();
@@ -149,6 +154,15 @@ get_header();
                                 <?php endforeach; ?>
                             </ul>
                         </section>
+                        <?php elseif ($objectives_text) : ?>
+                        <section class="training-section card" aria-labelledby="objectives-heading">
+                            <h2 id="objectives-heading" class="card__title">
+                                <?php esc_html_e('Pedagogical Objectives', 'azit-industrial'); ?>
+                            </h2>
+                            <div class="objectives-content">
+                                <?php echo wp_kses_post($objectives_text); ?>
+                            </div>
+                        </section>
                         <?php endif; ?>
 
                         <!-- Course Program / Outline -->
@@ -177,6 +191,15 @@ get_header();
                             </ul>
                             <?php endif; ?>
                             <?php endforeach; ?>
+                        </section>
+                        <?php elseif ($programme_text) : ?>
+                        <section class="training-section card" aria-labelledby="outline-heading">
+                            <h2 id="outline-heading" class="card__title">
+                                <?php esc_html_e('Course Program', 'azit-industrial'); ?>
+                            </h2>
+                            <div class="programme-content">
+                                <?php echo wp_kses_post($programme_text); ?>
+                            </div>
                         </section>
                         <?php endif; ?>
 
@@ -304,6 +327,18 @@ get_header();
                                 </div>
                                 <?php endif; ?>
 
+                                <?php
+                                $language_labels = array(
+                                    'fr' => __('French', 'azit-industrial'),
+                                    'en' => __('English', 'azit-industrial'),
+                                );
+                                if ($language) : ?>
+                                <div class="training-info-row">
+                                    <dt><?php esc_html_e('Language', 'azit-industrial'); ?></dt>
+                                    <dd><?php echo esc_html($language_labels[$language] ?? $language); ?></dd>
+                                </div>
+                                <?php endif; ?>
+
                                 <?php if ($price) : ?>
                                 <div class="training-info-row training-info-row--price">
                                     <dt><?php esc_html_e('Inter-Enterprise', 'azit-industrial'); ?></dt>
@@ -337,6 +372,20 @@ get_header();
                                download
                                aria-label="<?php echo esc_attr(sprintf(__('Download syllabus PDF (%s)', 'azit-industrial'), $syllabus['filename'])); ?>">
                                 <?php esc_html_e('Download PDF', 'azit-industrial'); ?>
+                            </a>
+                        </div>
+                        <?php elseif ($pdf_url) : ?>
+                        <div class="card" aria-labelledby="syllabus-heading">
+                            <h2 id="syllabus-heading" class="card__title">
+                                <?php esc_html_e('Syllabus', 'azit-industrial'); ?>
+                            </h2>
+                            <p><?php esc_html_e('Download the detailed course program:', 'azit-industrial'); ?></p>
+                            <a href="<?php echo esc_url($pdf_url); ?>"
+                               class="btn btn-secondary training-cta-btn"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="<?php esc_attr_e('Download PDF brochure (opens in new tab)', 'azit-industrial'); ?>">
+                                <?php esc_html_e('Download PDF Brochure', 'azit-industrial'); ?>
                             </a>
                         </div>
                         <?php endif; ?>

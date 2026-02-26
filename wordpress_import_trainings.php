@@ -1,14 +1,23 @@
 <?php
 /**
  * ISIT Training Data Import Script for WordPress with ACF
- * 
- * This script imports training data into WordPress Custom Post Type
- * and populates ACF (Advanced Custom Fields) for the "G Program" tab
- * 
+ *
+ * Imports training data from isit_trainings_data.json into the WordPress
+ * 'training' Custom Post Type and populates all ACF field tabs:
+ *   - General: duration, participants, level, format, certification
+ *   - Pricing: inter-enterprise price
+ *   - Content: objectives (WYSIWYG + repeater), prerequisites, audience
+ *   - Program: programme (WYSIWYG + structured outline)
+ *   - Sidebar: benefits, PDF URL, source URL, language
+ *   - Sessions: date/location entries
+ *
  * USAGE:
- * 1. Place this file in your WordPress theme folder
- * 2. Update the $json_file_path with the path to your JSON data
- * 3. Run from WordPress admin or via WP-CLI: wp eval-file import_trainings.php
+ *   Option 1 (WP-CLI): wp eval-file wordpress_import_trainings.php
+ *   Option 2 (Theme):   Place in theme root, add to functions.php temporarily
+ *   Option 3 (Admin):   Via Tools > AZIT Setup (if implemented)
+ *
+ * @package AZIT_Industrial
+ * @since   7.1-RGAA-WP
  */
 
 // Prevent direct access
@@ -17,340 +26,424 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Import ISIT Training Data
+ * Main import function: reads JSON and creates/updates training posts with ACF fields.
+ *
+ * @param string|null $json_path Optional path to JSON file. Defaults to theme data directory.
+ * @return array Import summary with counts.
  */
-function import_isit_training_data() {
-    
-    // Path to JSON data file
-    $json_file_path = get_template_directory() . '/data/isit_trainings_data.json';
-    
-    // Check if file exists
-    if (!file_exists($json_file_path)) {
-        echo "Error: JSON file not found at: " . $json_file_path . "\n";
-        return;
+function azit_import_isit_trainings($json_path = null) {
+
+    // Default to theme data directory
+    if (!$json_path) {
+        $json_path = get_template_directory() . '/data/isit_trainings_data.json';
     }
-    
-    // Load JSON data
-    $json_content = file_get_contents($json_file_path);
+
+    // Verify file exists
+    if (!file_exists($json_path)) {
+        $msg = "Error: JSON file not found at: {$json_path}";
+        if (defined('WP_CLI') && WP_CLI) {
+            WP_CLI::error($msg);
+        }
+        echo $msg . "\n";
+        return array('error' => $msg);
+    }
+
+    // Parse JSON
+    $json_content = file_get_contents($json_path);
     $data = json_decode($json_content, true);
-    
-    if (!$data || !isset($data['trainings'])) {
-        echo "Error: Invalid JSON structure\n";
-        return;
+
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        $msg = 'Error: Invalid JSON - ' . json_last_error_msg();
+        echo $msg . "\n";
+        return array('error' => $msg);
     }
-    
+
+    if (!isset($data['trainings']) || !is_array($data['trainings'])) {
+        $msg = 'Error: JSON must contain a "trainings" array.';
+        echo $msg . "\n";
+        return array('error' => $msg);
+    }
+
     $trainings = $data['trainings'];
-    $imported_count = 0;
-    $updated_count = 0;
-    $error_count = 0;
-    
-    echo "Starting import of " . count($trainings) . " trainings...\n\n";
-    
+    $summary   = array(
+        'total'    => count($trainings),
+        'created'  => 0,
+        'updated'  => 0,
+        'skipped'  => 0,
+        'errors'   => 0,
+        'details'  => array(),
+    );
+
+    echo "=== ISIT Training Import ===\n";
+    echo "Source: {$json_path}\n";
+    echo "Total trainings: {$summary['total']}\n\n";
+
     foreach ($trainings as $index => $training) {
+        $num   = $index + 1;
+        $title = $training['title'] ?? 'Untitled';
+        $slug  = $training['post_slug'] ?? sanitize_title($title);
+
+        echo "[{$num}/{$summary['total']}] {$title}\n";
+
         try {
-            echo "Processing [" . ($index + 1) . "/" . count($trainings) . "]: " . $training['title'] . "\n";
-            
-            // Check if post already exists by slug
-            $existing_post = get_page_by_path($training['post_slug'], OBJECT, 'training');
-            
-            $post_data = array(
-                'post_title'    => $training['title'],
-                'post_name'     => $training['post_slug'],
-                'post_type'     => 'training',  // Custom post type - adjust as needed
-                'post_status'   => 'publish',
-                'post_content'  => '', // Add if needed
-            );
-            
-            // Insert or update post
-            if ($existing_post) {
-                $post_data['ID'] = $existing_post->ID;
-                $post_id = wp_update_post($post_data);
-                echo "  → Updated existing post (ID: $post_id)\n";
-                $updated_count++;
-            } else {
-                $post_id = wp_insert_post($post_data);
-                echo "  → Created new post (ID: $post_id)\n";
-                $imported_count++;
-            }
-            
+            $post_id = azit_import_single_training($training);
+
             if (is_wp_error($post_id)) {
                 throw new Exception($post_id->get_error_message());
             }
-            
-            // Update ACF fields for "G Program" tab
-            $acf_fields = array(
-                'objectives'        => $training['objectives'] ?? '',
-                'programme'         => $training['programme'] ?? '',
-                'duration'          => $training['duration'] ?? '',
-                'price'             => $training['price'] ?? '',
-                'target_audience'   => $training['target_audience'] ?? '',
-                'prerequisites'     => $training['prerequisites'] ?? '',
-                'pdf_brochure_url'  => $training['pdf_brochure_url'] ?? '',
-                'training_date'     => $training['training_date'] ?? '',
-                'location'          => $training['location'] ?? '',
-                'language'          => $training['language'] ?? '',
-                'training_url'      => $training['url'] ?? '',
-            );
-            
-            // Update each ACF field
-            foreach ($acf_fields as $field_name => $field_value) {
-                update_field($field_name, $field_value, $post_id);
+
+            // Determine if created or updated
+            $existing = get_page_by_path($slug, OBJECT, 'training');
+            if ($existing && $existing->ID === $post_id) {
+                $summary['updated']++;
+                echo "  -> Updated (ID: {$post_id})\n";
+            } else {
+                $summary['created']++;
+                echo "  -> Created (ID: {$post_id})\n";
             }
-            
-            echo "  ✓ ACF fields updated successfully\n\n";
-            
+
+            $summary['details'][] = array(
+                'title'   => $title,
+                'post_id' => $post_id,
+                'status'  => 'success',
+            );
+
         } catch (Exception $e) {
-            echo "  ✗ Error: " . $e->getMessage() . "\n\n";
-            $error_count++;
+            $summary['errors']++;
+            $summary['details'][] = array(
+                'title'  => $title,
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            );
+            echo "  !! Error: {$e->getMessage()}\n";
         }
+
+        echo "\n";
     }
-    
-    // Summary
+
+    // Print summary
     echo str_repeat('=', 60) . "\n";
     echo "IMPORT COMPLETE\n";
     echo str_repeat('=', 60) . "\n";
-    echo "Total processed: " . count($trainings) . "\n";
-    echo "New imports:     " . $imported_count . "\n";
-    echo "Updates:         " . $updated_count . "\n";
-    echo "Errors:          " . $error_count . "\n";
+    echo "Total processed: {$summary['total']}\n";
+    echo "Created:         {$summary['created']}\n";
+    echo "Updated:         {$summary['updated']}\n";
+    echo "Errors:          {$summary['errors']}\n";
     echo str_repeat('=', 60) . "\n";
+
+    return $summary;
 }
 
 /**
- * Register Custom Post Type: Training
- * Add this to your theme's functions.php
+ * Import a single training record into WordPress.
+ *
+ * Creates or updates the training post and populates all ACF fields
+ * across all tabs (General, Pricing, Content, Program, Sidebar, Sessions).
+ *
+ * @param array $training Training data from JSON.
+ * @return int|WP_Error Post ID on success, WP_Error on failure.
  */
-function register_training_post_type() {
-    $labels = array(
-        'name'               => 'Trainings',
-        'singular_name'      => 'Training',
-        'menu_name'          => 'Trainings',
-        'add_new'            => 'Add New',
-        'add_new_item'       => 'Add New Training',
-        'edit_item'          => 'Edit Training',
-        'new_item'           => 'New Training',
-        'view_item'          => 'View Training',
-        'search_items'       => 'Search Trainings',
-        'not_found'          => 'No trainings found',
-        'not_found_in_trash' => 'No trainings found in trash',
+function azit_import_single_training($training) {
+
+    $slug  = $training['post_slug'] ?? sanitize_title($training['title']);
+    $title = $training['title'] ?? '';
+
+    // Check for existing post
+    $existing = get_page_by_path($slug, OBJECT, 'training');
+
+    // Build post data
+    $post_data = array(
+        'post_title'   => $title,
+        'post_name'    => $slug,
+        'post_type'    => 'training',
+        'post_status'  => 'publish',
+        'post_excerpt' => $training['excerpt'] ?? '',
+        'post_content' => '', // Content is stored in ACF fields
     );
 
-    $args = array(
-        'labels'              => $labels,
-        'public'              => true,
-        'has_archive'         => true,
-        'publicly_queryable'  => true,
-        'show_ui'             => true,
-        'show_in_menu'        => true,
-        'query_var'           => true,
-        'rewrite'             => array('slug' => 'training'),
-        'capability_type'     => 'post',
-        'has_archive'         => true,
-        'hierarchical'        => false,
-        'menu_position'       => 5,
-        'menu_icon'           => 'dashicons-welcome-learn-more',
-        'supports'            => array('title', 'editor', 'thumbnail', 'custom-fields'),
-        'show_in_rest'        => true,
-    );
+    // Insert or update
+    if ($existing) {
+        $post_data['ID'] = $existing->ID;
+        $post_id = wp_update_post($post_data, true);
+    } else {
+        $post_id = wp_insert_post($post_data, true);
+    }
 
-    register_post_type('training', $args);
+    if (is_wp_error($post_id)) {
+        return $post_id;
+    }
+
+    // =========================================================================
+    // ACF TAB: General
+    // =========================================================================
+    azit_update_acf_field('training_duration', $training['duration'] ?? '', $post_id);
+    azit_update_acf_field('training_max_participants', $training['max_participants'] ?? '', $post_id);
+    azit_update_acf_field('training_level', $training['level'] ?? 'intermediate', $post_id);
+    azit_update_acf_field('training_format', $training['format'] ?? 'center', $post_id);
+    azit_update_acf_field('training_certification', true, $post_id);
+
+    // =========================================================================
+    // ACF TAB: Pricing
+    // =========================================================================
+    azit_update_acf_field('training_price', $training['price'] ?? '', $post_id);
+    azit_update_acf_field('training_private_price', __('On request', 'azit-industrial'), $post_id);
+
+    // =========================================================================
+    // ACF TAB: Content
+    // =========================================================================
+
+    // Pedagogical Objectives - WYSIWYG (free text from ISIT)
+    azit_update_acf_field('training_objectives_text', $training['objectives_text'] ?? '', $post_id);
+
+    // Learning Objectives - Repeater (structured list)
+    $objectives_list = $training['objectives_list'] ?? array();
+    if (!empty($objectives_list)) {
+        $repeater_data = array();
+        foreach ($objectives_list as $obj_text) {
+            $repeater_data[] = array('objective' => $obj_text);
+        }
+        azit_update_acf_field('training_objectives', $repeater_data, $post_id);
+    }
+
+    // Prerequisites - WYSIWYG
+    azit_update_acf_field('training_prerequisites', $training['prerequisites'] ?? '', $post_id);
+
+    // Target Audience - WYSIWYG
+    azit_update_acf_field('training_audience', $training['target_audience'] ?? '', $post_id);
+
+    // =========================================================================
+    // ACF TAB: Program
+    // =========================================================================
+
+    // Detailed Programme - WYSIWYG (free text from ISIT PDF)
+    azit_update_acf_field('training_programme_text', $training['programme_text'] ?? '', $post_id);
+
+    // Course Outline - Repeater (structured day-by-day)
+    // Parse programme_text into structured outline if no explicit outline data
+    if (!empty($training['programme_text']) && empty($training['outline'])) {
+        $outline_data = azit_parse_programme_to_outline($training['programme_text']);
+        if (!empty($outline_data)) {
+            azit_update_acf_field('training_outline', $outline_data, $post_id);
+        }
+    }
+
+    // =========================================================================
+    // ACF TAB: Sidebar
+    // =========================================================================
+
+    // PDF Brochure URL (external)
+    azit_update_acf_field('training_pdf_url', $training['pdf_brochure_url'] ?? '', $post_id);
+
+    // Source URL (ISIT page)
+    azit_update_acf_field('training_source_url', $training['url'] ?? '', $post_id);
+
+    // Language
+    azit_update_acf_field('training_language', $training['language'] ?? 'fr', $post_id);
+
+    // =========================================================================
+    // ACF TAB: Sessions
+    // =========================================================================
+    if (!empty($training['training_date'])) {
+        $session_data = array(
+            array(
+                'session_date'     => $training['training_date'],
+                'session_location' => $training['location'] ?? '',
+                'session_status'   => 'available',
+            ),
+        );
+        azit_update_acf_field('training_sessions', $session_data, $post_id);
+    }
+
+    // =========================================================================
+    // Taxonomy: Training Category
+    // =========================================================================
+    if (!empty($training['category'])) {
+        wp_set_object_terms($post_id, $training['category'], 'training_category');
+    }
+
+    return $post_id;
 }
-add_action('init', 'register_training_post_type');
 
 /**
- * ACF Field Group Configuration
- * Export this from ACF or add via code
+ * Update an ACF field with fallback to post_meta.
+ *
+ * Uses update_field() when ACF is available, otherwise falls back
+ * to update_post_meta() for compatibility.
+ *
+ * @param string $field_name ACF field name.
+ * @param mixed  $value      Field value.
+ * @param int    $post_id    Post ID.
  */
-function register_training_acf_fields() {
-    if (function_exists('acf_add_local_field_group')) {
-        acf_add_local_field_group(array(
-            'key' => 'group_training_program',
-            'title' => 'Training Program',
-            'fields' => array(
-                array(
-                    'key' => 'field_program_tab',
-                    'label' => 'Program',
-                    'name' => 'program_tab',
-                    'type' => 'tab',
-                    'placement' => 'top',
-                ),
-                array(
-                    'key' => 'field_objectives',
-                    'label' => 'Pedagogical Objectives',
-                    'name' => 'objectives',
-                    'type' => 'wysiwyg',
-                    'required' => 0,
-                    'media_upload' => 0,
-                ),
-                array(
-                    'key' => 'field_programme',
-                    'label' => 'Detailed Program',
-                    'name' => 'programme',
-                    'type' => 'wysiwyg',
-                    'required' => 0,
-                    'media_upload' => 0,
-                ),
-                array(
-                    'key' => 'field_duration',
-                    'label' => 'Duration',
-                    'name' => 'duration',
-                    'type' => 'text',
-                    'required' => 0,
-                ),
-                array(
-                    'key' => 'field_price',
-                    'label' => 'Price',
-                    'name' => 'price',
-                    'type' => 'text',
-                    'required' => 0,
-                ),
-                array(
-                    'key' => 'field_target_audience',
-                    'label' => 'Target Audience',
-                    'name' => 'target_audience',
-                    'type' => 'textarea',
-                    'required' => 0,
-                ),
-                array(
-                    'key' => 'field_prerequisites',
-                    'label' => 'Prerequisites',
-                    'name' => 'prerequisites',
-                    'type' => 'textarea',
-                    'required' => 0,
-                ),
-                array(
-                    'key' => 'field_pdf_brochure_url',
-                    'label' => 'PDF Brochure URL',
-                    'name' => 'pdf_brochure_url',
-                    'type' => 'url',
-                    'required' => 0,
-                ),
-                array(
-                    'key' => 'field_training_date',
-                    'label' => 'Training Date',
-                    'name' => 'training_date',
-                    'type' => 'text',
-                    'required' => 0,
-                ),
-                array(
-                    'key' => 'field_location',
-                    'label' => 'Location',
-                    'name' => 'location',
-                    'type' => 'text',
-                    'required' => 0,
-                ),
-                array(
-                    'key' => 'field_language',
-                    'label' => 'Language',
-                    'name' => 'language',
-                    'type' => 'select',
-                    'choices' => array(
-                        'fr' => 'French',
-                        'en' => 'English',
-                    ),
-                    'required' => 0,
-                ),
-                array(
-                    'key' => 'field_training_url',
-                    'label' => 'Original ISIT URL',
-                    'name' => 'training_url',
-                    'type' => 'url',
-                    'required' => 0,
-                ),
-            ),
-            'location' => array(
-                array(
-                    array(
-                        'param' => 'post_type',
-                        'operator' => '==',
-                        'value' => 'training',
-                    ),
-                ),
-            ),
-        ));
+function azit_update_acf_field($field_name, $value, $post_id) {
+    if (function_exists('update_field')) {
+        update_field($field_name, $value, $post_id);
+    } else {
+        update_post_meta($post_id, $field_name, $value);
     }
 }
-add_action('acf/init', 'register_training_acf_fields');
 
 /**
- * Display Training Program on Frontend
- * Add this to your single-training.php template
+ * Parse HTML programme text into structured outline data for the ACF repeater.
+ *
+ * Expects HTML with <h3> tags for day headers and <ul><li> for topics.
+ * Returns array of modules suitable for the training_outline repeater.
+ *
+ * @param string $html Programme HTML content.
+ * @return array Structured outline data for ACF repeater.
  */
-function display_training_program() {
-    if (have_posts()) : while (have_posts()) : the_post();
-        
-        $objectives = get_field('objectives');
-        $programme = get_field('programme');
-        $duration = get_field('duration');
-        $price = get_field('price');
-        $target_audience = get_field('target_audience');
-        $prerequisites = get_field('prerequisites');
-        $pdf_url = get_field('pdf_brochure_url');
-        $training_date = get_field('training_date');
-        $location = get_field('location');
-        
-        ?>
-        <article class="training-detail">
-            <h1><?php the_title(); ?></h1>
-            
-            <div class="training-meta">
-                <?php if ($duration): ?>
-                    <p><strong>Duration:</strong> <?php echo esc_html($duration); ?></p>
-                <?php endif; ?>
-                
-                <?php if ($price): ?>
-                    <p><strong>Price:</strong> <?php echo esc_html($price); ?></p>
-                <?php endif; ?>
-                
-                <?php if ($training_date): ?>
-                    <p><strong>Date:</strong> <?php echo esc_html($training_date); ?></p>
-                <?php endif; ?>
-                
-                <?php if ($location): ?>
-                    <p><strong>Location:</strong> <?php echo esc_html($location); ?></p>
-                <?php endif; ?>
-            </div>
-            
-            <?php if ($objectives): ?>
-                <section class="training-objectives">
-                    <h2>Objectives</h2>
-                    <?php echo wp_kses_post($objectives); ?>
-                </section>
-            <?php endif; ?>
-            
-            <?php if ($programme): ?>
-                <section class="training-programme">
-                    <h2>Program</h2>
-                    <?php echo wp_kses_post($programme); ?>
-                </section>
-            <?php endif; ?>
-            
-            <?php if ($target_audience): ?>
-                <section class="training-audience">
-                    <h3>Target Audience</h3>
-                    <p><?php echo esc_html($target_audience); ?></p>
-                </section>
-            <?php endif; ?>
-            
-            <?php if ($prerequisites): ?>
-                <section class="training-prerequisites">
-                    <h3>Prerequisites</h3>
-                    <p><?php echo esc_html($prerequisites); ?></p>
-                </section>
-            <?php endif; ?>
-            
-            <?php if ($pdf_url): ?>
-                <a href="<?php echo esc_url($pdf_url); ?>" class="btn btn-download" target="_blank">
-                    Download PDF Brochure
-                </a>
-            <?php endif; ?>
-        </article>
-        <?php
-        
-    endwhile; endif;
+function azit_parse_programme_to_outline($html) {
+    if (empty($html) || strpos($html, '[PENDING') !== false) {
+        return array();
+    }
+
+    $outline = array();
+
+    // Split by h3 tags to find day/module sections
+    $parts = preg_split('/<h3[^>]*>(.*?)<\/h3>/is', $html, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+    // Parts alternate: [before_first_h3, title1, content1, title2, content2, ...]
+    for ($i = 1; $i < count($parts); $i += 2) {
+        $module_title = wp_strip_all_tags(trim($parts[$i]));
+        $content      = isset($parts[$i + 1]) ? $parts[$i + 1] : '';
+
+        // Extract list items as topics
+        $topics = array();
+        if (preg_match_all('/<li>(.*?)<\/li>/is', $content, $matches)) {
+            foreach ($matches[1] as $topic_text) {
+                $clean_topic = wp_strip_all_tags(trim($topic_text));
+                if (!empty($clean_topic)) {
+                    $topics[] = array('topic' => $clean_topic);
+                }
+            }
+        }
+
+        $outline[] = array(
+            'module_title'       => $module_title,
+            'module_description' => '',
+            'module_topics'      => $topics,
+        );
+    }
+
+    return $outline;
 }
 
-// Run the import (comment out after first run)
-// import_isit_training_data();
+/**
+ * Admin page for running the import from WordPress dashboard.
+ */
+function azit_register_training_import_admin_page() {
+    add_submenu_page(
+        'tools.php',
+        __('ISIT Training Import', 'azit-industrial'),
+        __('ISIT Training Import', 'azit-industrial'),
+        'manage_options',
+        'azit-training-import',
+        'azit_training_import_admin_page'
+    );
+}
+add_action('admin_menu', 'azit_register_training_import_admin_page');
 
-?>
+/**
+ * Render the admin import page.
+ */
+function azit_training_import_admin_page() {
+    $json_path = get_template_directory() . '/data/isit_trainings_data.json';
+    $json_exists = file_exists($json_path);
+    ?>
+    <div class="wrap">
+        <h1><?php esc_html_e('ISIT Training Data Import', 'azit-industrial'); ?></h1>
+
+        <div class="card" style="max-width: 800px; padding: 20px;">
+            <h2><?php esc_html_e('Import ISIT Training Data into ACF Fields', 'azit-industrial'); ?></h2>
+
+            <p><?php esc_html_e('This tool imports training data from the ISIT JSON data file into WordPress training posts, populating all ACF tabs:', 'azit-industrial'); ?></p>
+
+            <ul style="list-style: disc; padding-left: 20px;">
+                <li><strong><?php esc_html_e('General', 'azit-industrial'); ?>:</strong> <?php esc_html_e('Duration, Participants, Level, Format', 'azit-industrial'); ?></li>
+                <li><strong><?php esc_html_e('Pricing', 'azit-industrial'); ?>:</strong> <?php esc_html_e('Inter-Enterprise and Private prices', 'azit-industrial'); ?></li>
+                <li><strong><?php esc_html_e('Content', 'azit-industrial'); ?>:</strong> <?php esc_html_e('Objectives (WYSIWYG + structured list), Prerequisites, Audience', 'azit-industrial'); ?></li>
+                <li><strong><?php esc_html_e('Program', 'azit-industrial'); ?>:</strong> <?php esc_html_e('Programme (WYSIWYG + structured outline from PDF)', 'azit-industrial'); ?></li>
+                <li><strong><?php esc_html_e('Sidebar', 'azit-industrial'); ?>:</strong> <?php esc_html_e('PDF URL, Source URL, Language', 'azit-industrial'); ?></li>
+                <li><strong><?php esc_html_e('Sessions', 'azit-industrial'); ?>:</strong> <?php esc_html_e('Upcoming session dates and locations', 'azit-industrial'); ?></li>
+            </ul>
+
+            <p>
+                <strong><?php esc_html_e('JSON file:', 'azit-industrial'); ?></strong>
+                <code><?php echo esc_html($json_path); ?></code>
+                <?php if ($json_exists) : ?>
+                    <span style="color: green;">&#10003; <?php esc_html_e('Found', 'azit-industrial'); ?></span>
+                <?php else : ?>
+                    <span style="color: red;">&#10007; <?php esc_html_e('Not found', 'azit-industrial'); ?></span>
+                <?php endif; ?>
+            </p>
+
+            <?php if ($json_exists) : ?>
+                <?php
+                // Show preview of data
+                $preview_data = json_decode(file_get_contents($json_path), true);
+                $training_count = count($preview_data['trainings'] ?? array());
+                $complete_count = 0;
+                $pending_count = 0;
+                foreach (($preview_data['trainings'] ?? array()) as $t) {
+                    if (($t['status'] ?? '') === 'complete') {
+                        $complete_count++;
+                    } else {
+                        $pending_count++;
+                    }
+                }
+                ?>
+                <p>
+                    <?php echo esc_html(sprintf(
+                        __('Found %d trainings (%d complete, %d pending extraction)', 'azit-industrial'),
+                        $training_count, $complete_count, $pending_count
+                    )); ?>
+                </p>
+
+                <?php if (isset($_POST['azit_run_import']) && wp_verify_nonce($_POST['_wpnonce'], 'azit_training_import')) : ?>
+                    <div style="background: #f0f0f0; padding: 15px; font-family: monospace; white-space: pre-wrap; max-height: 400px; overflow-y: auto;">
+                    <?php
+                    ob_start();
+                    $result = azit_import_isit_trainings($json_path);
+                    $output = ob_get_clean();
+                    echo esc_html($output);
+                    ?>
+                    </div>
+
+                    <?php if (!empty($result['error'])) : ?>
+                        <div class="notice notice-error" style="margin-top: 10px;"><p><?php echo esc_html($result['error']); ?></p></div>
+                    <?php else : ?>
+                        <div class="notice notice-success" style="margin-top: 10px;">
+                            <p><?php echo esc_html(sprintf(
+                                __('Import completed: %d created, %d updated, %d errors.', 'azit-industrial'),
+                                $result['created'], $result['updated'], $result['errors']
+                            )); ?></p>
+                        </div>
+                    <?php endif; ?>
+
+                <?php else : ?>
+                    <form method="post">
+                        <?php wp_nonce_field('azit_training_import'); ?>
+                        <p>
+                            <button type="submit" name="azit_run_import" value="1" class="button button-primary button-hero">
+                                <?php esc_html_e('Run Training Import', 'azit-industrial'); ?>
+                            </button>
+                        </p>
+                    </form>
+                <?php endif; ?>
+
+            <?php else : ?>
+                <div class="notice notice-warning" style="margin-top: 10px;">
+                    <p><?php esc_html_e('Please place the isit_trainings_data.json file in your theme\'s data/ directory before running the import.', 'azit-industrial'); ?></p>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div class="card" style="max-width: 800px; padding: 20px; margin-top: 20px;">
+            <h2><?php esc_html_e('WP-CLI Usage', 'azit-industrial'); ?></h2>
+            <p><?php esc_html_e('You can also run the import from the command line:', 'azit-industrial'); ?></p>
+            <code style="display: block; padding: 10px; background: #1d2327; color: #50c878;">
+                wp eval "azit_import_isit_trainings();"
+            </code>
+        </div>
+    </div>
+    <?php
+}

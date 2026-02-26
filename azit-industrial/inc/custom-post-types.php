@@ -491,6 +491,7 @@ function azit_training_admin_columns($columns) {
     foreach ($columns as $key => $value) {
         $new_columns[$key] = $value;
         if ($key === 'title') {
+            $new_columns['training_language'] = __('Lang', 'azit-industrial');
             $new_columns['training_duration'] = __('Duration', 'azit-industrial');
             $new_columns['training_price'] = __('Price', 'azit-industrial');
         }
@@ -504,6 +505,10 @@ add_filter('manage_training_posts_columns', 'azit_training_admin_columns');
  */
 function azit_training_admin_column_content($column, $post_id) {
     switch ($column) {
+        case 'training_language':
+            $lang = get_post_meta($post_id, 'training_language', true);
+            echo $lang ? '<strong>' . esc_html(strtoupper($lang)) . '</strong>' : '&mdash;';
+            break;
         case 'training_duration':
             $duration = get_post_meta($post_id, 'training_duration', true);
             echo $duration ? esc_html($duration) : '&mdash;';

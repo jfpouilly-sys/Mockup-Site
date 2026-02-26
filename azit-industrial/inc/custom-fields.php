@@ -747,6 +747,17 @@ function azit_register_acf_fields() {
                 'label' => __('Content', 'azit-industrial'),
                 'type'  => 'tab',
             ),
+            // Pedagogical Objectives (WYSIWYG - imported from ISIT)
+            array(
+                'key'          => 'field_training_objectives_text',
+                'label'        => __('Pedagogical Objectives', 'azit-industrial'),
+                'name'         => 'training_objectives_text',
+                'type'         => 'wysiwyg',
+                'instructions' => __('Free-text objectives imported from ISIT website. Displayed when structured objectives list (below) is empty.', 'azit-industrial'),
+                'tabs'         => 'visual',
+                'toolbar'      => 'full',
+                'media_upload' => 0,
+            ),
             // Learning Objectives (repeater for structured list)
             array(
                 'key'          => 'field_training_objectives',
@@ -805,6 +816,17 @@ function azit_register_acf_fields() {
                 'key'   => 'field_training_tab_program',
                 'label' => __('Program', 'azit-industrial'),
                 'type'  => 'tab',
+            ),
+            // Detailed Programme (WYSIWYG - imported from ISIT PDF brochures)
+            array(
+                'key'          => 'field_training_programme_text',
+                'label'        => __('Detailed Programme', 'azit-industrial'),
+                'name'         => 'training_programme_text',
+                'type'         => 'wysiwyg',
+                'instructions' => __('Day-by-day programme imported from ISIT PDF brochures. Displayed when structured outline (below) is empty.', 'azit-industrial'),
+                'tabs'         => 'visual',
+                'toolbar'      => 'full',
+                'media_upload' => 0,
             ),
             // Course Outline (repeater with nested topics)
             array(
@@ -890,6 +912,36 @@ function azit_register_acf_fields() {
                 'return_format' => 'array',
                 'library'       => 'all',
                 'mime_types'    => 'pdf',
+            ),
+            // External PDF Brochure URL (ISIT import)
+            array(
+                'key'          => 'field_training_pdf_url',
+                'label'        => __('PDF Brochure URL', 'azit-industrial'),
+                'name'         => 'training_pdf_url',
+                'type'         => 'url',
+                'instructions' => __('External URL to the PDF brochure (e.g., from ISIT website). Used when no uploaded PDF is available.', 'azit-industrial'),
+            ),
+            // Source URL (ISIT import)
+            array(
+                'key'          => 'field_training_source_url',
+                'label'        => __('Source URL', 'azit-industrial'),
+                'name'         => 'training_source_url',
+                'type'         => 'url',
+                'instructions' => __('Original training page URL on the ISIT website.', 'azit-industrial'),
+            ),
+            // Language
+            array(
+                'key'          => 'field_training_language',
+                'label'        => __('Language', 'azit-industrial'),
+                'name'         => 'training_language',
+                'type'         => 'select',
+                'instructions' => __('Training delivery language.', 'azit-industrial'),
+                'choices'      => array(
+                    'fr' => __('French', 'azit-industrial'),
+                    'en' => __('English', 'azit-industrial'),
+                ),
+                'default_value' => 'fr',
+                'wrapper'       => array('width' => '50'),
             ),
 
             // === TAB: Sessions ===
